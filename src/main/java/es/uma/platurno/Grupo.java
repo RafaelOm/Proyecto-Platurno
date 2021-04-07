@@ -14,6 +14,10 @@ import javax.persistence.*;
 
 public class Grupo implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String id;
 	@Column (nullable = false)
@@ -32,6 +36,8 @@ public class Grupo implements Serializable {
 	
 	@OneToMany
 	private List<Grupo> grupos;
+	@ManyToOne
+	private Grupo grupo;
 	@OneToMany
 	private List<Mat_Asig> mat_asig;
 	@OneToMany

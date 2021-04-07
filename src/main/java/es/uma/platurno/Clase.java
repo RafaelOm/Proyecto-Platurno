@@ -9,17 +9,30 @@ import javax.persistence.*;
  *
  */
 @Entity
-
-@IdClass(ClasePK.class)
+@IdClass(Clase.ClaseId.class)
 public class Clase implements Serializable {
+	
+	public static class ClaseId implements Serializable{
+		private String horaInicio;
+		private String Dia;
+		private String grupo;
+	}
 
 	   
 	@Id
 	private String Dia;   
+	
 	@Id
 	private String HoraInicio;
 	private String HoraFin;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	private Asignatura asignatura;
+	
+	@Id
+	@ManyToOne
+	private Grupo grupo;
 
 	public Clase() {
 		super();

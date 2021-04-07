@@ -23,6 +23,7 @@ public class Expediente implements Serializable {
 	private Integer CreditosCF;
 	private Integer CreditosPE;
 	private Integer CreditosTF;
+	@Column(nullable = false)
 	private String N_Archivo;
 
 	@ManyToOne

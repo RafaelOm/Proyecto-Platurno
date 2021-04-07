@@ -2,6 +2,8 @@ package es.uma.platurno;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,20 @@ public class Centro implements Serializable {
 	private String Direccion;
 	private String TLF_Conserjeria;
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToMany
+	 @JoinTable(
+	            name = "CentroTitulacion",
+	            joinColumns = @JoinColumn(
+	                    name = "Codigo",
+	                    referencedColumnName = "Codigo"
+	            ),
+	            inverseJoinColumns = @JoinColumn(
+	                    name = "Id",
+	                    referencedColumnName = "ID"
+	            )
+	    )
+	    private List<Grupo> grupos; 
 
 	public Centro() {
 		super();

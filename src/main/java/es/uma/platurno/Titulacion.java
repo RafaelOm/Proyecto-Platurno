@@ -2,6 +2,8 @@ package es.uma.platurno;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,6 +20,26 @@ public class Titulacion implements Serializable {
 	private String Nombre;
 	private String Creditos;
 	private static final long serialVersionUID = 1L;
+	
+	@OneToMany
+	private List<Expediente> expedientes;
+	@OneToMany
+	private List<Asignatura> asignatura;
+	
+	@ManyToMany
+	@JoinTable(
+			name = "Centro",
+			joinColumns = @JoinColumn(
+					name = "ID",
+					referencedColumnName = "ID"
+					),
+			inverseJoinColumns = @JoinColumn(
+					name = "Codigo",
+					referencedColumnName = "Codigo"
+					
+					)
+			)
+	private List<Centro> lista_centros;
 
 	public Titulacion() {
 		super();

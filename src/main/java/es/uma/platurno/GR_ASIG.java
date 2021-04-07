@@ -29,7 +29,7 @@ public class GR_ASIG implements Serializable {
 			name = "Encuesta",
 			joinColumns = @JoinColumn(
 					name = "referencia",
-					referencedColumnName = "Fecha de Envio"
+					referencedColumnName = "Fecha_de_Envio"
 					),
 			inverseJoinColumns = @JoinColumn(
 					name = "curso_act",

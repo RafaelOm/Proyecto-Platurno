@@ -24,10 +24,13 @@ public class Asignatura implements Serializable {
 	private String duracion;
 	private String idiomas;
 	private Integer cred_prac;
+	
 	@ManyToOne
     private Titulacion titulacion;
+	
     @OneToMany
     private List<Clase> clases;
+    
     @ManyToMany 
     @JoinTable(
             name = "Mat_Asig",

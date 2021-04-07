@@ -1,5 +1,6 @@
 package es.uma.platurno;
 
+import java.util.List;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
@@ -27,6 +28,9 @@ public class Alumno implements Serializable {
 	private String localidad;
 	private String CP;
 	private static final long serialVersionUID = 1L;
+	
+	@OneToMany (mappedBy ="alumno")
+	private List<Expediente> expedientes;
 
 	public Alumno() {
 		super();

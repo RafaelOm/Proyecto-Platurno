@@ -9,7 +9,8 @@ public class Optativa {
 	@Column (nullable = false)
 	private String plazas;
 	private String mencion;
-	@Id
+	
+	
 	@Embedded
 	private Asignatura asig_opt;
 	
