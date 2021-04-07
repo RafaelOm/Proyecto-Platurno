@@ -2,11 +2,9 @@
 package es.uma.platurno;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import java.util.List;
+import javax.persistence.*;
+
 /**
  * Entity implementation class for Entity: Alumno
  *
@@ -17,7 +15,7 @@ public class GR_ASIG implements Serializable {
 	
 	@Id
 	private int curso_act;
-	@Colum (nullable = false)
+	@Column(nullable = false)
 	private int oferta;
 	
 	@ManyToOne
@@ -31,7 +29,7 @@ public class GR_ASIG implements Serializable {
 			name = "Encuesta",
 			joinColumns = @JoinColumn(
 					name = "referencia",
-					referencedColumnNmae = "Fecha de Envio"
+					referencedColumnName = "Fecha de Envio"
 					),
 			inverseJoinColumns = @JoinColumn(
 					name = "curso_act",
@@ -39,6 +37,7 @@ public class GR_ASIG implements Serializable {
 					
 					)
 			)
+	private List<Encuesta> lista_encuestas;
 	
 	
 	public int getCurso_act() {
