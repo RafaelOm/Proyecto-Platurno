@@ -10,21 +10,24 @@ import javax.persistence.*;
 @Entity
 @IdClass(Mat_Asig.Mat_Asig_Id.class)
 public class Mat_Asig implements Serializable {
+	
 
 	public class Mat_Asig_Id implements Serializable{
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-		private Long matricula;
+		
+		private long matricula;
 		private String asignatura;
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + getEnclosingInstance().hashCode();
 			result = prime * result + ((asignatura == null) ? 0 : asignatura.hashCode());
-			result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
+			result = prime * result + (int) (matricula ^ (matricula >>> 32));
 			return result;
 		}
 		@Override
@@ -43,10 +46,7 @@ public class Mat_Asig implements Serializable {
 					return false;
 			} else if (!asignatura.equals(other.asignatura))
 				return false;
-			if (matricula == null) {
-				if (other.matricula != null)
-					return false;
-			} else if (!matricula.equals(other.matricula))
+			if (matricula != other.matricula)
 				return false;
 			return true;
 		}
@@ -55,8 +55,8 @@ public class Mat_Asig implements Serializable {
 		}
 		
 		
+		
 	}
-	
 	@Id
 	@ManyToOne
 	private Asignatura asignatura; 
@@ -67,6 +67,7 @@ public class Mat_Asig implements Serializable {
 	
 	@ManyToOne
 	private Grupo grupo;
+
 	
 	
 	

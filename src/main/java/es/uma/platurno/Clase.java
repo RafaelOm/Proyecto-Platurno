@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Clase implements Serializable {
 	
 	public static class ClaseId implements Serializable{
-		private String horaInicio;
+		private String HoraInicio;
 		private String Dia;
 		private String grupo;
 	}

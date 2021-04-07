@@ -1,6 +1,5 @@
 package es.uma.platurno;
 
-import java.awt.List;
 import java.io.Serializable;
 import java.lang.String;
 import java.sql.Date;

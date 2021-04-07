@@ -13,6 +13,10 @@ import javax.persistence.*;
 @Entity
 public class GR_ASIG implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private int curso_act;
 	@Column(nullable = false)
