@@ -2,6 +2,8 @@ package es.uma.platurno;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.*;
+
 import javax.persistence.*;
 
 
@@ -28,6 +30,12 @@ public class Expediente implements Serializable {
 	
 	@ManyToOne
     private Alumno alumno;
+	
+	@OneToMany
+	private List<Encuesta> encuestas;
+	
+	@OneToMany
+	private List<Matricula> matriculas;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -134,6 +142,22 @@ public class Expediente implements Serializable {
 	
 	public void setTitulacion(Titulacion t) {
 		this.titulacion = t;
+	}
+	
+	public List<Encuesta> getEncuestas() {
+		return this.encuestas;
+	}
+	
+	public void setEncuestas(List<Encuesta> t) {
+		this.encuestas = t;
+	}
+	
+	public List<Matricula> getMatriculas() {
+		return this.matriculas;
+	}
+	
+	public void setMatriculas(List<Matricula> t) {
+		this.matriculas = t;
 	}
 	
    
