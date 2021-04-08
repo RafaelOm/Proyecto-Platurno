@@ -45,5 +45,45 @@ public class Encuesta implements Serializable {
 	public void setFecha_de_Envio(Date Fecha_de_Envio) {
 		this.Fecha_de_Envio = Fecha_de_Envio;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Fecha_de_Envio == null) ? 0 : Fecha_de_Envio.hashCode());
+		result = prime * result + ((expediente == null) ? 0 : expediente.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Encuesta other = (Encuesta) obj;
+		if (Fecha_de_Envio == null) {
+			if (other.Fecha_de_Envio != null)
+				return false;
+		} else if (!Fecha_de_Envio.equals(other.Fecha_de_Envio))
+			return false;
+		if (expediente == null) {
+			if (other.expediente != null)
+				return false;
+		} else if (!expediente.equals(other.expediente))
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Encuesta [Fecha_de_Envio=" + Fecha_de_Envio + ", expediente=" + expediente + ", grupos=" + grupos + "]";
+	}
+	
    
 }

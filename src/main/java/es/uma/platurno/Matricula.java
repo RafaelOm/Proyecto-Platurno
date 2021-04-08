@@ -161,6 +161,14 @@ public class Matricula implements Serializable {
 		} else if (!mat_Asigs.equals(other.mat_Asigs))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Matricula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
+				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_Matricula=" + Fecha_Matricula + ", Nuevo_Ingreso="
+				+ Nuevo_Ingreso + ", Listado_de_Asignaturas=" + Listado_de_Asignaturas + ", mat_Asigs=" + mat_Asigs
+				+ "]";
 	}   
 	
    

@@ -251,6 +251,14 @@ public class Asignatura implements Serializable {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Asignatura [referencia=" + referencia + ", codigo=" + codigo + ", creditos=" + creditos + ", ofertada="
+				+ ofertada + ", nombre=" + nombre + ", curso=" + curso + ", caracter=" + caracter + ", duracion="
+				+ duracion + ", idiomas=" + idiomas + ", cred_prac=" + cred_prac + ", optativa=" + optativa
+				+ ", mat_asigs=" + mat_asigs + ", titulacion=" + titulacion + ", clases=" + clases + ", matriculas="
+				+ matriculas + ", grupos=" + grupos + "]";
+	}
 
 	
 	

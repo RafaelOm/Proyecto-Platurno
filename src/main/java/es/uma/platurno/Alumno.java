@@ -119,5 +119,108 @@ public class Alumno implements Serializable {
 	public void setCP(String CP) {
 		this.CP = CP;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Apellido1 == null) ? 0 : Apellido1.hashCode());
+		result = prime * result + ((Apellido2 == null) ? 0 : Apellido2.hashCode());
+		result = prime * result + ((CP == null) ? 0 : CP.hashCode());
+		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + ((email_institucional == null) ? 0 : email_institucional.hashCode());
+		result = prime * result + ((email_personal == null) ? 0 : email_personal.hashCode());
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
+		result = prime * result + ((id_dni == null) ? 0 : id_dni.hashCode());
+		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
+		result = prime * result + ((movil == null) ? 0 : movil.hashCode());
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
+		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alumno other = (Alumno) obj;
+		if (Apellido1 == null) {
+			if (other.Apellido1 != null)
+				return false;
+		} else if (!Apellido1.equals(other.Apellido1))
+			return false;
+		if (Apellido2 == null) {
+			if (other.Apellido2 != null)
+				return false;
+		} else if (!Apellido2.equals(other.Apellido2))
+			return false;
+		if (CP == null) {
+			if (other.CP != null)
+				return false;
+		} else if (!CP.equals(other.CP))
+			return false;
+		if (Nombre == null) {
+			if (other.Nombre != null)
+				return false;
+		} else if (!Nombre.equals(other.Nombre))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (email_institucional == null) {
+			if (other.email_institucional != null)
+				return false;
+		} else if (!email_institucional.equals(other.email_institucional))
+			return false;
+		if (email_personal == null) {
+			if (other.email_personal != null)
+				return false;
+		} else if (!email_personal.equals(other.email_personal))
+			return false;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
+			return false;
+		if (id_dni == null) {
+			if (other.id_dni != null)
+				return false;
+		} else if (!id_dni.equals(other.id_dni))
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		if (movil == null) {
+			if (other.movil != null)
+				return false;
+		} else if (!movil.equals(other.movil))
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		if (telefono == null) {
+			if (other.telefono != null)
+				return false;
+		} else if (!telefono.equals(other.telefono))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Alumno [id_dni=" + id_dni + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2="
+				+ Apellido2 + ", email_personal=" + email_personal + ", email_institucional=" + email_institucional
+				+ ", telefono=" + telefono + ", movil=" + movil + ", direccion=" + direccion + ", provincia="
+				+ provincia + ", localidad=" + localidad + ", CP=" + CP + ", expedientes=" + expedientes + "]";
+	}
+	
    
 }
