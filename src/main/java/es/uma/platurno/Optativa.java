@@ -4,16 +4,15 @@ import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
 
-@Entity
-public class Optativa {
+@Embeddable
+public class Optativa extends Asignatura{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column (nullable = false)
 	private String plazas;
 	private String mencion;
-	
-	
-	@Embedded
-	private Asignatura asig_opt;
-	
 	public String getPlazas() {
 		return plazas;
 	}
@@ -26,10 +25,11 @@ public class Optativa {
 	public void setMencion(String mencion) {
 		this.mencion = mencion;
 	}
-	public Asignatura getAsig_opt() {
-		return asig_opt;
-	}
-	public void setAsig_opt(Asignatura asig_opt) {
-		this.asig_opt = asig_opt;
-	}
+	
+	
+	
+	//private Asignatura asig_opt;
+	
+
+	 
 }

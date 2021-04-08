@@ -3,17 +3,17 @@
 	<persistence-unit name="ProyectoPlaturno.GrupoF" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>es.uma.platurno.Alumno</class>
-		<class>es.uma.platurno.Encuesta</class>
-		<class>es.uma.platurno.Matricula</class>
 		<class>es.uma.platurno.Asignatura</class>
 		<class>es.uma.platurno.Centro</class>
 		<class>es.uma.platurno.Clase</class>
-		<class>es.uma.platurno.Grupo</class>
-		<class>es.uma.platurno.GR_ASIG</class>
-		<class>es.uma.platurno.Titulacion</class>
-		<class>es.uma.platurno.Optativa</class>
+		<class>es.uma.platurno.Encuesta</class>
 		<class>es.uma.platurno.Expediente</class>
+		<class>es.uma.platurno.GR_ASIG</class>
+		<class>es.uma.platurno.Grupo</class>
 		<class>es.uma.platurno.Mat_Asig</class>
+		<class>es.uma.platurno.Matricula</class>
+		<class>es.uma.platurno.Optativa</class>
+		<class>es.uma.platurno.Titulacion</class>
 		
 		
 		<properties>
@@ -22,6 +22,8 @@
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
 			<property name="javax.persistence.jdbc.password" value="siipassword"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+			<property name="javax.persistence.schema-generation.scripts.create-target" value="esquemaplaturno.sql"/>
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
 
+
 @Entity
-@Embeddable
 public class Asignatura implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,6 +25,11 @@ public class Asignatura implements Serializable {
 	private String idiomas;
 	private Integer cred_prac;
 	
+	@Embedded
+	private Optativa optativa;
+	
+	@OneToMany
+	private List<Mat_Asig>mat_asigs;
 	@ManyToOne
     private Titulacion titulacion;
 	
