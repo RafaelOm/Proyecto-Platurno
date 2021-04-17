@@ -3,6 +3,44 @@
   <groupId>uma</groupId>
   <artifactId>ProyectoPlaturno.GrupoF</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+     <name>ProyectoPlaturno</name>
+     <description>Proyecto del grupo de F de la asignatura de sistemas de Información para Internet, 
+     para facilitar la gestión de los grupos de secretaria de la Universidad de Malaga</description>
+       <scm>
+  	<url>https://github.com/RafaelOm/Proyecto-Platurno.git</url>
+  	<developerConnection>Equipo Platurno</developerConnection>
+  </scm>
+    <modules>
+  	<module>ProyectoPlaturno-ejb</module>
+  	<module>ProyectoPlaturno-jpa</module>
+  
+  </modules>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>javax</groupId>
+  			<artifactId>javaee-api</artifactId>
+  			<version>8.0</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  
+    <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
   <properties>
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
