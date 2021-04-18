@@ -17,7 +17,7 @@ import es.uma.platurno.jpa.*;
  */
 @Stateless
 @LocalBean
-public class Autenticacion implements AutenticacionInterfaz {
+public class Autenticacion implements AutenticacionInterfaz  {
     @PersistenceContext(unitName = "Platurno-Autenticacion")
     private EntityManager em;
     private static final int TAM_CADENA_VALIDACION = 64;
@@ -77,6 +77,11 @@ public class Autenticacion implements AutenticacionInterfaz {
         if(!user.getPassword().equals(u.getPassword())) {
             throw new PasswordErroneaException();
         }
+
+    }
+
+    @Override
+    public void logOut(Usuario u) throws PlaturnoException {
 
     }
 
