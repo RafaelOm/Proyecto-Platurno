@@ -11,8 +11,51 @@ import javax.persistence.*;
  */
 
 @Entity
+@IdClass(GR_ASIG.GR_ASIGID.class)
 public class GR_ASIG implements Serializable {
-	
+	public static class GR_ASIGID implements Serializable{
+		/**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		private int curso_act;
+		private int referencia;
+		private int id_grupo;
+
+		public GR_ASIGID(int curso_act, int referencia, int id_grupo) {
+			this.curso_act = curso_act;
+			this.referencia = referencia;
+			this.id_grupo = id_grupo;
+		}
+
+		public static long getSerialVersionUID() {
+			return serialVersionUID;
+		}
+
+		public int getReferencia() {
+			return referencia;
+		}
+
+		public void setReferencia(int referencia) {
+			this.referencia = referencia;
+		}
+
+		public int getId_grupo() {
+			return id_grupo;
+		}
+
+		public void setId_grupo(int id_grupo) {
+			this.id_grupo = id_grupo;
+		}
+
+		public int getCurso_act() {
+			return curso_act;
+		}
+
+		public void setCurso_act(int curso_act) {
+			this.curso_act = curso_act;
+		}
+	}
 	/**
 	 * 
 	 */
