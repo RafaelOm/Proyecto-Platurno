@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ProyectoPlaturno-ejb" />
+        <module name="ProyectoPlaturno-jpa" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ProyectoPlaturno-ejb" target="1.8" />
+      <module name="ProyectoPlaturno-jpa" target="1.8" />
+      <module name="ProyectoPlaturno.GrupoF" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

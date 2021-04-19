@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno-ejb/ProyectoPlaturno-ejb.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno-ejb/ProyectoPlaturno-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno-jpa/ProyectoPlaturno-jpa.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno-jpa/ProyectoPlaturno-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno.GrupoF.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno.GrupoF.iml" />
+    </modules>
+  </component>
+</project>

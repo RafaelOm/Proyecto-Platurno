@@ -1,6 +1,8 @@
 es\uma\platurno\ejb\exceptions\CuentaExistenteException.class
 es\uma\platurno\ejb\exceptions\CuentaInexistenceException.class
+es\uma\platurno\ejb\exceptions\ContrasenaigualException.class
 es\uma\platurno\ejb\exceptions\ValidacionIncorrectaException.class
+es\uma\platurno\ejb\exceptions\ClavesDiferentesException.class
 es\uma\platurno\ejb\exceptions\CuentaYaValidadaException.class
 es\uma\platurno\ejb\exceptions\PasswordErroneaException.class
 es\uma\platurno\ejb\exceptions\CuentaInactivaException.class
