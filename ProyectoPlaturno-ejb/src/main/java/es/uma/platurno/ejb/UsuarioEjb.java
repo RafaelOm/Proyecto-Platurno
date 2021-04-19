@@ -114,7 +114,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
         Autenticacion a =new Autenticacion();
         Usuario u =em.find(Usuario.class,username);
         a.compruebaLogin(u);
-        em.remove(em.merge(a));
+        em.remove(em.merge(u));
 
     }
 
