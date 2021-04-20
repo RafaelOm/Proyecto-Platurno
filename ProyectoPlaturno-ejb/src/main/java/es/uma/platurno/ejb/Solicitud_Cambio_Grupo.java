@@ -1,7 +1,11 @@
-package es.uma.platurno;
+package es.uma.platurno.ejb;
+
+import es.uma.platurno.GrupoError;
+import es.uma.platurno.ejb.exceptions.UserException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.xml.registry.infomodel.User;
 
 public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
@@ -14,7 +18,7 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 	/* 2 Solicitudes seran iguales si ambas vienen del mismo Usuario */
 	/* Suponemos que la solictud va ligada a un Usuario, por ende llamamos al metodo 
 	   de Uusario equals() para prevenir solicitudes duplicadas........*/
-	public Solicitud_Cambio_Grupo(String go, String gd, String msg, UsuarioEjb u) {
+	public Solicitud_Cambio_Grupo(String go, String gd, String msg, UsuarioEjb u) throws UserException {
 		if ( go != null ) {
 			if( gd != null ) {
 				if ( msg != null ) { //Version beta -> mejora? consulta directa a la base de datos para comprobar las solicitudes?
@@ -43,9 +47,9 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 	}
 
 	@SuppressWarnings("null")
-	private void generarSolicitud(String go, String gd, String msg, UsuarioEjb u) {
+	private void generarSolicitud(String go, String gd, String msg, Alumno u) {
 		
-		Solicitud_Cambio_Grupo sol = em.find(Solicitud_Cambio_Grupo.class, u.getDNI());
+		Solicitud_Cambio_Grupo sol = em.find(Solicitud_Cambio_Grupo.class, u.getDni());
 		
 		if ( sol != null ) {
 			throw new GrupoError();

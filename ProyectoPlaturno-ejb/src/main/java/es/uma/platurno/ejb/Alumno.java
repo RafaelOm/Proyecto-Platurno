@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import javax.persistence.EntityManager;
 import javax.ws.rs.core.UriBuilder;
 
-public class Alumno implements AlumnoInterface{
+public class Alumno extends UsuarioEjb implements AlumnoInterface {
 	
      private String nombre;
      private String apellido1;
@@ -21,6 +21,16 @@ public class Alumno implements AlumnoInterface{
      private String calle;
      private int CodPostal;
      private EntityManager em;
+
+	public String getDni() {
+		return Dni;
+	}
+
+	public void setDni(String dni) {
+		Dni = dni;
+	}
+
+	private String Dni;
         
      public Alumno()
      {

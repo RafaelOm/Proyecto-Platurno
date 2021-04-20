@@ -26,6 +26,16 @@ public class Usuario implements Serializable {
 	private String telefono;
 	private String numeroExpediente;
 
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	private String rol;					//Alumno o Secretaria
+
 	public String getEmailInstitucional() {
 		return emailInstitucional;
 	}

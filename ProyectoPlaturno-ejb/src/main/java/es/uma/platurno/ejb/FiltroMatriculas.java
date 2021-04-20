@@ -10,10 +10,13 @@ import javax.persistence.Query;
 
 @Stateless
 @Local
-public abstract class FiltroMatriculas implements FiltroMatriculasInterfaz{
+public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     private static List<Matricula> lista;
-    private static EntityTransaction tx;
     private static EntityManager em;
+
+    public FiltroMatriculas(){
+
+    }
 
     @Override
     // Filtro (1er parametro Asignaturas, 2o parametro Titulacion, 3er parametro Cursos)
@@ -45,7 +48,7 @@ public abstract class FiltroMatriculas implements FiltroMatriculasInterfaz{
 
     @Override
     // 1er parametro, lista de 1 elemento (Listado de asignaturas String, ordenado como en la base de datos)
-    public static List<Matricula> filtrarPorAsignaturas(List<String> asignatura){
+    public  List<Matricula> filtrarPorAsignaturas(List<String> asignatura){
             List<Matricula> listaFiltrada = new ArrayList<Matricula>();
             if(asignatura == null || asignatura.size() == 0){
                 Query m = em.createQuery("SELECT m FROM MATRICULA m");
@@ -60,7 +63,7 @@ public abstract class FiltroMatriculas implements FiltroMatriculasInterfaz{
     }
 
     @Override
-    public static List<Matricula> filtrarPorTitulacion(List<String> titulacion){
+    public  List<Matricula> filtrarPorTitulacion(List<String> titulacion){
         List<Matricula> listaFiltrada = new ArrayList<Matricula>();
         if(titulacion == null || titulacion.size() == 0){
             Query m = em.createQuery("SELECT m FROM MATRICULA m");
@@ -87,7 +90,7 @@ public abstract class FiltroMatriculas implements FiltroMatriculasInterfaz{
     }
 
     @Override
-    public static List<Matricula> filtrarPorCursos(List<String> curso){
+    public  List<Matricula> filtrarPorCursos(List<String> curso){
         List<Matricula> listaFiltrada = new ArrayList<Matricula>();
         if(curso == null || curso.size() == 0){
             Query m = em.createQuery("SELECT m FROM MATRICULA m");

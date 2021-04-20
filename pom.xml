@@ -23,6 +23,7 @@
   			<artifactId>javaee-api</artifactId>
   			<version>8.0</version>
   		</dependency>
+
   	</dependencies>
   </dependencyManagement>
   
@@ -45,6 +46,7 @@
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
   		<hibernate.hbm2ddl.auto>create</hibernate.hbm2ddl.auto>
+
   </properties>
   
     <dependencies>
@@ -57,7 +59,20 @@
     <groupId>org.eclipse.persistence</groupId>
     <artifactId>eclipselink</artifactId>
     <version>2.7.6</version>
+
 </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>test</scope>
+        </dependency>
   </dependencies>
   
   
