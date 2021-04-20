@@ -13,14 +13,34 @@ import java.util.List;
 
 public class Encuesta implements Serializable {
 
-	   
+
+
+
 	@Id
+	private String id_Encuesta;
+	@Column (nullable = false)
 	private Date Fecha_de_Envio;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
 	private Expediente expediente;
-	
+
+	public void setId_Encuesta(String id_Encuesta) {
+		this.id_Encuesta = id_Encuesta;
+	}
+
+	public Expediente getExpediente() {
+		return expediente;
+	}
+
+	public void setExpediente(Expediente expediente) {
+		this.expediente = expediente;
+	}
+
+	public void setGrupos(List<GR_ASIG> grupos) {
+		this.grupos = grupos;
+	}
+
 	@ManyToMany
 	@JoinTable(
             name = "EncuestaGrAsignaturas",
@@ -33,8 +53,12 @@ public class Encuesta implements Serializable {
                     referencedColumnName = "Fecha_de_Envio"
             )
     )
-    private List<GR_ASIG> grupos; 
-	
+    private List<GR_ASIG> grupos;
+
+	public List<GR_ASIG> getGrupos() {
+		return grupos;
+	}
+
 	public Encuesta() {
 		super();
 	}   
@@ -53,6 +77,9 @@ public class Encuesta implements Serializable {
 		result = prime * result + ((expediente == null) ? 0 : expediente.hashCode());
 		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
 		return result;
+	}
+	public String getId_Encuesta() {
+		return id_Encuesta;
 	}
 	@Override
 	public boolean equals(Object obj) {

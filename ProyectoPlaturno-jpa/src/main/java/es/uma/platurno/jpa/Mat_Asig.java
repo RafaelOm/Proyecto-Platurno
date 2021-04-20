@@ -10,14 +10,27 @@ import javax.persistence.*;
 @Entity
 @IdClass(Mat_Asig.Mat_Asig_Id.class)
 public class Mat_Asig implements Serializable {
-	
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
 
-	public static class Mat_Asig_Id implements Serializable{		
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public static class Mat_Asig_Id implements Serializable{
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
-
 		
 		private Long matricula;
 		private String asignatura;
@@ -66,10 +79,14 @@ public class Mat_Asig implements Serializable {
 	@ManyToOne
 	private Grupo grupo;
 
-	
-	
-	
-	
+	public void setGrupo(Grupo grupo){
+		this.grupo = grupo;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
