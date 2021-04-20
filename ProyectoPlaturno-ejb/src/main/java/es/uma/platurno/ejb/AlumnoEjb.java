@@ -1,6 +1,7 @@
 package es.uma.platurno.ejb;
 
 import es.uma.platurno.AlumnoException;
+import es.uma.platurno.jpa.Alumno;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,8 +22,9 @@ public class AlumnoEjb implements AlumnoInterface {
      public AlumnoEjb(String n, String ap1, String ap2, String ep, int np, String l
     		 , String co, String street, int cd,String EmailI,String Telefono) throws AlumnoException {
      
-    	 if ( validateData(n, ap1, ap2, ep,np, l, co, street, cd,Telefono,EmailI) ) {
-    		 crearAlumnoFromCsv(n, ap1, ap2, ep,np, l, co, street, cd,Telefono,EmailI);
+    	 if ( validateData( n,  ap1,  ap2,  ep,  np,  l,  co,  street,  cd) ) {
+    		 crearAlumnoFromCsv( n,  ap1,  ap2,  ep, np,  l,  co,  street,
+			  cd, EmailI, Integer.valueOf(Telefono));
     	 }else {
     		 throw new AlumnoException();
     	 }
@@ -32,25 +34,25 @@ public class AlumnoEjb implements AlumnoInterface {
 
 
 	
-	private void crearAlumnoFromCsv(String n, String ap1, String ap2, String ep,int np, String l, String co, String street,
-			int cd,String email,String Telefono) {
+	private void crearAlumnoFromCsv(String n, String ap1, String ap2, String ep,int np, String l, String pro, String street,
+			int cd,String email,int Telefono) {
 		Autenticacion a = new Autenticacion();
-		AlumnoEjb al = em.find(AlumnoEjb.class, ep);
+		Alumno al = em.find(Alumno.class, ep);
 		
 		if ( al != null ) {
 			throw new AlumnoException();
 		}
 		
-		al = new AlumnoEjb();
+		al = new Alumno();
 		al.setNombre(n);
 		al.setApellido1(ap1);
 		al.setApellido2(ap2);
-		al.setEmailPersonal(ep);
-		al.setNumeroPersonal(np);
-		al.setComunidad(co);
+		al.setEmail_personal(ep);
+		al.setMovil(String.valueOf(Telefono));
+		al.setProvincia(pro);
 		al.setLocalidad(l);
-		al.setCalle(street);
-		al.setCodPostal(cd);
+		al.setDireccion(street);
+		al.setCP(String.valueOf(cd));
 		
 
 		
@@ -103,9 +105,9 @@ public class AlumnoEjb implements AlumnoInterface {
 
 	
 	@Override
-	public void leerAlumno(String dni) {
+	public void leerAlumno(Alumno a) {
 		// TODO Auto-generated method stub
-		AlumnoEjb al = em.find(AlumnoEjb.class, dni);
+		Alumno al = em.find(Alumno.class, a.getIdentificador());
 		
 		if ( al != null ) {
 			System.out.print(al.toString());
@@ -114,20 +116,20 @@ public class AlumnoEjb implements AlumnoInterface {
 	}
 
 	@Override
-	public void eliminarAlumno(String dni) {
+	public void eliminarAlumno(Alumno alumno) {
 		// TODO Auto-generated method stub
 		
 		 Autenticacion a =new Autenticacion();
-	     AlumnoEjb al =em.find(AlumnoEjb.class, dni);
-	     em.remove(em.merge(a));
+	     Alumno al =em.find(Alumno.class,alumno.getIdentificador() );
+	     em.remove(em.merge(al));
 	     
 		
 	}
 
 	@Override
-	public void modificarAlumno(String dni) throws IOException {
+	public void modificarAlumno(Alumno a) throws IOException {
 	   
-		AlumnoEjb al = em.find(AlumnoEjb.class, dni);
+		Alumno al = em.find(Alumno.class,a.getIdentificador());
 	
 		System.out.printf( " Ingrese la opcion que desea usar: ");
 		System.out.print(" Opcion A) Modificar Email Personal \n"
@@ -146,11 +148,11 @@ public class AlumnoEjb implements AlumnoInterface {
 			      
 			case "A": 
 			          n = br.readLine().toString();
-			          al.setEmailPersonal(n);
+			          al.setEmail_personal(n);
 				      break;
 			case "B": 
 		          n = br.readLine().toString();
-			      al.setNumeroPersonal(Integer.parseInt(n));
+			      al.setMovil(String.valueOf(n));
 			      break;
 			case "C": 
 		          n = br.readLine().toString();
@@ -158,15 +160,15 @@ public class AlumnoEjb implements AlumnoInterface {
 			      break;
 			case "D": 
 		          n = br.readLine().toString();
-			      al.setComunidad(n);
+			      al.setProvincia(n);
 			      break;
 			case "E": 
 		          n = br.readLine().toString();
-			      al .setCalle(n);
+			      al .setDireccion(n);
 			      break;
 			case "F": 
 		          n = br.readLine().toString();
-			      al.setCodPostal(Integer.parseInt(n));
+			      al.setCP(String.valueOf(n));
 			      break;
 			}
 			
@@ -175,36 +177,5 @@ public class AlumnoEjb implements AlumnoInterface {
 		}
 		
 	}
-	
-	   public String getNombre() {
-			return nombre;
-		}
-		public String getApellido1() {
-			return apellido1;
-		}
-		public String getApellido2() {
-			return apellido2;
-		}
-		public String getEmailPersonal() {
-			return emailPersonal;
-		}
-		public int getNumeroPersonal() {
-			return numeroPersonal;
-		}
-		public String getLocalidad() {
-			return localidad;
-		}
-		public String getComunidad() {
-			return Comunidad;
-		}
-		public String getCalle() {
-			return calle;
-		}
-		public int getCodPostal() {
-			return CodPostal;
-		}
-		public EntityManager getEm() {
-			return em;
-		}
-		
+
 }

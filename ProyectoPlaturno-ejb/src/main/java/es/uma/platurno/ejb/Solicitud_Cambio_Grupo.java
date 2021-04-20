@@ -2,6 +2,7 @@ package es.uma.platurno.ejb;
 
 import es.uma.platurno.GrupoError;
 import es.uma.platurno.ejb.exceptions.UserException;
+import es.uma.platurno.jpa.Alumno;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,10 +15,27 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 	private String grupoDeseado;
 	private String motivo;
 	private UsuarioEjb user;
+
+	@Override
+	public void setGrupoOriginal(String go) {
+
+	}
+
+	@Override
+	public void setGrupoDeseado(String grupoDeseado) {
+
+	}
+
+	@Override
+	public void setMotivo(String m) {
+
+	}
 	/* 2 Solicitudes seran iguales si ambas vienen del mismo Usuario */
 	/* Suponemos que la solictud va ligada a un Usuario, por ende llamamos al metodo 
 	   de Uusario equals() para prevenir solicitudes duplicadas........*/
-	public Solicitud_Cambio_Grupo(String go, String gd, String msg, UsuarioEjb u) throws UserException {
+
+	/*
+	public Solicitud_Cambio_Grupo(String go, String gd, String msg, Alumno u) throws UserException {
 		if ( go != null ) {
 			if( gd != null ) {
 				if ( msg != null ) { //Version beta -> mejora? consulta directa a la base de datos para comprobar las solicitudes?
@@ -27,8 +45,10 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 						 * cambio de turno/solicitud, si no se resuelve la anterior no 
 						 * puede solicitar otra? -> Preguntar
 						 */
-						if( validateData(go, gd, msg, u) ) {
-							generarSolicitud(go, gd, msg, u);
+
+			/*
+						if( validateData(go, gd, msg, null) ) {
+							//generarSolicitud(go, gd, msg, u);
 						}
 					} else {
 						throw new UserException("Error, Solicitud duplicada");
@@ -45,8 +65,8 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 		}
 	}
 
-	@SuppressWarnings("null")
-	private void generarSolicitud(String go, String gd, String msg, AlumnoEjb u) {
+
+	private void generarSolicitud(String go, String gd, String msg, Alumno u) {
 		
 		Solicitud_Cambio_Grupo sol = em.find(Solicitud_Cambio_Grupo.class, u.getDni());
 		
@@ -57,12 +77,12 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 		sol.setGrupoDeseado(gd);
 		sol.setGrupoOriginal(go);
 		sol.setMotivo(msg);
-		sol.setUser(u);
+		sol.setUser();
 		
 		em.persist(sol);
 		
 		em.getTransaction().commit();
-		
+
 	}
 
 	public UsuarioEjb getUser() {
@@ -105,6 +125,6 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 	
 	
 	
-	
+	*/
 	
 }

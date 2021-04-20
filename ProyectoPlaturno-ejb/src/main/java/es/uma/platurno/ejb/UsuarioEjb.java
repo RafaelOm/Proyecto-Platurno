@@ -62,32 +62,21 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     }
 
     @Override
-    public void modificarNombreyAppelidoUsuario(String username, String name, String surname) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
-        Usuario user =em.find(Usuario.class,username);
+    public void modificar(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+        Usuario user =em.find(Usuario.class,u.getIdentificador());
         Autenticacion a =new Autenticacion();
         a.compruebaLogin(user);
         if(user==null){
             throw new CuentaInexistenceException();
         }
-        user.setName(name);
-        user.setSurname(surname);
+        user.setUsername(u.getUsername());
         em.merge(user);
 
 
 
     }
 
-    @Override
-    public void modificarTelefonoUsuario(String username, String telefono) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
-        Usuario user =em.find(Usuario.class,username);
-        Autenticacion a =new Autenticacion();
-        a.compruebaLogin(user);
-        if(user==null){
-            throw new CuentaInexistenceException();
-        }
-        user.setTelefono(telefono);
-        em.merge(user);
-    }
+
 
     @Override
     public void moficarClave(String username, String clave, String reClave) throws CuentaInexistenceException, ContrasenaigualException, ClavesDiferentesException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {

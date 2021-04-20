@@ -53,7 +53,7 @@ public class Matricula implements Serializable {
 		}
 	}
 	@Id
-	private Long Curso_Academico;
+	protected Long Curso_Academico;
 	
 	private String Estado;
 	private String Num_Archivo;

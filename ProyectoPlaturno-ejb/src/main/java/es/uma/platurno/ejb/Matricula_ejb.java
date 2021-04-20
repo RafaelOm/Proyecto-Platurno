@@ -27,7 +27,7 @@ public  class Matricula_ejb implements MatriculaInterfaz {
     // Al modificar se le pasa una lista de parametros de matricula para modificar dicha matricula.
     @Override
     public void modificar(Matricula mat) throws modificarMatriculaException {
-        tx.begin();
+
         // Miro si la matricula esta en la base de datos
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
         if(m!=null) {
@@ -42,7 +42,7 @@ public  class Matricula_ejb implements MatriculaInterfaz {
             m.setListado_de_Asignaturas(mat.getListado_de_Asignaturas());
         }
         em.merge(m);
-        tx.commit();
+
     }
 
     @Override

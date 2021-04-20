@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Usuario implements Serializable {
 
 	@Id @GeneratedValue
-	private Long identificador;
+	protected Long identificador;
 	@Column(unique = true)
 	private String username;
 	@Column(nullable = false)
