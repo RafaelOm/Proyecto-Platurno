@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import es.uma.platurno.ejb.exceptions.ExpedienteNoExisteException;
 import es.uma.platurno.jpa.Expediente;
 
+import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 /**
@@ -35,8 +36,31 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
     }
 
     @Override
-    public void UpdateExpediente(Expediente ex) throws ExpedienteNoExisteException {
-        em.merge(ex);
+    public void UpdateExpediente(String id,String Activo,
+            String NotaMPr,
+            Integer CreditosSup,
+            Integer CreditosFB,
+            Integer CreditosOP,
+            Integer CreditosOB,
+            Integer CreditosCF,
+            Integer CreditosPE,
+             Integer CreditosTF,
+            String N_Archivo) throws ExpedienteNoExisteException {
+        Expediente exbd = em.find(Expediente.class, id);
+        if(exbd == null){
+            throw new ExpedienteNoExisteException();
+        }
+        exbd.setActivo(Activo);
+        exbd.setNotaMPr(NotaMPr);
+        exbd.setCreditosSup(CreditosSup);
+        exbd.setCreditosFB(CreditosFB);
+        exbd.setCreditosOP(CreditosOP);
+        exbd.setCreditosOB(CreditosOB);
+        exbd.setCreditosCF(CreditosCF);
+        exbd.setCreditosPE(CreditosPE);
+        exbd.setCreditosTF(CreditosTF);
+        exbd.setN_Archivo(N_Archivo);
+        em.merge(exbd);
     }
 
 
