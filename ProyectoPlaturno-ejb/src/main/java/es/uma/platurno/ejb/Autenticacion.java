@@ -85,6 +85,21 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     }
 
+    @Override
+    public boolean checkSecretariaRole(Usuario u) throws  CuentaInexistenceException {
+        Usuario bd=em.find(Usuario.class,u.getIdentificador());
+        if(bd==null){
+            throw new CuentaInexistenceException("EL USUARIO NO EXISTE");
+        }
+
+        if(bd instanceof Secretaria){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     //Method from https://github.com/jfrchicanog/AgendaWeb.git
     private String randomTokenValidator() {
         Random rnd = new Random(System.currentTimeMillis());

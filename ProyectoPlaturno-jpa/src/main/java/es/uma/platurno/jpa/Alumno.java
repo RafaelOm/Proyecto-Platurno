@@ -11,17 +11,20 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Alumno implements Serializable {
-
-	   
-	@Id
-	private String id_dni;
+public class Alumno extends Usuario implements Serializable {
+	@Column(nullable = false)
+	private String dni;
+	@Column(nullable = false)
 	private String Nombre;
+	@Column(nullable = false)
 	private String Apellido1;
 	private String Apellido2;
+	@Column(nullable = false)
 	private String email_personal;
+	@Column(nullable = false)
 	private String email_institucional;
 	private String telefono;
+	@Column(nullable = false)
 	private String movil;
 	private String direccion;
 	private String provincia;
