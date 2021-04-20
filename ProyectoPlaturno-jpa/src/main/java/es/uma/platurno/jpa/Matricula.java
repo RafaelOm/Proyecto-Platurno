@@ -11,10 +11,47 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(Matricula.MatriculaID.class)
 public class Matricula implements Serializable {
 
-	   
+
+	public static class MatriculaID implements Serializable{
+		/**
+		 *
+		 */
+		private static final long serialVersionUID = 1L;
+		private Long Curso_Academico;
+		private String IdExpediente;
+
+		public Long getCurso_Academico() {
+			return Curso_Academico;
+		}
+
+		public void setCurso_Academico(Long curso_Academico) {
+			Curso_Academico = curso_Academico;
+		}
+
+		public String getIdExpediente() {
+			return IdExpediente;
+		}
+
+		public void setIdExpediente(String idExpediente) {
+			IdExpediente = idExpediente;
+		}
+
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (o == null || getClass() != o.getClass()) return false;
+			MatriculaID that = (MatriculaID) o;
+			return Objects.equals(Curso_Academico, that.Curso_Academico) && Objects.equals(IdExpediente, that.IdExpediente);
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hash(Curso_Academico, IdExpediente);
+		}
+	}
 	@Id
 	private Long Curso_Academico;
 	
@@ -28,19 +65,6 @@ public class Matricula implements Serializable {
 	
 	@OneToMany
 	private java.util.List<Mat_Asig> mat_Asigs;
-
-
-	@ManyToOne
-	private Expediente expediente;
-
-	public Expediente getExpediente() {
-		return expediente;
-	}
-
-	public void setExpediente(Expediente e) {
-		this.expediente = e;
-	}
-
 
 	public Matricula() {
 		super();
@@ -111,30 +135,79 @@ public class Matricula implements Serializable {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Matricula matricula = (Matricula) o;
-		return Objects.equals(Curso_Academico, matricula.Curso_Academico) && Objects.equals(Estado, matricula.Estado) && Objects.equals(Num_Archivo, matricula.Num_Archivo) && Objects.equals(Turno_Preferente, matricula.Turno_Preferente) && Objects.equals(Fecha_Matricula, matricula.Fecha_Matricula) && Objects.equals(Nuevo_Ingreso, matricula.Nuevo_Ingreso) && Objects.equals(Listado_de_Asignaturas, matricula.Listado_de_Asignaturas) && Objects.equals(mat_Asigs, matricula.mat_Asigs) && Objects.equals(expediente, matricula.expediente);
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Curso_Academico == null) ? 0 : Curso_Academico.hashCode());
+		result = prime * result + ((Estado == null) ? 0 : Estado.hashCode());
+		result = prime * result + ((Fecha_Matricula == null) ? 0 : Fecha_Matricula.hashCode());
+		result = prime * result + ((Listado_de_Asignaturas == null) ? 0 : Listado_de_Asignaturas.hashCode());
+		result = prime * result + ((Nuevo_Ingreso == null) ? 0 : Nuevo_Ingreso.hashCode());
+		result = prime * result + ((Num_Archivo == null) ? 0 : Num_Archivo.hashCode());
+		result = prime * result + ((Turno_Preferente == null) ? 0 : Turno_Preferente.hashCode());
+		result = prime * result + ((mat_Asigs == null) ? 0 : mat_Asigs.hashCode());
+		return result;
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(Curso_Academico, Estado, Num_Archivo, Turno_Preferente, Fecha_Matricula, Nuevo_Ingreso, Listado_de_Asignaturas, mat_Asigs, expediente);
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Matricula other = (Matricula) obj;
+		if (Curso_Academico == null) {
+			if (other.Curso_Academico != null)
+				return false;
+		} else if (!Curso_Academico.equals(other.Curso_Academico))
+			return false;
+		if (Estado == null) {
+			if (other.Estado != null)
+				return false;
+		} else if (!Estado.equals(other.Estado))
+			return false;
+		if (Fecha_Matricula == null) {
+			if (other.Fecha_Matricula != null)
+				return false;
+		} else if (!Fecha_Matricula.equals(other.Fecha_Matricula))
+			return false;
+		if (Listado_de_Asignaturas == null) {
+			if (other.Listado_de_Asignaturas != null)
+				return false;
+		} else if (!Listado_de_Asignaturas.equals(other.Listado_de_Asignaturas))
+			return false;
+		if (Nuevo_Ingreso == null) {
+			if (other.Nuevo_Ingreso != null)
+				return false;
+		} else if (!Nuevo_Ingreso.equals(other.Nuevo_Ingreso))
+			return false;
+		if (Num_Archivo == null) {
+			if (other.Num_Archivo != null)
+				return false;
+		} else if (!Num_Archivo.equals(other.Num_Archivo))
+			return false;
+		if (Turno_Preferente == null) {
+			if (other.Turno_Preferente != null)
+				return false;
+		} else if (!Turno_Preferente.equals(other.Turno_Preferente))
+			return false;
+		if (mat_Asigs == null) {
+			if (other.mat_Asigs != null)
+				return false;
+		} else if (!mat_Asigs.equals(other.mat_Asigs))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Matricula{" +
-				"Curso_Academico=" + Curso_Academico +
-				", Estado='" + Estado + '\'' +
-				", Num_Archivo='" + Num_Archivo + '\'' +
-				", Turno_Preferente='" + Turno_Preferente + '\'' +
-				", Fecha_Matricula=" + Fecha_Matricula +
-				", Nuevo_Ingreso='" + Nuevo_Ingreso + '\'' +
-				", Listado_de_Asignaturas='" + Listado_de_Asignaturas + '\'' +
-				", mat_Asigs=" + mat_Asigs +
-				", e=" + expediente +
-				'}';
-	}
+		return "Matricula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
+				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_Matricula=" + Fecha_Matricula + ", Nuevo_Ingreso="
+				+ Nuevo_Ingreso + ", Listado_de_Asignaturas=" + Listado_de_Asignaturas + ", mat_Asigs=" + mat_Asigs
+				+ "]";
+	}   
+	
+   
 }

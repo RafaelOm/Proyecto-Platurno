@@ -13,6 +13,14 @@ import javax.persistence.*;
 @Entity
 @IdClass(GR_ASIG.GR_ASIGID.class)
 public class GR_ASIG implements Serializable {
+	public List<Encuesta> getLista_encuestas() {
+		return lista_encuestas;
+	}
+
+	public void setLista_encuestas(List<Encuesta> lista_encuestas) {
+		this.lista_encuestas = lista_encuestas;
+	}
+
 	public static class GR_ASIGID implements Serializable{
 		/**
 		 *
