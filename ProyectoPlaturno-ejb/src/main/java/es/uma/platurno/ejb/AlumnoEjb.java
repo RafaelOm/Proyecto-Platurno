@@ -7,39 +7,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public class AlumnoEjb implements AlumnoInterface {
-	
-     private String nombre;
-     private String apellido1;
-     private String apellido2;
-     private String emailPersonal;
-     private int numeroPersonal;
-     private String localidad;
-     private String Comunidad;
-     private String calle;
-     private int CodPostal;
-     private EntityManager em;
+	@PersistenceContext(unitName = "Alumno")
+	private EntityManager em;
 
-	public String getDni() {
-		return Dni;
-	}
-
-	public void setDni(String dni) {
-		Dni = dni;
-	}
-
-	private String Dni;
-        
      public AlumnoEjb()
      {
     	 // Default null
      }
+
      public AlumnoEjb(String n, String ap1, String ap2, String ep, int np, String l
-    		 , String co, String street, int cd) throws AlumnoException {
+    		 , String co, String street, int cd,String EmailI,String Telefono) throws AlumnoException {
      
-    	 if ( validateData(n, ap1, ap2, ep,np, l, co, street, cd) ) {
-    		 crearAlumnoFromCsv(n, ap1, ap2, ep,np, l, co, street, cd);
+    	 if ( validateData(n, ap1, ap2, ep,np, l, co, street, cd,Telefono,EmailI) ) {
+    		 crearAlumnoFromCsv(n, ap1, ap2, ep,np, l, co, street, cd,Telefono,EmailI);
     	 }else {
     		 throw new AlumnoException();
     	 }
@@ -47,36 +30,10 @@ public class AlumnoEjb implements AlumnoInterface {
      
      }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public void setApellido1(String apellido1) {
-		this.apellido1 = apellido1;
-	}
-	public void setApellido2(String apellido2) {
-		this.apellido2 = apellido2;
-	}
-	public void setEmailPersonal(String emailPersonal) {
-		this.emailPersonal = emailPersonal;
-	}
-	public void setNumeroPersonal(int numeroPersonal) {
-		this.numeroPersonal = numeroPersonal;
-	}
-	public void setLocalidad(String localidad) {
-		this.localidad = localidad;
-	}
-	public void setComunidad(String comunidad) {
-		Comunidad = comunidad;
-	}
-	public void setCalle(String calle) {
-		this.calle = calle;
-	}
-	public void setCodPostal(int codPostal) {
-		CodPostal = codPostal;
-	}
+
 	
 	private void crearAlumnoFromCsv(String n, String ap1, String ap2, String ep,int np, String l, String co, String street,
-			int cd) {
+			int cd,String email,String Telefono) {
 		Autenticacion a = new Autenticacion();
 		AlumnoEjb al = em.find(AlumnoEjb.class, ep);
 		

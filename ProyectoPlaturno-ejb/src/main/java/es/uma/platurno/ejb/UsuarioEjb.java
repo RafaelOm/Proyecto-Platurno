@@ -28,8 +28,8 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     public UsuarioEjb() {
     }
 
-    public UsuarioEjb( String Dni, String email, String telefono) throws PlaturnoException, CuentaExistenteException {
-        crearUsuarioFromCsvExcel(Dni,email,telefono);
+    public UsuarioEjb( String Dni) throws PlaturnoException, CuentaExistenteException {
+        crearUsuarioFromCsvExcel(Dni);
     }
 
 
