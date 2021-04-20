@@ -5,7 +5,6 @@ import es.uma.platurno.ejb.exceptions.UserException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.xml.registry.infomodel.User;
 
 public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
@@ -47,7 +46,7 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 	}
 
 	@SuppressWarnings("null")
-	private void generarSolicitud(String go, String gd, String msg, Alumno u) {
+	private void generarSolicitud(String go, String gd, String msg, AlumnoEjb u) {
 		
 		Solicitud_Cambio_Grupo sol = em.find(Solicitud_Cambio_Grupo.class, u.getDni());
 		

@@ -15,6 +15,7 @@ public class Usuario implements Serializable {
 
 	@Id @GeneratedValue
 	private Long identificador;
+	@Column(unique = true)
 	private String username;
 	@Column(nullable = false)
 	private String Password;

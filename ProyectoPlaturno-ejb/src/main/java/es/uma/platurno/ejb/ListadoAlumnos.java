@@ -14,7 +14,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
     private EntityManager em;
     
     @Override
-	  public List<Alumno> getAlumnosList() {
+	  public List<AlumnoEjb> getAlumnosList() {
 	      Query q = em.createQuery("SELECT a FROM ALUMNOS a");
 	      return q.getResultList();
 	  }
@@ -36,7 +36,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 	   * 12: Codigo Postal
 	   */
 	  @Override
-	  public List<Alumno> getAlumnosListFiltered(List<String> filtros) {
+	  public List<AlumnoEjb> getAlumnosListFiltered(List<String> filtros) {
 		  if(filtros==null) {
 			  return getAlumnosList();
 		  }
@@ -63,6 +63,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 		  
 		  String apellido1 = filtros.get(3).toLowerCase();
 		  if(apellido1!=null) {
+
 			  finalQuery += "APELLIDO1 = :apellido1 AND ";
 			  mp.put("apellido1", apellido1);
 		  }

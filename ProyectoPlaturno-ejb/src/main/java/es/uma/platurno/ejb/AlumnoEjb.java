@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.persistence.EntityManager;
-import javax.ws.rs.core.UriBuilder;
 
-public class Alumno extends UsuarioEjb implements AlumnoInterface {
+public class AlumnoEjb implements AlumnoInterface {
 	
      private String nombre;
      private String apellido1;
@@ -32,12 +31,12 @@ public class Alumno extends UsuarioEjb implements AlumnoInterface {
 
 	private String Dni;
         
-     public Alumno()
+     public AlumnoEjb()
      {
     	 // Default null
      }
-     public Alumno(String n,String ap1, String ap2, String ep, int np, String l
-    		 ,String co, String street, int cd) throws AlumnoException {
+     public AlumnoEjb(String n, String ap1, String ap2, String ep, int np, String l
+    		 , String co, String street, int cd) throws AlumnoException {
      
     	 if ( validateData(n, ap1, ap2, ep,np, l, co, street, cd) ) {
     		 crearAlumnoFromCsv(n, ap1, ap2, ep,np, l, co, street, cd);
@@ -79,13 +78,13 @@ public class Alumno extends UsuarioEjb implements AlumnoInterface {
 	private void crearAlumnoFromCsv(String n, String ap1, String ap2, String ep,int np, String l, String co, String street,
 			int cd) {
 		Autenticacion a = new Autenticacion();
-		Alumno al = em.find(Alumno.class, ep);
+		AlumnoEjb al = em.find(AlumnoEjb.class, ep);
 		
 		if ( al != null ) {
 			throw new AlumnoException();
 		}
 		
-		al = new Alumno();
+		al = new AlumnoEjb();
 		al.setNombre(n);
 		al.setApellido1(ap1);
 		al.setApellido2(ap2);
@@ -149,7 +148,7 @@ public class Alumno extends UsuarioEjb implements AlumnoInterface {
 	@Override
 	public void leerAlumno(String dni) {
 		// TODO Auto-generated method stub
-		Alumno al = em.find(Alumno.class, dni);
+		AlumnoEjb al = em.find(AlumnoEjb.class, dni);
 		
 		if ( al != null ) {
 			System.out.print(al.toString());
@@ -162,7 +161,7 @@ public class Alumno extends UsuarioEjb implements AlumnoInterface {
 		// TODO Auto-generated method stub
 		
 		 Autenticacion a =new Autenticacion();
-	     Alumno al =em.find(Alumno.class, dni);
+	     AlumnoEjb al =em.find(AlumnoEjb.class, dni);
 	     em.remove(em.merge(a));
 	     
 		
@@ -171,7 +170,7 @@ public class Alumno extends UsuarioEjb implements AlumnoInterface {
 	@Override
 	public void modificarAlumno(String dni) throws IOException {
 	   
-		Alumno al = em.find(Alumno.class, dni);
+		AlumnoEjb al = em.find(AlumnoEjb.class, dni);
 	
 		System.out.printf( " Ingrese la opcion que desea usar: ");
 		System.out.print(" Opcion A) Modificar Email Personal \n"

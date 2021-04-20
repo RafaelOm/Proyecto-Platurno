@@ -34,7 +34,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
 
 
     @Override
-    public void crearUsuarioFromCsvExcel( String Dni, String email, String telefono) throws PlaturnoException, CuentaExistenteException {
+    public void crearUsuarioFromCsvExcel( String Dni) throws PlaturnoException, CuentaExistenteException {
         Autenticacion a =new Autenticacion();
         Usuario user = em.find(Usuario.class, Dni);
         if(user!=null){
@@ -43,8 +43,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
         user=new Usuario();
         user.setUsername(Dni);
         user.setPassword(generateRandomPassword(10));
-        user.setDni(Dni);
-        user.setEmailInstitucional(email);
+
 
         UriBuilder u =null;
         a.registrarUsuario(user,u);
