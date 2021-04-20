@@ -1,4 +1,6 @@
-package es.uma.platurno;
+package es.uma.platurno.ejb;
+
+import es.uma.platurno.AlumnoException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -84,9 +86,9 @@ public class Alumno implements AlumnoInterface{
 		al.setCalle(street);
 		al.setCodPostal(cd);
 		
-		UriBuilder u = null;
+
 		
-		a.registrarUsuario(al, u);
+		em.persist(al);
 	}
 
 	private boolean validateData(String n, String ap1, String ap2, String ep, int np, String l, String co, String street, int cd) {
@@ -151,7 +153,6 @@ public class Alumno implements AlumnoInterface{
 		
 		 Autenticacion a =new Autenticacion();
 	     Alumno al =em.find(Alumno.class, dni);
-	     a.compruebaLogin(al);
 	     em.remove(em.merge(a));
 	     
 		

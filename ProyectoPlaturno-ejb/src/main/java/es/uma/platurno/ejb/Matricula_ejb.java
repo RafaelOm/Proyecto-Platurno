@@ -14,11 +14,15 @@ import javax.persistence.EntityTransaction;
  */
 @Stateless
 @Local
-public abstract class Matricula_ejb implements MatriculaInterfaz {
+public  class Matricula_ejb implements MatriculaInterfaz {
 
     private Matricula mat;
     private EntityManager em;
     private EntityTransaction tx;
+
+    public Matricula_ejb(){
+
+    }
 
     // Al modificar se le pasa una lista de parametros de matricula para modificar dicha matricula.
     @Override

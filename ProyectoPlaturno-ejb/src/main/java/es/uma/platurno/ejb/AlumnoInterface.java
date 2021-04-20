@@ -1,4 +1,4 @@
-package es.uma.platurno;
+package es.uma.platurno.ejb;
 
 import java.io.IOException;
 
