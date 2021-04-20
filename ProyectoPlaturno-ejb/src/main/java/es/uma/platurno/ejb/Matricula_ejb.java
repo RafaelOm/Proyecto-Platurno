@@ -8,6 +8,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 
 /**
  * Session Bean implementation class Matricula
@@ -17,8 +18,10 @@ import javax.persistence.EntityTransaction;
 public  class Matricula_ejb implements MatriculaInterfaz {
 
     private Matricula mat;
+    @PersistenceContext(unitName = "Matricula")
     private EntityManager em;
-    private EntityTransaction tx;
+
+
 
     public Matricula_ejb(){
 
@@ -47,7 +50,7 @@ public  class Matricula_ejb implements MatriculaInterfaz {
 
     @Override
     public void ver(Matricula mat) throws verMatriculaException {
-        tx.begin();
+
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
         if(m!=null) {
             throw new verMatriculaException("Matricula no encontrada.");
@@ -55,12 +58,12 @@ public  class Matricula_ejb implements MatriculaInterfaz {
             // La matricula que queremos saldra por pantalla.
             System.out.println(m.toString());
         }
-        tx.commit();
+
     }
 
     @Override
     public void eliminar(Matricula mat) throws eliminarMatriculaException {
-        tx.begin();
+
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
         if(m==null) {
             throw new eliminarMatriculaException("Matricula no encontrada.");
@@ -68,7 +71,7 @@ public  class Matricula_ejb implements MatriculaInterfaz {
             // Eliminamos de la base de datos la matricula.
             em.remove(m);
         }
-        tx.commit();
+
     }
 
 }

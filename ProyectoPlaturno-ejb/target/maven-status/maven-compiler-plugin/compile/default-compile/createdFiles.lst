@@ -1,0 +1,3 @@
+es\uma\platurno\ejb\exceptions\EncuestaNoExisteException.class
+es\uma\platurno\ejb\exceptions\eliminarMatriculaException.class
+es\uma\platurno\ejb\exceptions\modificarMatriculaException.class
