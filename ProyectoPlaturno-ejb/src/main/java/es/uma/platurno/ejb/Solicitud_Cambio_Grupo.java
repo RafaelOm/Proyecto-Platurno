@@ -1,8 +1,7 @@
 package es.uma.platurno.ejb;
 
-import es.uma.platurno.GrupoError;
-import es.uma.platurno.ejb.exceptions.UserException;
-import es.uma.platurno.jpa.Alumno;
+import es.uma.platurno.ejb.exceptions.GR_ASIG_GrupoNoExisteException;
+import es.uma.platurno.jpa.GR_ASIG;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -11,120 +10,24 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
 	@PersistenceContext(unitName = "AgendaEE-EntidadesPU")
     private EntityManager em;
-	private String grupoOriginal;
-	private String grupoDeseado;
-	private String motivo;
-	private UsuarioEjb user;
-
-	@Override
-	public void setGrupoOriginal(String go) {
-
-	}
-
-	@Override
-	public void setGrupoDeseado(String grupoDeseado) {
-
-	}
-
-	@Override
-	public void setMotivo(String m) {
-
-	}
-	/* 2 Solicitudes seran iguales si ambas vienen del mismo Usuario */
-	/* Suponemos que la solictud va ligada a un Usuario, por ende llamamos al metodo 
-	   de Uusario equals() para prevenir solicitudes duplicadas........*/
-
-	/*
-	public Solicitud_Cambio_Grupo(String go, String gd, String msg, Alumno u) throws UserException {
-		if ( go != null ) {
-			if( gd != null ) {
-				if ( msg != null ) { //Version beta -> mejora? consulta directa a la base de datos para comprobar las solicitudes?
-					if ( user.equals(u) ) {
-						/*
-						 * OJO, se debe suponer que un Usuario solo puedde solicitar un
-						 * cambio de turno/solicitud, si no se resuelve la anterior no 
-						 * puede solicitar otra? -> Preguntar
-						 */
-
-			/*
-						if( validateData(go, gd, msg, null) ) {
-							//generarSolicitud(go, gd, msg, u);
-						}
-					} else {
-						throw new UserException("Error, Solicitud duplicada");
-					}
-				} else {
-					throw new GrupoError("Error, motivo de la solicitud vacio o sin rellenar.");
-				}
-			} else {
-				throw new GrupoError("Error, grupo deseado no indicado.");
-			}
-			
-		} else  {
-			throw new GrupoError("Error, grupo original no indicado.");
-		}
-	}
-
-
-	private void generarSolicitud(String go, String gd, String msg, Alumno u) {
+	
+	public void generarSolicitud(GR_ASIG antiguo, GR_ASIG nuevo) throws GR_ASIG_GrupoNoExisteException {
 		
-		Solicitud_Cambio_Grupo sol = em.find(Solicitud_Cambio_Grupo.class, u.getDni());
+		GR_ASIG n = em.find(GR_ASIG.class, antiguo.getCurso_act());
 		
-		if ( sol != null ) {
-			throw new GrupoError();
+		if ( n == null ) {
+			throw new GR_ASIG_GrupoNoExisteException("Error, grupo actual no encontrado.\n");
 		}
 		
-		sol.setGrupoDeseado(gd);
-		sol.setGrupoOriginal(go);
-		sol.setMotivo(msg);
-		sol.setUser();
+		em.getTransaction().begin();
 		
-		em.persist(sol);
+		n = em.merge(nuevo);
+		
+		em.remove(n);
 		
 		em.getTransaction().commit();
-
+		
+		
 	}
 
-	public UsuarioEjb getUser() {
-		return user;
-	}
-
-	public void setUser(UsuarioEjb user) {
-		this.user = user;
-	}
-
-	private boolean validateData(String go, String gd, String msg, UsuarioEjb u) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public String getGrupoOriginal() {
-		return grupoOriginal;
-	}
-
-	public void setGrupoOriginal(String grupoOriginal) {
-		this.grupoOriginal = grupoOriginal;
-	}
-
-	public String getGrupoDeseado() {
-		return grupoDeseado;
-	}
-
-	public void setGrupoDeseado(String grupoD) {
-		this.grupoDeseado = grupoD;
-	}
-
-	public String getMotivo() {
-		return motivo;
-	}
-
-	public void setMotivo(String motivo) {
-		this.motivo = motivo;
-	}
-
-	
-	
-	
-	*/
-	
 }
