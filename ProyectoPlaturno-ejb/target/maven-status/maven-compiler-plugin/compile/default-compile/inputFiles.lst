@@ -1,4 +1,10 @@
-C:\Users\Rafael\Documents\Proyecto-Platurno-main\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\MatriculaInterfaz.java
-C:\Users\Rafael\Documents\Proyecto-Platurno-main\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\Matricula.java
-C:\Users\Rafael\Documents\Proyecto-Platurno-main\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\Autenticacion.java
-C:\Users\Rafael\Documents\Proyecto-Platurno-main\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\AutenticacionInterfaz.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\ASIGNAR_GRUPO_AUTOInterfaz.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\exceptions\GR_ASIG_GrupoNoExisteException.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\ExpedienteInterfaz.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\exceptions\ExpedienteNoExisteException.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\ExpedienteEJB.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\ASIGNAR_GRUPO_AUTO.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\exceptions\EncuestaNoExisteException.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\GR_ASIGEJBInterfaz.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\exceptions\MatriculaNoExiteException.java
+D:\eclipse-maven\Proyecto-Platurno-main-prueba\ProyectoPlaturno-ejb\src\main\java\es\uma\platurno\ejb\GR_ASIGEJB.java

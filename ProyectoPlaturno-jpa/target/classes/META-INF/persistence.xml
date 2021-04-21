@@ -2,20 +2,18 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="ProyectoPlaturno.GrupoF" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-
-		<class>es.uma.platurno.jpa.Alumno</class>
-		<class>es.uma.platurno.jpa.Asignatura</class>
-		<class>es.uma.platurno.jpa.Centro</class>
-		<class>es.uma.platurno.jpa.Clase</class>
-		<class>es.uma.platurno.jpa.Encuesta</class>
-		<class>es.uma.platurno.jpa.Expediente</class>
-		<class>es.uma.platurno.jpa.GR_ASIG</class>
-		<class>es.uma.platurno.jpa.Grupo</class>
-		<class>es.uma.platurno.jpa.Mat_Asig</class>
-		<class>es.uma.platurno.jpa.Matricula</class>
-		<class>es.uma.platurno.jpa.Optativa</class>
-		<class>es.uma.platurno.jpa.Titulacion</class>
-		<class>es.uma.platurno.jpa.Usuario</class>
+		<class>es.uma.platurno.Alumno</class>
+		<class>es.uma.platurno.Asignatura</class>
+		<class>es.uma.platurno.Centro</class>
+		<class>es.uma.platurno.Clase</class>
+		<class>es.uma.platurno.Encuesta</class>
+		<class>es.uma.platurno.Expediente</class>
+		<class>es.uma.platurno.GR_ASIG</class>
+		<class>es.uma.platurno.Grupo</class>
+		<class>es.uma.platurno.Mat_Asig</class>
+		<class>es.uma.platurno.Matricula</class>
+		<class>es.uma.platurno.Optativa</class>
+		<class>es.uma.platurno.Titulacion</class>
 		
 		
 		<properties>

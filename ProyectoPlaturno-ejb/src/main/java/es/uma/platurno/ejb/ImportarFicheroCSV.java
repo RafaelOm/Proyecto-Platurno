@@ -37,14 +37,14 @@ public class ImportarFicheroCSV implements IFCSV_Interface{
 			    
 			    UsuarioEjb u = new UsuarioEjb(data[0]);
 			    AlumnoEjb al = new AlumnoEjb(data[1], data[2], data[3], data[6],Integer.parseInt( data[9] ), data[8], data[10], data[11], Integer.parseInt(data[12]),data[3], data[7]);
-			    /* ExpedienteEJB X = new ExpedienteEJB(data[5], data[16], data[17], Integer.valueOf(data[18]), Integer.valueOf(data[19]),  Integer.valueOf(data[20]),  Integer.valueOf(data[21]),  Integer.valueOf(data[22]), data[23]);
+			    ExpedienteEJB X = new ExpedienteEJB(data[5], data[16], data[17], data[18], data[19], data[20], data[21], data[22], data[23]);
 			    Matricula_ejb ma = new Matricula_ejb (data[13], data[14], data[15]);
 			    
-                
+
 
 			    em.persist(X);
 			    em.persist(ma);
-			    */
+			    
 
 			}
 			csvReader.close(); 
