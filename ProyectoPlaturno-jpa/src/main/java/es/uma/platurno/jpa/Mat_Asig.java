@@ -1,7 +1,13 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Mat_Asig creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 package es.uma.platurno.jpa;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Mat_Asig

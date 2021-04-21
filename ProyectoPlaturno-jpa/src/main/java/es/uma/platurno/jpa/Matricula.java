@@ -1,10 +1,15 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Matricula creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 package es.uma.platurno.jpa;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.lang.String;
 import java.sql.Date;
 import java.util.Objects;
-import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Matricula

@@ -1,7 +1,10 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Encuesta creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 package es.uma.platurno.jpa;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 

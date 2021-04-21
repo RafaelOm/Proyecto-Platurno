@@ -23,7 +23,7 @@ public class Alumno extends Usuario implements Serializable {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
 	   nullable simboliza los atributos que son obligatorios en la BD. */
-	@Column(name = "DNI",nullable = false)
+	@Column(name = "DNI", nullable = false)
 	private String dni;
 
 	@Column(name = "NOMBRE",nullable = false)

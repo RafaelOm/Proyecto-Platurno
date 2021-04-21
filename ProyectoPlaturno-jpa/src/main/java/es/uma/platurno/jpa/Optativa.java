@@ -1,8 +1,10 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Optativa  creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 package es.uma.platurno.jpa;
 
-import java.io.Serializable;
-import java.util.*;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Entity
 public class Optativa extends Asignatura{

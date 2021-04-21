@@ -1,9 +1,12 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase GR_ASIG creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 
 package es.uma.platurno.jpa;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Alumno

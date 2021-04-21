@@ -1,3 +1,6 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase ClaseMainPersistance que compila el codigo y genera SQL. */
+
 package es.uma.platurno.jpa;
 
 import javax.persistence.EntityManager;

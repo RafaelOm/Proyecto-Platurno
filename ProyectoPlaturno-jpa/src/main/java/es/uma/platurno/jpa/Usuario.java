@@ -1,9 +1,11 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Usuario creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
 package es.uma.platurno.jpa;
 
-import java.io.Serializable;
-import java.lang.String;
-import java.util.Objects;
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Entity implementation class for Entity: Usuario
