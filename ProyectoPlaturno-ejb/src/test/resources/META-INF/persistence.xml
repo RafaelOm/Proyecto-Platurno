@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-  <persistence-unit name="TrazabilidadTest" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="Platurno" transaction-type="RESOURCE_LOCAL">
 	  <class>es.uma.platurno.jpa.Alumno</class>
 	  <class>es.uma.platurno.jpa.Asignatura</class>
 	  <class>es.uma.platurno.jpa.Centro</class>

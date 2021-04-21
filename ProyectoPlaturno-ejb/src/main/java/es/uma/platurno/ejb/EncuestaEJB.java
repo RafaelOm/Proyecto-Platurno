@@ -1,5 +1,7 @@
 package es.uma.platurno.ejb;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -9,7 +11,7 @@ import es.uma.platurno.jpa.Encuesta;
 @Stateless
 public class EncuestaEJB implements EncuestaInterfaceEJB {
 	
-	@PersistenceContext(unitName = "Encuesta")
+	@PersistenceContext(unitName = "Platurno")
 	private EntityManager em;
 	
 	public EncuestaEJB()

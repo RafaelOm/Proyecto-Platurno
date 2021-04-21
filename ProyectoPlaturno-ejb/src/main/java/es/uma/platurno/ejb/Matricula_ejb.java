@@ -17,7 +17,7 @@ import java.sql.Date;
 public  class Matricula_ejb implements MatriculaInterfaz {
 
     private Matricula mat;
-    @PersistenceContext(unitName = "Matricula")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
 
 

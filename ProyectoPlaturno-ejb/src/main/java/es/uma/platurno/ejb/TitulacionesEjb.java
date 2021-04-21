@@ -1,13 +1,17 @@
 package es.uma.platurno.ejb;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import es.uma.platurno.ejb.exceptions.TitulacionInexistente;
 import es.uma.platurno.jpa.Titulacion;
 
+@Local
+@Stateless
 public class TitulacionesEjb implements TitulacionesEjbInterface {
-	@PersistenceContext(unitName = "Platurno-Asignatura")
+	//@PersistenceContext(unitName = "Platurno")
 	private EntityManager em;
 	 
 	@Override

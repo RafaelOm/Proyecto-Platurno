@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,18 +16,20 @@ import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.Usuario;
 
+@Local
+@Stateless
 public class ListadoAlumnos implements ListadoAlumnosInterface {
 	
 	private Autenticacion auth;
 	
-    @PersistenceContext(unitName = "Platurno-Asignatura")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
     
     @Override
 	  public List<AlumnoEjb> getAlumnosList(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
     	auth=new Autenticacion();
         auth.compruebaLogin(u);
-	      Query q = em.createQuery("SELECT a FROM ALUMNOS a");
+	      Query q = em.createQuery("SELECT a FROM Alumno a");
 	      return q.getResultList();
 	  }
 	  
@@ -53,7 +57,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 			  return getAlumnosList(u);
 		  }
 		  
-		  String finalQuery = "SELECT a FROM ALUMNOS a WHERE ";
+		  String finalQuery = "SELECT a FROM Alumno a WHERE ";
 		  String idd = filtros.get(0);
 		  HashMap<String, String> mp = new HashMap<String, String>();
 		  

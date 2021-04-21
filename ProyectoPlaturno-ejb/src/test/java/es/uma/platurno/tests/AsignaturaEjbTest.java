@@ -1,7 +1,19 @@
 package es.uma.platurno.tests;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import es.uma.platurno.ejb.AsignaturasEjb;
+import es.uma.platurno.ejb.Autenticacion;
+import es.uma.platurno.ejb.UsuarioEjb;
+import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
+import es.uma.platurno.ejb.exceptions.CuentaInexistenceException;
+import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
+import es.uma.platurno.ejb.exceptions.PlaturnoException;
+import es.uma.platurno.jpa.Alumno;
+import es.uma.platurno.jpa.Asignatura;
+import es.uma.platurno.jpa.Usuario;
+import org.glassfish.grizzly.http.server.naming.NamingException;
+import org.junit.*;
+
+import static org.junit.Assert.fail;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
@@ -12,14 +24,19 @@ public class AsignaturaEjbTest {
 	
 	private static final Logger LOG = Logger.getLogger(AsignaturaEjbTest.class.getCanonicalName());
 
-	private static final String PRODUCTOS_EJB = "java:global/classes/AsignaturasEjb";
+	private static final String ASIGNATURAEJB = "java:global/classes/AsignaturasEjb";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
 	private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
-	//private static final String LOTES_EJB = "java:global/classes/LotesEJB";
+	private static final String USUARIOEJB = "java:global/classes/UsuarioEjb";
+	private static final String AUTENTICACION = "java:global/classes/Autenticacion";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "TrazabilidadTest";
 	
 	private static EJBContainer ejbContainer;
 	private static Context ctx;
+
+	private AsignaturasEjb asignaturaEjb;
+	private UsuarioEjb UsuarioEjb;
+	private Autenticacion auth;
 	
 
 	
@@ -30,14 +47,43 @@ public class AsignaturaEjbTest {
 		ejbContainer = EJBContainer.createEJBContainer(properties);
 		ctx = ejbContainer.getContext();
 	}
-	/*
+
 	@Before
-	public void setup() throws NamingException  {
-		gestionLotes = (GestionLotes) ctx.lookup(LOTES_EJB);
-		gestionProductos = (GestionProductos) ctx.lookup(PRODUCTOS_EJB);
+	public void setup() throws NamingException, javax.naming.NamingException {
+		asignaturaEjb = (AsignaturasEjb) ctx.lookup(ASIGNATURAEJB);
+		UsuarioEjb = (UsuarioEjb) ctx.lookup(USUARIOEJB);
+		 auth = (Autenticacion) ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-*/
+
+	@Test
+	public void testCompruebaUsuario(){
+
+		Alumno a = new Alumno();
+		a.setUsername("mEscobar");
+		a.setPassword("manolito");
+		a.setDni("12345");
+		a.setNombre("MANOLO");
+		a.setApellido1("ESCOBAR");
+		a.setApellido2("NOSE");
+		a.setEmail_institucional("manolito@uma.es");
+		a.setEmail_personal("manolomanolo@gmail.com");
+		a.setTelefono("333333");
+		a.setMovil("645353");
+		a.setDireccion("Avenida malaga 24 ");
+		a.setLocalidad("MADRID");
+		a.setProvincia("COMUNIDAD DE MADRID");
+		a.setCP("29000");
+		try{
+			auth.compruebaLogin(a);
+
+		} catch (PasswordErroneaException  |CuentaInactivaException|CuentaInexistenceException |PlaturnoException e) {
+			fail("LANZO UNA EXCEPCION");
+		}
+
+
+	}
+
 
 	
 	@AfterClass

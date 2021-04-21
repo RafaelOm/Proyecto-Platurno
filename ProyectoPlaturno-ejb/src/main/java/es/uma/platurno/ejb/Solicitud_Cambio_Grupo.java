@@ -7,13 +7,18 @@ import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.GR_ASIG;
 import es.uma.platurno.jpa.Usuario;
+import org.graalvm.compiler.lir.LIRInstruction;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Local
+@Stateless
 public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
-	@PersistenceContext(unitName = "AgendaEE-EntidadesPU")
+	@PersistenceContext(unitName = "Platurno")
     private EntityManager em;
 	
 	public void generarSolicitud(GR_ASIG antiguo, GR_ASIG nuevo, Usuario U) throws GR_ASIG_GrupoNoExisteException {

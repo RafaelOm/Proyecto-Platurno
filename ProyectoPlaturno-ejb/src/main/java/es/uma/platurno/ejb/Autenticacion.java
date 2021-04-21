@@ -22,7 +22,7 @@ import es.uma.platurno.jpa.*;
 @Stateless
 @LocalBean
 public class Autenticacion implements AutenticacionInterfaz  {
-    @PersistenceContext(unitName = "Platurno-Autenticacion")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
     private static final int TAM_CADENA_VALIDACION = 64;
     private static final Logger LOGGER = Logger.getLogger(Autenticacion.class.getCanonicalName());
@@ -56,7 +56,14 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void validarCuenta(Usuario u, String validacion) throws PlaturnoException, CuentaInexistenceException, CuentaYaValidadaException, ValidacionIncorrectaException {
-        Usuario user =em.find(Usuario.class,u.getIdentificador());
+        Query getUserWithDni= em.createQuery("SELECT u from Usuario u where u.username = :userq");
+        getUserWithDni.setParameter("userq",u.getUsername());
+        List<Usuario> result =getUserWithDni.getResultList();
+        if(result.size()<1){
+            throw new CuentaInexistenceException();
+        }
+        Usuario user =result.get(0);
+
         if(user==null){
             throw new CuentaInexistenceException();
         }

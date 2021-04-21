@@ -8,14 +8,17 @@ es\uma\platurno\ejb\Solicitud_Cambio_Grupo.class
 es\uma\platurno\ejb\FiltroMatriculasInterfaz.class
 es\uma\platurno\ejb\SecretariaInterfaz.class
 es\uma\platurno\ejb\exceptions\MatriculaNoExiteException.class
+es\uma\platurno\ejb\EncuestaInterfaceEJB.class
 es\uma\platurno\ejb\AutenticacionInterfaz.class
 es\uma\platurno\ejb\exceptions\ValidacionIncorrectaException.class
 es\uma\platurno\ejb\ListadoAlumnos.class
 es\uma\platurno\ejb\UsuarioEjbInterfaz.class
+es\uma\platurno\ejb\EncuestaEJB.class
 es\uma\platurno\ejb\ASIGNAR_GRUPO_AUTOInterfaz.class
 es\uma\platurno\ejb\ExpedienteEJB.class
 es\uma\platurno\ejb\MatriculaInterfaz.class
 es\uma\platurno\ejb\AsignaturasEjb.class
+es\uma\platurno\ejb\exceptions\AlumnoException.class
 es\uma\platurno\ejb\IFCSV_Interface.class
 es\uma\platurno\ejb\exceptions\MatriculaEJBException.class
 es\uma\platurno\ejb\ImportarFicheroCSV.class
@@ -38,5 +41,4 @@ es\uma\platurno\ejb\AlertaColisionesHorarios.class
 es\uma\platurno\ejb\GR_ASIGEJBInterfaz.class
 es\uma\platurno\ejb\UsuarioEjb.class
 es\uma\platurno\ejb\exceptions\CuentaYaValidadaException.class
-es\uma\platurno\ejb\AlumnoException.class
 es\uma\platurno\ejb\GR_ASIGEJB.class

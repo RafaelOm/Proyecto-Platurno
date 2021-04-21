@@ -19,7 +19,7 @@ import javax.persistence.PersistenceContext;
 @LocalBean
 public class AsignaturasEjb implements AsignaturasEjbInterfaz {
 
-    @PersistenceContext(unitName = "Platurno-Asignatura")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
     private Autenticacion auth;
     /**

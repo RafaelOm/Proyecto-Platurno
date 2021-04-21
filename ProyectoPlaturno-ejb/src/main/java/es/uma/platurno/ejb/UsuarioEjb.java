@@ -23,7 +23,7 @@ import java.util.List;
 @Stateless
 @LocalBean
 public class UsuarioEjb implements UsuarioEjbInterfaz {
-    @PersistenceContext(unitName = "Platurno-Usuario")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
     private Autenticacion auth;
     /**

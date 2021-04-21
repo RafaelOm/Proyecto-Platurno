@@ -18,7 +18,7 @@ import java.util.List;
 @Stateless
 @LocalBean
 public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
-    @PersistenceContext(unitName = "AgendaEE-EntidadesPU")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
 
     private Autenticacion auth;

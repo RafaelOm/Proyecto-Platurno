@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @LocalBean
 public class GR_ASIGEJB implements GR_ASIGEJBInterfaz {
-    @PersistenceContext(unitName = "AgendaEE-EntidadesPU")
+    @PersistenceContext(unitName = "Platurno")
     private EntityManager em;
     private Autenticacion auth;
 

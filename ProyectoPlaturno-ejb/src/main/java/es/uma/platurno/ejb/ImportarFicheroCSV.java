@@ -14,14 +14,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 
-
+@Local
+@Stateless
 public class ImportarFicheroCSV implements IFCSV_Interface{
 
-	@PersistenceContext(unitName = "AgendaEE-EntidadesPU")
+	@PersistenceContext(unitName = "Platurno")
     private EntityManager em;
 	
 	
