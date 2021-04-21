@@ -1,8 +1,13 @@
 package es.uma.platurno.ejb;
 
 import es.uma.platurno.ejb.exceptions.CuentaExistenteException;
+import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
+import es.uma.platurno.ejb.exceptions.CuentaInexistenceException;
 import es.uma.platurno.ejb.exceptions.ExpedienteNoExisteException;
+import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
+import es.uma.platurno.ejb.exceptions.ViolacionDeSeguridadException;
+import es.uma.platurno.jpa.Usuario;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,9 +31,15 @@ public class ImportarFicheroCSV implements IFCSV_Interface{
 	//1.
 	
 	//parsing a CSV file into Scanner class constructor  
-	public void leerCSV(File pathToCsv) throws FileNotFoundException, ExpedienteNoExisteException {
+	public void leerCSV(File pathToCsv, Usuario U) throws FileNotFoundException, ExpedienteNoExisteException, CuentaInexistenceException, ViolacionDeSeguridadException, PlaturnoException, CuentaInactivaException, PasswordErroneaException {
 		BufferedReader csvReader = new BufferedReader(new FileReader(pathToCsv));
-
+        
+		Autenticacion au = new Autenticacion();
+		
+		au.compruebaLogin(U);
+		au.checkSecretariaRole(U);
+		
+		
 		try {
 			String row;
 			while ( ( row=csvReader.readLine() ) != null) {
@@ -69,6 +80,7 @@ public class ImportarFicheroCSV implements IFCSV_Interface{
 		}
 
 	}
+
 
 
 	
