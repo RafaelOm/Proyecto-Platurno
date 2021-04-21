@@ -15,14 +15,20 @@ import java.util.List;
 @Entity
 
 public class Encuesta implements Serializable {
-
-
-
-
 	@Id
 	private String id_Encuesta;
+	private String texto;
+	
 	@Column (nullable = false)
 	private Date Fecha_de_Envio;
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
