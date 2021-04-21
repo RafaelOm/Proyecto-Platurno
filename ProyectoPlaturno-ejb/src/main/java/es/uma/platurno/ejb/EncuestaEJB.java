@@ -5,6 +5,8 @@ import javax.persistence.PersistenceContext;
 
 import es.uma.platurno.jpa.Encuesta;
 
+@Local
+@Stateless
 public class EncuestaEJB implements EncuestaInterfaceEJB {
 	
 	@PersistenceContext(unitName = "Encuesta")
