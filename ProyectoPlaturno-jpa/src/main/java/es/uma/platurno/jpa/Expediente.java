@@ -15,14 +15,14 @@ public class Expediente implements Serializable {
 	@Id
 	private String IdExpediente;
 	private String Activo;
-	private String NotaMPr;
-	private Integer CreditosSup;
-	private Integer CreditosFB;
-	private Integer CreditosOP;
-	private Integer CreditosOB;
-	private Integer CreditosCF;
-	private Integer CreditosPE;
-	private Integer CreditosTF;
+	private Double NotaMPr;
+	private Double CreditosSup;
+	private Double CreditosFB;
+	private Double CreditosOP;
+	private Double CreditosOB;
+	private Double CreditosCF;
+	private Double CreditosPE;
+	private Double CreditosTF;
 	@Column(nullable = false)
 	private String N_Archivo;
 
@@ -58,67 +58,67 @@ public class Expediente implements Serializable {
 		this.Activo = s;
 	}   
 	
-	public String getNotaMPr() {
+	public double getNotaMPr() {
 		return this.NotaMPr;
 	}
 
-	public void setNotaMPr(String NotaMPr) {
-		this.NotaMPr = NotaMPr;
+	public void setNotaMPr(double notaMPr2) {
+		this.NotaMPr = notaMPr2;
 	}   
 	
-	public Integer getCreditosSup() {
+	public double getCreditosSup() {
 		return this.CreditosSup;
 	}
 
-	public void setCreditosSup(Integer CreditosSup) {
+	public void setCreditosSup(Double CreditosSup) {
 		this.CreditosSup = CreditosSup;
 	}   
 	
-	public Integer getCreditosFB() {
+	public double getCreditosFB() {
 		return this.CreditosFB;
 	}
 
-	public void setCreditosFB(Integer CreditosFB) {
+	public void setCreditosFB(Double CreditosFB) {
 		this.CreditosFB = CreditosFB;
 	}   
 	
-	public Integer getCreditosOP() {
+	public double getCreditosOP() {
 		return this.CreditosOP;
 	}
 
-	public void setCreditosOP(Integer CreditosOP) {
+	public void setCreditosOP(Double CreditosOP) {
 		this.CreditosOP = CreditosOP;
 	}   
 	
-	public Integer getCreditosOB() {
+	public double getCreditosOB() {
 		return this.CreditosOB;
 	}
 
-	public void setCreditosOB(Integer CreditosOB) {
+	public void setCreditosOB(Double CreditosOB) {
 		this.CreditosOB = CreditosOB;
 	}   
 	
-	public Integer getCreditosCF() {
+	public double getCreditosCF() {
 		return this.CreditosCF;
 	}
 
-	public void setCreditosCF(Integer CreditosCF) {
+	public void setCreditosCF(Double CreditosCF) {
 		this.CreditosCF = CreditosCF;
 	}   
 	
-	public Integer getCreditosPE() {
+	public double getCreditosPE() {
 		return this.CreditosPE;
 	}
 
-	public void setCreditosPE(Integer CreditosPE) {
+	public void setCreditosPE(Double CreditosPE) {
 		this.CreditosPE = CreditosPE;
 	}   
 	
-	public Integer getCreditosTF() {
+	public double getCreditosTF() {
 		return this.CreditosTF;
 	}
 
-	public void setCreditosTF(Integer CreditosTF) {
+	public void setCreditosTF(Double CreditosTF) {
 		this.CreditosTF = CreditosTF;
 	}   
 	public String getN_Archivo() {
@@ -165,7 +165,7 @@ public class Expediente implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Activo == null) ? 0 : Activo.hashCode());
-		result = prime * result + ((CreditosCF == null) ? 0 : CreditosCF.hashCode());
+		result = prime * result + ((CreditosCF < 0) ? 0 : CreditosCF.hashCode());
 		result = prime * result + ((CreditosFB == null) ? 0 : CreditosFB.hashCode());
 		result = prime * result + ((CreditosOB == null) ? 0 : CreditosOB.hashCode());
 		result = prime * result + ((CreditosOP == null) ? 0 : CreditosOP.hashCode());
