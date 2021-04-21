@@ -1,43 +1,85 @@
+/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
+ Clase Alumno creada en JPA que modela los datos que va a tener la entidad en la BD. */
+
+
 package es.uma.platurno.jpa;
 
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+import java.util.List;
 
 /**
  * Entity implementation class for Entity: Alumno
  *
  */
-@Entity
 
+/* Entidad que hereda de Usuario, representando a la entidad Alumno. Usamos la interfaz serializable
+*  para poder mandar los datos a la BD. */
+@Entity
 public class Alumno extends Usuario implements Serializable {
-	@Column(nullable = false)
+
+	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
+	   nullable simboliza los atributos que son obligatorios en la BD. */
+	@Column(name = "DNI",nullable = false)
 	private String dni;
-	@Column(nullable = false)
+
+	@Column(name = "NOMBRE",nullable = false)
 	private String Nombre;
-	@Column(nullable = false)
+
+	@Column(name = "APELLIDO1",nullable = false)
 	private String Apellido1;
+
+	@Column(name = "APELLIDO2")
 	private String Apellido2;
-	@Column(nullable = false)
+
+	@Column(name = "EMAIL_PERSONAL",nullable = false)
 	private String email_personal;
-	@Column(nullable = false)
+
+	@Column(name = "EMAIL_INSTITUCIONAL", nullable = false)
 	private String email_institucional;
+
+	@Column(name = "TELEFONO")
 	private String telefono;
-	@Column(nullable = false)
+
+	@Column(name = "MOVIL", nullable = false)
 	private String movil;
+
+	@Column(name = "DIRECCION")
 	private String direccion;
+
+	@Column(name = "PROVINCIA")
 	private String provincia;
+
+	@Column(name = "LOCALIDAD")
 	private String localidad;
+
+	@Column(name = "CP")
 	private String CP;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	private static final long serialVersionUID = 1L;
-	
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Atributos de la entidad relqcionado con relaciones (foreign key).*/
+	@JoinColumn(name = "EXPEDIENTES_FK")
 	@OneToMany (mappedBy ="alumno")
 	private List<Expediente> expedientes;
 
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Constructor vacio, los bean seran los que se encarguen de cambiarle los valores */
 	public Alumno() {
 		super();
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Getters, Setters, equals, hashcode y toString. */
 	public String getDni() {
 		return this.dni;
 	}
@@ -122,6 +164,9 @@ public class Alumno extends Usuario implements Serializable {
 	public void setCP(String CP) {
 		this.CP = CP;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -141,6 +186,10 @@ public class Alumno extends Usuario implements Serializable {
 		result = prime * result + ((telefono == null) ? 0 : telefono.hashCode());
 		return result;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -217,6 +266,9 @@ public class Alumno extends Usuario implements Serializable {
 			return false;
 		return true;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public String toString() {
 		return "Alumno [id_dni=" + dni + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2="
