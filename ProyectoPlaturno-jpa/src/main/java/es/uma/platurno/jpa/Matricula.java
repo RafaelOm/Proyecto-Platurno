@@ -54,7 +54,7 @@ public class Matricula implements Serializable {
 	}
 	@Id
 	protected Long Curso_Academico;
-	
+
 	private String Estado;
 	private String Num_Archivo;
 	private String Turno_Preferente;
@@ -62,7 +62,7 @@ public class Matricula implements Serializable {
 	private String Nuevo_Ingreso;
 	private String Listado_de_Asignaturas;
 	private static final long serialVersionUID = 1L;
-	
+
 	@OneToMany
 	private java.util.List<Mat_Asig> mat_Asigs;
 
@@ -207,7 +207,7 @@ public class Matricula implements Serializable {
 				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_Matricula=" + Fecha_Matricula + ", Nuevo_Ingreso="
 				+ Nuevo_Ingreso + ", Listado_de_Asignaturas=" + Listado_de_Asignaturas + ", mat_Asigs=" + mat_Asigs
 				+ "]";
-	}   
-	
-   
+	}
+
+
 }
