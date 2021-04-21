@@ -23,7 +23,7 @@ public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     public List<Matricula> filtroListaMatriculas(List<List<String>> parametros){
         List<Matricula> lista1, lista2, lista3, listaFin= null;
         if(parametros == null) {
-            Query q = em.createQuery("SELECT m FROM MATRICULA m");
+            Query q = em.createQuery("SELECT m FROM Matricula m");
             listaFin = q.getResultList();
         } else {
             lista1 = filtrarPorAsignaturas(parametros.get(0));
@@ -51,11 +51,11 @@ public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     public  List<Matricula> filtrarPorAsignaturas(List<String> asignatura){
             List<Matricula> listaFiltrada = new ArrayList<Matricula>();
             if(asignatura == null || asignatura.size() == 0){
-                Query m = em.createQuery("SELECT m FROM MATRICULA m");
+                Query m = em.createQuery("SELECT m FROM Matricula m");
                 listaFiltrada = m.getResultList();
             } else {
                 String lista_asig = asignatura.get(0);
-                Query m = em.createQuery("SELECT m FROM MATRICULA m where m.Listado_de_Asignaturas LIKE '%:lista%' ");
+                Query m = em.createQuery("SELECT m FROM Matricula m where m.Listado_de_Asignaturas LIKE '%:lista%' ");
                 m.setParameter("lista", lista_asig);
                 listaFiltrada = m.getResultList();
                 }
@@ -66,19 +66,19 @@ public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     public  List<Matricula> filtrarPorTitulacion(List<String> titulacion){
         List<Matricula> listaFiltrada = new ArrayList<Matricula>();
         if(titulacion == null || titulacion.size() == 0){
-            Query m = em.createQuery("SELECT m FROM MATRICULA m");
+            Query m = em.createQuery("SELECT m FROM Matricula m");
             listaFiltrada = m.getResultList();
         } else {
             List<Matricula> matriculas = new ArrayList<>();
 
             for (int i = 0; i< titulacion.size(); i++){
                 String titulacion_ref = titulacion.get(i);
-                Query q = em.createQuery("SELECT e from Expedientes e where e.titulacion.Codigo = :tit_ref");
+                Query q = em.createQuery("SELECT e from Expediente e where e.titulacion.Codigo = :tit_ref");
                 q.setParameter("tit_ref", "titulacion_ref");
                 List<Expediente> expedientes = q.getResultList();
 
                 for (Expediente exp:expedientes){
-                    q = em.createQuery("SELECT m FROM MATRICULA m WHERE m.expediente.IdExpediente = :exp_ref");
+                    q = em.createQuery("SELECT m FROM Matricula m WHERE m.expediente.IdExpediente = :exp_ref");
                     q.setParameter("exp_ref", exp.getId_Expediente());
                     matriculas.addAll(q.getResultList());
                 }
@@ -93,14 +93,14 @@ public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     public  List<Matricula> filtrarPorCursos(List<String> curso){
         List<Matricula> listaFiltrada = new ArrayList<Matricula>();
         if(curso == null || curso.size() == 0){
-            Query m = em.createQuery("SELECT m FROM MATRICULA m");
+            Query m = em.createQuery("SELECT m FROM Matricula m");
             listaFiltrada = m.getResultList();
         } else {
             List<Matricula> matriculas = new ArrayList<>();
 
             for (int i = 0; i< curso.size(); i++){
                 String curso_acad = curso.get(i);
-                Query q = em.createQuery("SELECT m FROM MATRICULA m where m.Curso_Academico = :ca_ref");
+                Query q = em.createQuery("SELECT m FROM Matricula m where m.Curso_Academico = :ca_ref");
                 q.setParameter("ca_ref", "curso_acad");
                 List<Matricula> matriculaAux = q.getResultList();
                 matriculas.addAll(matriculaAux);

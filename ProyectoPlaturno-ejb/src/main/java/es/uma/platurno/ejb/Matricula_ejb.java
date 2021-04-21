@@ -1,14 +1,13 @@
 package es.uma.platurno.ejb;
 
-import es.uma.platurno.ejb.exceptions.eliminarMatriculaException;
-import es.uma.platurno.ejb.exceptions.modificarMatriculaException;
-import es.uma.platurno.ejb.exceptions.verMatriculaException;
+import es.uma.platurno.ejb.exceptions.*;
 import es.uma.platurno.jpa.*;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import java.sql.Date;
 
 /**
  * Session Bean implementation class Matricula
@@ -25,6 +24,20 @@ public  class Matricula_ejb implements MatriculaInterfaz {
 
     public Matricula_ejb(){
 
+    }
+
+    public Matricula_ejb(String dato1, String dato2, String dato3){
+
+        mat = new Matricula();
+        mat.setFecha_Matricula(Date.valueOf(dato2));
+        mat.setTurno_Preferente(dato3);
+    }
+
+    public Matricula_ejb(String id) throws MatriculaEJBException {
+        Matricula mat = em.find(Matricula.class, id);
+        if(mat == null){
+            throw new MatriculaEJBException("Matricula no encontrada en la BD.");
+        }
     }
 
     // Al modificar se le pasa una lista de parametros de matricula para modificar dicha matricula.
