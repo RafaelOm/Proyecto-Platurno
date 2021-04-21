@@ -1,7 +1,9 @@
 package es.uma.platurno.ejb;
 
-import es.uma.platurno.ejb.exceptions.AsignaturaInexsistenteException;
+import es.uma.platurno.ejb.exceptions.*;
+import es.uma.platurno.jpa.Alumno;
 import es.uma.platurno.jpa.Asignatura;
+import es.uma.platurno.jpa.Usuario;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -17,6 +19,7 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
 
     @PersistenceContext(unitName = "Platurno-Asignatura")
     private EntityManager em;
+    private Autenticacion auth;
     /**
      * Default constructor. 
      */
@@ -25,8 +28,13 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
     }
 
     @Override
-    public Asignatura verAsignatura(String referencia) throws AsignaturaInexsistenteException {
-        Asignatura asig= em.find(Asignatura.class,referencia);
+    public Asignatura verAsignatura(Usuario u, Asignatura a) throws AsignaturaInexsistenteException, PasswordErroneaException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
+
+        Asignatura asig= em.find(Asignatura.class,a.getReferencia());
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }
@@ -35,28 +43,30 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
     }
 
     @Override
-    public void modificarAsignatura(String referencia, Integer Codigo, Integer Creditos,
-                                    String ofertada, String nombre, String curso, String caracter, String duracion, String Idiomas, Integer credPract) throws AsignaturaInexsistenteException {
-        Asignatura asig =em.find(Asignatura.class,referencia);
+    public void modificarAsignatura(Usuario u,Asignatura asignatura) throws AsignaturaInexsistenteException, PasswordErroneaException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException, ViolacionDeSeguridadException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        auth.checkSecretariaRole(u);
+        ////////////////////////////////////////////////////////////////
+
+        Asignatura asig =em.find(Asignatura.class,asignatura.getReferencia());
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }
-        asig.setCodigo(Codigo);
-        asig.setCreditos(Creditos);
-        asig.setOfertada(ofertada);
-        asig.setNombre(nombre);
-        asig.setCurso(curso);
-        asig.setCaracter(caracter);
-        asig.setDuracion(duracion);
-        asig.setIdiomas(Idiomas);
-        asig.setCred_prac(credPract);
+
         em.merge(asig);
 
     }
 
     @Override
-    public void eliminarAsignatura(String referencia) throws AsignaturaInexsistenteException {
-        Asignatura asig= em.find(Asignatura.class,referencia);
+    public void eliminarAsignatura(Usuario u, Asignatura a) throws AsignaturaInexsistenteException, ViolacionDeSeguridadException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        auth.checkSecretariaRole(u);
+        ////////////////////////////////////////////////////////////////
+        Asignatura asig= em.find(Asignatura.class,a.getReferencia());
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }

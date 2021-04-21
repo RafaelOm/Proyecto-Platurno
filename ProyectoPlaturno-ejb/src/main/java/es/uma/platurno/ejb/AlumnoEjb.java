@@ -7,9 +7,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
+@Local
 public class AlumnoEjb implements AlumnoInterface {
 	@PersistenceContext(unitName = "Alumno")
 	private EntityManager em;

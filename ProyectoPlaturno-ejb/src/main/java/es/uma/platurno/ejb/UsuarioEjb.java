@@ -8,10 +8,12 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.net.URL;
 import java.security.SecureRandom;
+import java.util.List;
 
 /**
  * Session Bean implementation class UsuarioEjb
@@ -21,6 +23,7 @@ import java.security.SecureRandom;
 public class UsuarioEjb implements UsuarioEjbInterfaz {
     @PersistenceContext(unitName = "Platurno-Usuario")
     private EntityManager em;
+    private Autenticacion auth;
     /**
      * Default constructor. 
      */
@@ -33,27 +36,27 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     }
 
 
+    //Proceso realizado por la aplicacion al realizar la accion de importar datos un usuario de secretaria
     @Override
-    public void crearUsuarioFromCsvExcel( String Dni) throws PlaturnoException, CuentaExistenteException {
-        Autenticacion a =new Autenticacion();
-        Usuario user = em.find(Usuario.class, Dni);
-        if(user!=null){
-            throw new CuentaExistenteException("La cuenta con DNI: "+Dni+"ya existe en el sistema");
-        }
-        user=new Usuario();
-        user.setUsername(Dni);
+    public void crearUsuarioFromCsvExcel(String dni) throws PlaturnoException, CuentaExistenteException {
+
+        Usuario user=new Usuario();
+        user.setUsername(dni);
         user.setPassword(generateRandomPassword(10));
-
-
         UriBuilder u =null;
-        a.registrarUsuario(user,u);
+        auth.registrarUsuario(user,u);
+
 
     }
 
     @Override
-    public Usuario verUsuario(String username) throws CuentaInexistenceException {
+    public Usuario verUsuario(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
 
-        Usuario user =em.find(Usuario.class,username);
+        Usuario user =em.find(Usuario.class,u.getIdentificador());
         if(user==null){
             throw new CuentaInexistenceException();
         }
@@ -63,9 +66,12 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
 
     @Override
     public void modificar(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
+
         Usuario user =em.find(Usuario.class,u.getIdentificador());
-        Autenticacion a =new Autenticacion();
-        a.compruebaLogin(user);
         if(user==null){
             throw new CuentaInexistenceException();
         }
@@ -79,30 +85,34 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
 
 
     @Override
-    public void moficarClave(String username, String clave, String reClave) throws CuentaInexistenceException, ContrasenaigualException, ClavesDiferentesException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+    public void moficarClave(Usuario u) throws CuentaInexistenceException, ContrasenaigualException, ClavesDiferentesException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
+        Usuario user =em.find(Usuario.class,u.getIdentificador());
 
-        Usuario user =em.find(Usuario.class,username);
-        Autenticacion a =new Autenticacion();
-        a.compruebaLogin(user);
         if(user==null){
             throw new CuentaInexistenceException();
         }
-        if(!clave.equals(reClave)){
-            throw new ClavesDiferentesException();
-        }
-        if(user.getPassword().equals(clave)){
+
+        if(user.getPassword().equals(u.getPassword())){
             throw new ContrasenaigualException();
         }
-        user.setPassword(clave);
+        user.setPassword(u.getPassword());
+        em.merge(user);
 
     }
 
     @Override
-    public void eliminarUsuario(String username) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-        Autenticacion a =new Autenticacion();
-        Usuario u =em.find(Usuario.class,username);
-        a.compruebaLogin(u);
-        em.remove(em.merge(u));
+    public void eliminarUsuario(Usuario u, Usuario Secretaria) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException, ViolacionDeSeguridadException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(Secretaria);
+        auth.checkSecretariaRole(Secretaria);
+        ////////////////////////////////////////////////////////////////
+        Usuario user =em.find(Usuario.class,u.getIdentificador());
+        em.remove(em.merge(user));
 
     }
 

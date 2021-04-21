@@ -2,8 +2,10 @@ package es.uma.platurno.ejb;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -32,13 +34,16 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void registrarUsuario(Usuario u, UriBuilder uribuilder) throws PlaturnoException, CuentaExistenteException {
-        Usuario user =em.find(Usuario.class,u.getUsername());
-        if(user!=null){
-            throw new CuentaExistenteException("El usuario: "+user.getUsername()+" ya esta registrado, si no" +
+        Query getUserWithDni= em.createQuery("SELECT u from Usuario u where u.username = :userq");
+        getUserWithDni.setParameter("userq",u.getUsername());
+        List<Usuario> result =getUserWithDni.getResultList();
+        if(result.size()>=1){
+            throw new CuentaExistenteException("El usuario: "+u.getUsername()+" ya esta registrado, si no" +
                     "recuerda su clave puede recuperarla gratuitamente");
         }
-        user.setValidationChain(randomTokenValidator());//Cadena para validar la cuenta
-        em.persist(user);
+
+        u.setValidationChain(randomTokenValidator());//Cadena para validar la cuenta
+        em.persist(u);
         URI uriValidacion=uribuilder.build(u.getUsername(),u.getValidationChain());
         LOGGER.info(uriValidacion.toString());//Guarda la cadena de validacion en los logs de la aplicacion,
         //en un futuro puede ser enviada por email
@@ -48,8 +53,8 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
 
     @Override
-    public void validarCuenta(String username, String validacion) throws PlaturnoException, CuentaInexistenceException, CuentaYaValidadaException, ValidacionIncorrectaException {
-        Usuario user =em.find(Usuario.class,username);
+    public void validarCuenta(Usuario u, String validacion) throws PlaturnoException, CuentaInexistenceException, CuentaYaValidadaException, ValidacionIncorrectaException {
+        Usuario user =em.find(Usuario.class,u.getIdentificador());
         if(user==null){
             throw new CuentaInexistenceException();
         }
@@ -66,7 +71,7 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void compruebaLogin(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-        Usuario user =em.find(Usuario.class, u.getUsername());
+        Usuario user =em.find(Usuario.class, u.getIdentificador());
         if(user==null) {
             throw new CuentaInexistenceException();
         }
@@ -80,22 +85,18 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     }
 
-    @Override
-    public void logOut(Usuario u) throws PlaturnoException {
 
-    }
 
     @Override
-    public boolean checkSecretariaRole(Usuario u) throws  CuentaInexistenceException {
+    public void checkSecretariaRole(Usuario u) throws CuentaInexistenceException, ViolacionDeSeguridadException {
         Usuario bd=em.find(Usuario.class,u.getIdentificador());
         if(bd==null){
             throw new CuentaInexistenceException("EL USUARIO NO EXISTE");
         }
 
-        if(bd instanceof Secretaria){
-            return true;
-        }else{
-            return false;
+        if(!(bd instanceof Secretaria)){
+           throw new ViolacionDeSeguridadException("ERROR ::::VIOLACION DE SEGURIDAD:::: El usuario: "+u.getUsername()+
+                   " No dispone de permisos para realizar la accion solicitada");
         }
 
     }
