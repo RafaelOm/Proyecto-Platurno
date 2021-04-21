@@ -30,6 +30,7 @@ es\uma\platurno\ejb\AlumnoInterface.class
 es\uma\platurno\ejb\AlumnoEjb.class
 es\uma\platurno\ejb\exceptions\PasswordErroneaException.class
 es\uma\platurno\ejb\exceptions\CuentaInactivaException.class
+es\uma\platurno\ejb\MatriculaEJBException.class
 es\uma\platurno\ejb\exceptions\CuentaExistenteException.class
 es\uma\platurno\ejb\SecretariaEjb.class
 es\uma\platurno\ejb\ListadoAlumnosInterface.class
@@ -37,4 +38,5 @@ es\uma\platurno\ejb\AlertaColisionesHorarios.class
 es\uma\platurno\ejb\GR_ASIGEJBInterfaz.class
 es\uma\platurno\ejb\UsuarioEjb.class
 es\uma\platurno\ejb\exceptions\CuentaYaValidadaException.class
+es\uma\platurno\ejb\AlumnoException.class
 es\uma\platurno\ejb\GR_ASIGEJB.class

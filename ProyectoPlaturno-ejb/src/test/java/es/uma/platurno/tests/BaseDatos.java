@@ -69,6 +69,19 @@ public class BaseDatos {
 		t.setCodigo("100");
 		t.setNombre("Ingenieria Informatica");
 		t.setCreditos("250");
+		em.persist(t);
+
+		Centro c = new Centro();
+		c.setID("1");
+		c.setNombre("ETSII");
+		c.setDireccion("Boulevar");
+		c.setTLF_Conserjeria("1233445");
+		em.persist(c);
+
+		Clase clase = new Clase();
+		clase.setDia("2");
+
+
 
 
 		
