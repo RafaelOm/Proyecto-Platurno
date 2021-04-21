@@ -11,14 +11,14 @@ public interface ExpedienteInterfaz {
     public Expediente ReadExpediente(String id) throws ExpedienteNoExisteException;
 
     public void UpdateExpediente(String id,String Activo,
-                                 String NotaMPr,
-                                 Integer CreditosSup,
-                                 Integer CreditosFB,
-                                 Integer CreditosOP,
-                                 Integer CreditosOB,
-                                 Integer CreditosCF,
-                                 Integer CreditosPE,
-                                 Integer CreditosTF,
+    		Double NotaMPr,
+                                 Double CreditosSup,
+                                 Double CreditosFB,
+                                 Double CreditosOP,
+                                 Double CreditosOB,
+                                 Double CreditosCF,
+                                 Double CreditosPE,
+                                 Double CreditosTF,
                                  String N_Archivo) throws ExpedienteNoExisteException;
 
     public void DeleteExpediente(String id) throws ExpedienteNoExisteException;

@@ -25,7 +25,7 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
 
     }
 
-    @Override
+	@Override
     public Expediente ReadExpediente(String id) throws ExpedienteNoExisteException {
         Expediente exbd = em.find(Expediente.class, id);
         if(exbd == null){
@@ -37,14 +37,14 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
 
     @Override
     public void UpdateExpediente(String id,String Activo,
-            String NotaMPr,
-            Integer CreditosSup,
-            Integer CreditosFB,
-            Integer CreditosOP,
-            Integer CreditosOB,
-            Integer CreditosCF,
-            Integer CreditosPE,
-             Integer CreditosTF,
+    		Double NotaMPr,
+    		Double CreditosSup,
+    		Double CreditosFB,
+            Double CreditosOP,
+            Double CreditosOB,
+            Double CreditosCF,
+            Double CreditosPE,
+            Double CreditosTF,
             String N_Archivo) throws ExpedienteNoExisteException {
         Expediente exbd = em.find(Expediente.class, id);
         if(exbd == null){
