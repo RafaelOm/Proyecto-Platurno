@@ -20,9 +20,6 @@ public class BaseDatos {
 		
 		em.getTransaction().begin();
 
-
-
-		
 		Alumno a = new Alumno();
 		a.setUsername("mEscobar");
 		a.setPassword("manolito");
@@ -53,6 +50,25 @@ public class BaseDatos {
 		asig.setCred_prac(2);
 
 		em.persist(asig);
+
+		Optativa opt = new Optativa();
+
+		opt.setReferencia("300");
+		opt.setCodigo(30);
+		opt.setCreditos(6);
+		opt.setNombre("Domotica");
+		opt.setCurso("2020/2021");
+		opt.setCaracter("Informativo");
+		opt.setDuracion("6 meses");
+		opt.setIdiomas("Español");
+		opt.setCred_prac(6);
+
+		em.persist(opt);
+
+		Titulacion t = new Titulacion();
+		t.setCodigo("100");
+		t.setNombre("Ingenieria Informatica");
+		t.setCreditos("250");
 
 
 		
