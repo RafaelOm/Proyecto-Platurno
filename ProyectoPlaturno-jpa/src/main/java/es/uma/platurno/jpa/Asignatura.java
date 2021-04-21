@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Asignatura implements Serializable {
 
     private static final long serialVersionUID = 1L;

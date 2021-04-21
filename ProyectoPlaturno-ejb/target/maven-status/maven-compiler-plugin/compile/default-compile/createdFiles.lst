@@ -17,6 +17,7 @@ es\uma\platurno\ejb\ExpedienteEJB.class
 es\uma\platurno\ejb\MatriculaInterfaz.class
 es\uma\platurno\ejb\AsignaturasEjb.class
 es\uma\platurno\ejb\IFCSV_Interface.class
+es\uma\platurno\ejb\exceptions\MatriculaEJBException.class
 es\uma\platurno\ejb\ImportarFicheroCSV.class
 es\uma\platurno\ejb\exceptions\EncuestaNoExisteException.class
 es\uma\platurno\ejb\ASIGNAR_GRUPO_AUTO.class

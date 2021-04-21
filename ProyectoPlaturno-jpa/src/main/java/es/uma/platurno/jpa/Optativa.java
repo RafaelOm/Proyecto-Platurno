@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class Optativa extends Asignatura{
 	/**
 	 * 
