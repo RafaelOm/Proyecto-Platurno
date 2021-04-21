@@ -1,29 +1,14 @@
 package es.uma.platurno.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.math.BigDecimal;
-import java.sql.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
-import java.util.logging.Logger;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
-import javax.naming.NamingException;
+import java.util.Properties;
+import java.util.logging.Logger;
 
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import es.uma.platurno.jpa.*;
-import es.uma.platurno.ejb.*;
-
-	public class AsignaturaEjbTest {
+public class AsignaturaEjbTest {
 	
 	private static final Logger LOG = Logger.getLogger(AsignaturaEjbTest.class.getCanonicalName());
 

@@ -1,10 +1,8 @@
 package es.uma.platurno.jpa;
 
-import java.io.Serializable;
-import java.lang.String;
-import java.util.*;
-
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -42,7 +40,7 @@ public class Expediente implements Serializable {
 
 	public Expediente() {
 		super();
-	}   
+	}
 	public String getId_Expediente() {
 		return this.IdExpediente;
 	}
