@@ -13,6 +13,8 @@ import javax.persistence.PersistenceContext;
 /**
  * Session Bean implementation class AsignaturasEjb
  */
+
+//Metodo realizado por Rafael Ordoñez Molina
 @Stateless
 @LocalBean
 public class AsignaturasEjb implements AsignaturasEjbInterfaz {

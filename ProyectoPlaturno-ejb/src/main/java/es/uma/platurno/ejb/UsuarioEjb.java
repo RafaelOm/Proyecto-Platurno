@@ -18,6 +18,8 @@ import java.util.List;
 /**
  * Session Bean implementation class UsuarioEjb
  */
+
+//Metodo realizado por Rafael Ordoñez Molina
 @Stateless
 @LocalBean
 public class UsuarioEjb implements UsuarioEjbInterfaz {

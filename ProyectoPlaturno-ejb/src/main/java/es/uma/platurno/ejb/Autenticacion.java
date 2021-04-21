@@ -17,6 +17,8 @@ import es.uma.platurno.jpa.*;
 /**
  * Session Bean implementation class Autenticacion
  */
+
+//Metodo realizado por Rafael Ordoñez Molina
 @Stateless
 @LocalBean
 public class Autenticacion implements AutenticacionInterfaz  {
