@@ -1,7 +1,8 @@
 package es.uma.platurno.ejb;
 
-import es.uma.platurno.AlumnoException;
+import es.uma.platurno.ejb.exceptions.*;
 import es.uma.platurno.jpa.Alumno;
+import es.uma.platurno.jpa.Usuario;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -109,8 +110,10 @@ public class AlumnoEjb implements AlumnoInterface {
 
 	
 	@Override
-	public void leerAlumno(Alumno a) {
+	public void leerAlumno(Usuario a) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
 		// TODO Auto-generated method stub
+		Autenticacion au = new Autenticacion();
+		au.compruebaLogin(a);
 		Alumno al = em.find(Alumno.class, a.getIdentificador());
 		
 		if ( al != null ) {
@@ -120,19 +123,27 @@ public class AlumnoEjb implements AlumnoInterface {
 	}
 
 	@Override
-	public void eliminarAlumno(Alumno alumno) {
+	public void eliminarAlumno(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
 		// TODO Auto-generated method stub
 		
 		 Autenticacion a =new Autenticacion();
-	     Alumno al =em.find(Alumno.class,alumno.getIdentificador() );
+		 a.compruebaLogin(u);
+		 a.compruebaLogin(u);
+	     Alumno al =em.find(Alumno.class,u.getIdentificador() );
 	     em.remove(em.merge(al));
 	     
 		
 	}
 
 	@Override
-	public void modificarAlumno(Alumno a) throws IOException {
-	   
+	public void modificarAlumno(Usuario a) throws IOException, PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+	   /*
+	    * Beta v1. No definitivo.
+	    */
+		
+		
+		Autenticacion au = new Autenticacion();
+		au.compruebaLogin(a);
 		Alumno al = em.find(Alumno.class,a.getIdentificador());
 	
 		System.out.printf( " Ingrese la opcion que desea usar: ");

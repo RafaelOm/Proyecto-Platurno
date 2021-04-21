@@ -8,13 +8,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
+import es.uma.platurno.ejb.exceptions.CuentaInexistenceException;
+import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
+import es.uma.platurno.ejb.exceptions.PlaturnoException;
+import es.uma.platurno.jpa.Usuario;
+
 public class ListadoAlumnos implements ListadoAlumnosInterface {
+	
+	private Autenticacion auth;
 	
     @PersistenceContext(unitName = "Platurno-Asignatura")
     private EntityManager em;
     
     @Override
-	  public List<AlumnoEjb> getAlumnosList() {
+	  public List<AlumnoEjb> getAlumnosList(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+    	auth=new Autenticacion();
+        auth.compruebaLogin(u);
 	      Query q = em.createQuery("SELECT a FROM ALUMNOS a");
 	      return q.getResultList();
 	  }
@@ -36,9 +46,11 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 	   * 12: Codigo Postal
 	   */
 	  @Override
-	  public List<AlumnoEjb> getAlumnosListFiltered(List<String> filtros) {
+	  public List<AlumnoEjb> getAlumnosListFiltered(Usuario u, List<String> filtros) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+		  auth=new Autenticacion();
+	      auth.compruebaLogin(u);
 		  if(filtros==null) {
-			  return getAlumnosList();
+			  return getAlumnosList(u);
 		  }
 		  
 		  String finalQuery = "SELECT a FROM ALUMNOS a WHERE ";
