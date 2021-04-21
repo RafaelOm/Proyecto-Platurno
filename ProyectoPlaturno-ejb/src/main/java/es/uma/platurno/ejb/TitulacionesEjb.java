@@ -27,7 +27,7 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
         }
         t.setCodigo(cod);
         t.setNombre(nombre);
-        t.setCreditos(creditos);
+        t.setCreditos(creditos.toString());
         
         em.merge(t);
 

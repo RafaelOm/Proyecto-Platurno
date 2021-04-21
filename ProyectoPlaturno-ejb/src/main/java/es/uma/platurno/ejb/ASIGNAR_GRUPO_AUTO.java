@@ -1,6 +1,6 @@
 package es.uma.platurno.ejb;
 
-import es.uma.platurno.ejb.exceptions.EncuestaNoExisteException;
+import es.uma.platurno.ejb.exceptions.*;
 import es.uma.platurno.jpa.*;
 
 import javax.ejb.LocalBean;
@@ -20,6 +20,9 @@ import java.util.List;
 public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
     @PersistenceContext(unitName = "AgendaEE-EntidadesPU")
     private EntityManager em;
+
+    private Autenticacion auth;
+
     /**
      * Default constructor.
      */
@@ -29,7 +32,12 @@ public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
 
 
     @Override
-    public void ASIGNAR(Expediente ex) throws EncuestaNoExisteException {
+    public void ASIGNAR(Usuario u, Expediente ex) throws EncuestaNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
 
         String IDex = ex.getId_Expediente();
         Query qEncuesta = em.createQuery("select e.encuestas from Expediente e where e.IdExpediente = :IDexpediente ");
