@@ -20,6 +20,9 @@ public class BaseDatos {
 		
 		em.getTransaction().begin();
 
+
+
+		//////////////////ALUMNO////////////////////
 		Alumno a = new Alumno();
 		a.setUsername("mEscobar");
 		a.setPassword("manolito");
@@ -38,6 +41,8 @@ public class BaseDatos {
 
 		em.persist(a);
 
+
+		//////////////////ASIGNATURA/////////////////////////
 		Asignatura asig =new Asignatura();
 		asig.setReferencia("146");
 		asig.setCodigo(25);
@@ -51,40 +56,115 @@ public class BaseDatos {
 
 		em.persist(asig);
 
-		Optativa opt = new Optativa();
+		/////////////////  EXPEDIENTE ////////////////
+		Expediente ex = new Expediente();
+		ex.setId_Expediente("11111");
+		ex.setActivo("SI");
+		ex.setNotaMPr(1);
+		ex.setCreditosSup(1.0);
+		ex.setCreditosFB(1.0);
+		ex.setCreditosOP(1.0);
+		ex.setCreditosOB(1.0);
+		ex.setCreditosCF(1.0);
+		ex.setCreditosPE(1.0);
+		ex.setCreditosTF(1.0);
+		ex.setN_Archivo("aaaa");
 
-		opt.setReferencia("300");
-		opt.setCodigo(30);
-		opt.setCreditos(6);
-		opt.setNombre("Domotica");
-		opt.setCurso("2020/2021");
-		opt.setCaracter("Informativo");
-		opt.setDuracion("6 meses");
-		opt.setIdiomas("Español");
-		opt.setCred_prac(6);
+		em.persist(ex);
 
-		em.persist(opt);
+		Expediente ex2 = new Expediente();
+		ex2.setId_Expediente("222222");
+		ex2.setActivo("NO");
+		ex2.setNotaMPr(2);
+		ex2.setCreditosSup(2.0);
+		ex2.setCreditosFB(2.0);
+		ex2.setCreditosOP(2.0);
+		ex2.setCreditosOB(2.0);
+		ex2.setCreditosCF(2.0);
+		ex2.setCreditosPE(2.0);
+		ex2.setCreditosTF(2.0);
+		ex2.setN_Archivo("bbbbb");
 
-		Titulacion t = new Titulacion();
-		t.setCodigo("100");
-		t.setNombre("Ingenieria Informatica");
-		t.setCreditos("250");
-		em.persist(t);
+		em.persist(ex2);
 
+		//////////////////////// Matricula ////////////////////////////
+
+		Matricula m = new Matricula();
+		m.setCurso_Academico(2020L);
+		m.setEstado("Estudiando feliz mente");
+		m.setNum_Archivo("2");
+		m.setTurno_Preferente("Mañana");
+		m.setFecha_Matricula(new Date(2020));
+		m.setNuevo_Ingreso("ANTIGUO");
+		m.setListado_de_Asignaturas("Calculo y Programar");
+
+		em.persist(m);
+
+		Matricula m2 = new Matricula();
+		m2.setCurso_Academico(2020L);
+		m2.setEstado("estudiando");
+		m2.setNum_Archivo("1");
+		m2.setTurno_Preferente("Tarde");
+		m2.setFecha_Matricula(new Date(2020));
+		m2.setNuevo_Ingreso("Nuevo");
+		m2.setListado_de_Asignaturas("Estadistica y Programar");
+
+		em.persist(m2);
+		////////////////////////////////GRUPO////////////////////////////////////
+
+		Grupo grupo = new Grupo();
+		grupo.setId("123");
+		grupo.setCurso(2);
+		grupo.setLetra("A");
+		grupo.setTurno("MAÑANA");
+		grupo.setIngles("NO");
+		grupo.setVisible("SI");
+		grupo.setAsignar("asignar");
+		grupo.setPlazas(3);
+		grupo.setLetra1("B");
+
+		em.persist(grupo);
+
+		Grupo grupo2 = new Grupo();
+		grupo2.setId("222");
+		grupo2.setCurso(3);
+		grupo2.setLetra("B");
+		grupo2.setTurno("TARDE");
+		grupo2.setIngles("SI");
+		grupo2.setVisible("NO");
+		grupo2.setAsignar("asignar");
+		grupo2.setPlazas(3);
+		grupo2.setLetra1("C");
+
+		em.persist(grupo2);
+
+		/////////////////////CENTRO//////////////////
 		Centro c = new Centro();
 		c.setID("1");
 		c.setNombre("ETSII");
 		c.setDireccion("Boulevar");
 		c.setTLF_Conserjeria("1233445");
 		em.persist(c);
-
+		/////////////////////CLASE//////////////////
 		Clase clase = new Clase();
 		clase.setDia("2");
+		clase.setHoraInicio("1");
+		clase.setHoraFin("2");
 
+		em.persist(clase);
+		////////////////////////////////MAT_ASIG////////////////////////////////////
 
+		Mat_Asig mat_asig = new Mat_Asig();
+		mat_asig.setAsignatura(asig);
+		mat_asig.setMatricula(m);
+		mat_asig.setGrupo(grupo);
 
+		em.persist(mat_asig);
 
-		
+		//////////////////////////////////GR_ASIG///////////////////////////////////
+
+		GR_ASIG gr_asig = new GR_ASIG();
+		///////////////////////////////////////////////////////////////////////////
 		em.getTransaction().commit();
 		
 		em.close();

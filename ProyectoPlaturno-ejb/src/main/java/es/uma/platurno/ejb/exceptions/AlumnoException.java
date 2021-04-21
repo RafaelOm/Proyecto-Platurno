@@ -1,4 +1,4 @@
-package es.uma.platurno.ejb;
+package es.uma.platurno.ejb.exceptions;
 
 public class AlumnoException extends RuntimeException {
 
