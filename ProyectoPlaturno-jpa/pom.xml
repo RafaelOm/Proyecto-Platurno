@@ -5,49 +5,22 @@
     <artifactId>ProyectoPlaturno.GrupoF</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>ProyectoPlaturno-ejb</artifactId>
-  <name>EJB</name>
-<description>Enterprise Java Beans de la aplicación</description>
-<properties>
-  	<maven.compiler.source>1.8</maven.compiler.source>
-  	<maven.compiler.target>1.8</maven.compiler.target>
-  	<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-  </properties>
-    <scm>
+  <artifactId>ProyectoPlaturno-jpa</artifactId>
+  <name>JPA</name>
+  
+   <description>Entidades JPA de la aplicación</description>
+  <scm>
   	<url>https://github.com/RafaelOm/Proyecto-Platurno.git</url>
   </scm>
-  
+  <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <dependencies>
   	<dependency>
   		<groupId>javax</groupId>
   		<artifactId>javaee-api</artifactId>
   		<scope>provided</scope>
   	</dependency>
-  	
-  	<dependency>
-		<groupId>org.apache.poi</groupId>
-		<artifactId>poi</artifactId>
-		<version>5.0.0</version>
-	</dependency>
-
-	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-csv</artifactId>
-		<version>1.6</version>
-	</dependency>
-      <dependency>
-          <groupId>uma</groupId>
-          <artifactId>ProyectoPlaturno-jpa</artifactId>
-          <version>0.0.1-SNAPSHOT</version>
-          <scope>compile</scope>
-      </dependency>
-
   </dependencies>
-  
-    <build>
-
-  </build>
-
-
-
 </project>
