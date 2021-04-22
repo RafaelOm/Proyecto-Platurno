@@ -7,7 +7,6 @@ import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.GR_ASIG;
 import es.uma.platurno.jpa.Usuario;
-import org.graalvm.compiler.lir.LIRInstruction;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
