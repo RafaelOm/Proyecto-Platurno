@@ -11,9 +11,6 @@ import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.ejb.exceptions.ViolacionDeSeguridadException;
 import es.uma.platurno.jpa.Usuario;
 
-import javax.ejb.Local;
-
-@Local
 public interface IFCSV_Interface {
 
 	public void leerCSV(File pathToCsv, Usuario U) throws FileNotFoundException, ExpedienteNoExisteException, CuentaInexistenceException, ViolacionDeSeguridadException, PlaturnoException, CuentaInactivaException, PasswordErroneaException;
