@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @LocalBean
 public class ExpedienteEJB implements ExpedienteInterfaz {
-    @PersistenceContext(unitName = "Platurno")
+    @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
 
     /**

@@ -11,7 +11,7 @@ import es.uma.platurno.jpa.Encuesta;
 @Stateless
 public class EncuestaEJB implements EncuestaInterfaceEJB {
 	
-	@PersistenceContext(unitName = "Platurno")
+	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
 	private EntityManager em;
 	
 	public EncuestaEJB()

@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
-	@PersistenceContext(unitName = "Platurno")
+	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
 	
 	public void generarSolicitud(GR_ASIG antiguo, GR_ASIG nuevo, Usuario U) throws GR_ASIG_GrupoNoExisteException {

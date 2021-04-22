@@ -11,7 +11,7 @@ import es.uma.platurno.jpa.Titulacion;
 @Local
 @Stateless
 public class TitulacionesEjb implements TitulacionesEjbInterface {
-	//@PersistenceContext(unitName = "Platurno")
+	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
 	private EntityManager em;
 	 
 	@Override

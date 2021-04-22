@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 @LocalBean
 public class GR_ASIGEJB implements GR_ASIGEJBInterfaz {
-    @PersistenceContext(unitName = "Platurno")
+    @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
     private Autenticacion auth;
 
@@ -27,7 +27,7 @@ public class GR_ASIGEJB implements GR_ASIGEJBInterfaz {
     }
 
     @Override
-    public GR_ASIG ReadGR_ASIG(Usuario u, int curso_act, int referencia, int id_grupo) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+    public GR_ASIG ReadGR_ASIG(Usuario u, int curso_act, String referencia, String id_grupo) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
 
         //////Check if user is authenticated in the system  ////////////
         auth=new Autenticacion();
@@ -42,14 +42,14 @@ public class GR_ASIGEJB implements GR_ASIGEJBInterfaz {
     }
 
     @Override
-    public void UpdateGR_ASIG(Usuario u,int curso_act, int referencia, int id_grupo, int oferta) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+    public void UpdateGR_ASIG(Usuario u, int curso_act, String referencia, String id_grupo, int oferta) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         GR_ASIG bd = ReadGR_ASIG(u,curso_act, referencia, id_grupo);
         bd.setOferta(oferta);
         em.merge(bd);
     }
 
     @Override
-    public void DeleteGR_ASIG(Usuario u,int curso_act, int referencia, int id_grupo) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+    public void DeleteGR_ASIG(Usuario u, int curso_act, String referencia, String id_grupo) throws GR_ASIG_GrupoNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         GR_ASIG bd = ReadGR_ASIG(u,curso_act, referencia, id_grupo);
         em.remove(bd);
     }

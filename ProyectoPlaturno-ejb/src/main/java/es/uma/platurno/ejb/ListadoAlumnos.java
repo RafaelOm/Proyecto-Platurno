@@ -22,7 +22,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 	
 	private Autenticacion auth;
 	
-    @PersistenceContext(unitName = "Platurno")
+    @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
     
     @Override

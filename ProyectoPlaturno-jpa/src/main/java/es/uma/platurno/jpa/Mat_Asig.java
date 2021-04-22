@@ -38,7 +38,7 @@ public class Mat_Asig implements Serializable {
 		 */
 		private static final long serialVersionUID = 1L;
 		
-		private Long matricula;
+		private Matricula.MatriculaID matricula;
 		private String asignatura;
 		@Override
 		public int hashCode() {

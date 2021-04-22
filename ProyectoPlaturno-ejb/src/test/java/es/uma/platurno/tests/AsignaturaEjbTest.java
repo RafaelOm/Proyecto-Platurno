@@ -24,12 +24,12 @@ public class AsignaturaEjbTest {
 	
 	private static final Logger LOG = Logger.getLogger(AsignaturaEjbTest.class.getCanonicalName());
 
-	private static final String ASIGNATURAEJB = "java:global/classes/AsignaturasEjb";
+	private static final String ASIGNATURAEJB = "target/classes/es/uma/platurno/ejb/AsignaturasEjb.class";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
 	private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
-	private static final String USUARIOEJB = "java:global/classes/UsuarioEjb";
-	private static final String AUTENTICACION = "java:global/classes/Autenticacion";
-	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "TrazabilidadTest";
+	private static final String USUARIOEJB = "target/classes/es/uma/platurno/ejb/UsuarioEjb.class";
+	private static final String AUTENTICACION = "target/classes/es/uma/platurno/ejb/Autenticacion.class";
+	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 	
 	private static EJBContainer ejbContainer;
 	private static Context ctx;

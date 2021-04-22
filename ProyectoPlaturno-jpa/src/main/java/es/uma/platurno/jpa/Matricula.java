@@ -3,10 +3,7 @@
 
 package es.uma.platurno.jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
@@ -70,6 +67,18 @@ public class Matricula implements Serializable {
 	
 	@OneToMany
 	private java.util.List<Mat_Asig> mat_Asigs;
+
+	@Id
+	@ManyToOne
+	private Expediente IdExpediente;
+
+	public Expediente getIdExpediente() {
+		return IdExpediente;
+	}
+
+	public void setIdExpediente(Expediente idExpediente) {
+		IdExpediente = idExpediente;
+	}
 
 	public Matricula() {
 		super();

@@ -7,127 +7,167 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-
+/* Entidad que representa a la entidad Expediente. Usamos la interfaz serializable
+ * para poder mandar los datos a la BD. */
 @Entity
-
+@Table(name = "Expediente")
 public class Expediente implements Serializable {
 
-	   
+	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
+	nullable simboliza los atributos que son obligatorios en la BD. */
 	@Id
-	private String IdExpediente;
-	private String Activo;
-	private Double NotaMPr;
-	private Double CreditosSup;
-	private Double CreditosFB;
-	private Double CreditosOP;
-	private Double CreditosOB;
-	private Double CreditosCF;
-	private Double CreditosPE;
-	private Double CreditosTF;
-	@Column(nullable = false)
-	private String N_Archivo;
+	@Column(name = "Expediente")
+	private String expediente;
+
+	@Column(name = "Activo")
+	private String activo;
+
+	@Column(name = "NotaMPr")
+	private Double notampr;
+
+	@Column(name = "CreditosSup")
+	private Double creditosSup;
+
+	@Column(name = "CreditosFB")
+	private Double creditosFB;
+
+	@Column(name = "CreditosOP")
+	private Double creditosOP;
+
+	@Column(name = "CreditosOB")
+	private Double creditosOB;
+
+	@Column(name = "CreditosCF")
+	private Double creditosCF;
+
+	@Column(name = "CreditosPE")
+	private Double creditosPE;
+
+	@Column(name = "CreditosTF")
+	private Double creditosTF;
+	
+	@Column(name = "N_Archivo", nullable = false)
+	private String n_archivo;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	private static final long serialVersionUID = 1L;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
 
 	@ManyToOne
+	@JoinColumn(name = "Titulacion_FK")
     private Titulacion titulacion;
 	
 	@ManyToOne
+	@JoinColumn(name = "Alumno_FK")
     private Alumno alumno;
 	
 	@OneToMany
-	private List<Encuesta> encuestas;
+	@JoinColumn(name = "Encuesta_FK")
+	private List<Encuesta> encuesta;
 	
 	@OneToMany
-	private List<Matricula> matriculas;
-	
-	private static final long serialVersionUID = 1L;
+	@JoinColumn(name = "Matricula_FK")
+	private List<Matricula> matricula;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Constructor vacio, los bean (ejb) seran los que se encarguen de cambiarle los valores */
 
 	public Expediente() {
-		super();
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Getters, Setters, equals, hashcode y toString. */
+
 	public String getId_Expediente() {
-		return this.IdExpediente;
+		return this.expediente;
 	}
 
 	public void setId_Expediente(String s) {
-		this.Activo = s;
+		this.activo = s;
 	}   
 	public String getActivo() {
-		return this.Activo;
+		return this.activo;
 	}
 
 	public void setActivo(String s) {
-		this.Activo = s;
+		this.activo = s;
 	}   
 	
 	public double getNotaMPr() {
-		return this.NotaMPr;
+		return this.notampr;
 	}
 
 	public void setNotaMPr(double notaMPr2) {
-		this.NotaMPr = notaMPr2;
+		this.notampr = notaMPr2;
 	}   
 	
 	public double getCreditosSup() {
-		return this.CreditosSup;
+		return this.creditosSup;
 	}
 
 	public void setCreditosSup(Double CreditosSup) {
-		this.CreditosSup = CreditosSup;
+		this.creditosSup = CreditosSup;
 	}   
 	
 	public double getCreditosFB() {
-		return this.CreditosFB;
+		return this.creditosFB;
 	}
 
 	public void setCreditosFB(Double CreditosFB) {
-		this.CreditosFB = CreditosFB;
+		this.creditosFB = CreditosFB;
 	}   
 	
 	public double getCreditosOP() {
-		return this.CreditosOP;
+		return this.creditosOP;
 	}
 
 	public void setCreditosOP(Double CreditosOP) {
-		this.CreditosOP = CreditosOP;
+		this.creditosOP = CreditosOP;
 	}   
 	
 	public double getCreditosOB() {
-		return this.CreditosOB;
+		return this.creditosOB;
 	}
 
 	public void setCreditosOB(Double CreditosOB) {
-		this.CreditosOB = CreditosOB;
+		this.creditosOB = CreditosOB;
 	}   
 	
 	public double getCreditosCF() {
-		return this.CreditosCF;
+		return this.creditosCF;
 	}
 
 	public void setCreditosCF(Double CreditosCF) {
-		this.CreditosCF = CreditosCF;
+		this.creditosCF = CreditosCF;
 	}   
 	
 	public double getCreditosPE() {
-		return this.CreditosPE;
+		return this.creditosPE;
 	}
 
 	public void setCreditosPE(Double CreditosPE) {
-		this.CreditosPE = CreditosPE;
+		this.creditosPE = CreditosPE;
 	}   
 	
 	public double getCreditosTF() {
-		return this.CreditosTF;
+		return this.creditosTF;
 	}
 
 	public void setCreditosTF(Double CreditosTF) {
-		this.CreditosTF = CreditosTF;
+		this.creditosTF = CreditosTF;
 	}   
 	public String getN_Archivo() {
-		return this.N_Archivo;
+		return this.n_archivo;
 	}
 
 	public void setN_Archivo(String N_Archivo) {
-		this.N_Archivo = N_Archivo;
+		this.n_archivo = N_Archivo;
 	}   
 	
 	public Alumno getAlumno() {
@@ -146,42 +186,48 @@ public class Expediente implements Serializable {
 		this.titulacion = t;
 	}
 	
-	public List<Encuesta> getEncuestas() {
-		return this.encuestas;
+	public List<Encuesta> getEncuesta() {
+		return this.encuesta;
 	}
 	
-	public void setEncuestas(List<Encuesta> t) {
-		this.encuestas = t;
+	public void setEncuesta(List<Encuesta> t) {
+		this.encuesta = t;
 	}
 	
-	public List<Matricula> getMatriculas() {
-		return this.matriculas;
+	public List<Matricula> getMatricula() {
+		return this.matricula;
 	}
 	
-	public void setMatriculas(List<Matricula> t) {
-		this.matriculas = t;
+	public void setMatricula(List<Matricula> t) {
+		this.matricula = t;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Activo == null) ? 0 : Activo.hashCode());
-		result = prime * result + ((CreditosCF < 0) ? 0 : CreditosCF.hashCode());
-		result = prime * result + ((CreditosFB == null) ? 0 : CreditosFB.hashCode());
-		result = prime * result + ((CreditosOB == null) ? 0 : CreditosOB.hashCode());
-		result = prime * result + ((CreditosOP == null) ? 0 : CreditosOP.hashCode());
-		result = prime * result + ((CreditosPE == null) ? 0 : CreditosPE.hashCode());
-		result = prime * result + ((CreditosSup == null) ? 0 : CreditosSup.hashCode());
-		result = prime * result + ((CreditosTF == null) ? 0 : CreditosTF.hashCode());
-		result = prime * result + ((IdExpediente == null) ? 0 : IdExpediente.hashCode());
-		result = prime * result + ((N_Archivo == null) ? 0 : N_Archivo.hashCode());
-		result = prime * result + ((NotaMPr == null) ? 0 : NotaMPr.hashCode());
+		result = prime * result + ((activo == null) ? 0 : activo.hashCode());
+		result = prime * result + ((creditosCF < 0) ? 0 : creditosCF.hashCode());
+		result = prime * result + ((creditosFB == null) ? 0 : creditosFB.hashCode());
+		result = prime * result + ((creditosOB == null) ? 0 : creditosOB.hashCode());
+		result = prime * result + ((creditosOP == null) ? 0 : creditosOP.hashCode());
+		result = prime * result + ((creditosPE == null) ? 0 : creditosPE.hashCode());
+		result = prime * result + ((creditosSup == null) ? 0 : creditosSup.hashCode());
+		result = prime * result + ((creditosTF == null) ? 0 : creditosTF.hashCode());
+		result = prime * result + ((expediente == null) ? 0 : expediente.hashCode());
+		result = prime * result + ((n_archivo == null) ? 0 : n_archivo.hashCode());
+		result = prime * result + ((notampr == null) ? 0 : notampr.hashCode());
 		result = prime * result + ((alumno == null) ? 0 : alumno.hashCode());
-		result = prime * result + ((encuestas == null) ? 0 : encuestas.hashCode());
-		result = prime * result + ((matriculas == null) ? 0 : matriculas.hashCode());
+		result = prime * result + ((encuesta == null) ? 0 : encuesta.hashCode());
+		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		return result;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -191,75 +237,75 @@ public class Expediente implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Expediente other = (Expediente) obj;
-		if (Activo == null) {
-			if (other.Activo != null)
+		if (activo == null) {
+			if (other.activo != null)
 				return false;
-		} else if (!Activo.equals(other.Activo))
+		} else if (!activo.equals(other.activo))
 			return false;
-		if (CreditosCF == null) {
-			if (other.CreditosCF != null)
+		if (creditosCF == null) {
+			if (other.creditosCF != null)
 				return false;
-		} else if (!CreditosCF.equals(other.CreditosCF))
+		} else if (!creditosCF.equals(other.creditosCF))
 			return false;
-		if (CreditosFB == null) {
-			if (other.CreditosFB != null)
+		if (creditosFB == null) {
+			if (other.creditosFB != null)
 				return false;
-		} else if (!CreditosFB.equals(other.CreditosFB))
+		} else if (!creditosFB.equals(other.creditosFB))
 			return false;
-		if (CreditosOB == null) {
-			if (other.CreditosOB != null)
+		if (creditosOB == null) {
+			if (other.creditosOB != null)
 				return false;
-		} else if (!CreditosOB.equals(other.CreditosOB))
+		} else if (!creditosOB.equals(other.creditosOB))
 			return false;
-		if (CreditosOP == null) {
-			if (other.CreditosOP != null)
+		if (creditosOP == null) {
+			if (other.creditosOP != null)
 				return false;
-		} else if (!CreditosOP.equals(other.CreditosOP))
+		} else if (!creditosOP.equals(other.creditosOP))
 			return false;
-		if (CreditosPE == null) {
-			if (other.CreditosPE != null)
+		if (creditosPE == null) {
+			if (other.creditosPE != null)
 				return false;
-		} else if (!CreditosPE.equals(other.CreditosPE))
+		} else if (!creditosPE.equals(other.creditosPE))
 			return false;
-		if (CreditosSup == null) {
-			if (other.CreditosSup != null)
+		if (creditosSup == null) {
+			if (other.creditosSup != null)
 				return false;
-		} else if (!CreditosSup.equals(other.CreditosSup))
+		} else if (!creditosSup.equals(other.creditosSup))
 			return false;
-		if (CreditosTF == null) {
-			if (other.CreditosTF != null)
+		if (creditosTF == null) {
+			if (other.creditosTF != null)
 				return false;
-		} else if (!CreditosTF.equals(other.CreditosTF))
+		} else if (!creditosTF.equals(other.creditosTF))
 			return false;
-		if (IdExpediente == null) {
-			if (other.IdExpediente != null)
+		if (expediente == null) {
+			if (other.expediente != null)
 				return false;
-		} else if (!IdExpediente.equals(other.IdExpediente))
+		} else if (!expediente.equals(other.expediente))
 			return false;
-		if (N_Archivo == null) {
-			if (other.N_Archivo != null)
+		if (n_archivo == null) {
+			if (other.n_archivo != null)
 				return false;
-		} else if (!N_Archivo.equals(other.N_Archivo))
+		} else if (!n_archivo.equals(other.n_archivo))
 			return false;
-		if (NotaMPr == null) {
-			if (other.NotaMPr != null)
+		if (notampr == null) {
+			if (other.notampr != null)
 				return false;
-		} else if (!NotaMPr.equals(other.NotaMPr))
+		} else if (!notampr.equals(other.notampr))
 			return false;
 		if (alumno == null) {
 			if (other.alumno != null)
 				return false;
 		} else if (!alumno.equals(other.alumno))
 			return false;
-		if (encuestas == null) {
-			if (other.encuestas != null)
+		if (encuesta == null) {
+			if (other.encuesta != null)
 				return false;
-		} else if (!encuestas.equals(other.encuestas))
+		} else if (!encuesta.equals(other.encuesta))
 			return false;
-		if (matriculas == null) {
-			if (other.matriculas != null)
+		if (matricula == null) {
+			if (other.matricula != null)
 				return false;
-		} else if (!matriculas.equals(other.matriculas))
+		} else if (!matricula.equals(other.matricula))
 			return false;
 		if (titulacion == null) {
 			if (other.titulacion != null)
@@ -268,13 +314,16 @@ public class Expediente implements Serializable {
 			return false;
 		return true;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public String toString() {
-		return "Expediente [IdExpediente=" + IdExpediente + ", Activo=" + Activo + ", NotaMPr=" + NotaMPr
-				+ ", CreditosSup=" + CreditosSup + ", CreditosFB=" + CreditosFB + ", CreditosOP=" + CreditosOP
-				+ ", CreditosOB=" + CreditosOB + ", CreditosCF=" + CreditosCF + ", CreditosPE=" + CreditosPE
-				+ ", CreditosTF=" + CreditosTF + ", N_Archivo=" + N_Archivo + ", titulacion=" + titulacion + ", alumno="
-				+ alumno + ", encuestas=" + encuestas + ", matriculas=" + matriculas + "]";
+		return "Expediente [IdExpediente=" + expediente + ", Activo=" + activo + ", NotaMPr=" + notampr
+				+ ", CreditosSup=" + creditosSup + ", CreditosFB=" + creditosFB + ", CreditosOP=" + creditosOP
+				+ ", CreditosOB=" + creditosOB + ", CreditosCF=" + creditosCF + ", CreditosPE=" + creditosPE
+				+ ", CreditosTF=" + creditosTF + ", N_Archivo=" + n_archivo + ", titulacion=" + titulacion + ", alumno="
+				+ alumno + ", encuestas=" + encuesta + ", matriculas=" + matricula + "]";
 	}
 	
    

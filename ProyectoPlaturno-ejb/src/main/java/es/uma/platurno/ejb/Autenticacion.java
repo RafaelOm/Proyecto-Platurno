@@ -22,7 +22,7 @@ import es.uma.platurno.jpa.*;
 @Stateless
 @LocalBean
 public class Autenticacion implements AutenticacionInterfaz  {
-    @PersistenceContext(unitName = "Platurno")
+    @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
     private static final int TAM_CADENA_VALIDACION = 64;
     private static final Logger LOGGER = Logger.getLogger(Autenticacion.class.getCanonicalName());

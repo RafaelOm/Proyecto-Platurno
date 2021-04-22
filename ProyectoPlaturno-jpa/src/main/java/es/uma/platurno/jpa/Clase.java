@@ -3,82 +3,111 @@
 
 package es.uma.platurno.jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Entity implementation class for Entity: Clase
  *
  */
+
+/* Entidad que representa a la entidad Clase. Usamos la interfaz serializable
+ * para poder mandar los datos a la BD.*/
 @Entity
 @IdClass(Clase.ClaseId.class)
 public class Clase implements Serializable {
-	
+
+	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
+       nullable simboliza los atributos que son obligatorios en la BD. Ademas como tenemos una clave primaria
+       compuesta, tenemos que usar una clase estatica para emular el ID. */
+
 	public static class ClaseId implements Serializable{
-		/**
-		 * 
-		 */
+
 		private static final long serialVersionUID = 1L;
-		private String HoraInicio;
-		private String Dia;
+		private String dia;
+		private String horaInicio;
 		private String grupo;
 	}
 
 	   
 	@Id
-	private String Dia;   
+	@Column (name = "Dia")
+	private String dia;
 	
 	@Id
-	private String HoraInicio;
-	
-	private String HoraFin;
+	@Column (name = "Hora_Inicio")
+	private String horaInicio;
+
+	@Column (name = "Hora_Fin")
+	private String horaFin;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	private static final long serialVersionUID = 1L;
-	
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
+
 	@ManyToOne
+	@JoinColumn(name = "En clases se imparten ")
 	private Asignatura asignatura;
 	
 	@Id
 	@ManyToOne
+	@JoinColumn(name = "Clases imparten a ")
 	private Grupo grupo;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Constructor vacio, los bean (ejb) seran los que se encarguen de cambiarle los valores */
 
 	public Clase() {
 		super();
-	}   
+	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Getters, Setters, equals, hashcode y toString. */
+
 	public String getDia() {
-		return this.Dia;
+		return this.dia;
 	}
 
 	public void setDia(String Dia) {
-		this.Dia = Dia;
+		this.dia = Dia;
 	}   
 	public String getHoraInicio() {
-		return this.HoraInicio;
+		return this.horaInicio;
 	}
 
 	public void setHoraInicio(String HoraInicio) {
-		this.HoraInicio = HoraInicio;
+		this.horaInicio = HoraInicio;
 	}   
 	public String getHoraFin() {
-		return this.HoraFin;
+		return this.horaFin;
 	}
 
 	public void setHoraFin(String HoraFin) {
-		this.HoraFin = HoraFin;
+		this.horaFin = HoraFin;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Dia == null) ? 0 : Dia.hashCode());
-		result = prime * result + ((HoraFin == null) ? 0 : HoraFin.hashCode());
-		result = prime * result + ((HoraInicio == null) ? 0 : HoraInicio.hashCode());
+		result = prime * result + ((dia == null) ? 0 : dia.hashCode());
+		result = prime * result + ((horaFin == null) ? 0 : horaFin.hashCode());
+		result = prime * result + ((horaInicio == null) ? 0 : horaInicio.hashCode());
 		result = prime * result + ((asignatura == null) ? 0 : asignatura.hashCode());
 		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
 		return result;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,20 +117,20 @@ public class Clase implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Clase other = (Clase) obj;
-		if (Dia == null) {
-			if (other.Dia != null)
+		if (dia == null) {
+			if (other.dia != null)
 				return false;
-		} else if (!Dia.equals(other.Dia))
+		} else if (!dia.equals(other.dia))
 			return false;
-		if (HoraFin == null) {
-			if (other.HoraFin != null)
+		if (horaFin == null) {
+			if (other.horaFin != null)
 				return false;
-		} else if (!HoraFin.equals(other.HoraFin))
+		} else if (!horaFin.equals(other.horaFin))
 			return false;
-		if (HoraInicio == null) {
-			if (other.HoraInicio != null)
+		if (horaInicio == null) {
+			if (other.horaInicio != null)
 				return false;
-		} else if (!HoraInicio.equals(other.HoraInicio))
+		} else if (!horaInicio.equals(other.horaInicio))
 			return false;
 		if (asignatura == null) {
 			if (other.asignatura != null)
@@ -115,9 +144,12 @@ public class Clase implements Serializable {
 			return false;
 		return true;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public String toString() {
-		return "Clase [Dia=" + Dia + ", HoraInicio=" + HoraInicio + ", HoraFin=" + HoraFin + ", asignatura="
+		return "Clase [Dia=" + dia + ", HoraInicio=" + horaInicio + ", HoraFin=" + horaFin + ", asignatura="
 				+ asignatura + ", grupo=" + grupo + "]";
 	}
    

@@ -144,7 +144,7 @@ public class BaseDatos {
 
 		/////////////////////CENTRO//////////////////
 		Centro c = new Centro();
-		c.setID("1");
+		c.setId("1");
 		c.setNombre("ETSII");
 		c.setDireccion("Boulevar");
 		c.setTLF_Conserjeria("1233445");
@@ -161,17 +161,7 @@ public class BaseDatos {
 
 
 		em.persist(mat_asig);
-		//////////////////////////////////GR_ASIG///////////////////////////////////
 
-		GR_ASIG gr_asig = new GR_ASIG();
-		gr_asig.setAsig(asig);
-		gr_asig.setOferta(2);
-		gr_asig.setCurso_act(2);
-		List<Encuesta> encuestaList = null;
-		gr_asig.setLista_encuestas(encuestaList);
-		gr_asig.setGroup(grupo);
-
-		em.persist(gr_asig);
 		/////////////////  EXPEDIENTE ////////////////
 		Expediente ex = new Expediente();
 		ex.setId_Expediente("11111");
@@ -212,6 +202,18 @@ public class BaseDatos {
 		encuesta.setFecha_de_Envio(new Date(2020));
 
 		em.persist(encuesta);
+
+		//////////////////////////////////GR_ASIG///////////////////////////////////
+
+		GR_ASIG gr_asig = new GR_ASIG();
+		gr_asig.setAsig(asig);
+		gr_asig.setOferta(2);
+		gr_asig.setCurso_act(2);
+		List<Encuesta> encuestaList = null;
+		gr_asig.setEncuesta(encuesta);
+		gr_asig.setGroup(grupo);
+
+		em.persist(gr_asig);
 		em.getTransaction().commit();
 		
 		em.close();

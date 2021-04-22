@@ -12,42 +12,84 @@ import java.util.List;
  *
  */
 
+/* Entidad que representa a la entidad Grupo. Usamos la interfaz serializable
+ * para poder mandar los datos a la BD.*/
 @Entity
-
+@Table (name = "Grupo")
 public class Grupo implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
+	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
+       nullable simboliza los atributos que son obligatorios en la BD. */
 	@Id
+	@Column (name = "ID")
 	private String id;
-	@Column (nullable = false)
-	private int Curso;
-	@Column (nullable = false)
-	private String Letra;
-	@Column (nullable = false)
-	private String Turno;
-	@Column (nullable = false)
-	private String Ingles;
-	@Column (nullable = false)
+
+	@Column (name = "Curso", unique = true)
+	private int curso;
+
+	@Column (name = "Letra", unique = true)
+	private String letra;
+
+	@Column (name = "Turno", nullable = false)
+	private String turno;
+
+	@Column (name = "Ingles", nullable = false)
+	private String ingles;
+
+	@Column (name = "Visible")
 	private String visible;
+
+	@Column (name = "Asignar")
 	private String asignar;
-	private int Plazas;
+
+	@Column (name = "Plazas")
+	private int plazas;
+
+	@Column (name = "Letra1")
 	private String letra1;
-	
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	private static final long serialVersionUID = 1L;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
+
 	@OneToMany
+	@JoinColumn (name = "Grupo relacionado con")
 	private List<Grupo> grupos;
+
+	@JoinColumn (name = "Grupo es relacionado con")
 	@ManyToOne
 	private Grupo grupo;
+
 	@OneToMany
+	@JoinColumn (name = "Grupo tiene asignaturas matriculadas ")
 	private List<Mat_Asig> mat_asig;
+
 	@OneToMany
+	@JoinColumn (name = "Grupo tiene clases")
 	private List<Clase> clase;
+
 	@OneToMany
+	@JoinColumn (name = "Grupos de asignaturas")
 	private List<GR_ASIG> grupos_asig;
+
 	@ManyToOne
+	@JoinColumn (name = "Grupo tiene titulacion")
 	private Titulacion titulo;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Constructor vacio, los bean (ejb) seran los que se encarguen de cambiarle los valores */
+
+	public Grupo(){}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Getters, Setters, equals, hashcode y toString. */
+
 	public String getId() {
 		return id;
 	}
@@ -55,28 +97,28 @@ public class Grupo implements Serializable {
 		this.id = id;
 	}
 	public int getCurso() {
-		return Curso;
+		return curso;
 	}
 	public void setCurso(int curso) {
-		Curso = curso;
+		this.curso = curso;
 	}
 	public String getLetra() {
-		return Letra;
+		return letra;
 	}
 	public void setLetra(String letra) {
-		Letra = letra;
+		letra = letra;
 	}
 	public String getTurno() {
-		return Turno;
+		return turno;
 	}
 	public void setTurno(String turno) {
-		Turno = turno;
+		this.turno = turno;
 	}
 	public String getIngles() {
-		return Ingles;
+		return ingles;
 	}
 	public void setIngles(String ingles) {
-		Ingles = ingles;
+		this.ingles = ingles;
 	}
 	public String getVisible() {
 		return visible;
@@ -91,10 +133,10 @@ public class Grupo implements Serializable {
 		this.asignar = asignar;
 	}
 	public int getPlazas() {
-		return Plazas;
+		return plazas;
 	}
 	public void setPlazas(int plazas) {
-		Plazas = plazas;
+		this.plazas = plazas;
 	}
 	public String getLetra1() {
 		return letra1;
@@ -132,15 +174,18 @@ public class Grupo implements Serializable {
 	public void setTitulo(Titulacion titulo) {
 		this.titulo = titulo;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Curso;
-		result = prime * result + ((Ingles == null) ? 0 : Ingles.hashCode());
-		result = prime * result + ((Letra == null) ? 0 : Letra.hashCode());
-		result = prime * result + Plazas;
-		result = prime * result + ((Turno == null) ? 0 : Turno.hashCode());
+		result = prime * result + curso;
+		result = prime * result + ((ingles == null) ? 0 : ingles.hashCode());
+		result = prime * result + ((letra == null) ? 0 : letra.hashCode());
+		result = prime * result + plazas;
+		result = prime * result + ((turno == null) ? 0 : turno.hashCode());
 		result = prime * result + ((asignar == null) ? 0 : asignar.hashCode());
 		result = prime * result + ((clase == null) ? 0 : clase.hashCode());
 		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
@@ -153,6 +198,9 @@ public class Grupo implements Serializable {
 		result = prime * result + ((visible == null) ? 0 : visible.hashCode());
 		return result;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -162,24 +210,24 @@ public class Grupo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Grupo other = (Grupo) obj;
-		if (Curso != other.Curso)
+		if (curso != other.curso)
 			return false;
-		if (Ingles == null) {
-			if (other.Ingles != null)
+		if (ingles == null) {
+			if (other.ingles != null)
 				return false;
-		} else if (!Ingles.equals(other.Ingles))
+		} else if (!ingles.equals(other.ingles))
 			return false;
-		if (Letra == null) {
-			if (other.Letra != null)
+		if (letra == null) {
+			if (other.letra != null)
 				return false;
-		} else if (!Letra.equals(other.Letra))
+		} else if (!letra.equals(other.letra))
 			return false;
-		if (Plazas != other.Plazas)
+		if (plazas != other.plazas)
 			return false;
-		if (Turno == null) {
-			if (other.Turno != null)
+		if (turno == null) {
+			if (other.turno != null)
 				return false;
-		} else if (!Turno.equals(other.Turno))
+		} else if (!turno.equals(other.turno))
 			return false;
 		if (asignar == null) {
 			if (other.asignar != null)
@@ -233,10 +281,13 @@ public class Grupo implements Serializable {
 			return false;
 		return true;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public String toString() {
-		return "Grupo [id=" + id + ", Curso=" + Curso + ", Letra=" + Letra + ", Turno=" + Turno + ", Ingles=" + Ingles
-				+ ", visible=" + visible + ", asignar=" + asignar + ", Plazas=" + Plazas + ", letra1=" + letra1
+		return "Grupo [id=" + id + ", Curso=" + curso + ", Letra=" + letra + ", Turno=" + turno + ", Ingles=" + ingles
+				+ ", visible=" + visible + ", asignar=" + asignar + ", Plazas=" + plazas + ", letra1=" + letra1
 				+ ", grupos=" + grupos + ", grupo=" + grupo + ", mat_asig=" + mat_asig + ", clase=" + clase
 				+ ", grupos_asig=" + grupos_asig + ", titulo=" + titulo + "]";
 	}

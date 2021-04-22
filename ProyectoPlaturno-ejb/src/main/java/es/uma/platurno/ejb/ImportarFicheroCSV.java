@@ -24,7 +24,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ImportarFicheroCSV implements IFCSV_Interface{
 
-	@PersistenceContext(unitName = "Platurno")
+	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
 	
 	

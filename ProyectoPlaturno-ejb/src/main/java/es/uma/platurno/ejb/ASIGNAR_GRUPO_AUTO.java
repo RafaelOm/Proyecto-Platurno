@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 @Stateless
 @LocalBean
 public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
-    @PersistenceContext(unitName = "Platurno")
+    @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
 
     private Autenticacion auth;
@@ -56,7 +57,7 @@ public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
             qGR_ASIG.setParameter("ID_ENC",id);
             List<GR_ASIG> gr_asigs = qGR_ASIG.getResultList();
              */
-            List<GR_ASIG> gr_asigs = enc.getGrupos();
+            List<GR_ASIG> gr_asigs = new LinkedList<>();
             for(GR_ASIG ga : gr_asigs){
 
                 Asignatura asig = ga.getAsig();

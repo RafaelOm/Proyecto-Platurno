@@ -6,82 +6,65 @@ package es.uma.platurno.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Objects;
 
 /**
  * Entity implementation class for Entity: Alumno
  *
  */
 
+/* Entidad que representa a la entidad Gr_Asig. Usamos la interfaz serializable
+ * para poder mandar los datos a la BD.*/
 @Entity
+@Table(name = "Gr_Asig")
 @IdClass(GR_ASIG.GR_ASIGID.class)
 public class GR_ASIG implements Serializable {
-	public List<Encuesta> getLista_encuestas() {
-		return lista_encuestas;
-	}
 
-	public void setLista_encuestas(List<Encuesta> lista_encuestas) {
-		this.lista_encuestas = lista_encuestas;
-	}
+	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
+       nullable simboliza los atributos que son obligatorios en la BD. Ademas como tenemos una clave primaria
+       compuesta, tenemos que usar una clase estatica para emular el ID. */
 
 	public static class GR_ASIGID implements Serializable{
-		/**
-		 *
-		 */
+
+		public GR_ASIGID (int curso_act,String referencia,String id_grupo){
+			this.curso_act=curso_act;
+			this.asig=referencia;
+			this.group=id_grupo;
+
+		}
+
 		private static final long serialVersionUID = 1L;
 		private int curso_act;
-		private int referencia;
-		private int id_grupo;
+		private String asig;
+		private String group;
 
-		public GR_ASIGID(int curso_act, int referencia, int id_grupo) {
-			this.curso_act = curso_act;
-			this.referencia = referencia;
-			this.id_grupo = id_grupo;
-		}
-
-		public static long getSerialVersionUID() {
-			return serialVersionUID;
-		}
-
-		public int getReferencia() {
-			return referencia;
-		}
-
-		public void setReferencia(int referencia) {
-			this.referencia = referencia;
-		}
-
-		public int getId_grupo() {
-			return id_grupo;
-		}
-
-		public void setId_grupo(int id_grupo) {
-			this.id_grupo = id_grupo;
-		}
-
-		public int getCurso_act() {
-			return curso_act;
-		}
-
-		public void setCurso_act(int curso_act) {
-			this.curso_act = curso_act;
-		}
 	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	@Id
-	private int curso_act;
-	@Column(nullable = false)
-	private int oferta;
-	
-	@ManyToOne
-	private Grupo group;
-	@ManyToOne
-    private Asignatura asig;
-	
 
+	@Id
+	@Column (name = "CursoAc")
+	private int curso_act;
+
+	@Column(name = "Oferta")
+	private int oferta;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	private static final long serialVersionUID = 1L;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "Gr_Asig esta en ")
+	private Grupo group;
+
+	@Id
+	@ManyToOne
+    @JoinColumn(name = "Gr_Asig tiene ")
+	private Asignatura asig;
+
+	/*
 	@ManyToMany
 	@JoinTable(
 			name = "Encuesta",
@@ -96,14 +79,37 @@ public class GR_ASIG implements Serializable {
 					)
 			)
 	private List<Encuesta> lista_encuestas;
-	
-	
+*/
+
+	@ManyToOne
+	@JoinColumn(name = "Gr_asig encuesta")
+	private Encuesta encuesta;
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Constructor vacio, los bean (ejb) seran los que se encarguen de cambiarle los valores */
+
+	public GR_ASIG(){}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+	/* Getters, Setters, equals, hashcode y toString. */
+
 	public int getCurso_act() {
 		return curso_act;
 	}
 	public void setCurso_act(int curso_act) {
 		this.curso_act = curso_act;
 	}
+
+	public Encuesta getEncuesta() {
+		return encuesta;
+	}
+
+	public void setEncuesta(Encuesta encuesta) {
+		this.encuesta = encuesta;
+	}
+
 	public int getOferta() {
 		return oferta;
 	}
@@ -122,52 +128,37 @@ public class GR_ASIG implements Serializable {
 	public void setAsig(Asignatura asig) {
 		this.asig = asig;
 	}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((asig == null) ? 0 : asig.hashCode());
-		result = prime * result + curso_act;
-		result = prime * result + ((group == null) ? 0 : group.hashCode());
-		result = prime * result + ((lista_encuestas == null) ? 0 : lista_encuestas.hashCode());
-		result = prime * result + oferta;
-		return result;
+		return Objects.hash(curso_act, oferta, group, asig, encuesta);
 	}
+
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		GR_ASIG other = (GR_ASIG) obj;
-		if (asig == null) {
-			if (other.asig != null)
-				return false;
-		} else if (!asig.equals(other.asig))
-			return false;
-		if (curso_act != other.curso_act)
-			return false;
-		if (group == null) {
-			if (other.group != null)
-				return false;
-		} else if (!group.equals(other.group))
-			return false;
-		if (lista_encuestas == null) {
-			if (other.lista_encuestas != null)
-				return false;
-		} else if (!lista_encuestas.equals(other.lista_encuestas))
-			return false;
-		if (oferta != other.oferta)
-			return false;
-		return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		GR_ASIG gr_asig = (GR_ASIG) o;
+		return curso_act == gr_asig.curso_act && oferta == gr_asig.oferta && Objects.equals(group, gr_asig.group) && Objects.equals(asig, gr_asig.asig) && Objects.equals(encuesta, gr_asig.encuesta);
 	}
+
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+
 	@Override
 	public String toString() {
-		return "GR_ASIG [curso_act=" + curso_act + ", oferta=" + oferta + ", group=" + group + ", asig=" + asig
-				+ ", lista_encuestas=" + lista_encuestas + "]";
+		return "GR_ASIG{" +
+				"curso_act=" + curso_act +
+				", oferta=" + oferta +
+				", group=" + group +
+				", asig=" + asig +
+				", encuesta=" + encuesta +
+				'}';
 	}
-	
-	
 }
