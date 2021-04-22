@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.uma.platurno.tests.AsignaturaEjbTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 72.971 sec <<< FAILURE!
-es.uma.platurno.tests.AsignaturaEjbTest  Time elapsed: 72.969 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 55.356 sec <<< FAILURE!
+es.uma.platurno.tests.AsignaturaEjbTest  Time elapsed: 55.355 sec  <<< ERROR!
 javax.ejb.EJBException: Failed to deploy EJB modules - see log for details
 	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:125)
 	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)

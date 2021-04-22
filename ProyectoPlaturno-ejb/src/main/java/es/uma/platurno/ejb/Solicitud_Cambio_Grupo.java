@@ -20,7 +20,9 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
 	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
-	
+
+
+	@Override
 	public void generarSolicitud(GR_ASIG antiguo, GR_ASIG nuevo, Usuario U) throws GR_ASIG_GrupoNoExisteException {
 		
 		GR_ASIG n = em.find(GR_ASIG.class, antiguo.getCurso_act());
@@ -50,5 +52,6 @@ public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 		
 		
 	}
+
 
 }

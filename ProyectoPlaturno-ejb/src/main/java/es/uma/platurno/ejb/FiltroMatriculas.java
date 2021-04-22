@@ -12,8 +12,9 @@ import javax.persistence.Query;
 @Local
 public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
-    private static List<Matricula> lista;
     private static EntityManager em;
+    private static List<Matricula> lista;
+
 
     public FiltroMatriculas(){
 
