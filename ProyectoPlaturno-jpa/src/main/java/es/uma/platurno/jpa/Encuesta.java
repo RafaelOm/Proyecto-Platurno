@@ -45,11 +45,11 @@ public class Encuesta implements Serializable {
             name = "EncuestaGrAsignaturas",
             joinColumns = @JoinColumn(
                     name = "CursoAc",
-                    referencedColumnName = "CursoAc"
+                    referencedColumnName = "Id_Encuesta"
             ),
-            inverseJoinColumns = @JoinColumn(
+            inverseJoinColumns = @JoinColumns(
                     name = "Fecha_de_Envio",
-                    referencedColumnName = "Fecha_de_Envio"
+                    referencedColumnName = ""
             )
     )
     private List<GR_ASIG> grupos;

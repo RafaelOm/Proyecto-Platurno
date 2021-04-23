@@ -23,7 +23,7 @@ public class Centro implements Serializable {
 	   
 	@Id
 	@Column(name = "ID")
-	private String id;
+	private int id;
 
 	@Column(name = "Nombre", unique = true)
 	private String nombre;
@@ -41,7 +41,7 @@ public class Centro implements Serializable {
 //--------------------------------------------------------------------------------------------------------------------//
 
 	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
-
+	/*
 	@ManyToMany
 	@JoinTable(
 	            name = "Centro_Titulacion",
@@ -55,12 +55,16 @@ public class Centro implements Serializable {
 	            )
 	    )
 	private List<Titulacion> grupo;
+	*/
+	
+	@OneToMany
+	private List<Titulacion> titulaciones;
 	
 	public List<Titulacion> getTitulaciones(){
-		return grupo;
+		return titulaciones;
 	}
 	public void setTitulaciones(List<Titulacion> titulaciones) {
-		grupo=titulaciones;
+		titulaciones=titulaciones;
 		
 	}
 
@@ -75,11 +79,11 @@ public class Centro implements Serializable {
 
 	/* Getters, Setters, equals, hashcode y toString. */
 
-	public String getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(String ID) {
+	public void setId(int ID) {
 		this.id = ID;
 	}   
 	public String getNombre() {
@@ -104,67 +108,7 @@ public class Centro implements Serializable {
 		this.tlf_conserjeria = TLF_Conserjeria;
 	}
 
-//--------------------------------------------------------------------------------------------------------------------//
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((tlf_conserjeria == null) ? 0 : tlf_conserjeria.hashCode());
-		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
-		return result;
-	}
-
-//--------------------------------------------------------------------------------------------------------------------//
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Centro other = (Centro) obj;
-		if (direccion == null) {
-			if (other.direccion != null)
-				return false;
-		} else if (!direccion.equals(other.direccion))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		if (tlf_conserjeria == null) {
-			if (other.tlf_conserjeria != null)
-				return false;
-		} else if (!tlf_conserjeria.equals(other.tlf_conserjeria))
-			return false;
-		if (grupo == null) {
-			if (other.grupo != null)
-				return false;
-		} else if (!grupo.equals(other.grupo))
-			return false;
-		return true;
-	}
-
-//--------------------------------------------------------------------------------------------------------------------//
-
-
-	@Override
-	public String toString() {
-		return "Centro [ID=" + id + ", Nombre=" + nombre + ", Direccion=" + direccion + ", TLF_Conserjeria="
-				+ tlf_conserjeria + ", grupos=" + grupo + "]";
-	}
 	
    
 }

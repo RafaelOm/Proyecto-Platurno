@@ -12,16 +12,14 @@ import java.util.Objects;
  *
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Usuario implements Serializable {
 
-	@Id //@GeneratedValue
+	@Id @GeneratedValue
 	protected Long identificador;
 	@Column(unique = true)
 	private String username;
 	@Column(nullable = false)
 	private String Password;
-	@Column(nullable = false)
 	private String ValidationChain;
 
 	public Long getIdentificador() {

@@ -24,10 +24,17 @@ public class BaseDatos {
 
 		System.out.println("---------------LLEGA HASTA AQUI --------------------------------");
 
+		
+	
+		Usuario u = new Usuario();
+		u.setIdentificador(123L);
+		u.setUsername("hola");
+		u.setPassword("12345");
+		em.persist(u);
+		
 		//////////////////ALUMNO////////////////////
 		Alumno a = new Alumno();
-		a.setIdentificador(2L);
-		a.setPrueba("PRUEBA");
+		a.setPrueba(u);
 		a.setUsername("mEscobar");
 		a.setPassword("manolito");
 		a.setDni("12345");
@@ -44,7 +51,11 @@ public class BaseDatos {
 		a.setCP("29000");
 
 		em.persist(a);
-		System.out.println("---------------LLEGA HASTA AQUI 2--------------------------------");
+
+		
+		
+		
+		/*
 		/////////////////////CLASE//////////////////
 		Clase clase = new Clase();
 		clase.setDia("2");
@@ -73,8 +84,8 @@ public class BaseDatos {
 
 		//////////////////////// TITULACION ///////////////////////////
 		Titulacion t= new Titulacion();
-		t.setCreditos("240");
-		t.setCodigo("23");
+		t.setCreditos(240);
+		t.setCodigo(23);
 		t.setNombre("Ingenieria Informatica");
 		em.persist(t);
 		//////////////////////// Matricula ////////////////////////////
@@ -147,13 +158,11 @@ public class BaseDatos {
 
 		/////////////////////CENTRO//////////////////
 		Centro c = new Centro();
-		c.setId("1");
+		c.setId(1);
 		c.setNombre("ETSII");
 		c.setDireccion("Boulevar");
 		c.setTLF_Conserjeria("1233445");
-		 List<Titulacion> tit=new ArrayList<>();
-		 tit.add(t);
-		 c.setTitulaciones(tit);
+	
 
 
 		em.persist(c);
@@ -220,9 +229,12 @@ public class BaseDatos {
 		gr_asig.setGroup(grupo);
 
 		em.persist(gr_asig);
+		*/
+		System.out.println("---------------LLEGA HASTA AQUI 2--------------------------------");
 		em.getTransaction().commit();
 		
 		em.close();
 		emf.close();
+		
 	}
 }

@@ -24,14 +24,14 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
 	}
 
 	@Override
-	public void modificarTitulacion(String cod, String nombre, Integer creditos) throws TitulacionInexistente {
+	public void modificarTitulacion(Integer cod, String nombre, Integer creditos) throws TitulacionInexistente {
 		Titulacion t =em.find(Titulacion.class,cod);
         if(t==null){
             throw new TitulacionInexistente();
         }
         t.setCodigo(cod);
         t.setNombre(nombre);
-        t.setCreditos(creditos.toString());
+        t.setCreditos(creditos);
         
         em.merge(t);
 

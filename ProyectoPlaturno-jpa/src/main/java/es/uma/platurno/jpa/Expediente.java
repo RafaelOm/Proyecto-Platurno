@@ -58,19 +58,19 @@ public class Expediente implements Serializable {
 	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
 
 	@ManyToOne
-	@JoinColumn(name = "Titulacion_FK")
+	//@JoinColumn(name = "Titulacion_FK")
     private Titulacion titulacion;
 	
 	@ManyToOne
-	@JoinColumn(name = "Alumno_FK")
+	//@JoinColumn(name = "Alumno_FK")
     private Alumno alumno;
 	
 	@OneToMany
-	@JoinColumn(name = "Encuesta_FK")
+	//@JoinColumn(name = "Encuesta_FK")
 	private List<Encuesta> encuesta;
 	
 	@OneToMany
-	@JoinColumn(name = "Matricula_FK")
+	//@JoinColumn(name = "Matricula_FK")
 	private List<Matricula> matricula;
 
 //--------------------------------------------------------------------------------------------------------------------//

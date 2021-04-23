@@ -19,23 +19,28 @@ import java.util.List;
 /* Entidad que hereda de Usuario, representando a la entidad Alumno. Usamos la interfaz serializable
 *  para poder mandar los datos a la BD. */
 @Entity
-public class Alumno extends Usuario implements Serializable {
+public class Alumno implements Serializable {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
 	   nullable simboliza los atributos que son obligatorios en la BD. */
 	
-	@Id
-	private String prueba;
-	public void setPrueba(String prueba) {
-		this.prueba=prueba;
+	@OneToOne @Id
+	private Usuario id;
+	
+	public void setPrueba(Usuario id) {
+		this.id=id;
 	}
-	@Column(name = "DNI", nullable = false)
+	
+
+			 
+			 
+	@Column(name = "DNI", nullable = true)
 	private String dni;
 
-	@Column(name = "NOMBRE",nullable = false)
+	@Column(name = "NOMBRE",nullable = true)
 	private String Nombre;
 
-	@Column(name = "APELLIDO1",nullable = false)
+	@Column(name = "APELLIDO1",nullable = true)
 	private String Apellido1;
 
 	@Column(name = "APELLIDO2")
