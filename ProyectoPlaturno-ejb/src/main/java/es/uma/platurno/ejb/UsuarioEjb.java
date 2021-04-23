@@ -21,7 +21,7 @@ import java.util.List;
 
 //Metodo realizado por Rafael Ordoñez Molina
 @Stateless
-@LocalBean
+
 public class UsuarioEjb implements UsuarioEjbInterfaz {
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;

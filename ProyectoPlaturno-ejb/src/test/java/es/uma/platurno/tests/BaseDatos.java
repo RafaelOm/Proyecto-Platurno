@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,10 +22,12 @@ public class BaseDatos {
 		
 		em.getTransaction().begin();
 
-
+		System.out.println("---------------LLEGA HASTA AQUI --------------------------------");
 
 		//////////////////ALUMNO////////////////////
 		Alumno a = new Alumno();
+		a.setIdentificador(2L);
+		a.setPrueba("PRUEBA");
 		a.setUsername("mEscobar");
 		a.setPassword("manolito");
 		a.setDni("12345");
@@ -42,7 +44,7 @@ public class BaseDatos {
 		a.setCP("29000");
 
 		em.persist(a);
-
+		System.out.println("---------------LLEGA HASTA AQUI 2--------------------------------");
 		/////////////////////CLASE//////////////////
 		Clase clase = new Clase();
 		clase.setDia("2");
@@ -64,6 +66,7 @@ public class BaseDatos {
 		asig.setDuracion("4 meses");
 		asig.setIdiomas("Español");
 		asig.setCred_prac(2);
+		asig.setOfertada("SI");
 
 		em.persist(asig);
 
@@ -148,6 +151,9 @@ public class BaseDatos {
 		c.setNombre("ETSII");
 		c.setDireccion("Boulevar");
 		c.setTLF_Conserjeria("1233445");
+		 List<Titulacion> tit=new ArrayList<>();
+		 tit.add(t);
+		 c.setTitulaciones(tit);
 
 
 		em.persist(c);
@@ -197,7 +203,7 @@ public class BaseDatos {
 		Encuesta encuesta = new Encuesta();
 		encuesta.setId_Encuesta("asasasa");
 		List<GR_ASIG> gr_asigList = null;
-		encuesta.setGrupos(gr_asigList);
+		encuesta.setGr_asig(gr_asigList);
 		encuesta.setExpediente(ex);
 		encuesta.setFecha_de_Envio(new Date(2020));
 

@@ -1,127 +1,352 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="es.uma.platurno.tests.AsignaturaEjbTest" time="55.355" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="es.uma.platurno.tests.AsignaturaEjbTest" time="0.913" errors="1" skipped="0">
   <properties>
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="java.vm.version" value="11.0.10+8-LTS-162"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.10\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Rafael\Desktop\lastlast\Proyecto-Platurno"/>
-    <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.242-b08"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/alumno/Escritorio/gitplaturno/Proyecto-Platurno"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
-    <property name="path.separator" value=";"/>
-    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="sun.os.patch.level" value=""/>
-    <property name="user.script" value=""/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
     <property name="user.country" value="ES"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Rafael\Desktop\lastlast\Proyecto-Platurno"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="11.0.10+8-LTS-162"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="user.dir" value="/home/alumno/Escritorio/gitplaturno/Proyecto-Platurno"/>
+    <property name="java.runtime.version" value="1.8.0_242-8u242-b08-0ubuntu3~18.04-b08"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\Rafael\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="user.variant" value=""/>
-    <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\apache-maven-3.6.3\bin\..\bin\m2.conf"/>
-    <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.10\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\apache-maven-3.6.3\bin;C:\Users\Rafael\AppData\Local\Microsoft\WindowsApps;C:\Users\Rafael\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\bin;C:\Users\Rafael\AppData\Local\GitHubDesktop\bin;."/>
-    <property name="maven.conf" value="C:\apache-maven-3.6.3\bin\../conf"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="55.0"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/usr/share/maven/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.0"/>
-    <property name="library.jansi.path" value="C:\apache-maven-3.6.3\bin\..\lib\jansi-native"/>
-    <property name="user.home" value="C:\Users\Rafael"/>
-    <property name="user.timezone" value="Europe/Paris"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
-    <property name="file.encoding" value="Cp1252"/>
-    <property name="java.specification.version" value="11"/>
-    <property name="user.name" value="Rafael"/>
-    <property name="java.class.path" value="C:\apache-maven-3.6.3\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
-    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.version" value="5.3.0-42-generic"/>
+    <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
+    <property name="user.home" value="/home/alumno"/>
+    <property name="user.timezone" value="America/Los_Angeles"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="alumno"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.10"/>
-    <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="11.0.10"/>
-    <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="sun.stderr.encoding" value="cp850"/>
-    <property name="maven.home" value="C:\apache-maven-3.6.3\bin\.."/>
-    <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2021-01-19"/>
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.version" value="1.8.0_242"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="java.vendor.version" value="18.9"/>
-    <property name="sun.stdout.encoding" value="cp850"/>
-    <property name="sun.desktop" value="windows"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="es.uma.platurno.tests.AsignaturaEjbTest" name="es.uma.platurno.tests.AsignaturaEjbTest" time="55.355">
-    <error message="Failed to deploy EJB modules - see log for details" type="javax.ejb.EJBException">javax.ejb.EJBException: Failed to deploy EJB modules - see log for details
-	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:125)
-	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
-	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:127)
-	at es.uma.platurno.tests.AsignaturaEjbTest.setUpClass(AsignaturaEjbTest.java:47)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+  <testcase classname="es.uma.platurno.tests.AsignaturaEjbTest" name="testCompruebaUsuario" time="0.913">
+    <error message="Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: La columna &quot;CODIGO&quot; no permite valores nulos (NULL)
+NULL not allowed for column &quot;CODIGO&quot;; SQL statement:
+INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?) [23502-200]
+Error Code: 23502
+Call: INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?)
+	bind =&gt; [4 parameters bound]
+Query: InsertObjectQuery(Centro [ID=1, Nombre=ETSII, Direccion=Boulevar, TLF_Conserjeria=1233445, grupos=[Titulacion [Codigo=23, Nombre=Ingenieria Informatica, Creditos=240, expedientes={[]}, asignatura={[]}, lista_centros={[]}]]])" type="javax.persistence.RollbackException">javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: La columna &quot;CODIGO&quot; no permite valores nulos (NULL)
+NULL not allowed for column &quot;CODIGO&quot;; SQL statement:
+INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?) [23502-200]
+Error Code: 23502
+Call: INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?)
+	bind =&gt; [4 parameters bound]
+Query: InsertObjectQuery(Centro [ID=1, Nombre=ETSII, Direccion=Boulevar, TLF_Conserjeria=1233445, grupos=[Titulacion [Codigo=23, Nombre=Ingenieria Informatica, Creditos=240, expedientes={[]}, asignatura={[]}, lista_centros={[]}]]])
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:161)
+	at es.uma.platurno.tests.BaseDatos.inicializaBaseDatos(BaseDatos.java:223)
+	at es.uma.platurno.tests.AsignaturaEjbTest.setup(AsignaturaEjbTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
 	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: La columna &quot;CODIGO&quot; no permite valores nulos (NULL)
+NULL not allowed for column &quot;CODIGO&quot;; SQL statement:
+INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?) [23502-200]
+Error Code: 23502
+Call: INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?)
+	bind =&gt; [4 parameters bound]
+Query: InsertObjectQuery(Centro [ID=1, Nombre=ETSII, Direccion=Boulevar, TLF_Conserjeria=1233445, grupos=[Titulacion [Codigo=23, Nombre=Ingenieria Informatica, Creditos=240, expedientes={[]}, asignatura={[]}, lista_centros={[]}]]])
+	at org.eclipse.persistence.exceptions.DatabaseException.sqlException(DatabaseException.java:333)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:908)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeNoSelect(DatabaseAccessor.java:970)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.basicExecuteCall(DatabaseAccessor.java:640)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeCall(DatabaseAccessor.java:567)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.basicExecuteCall(AbstractSession.java:2099)
+	at org.eclipse.persistence.sessions.server.ClientSession.executeCall(ClientSession.java:313)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:275)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.executeCall(DatasourceCallQueryMechanism.java:261)
+	at org.eclipse.persistence.internal.queries.DatasourceCallQueryMechanism.insertObject(DatasourceCallQueryMechanism.java:411)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:167)
+	at org.eclipse.persistence.internal.queries.StatementQueryMechanism.insertObject(StatementQueryMechanism.java:182)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.insertObjectForWrite(DatabaseQueryMechanism.java:504)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommit(InsertObjectQuery.java:82)
+	at org.eclipse.persistence.queries.InsertObjectQuery.executeCommitWithChangeSet(InsertObjectQuery.java:92)
+	at org.eclipse.persistence.internal.queries.DatabaseQueryMechanism.executeWriteWithChangeSet(DatabaseQueryMechanism.java:316)
+	at org.eclipse.persistence.queries.WriteObjectQuery.executeDatabaseQuery(WriteObjectQuery.java:60)
+	at org.eclipse.persistence.queries.DatabaseQuery.execute(DatabaseQuery.java:911)
+	at org.eclipse.persistence.queries.DatabaseQuery.executeInUnitOfWork(DatabaseQuery.java:810)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWorkObjectLevelModifyQuery(ObjectLevelModifyQuery.java:110)
+	at org.eclipse.persistence.queries.ObjectLevelModifyQuery.executeInUnitOfWork(ObjectLevelModifyQuery.java:87)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.internalExecuteQuery(UnitOfWorkImpl.java:2983)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1898)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1880)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.executeQuery(AbstractSession.java:1830)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitNewObjectsForClassWithChangeSet(CommitManager.java:229)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsForClassWithChangeSet(CommitManager.java:196)
+	at org.eclipse.persistence.internal.sessions.CommitManager.commitAllObjectsWithChangeSet(CommitManager.java:141)
+	at org.eclipse.persistence.internal.sessions.AbstractSession.writeAllObjectsWithChangeSet(AbstractSession.java:4398)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabase(UnitOfWorkImpl.java:1495)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitToDatabaseWithChangeSet(UnitOfWorkImpl.java:1585)
+	at org.eclipse.persistence.internal.sessions.RepeatableWriteUnitOfWork.commitRootUnitOfWork(RepeatableWriteUnitOfWork.java:280)
+	at org.eclipse.persistence.internal.sessions.UnitOfWorkImpl.commitAndResume(UnitOfWorkImpl.java:1222)
+	at org.eclipse.persistence.internal.jpa.transaction.EntityTransactionImpl.commit(EntityTransactionImpl.java:136)
+	... 33 more
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: La columna &quot;CODIGO&quot; no permite valores nulos (NULL)
+NULL not allowed for column &quot;CODIGO&quot;; SQL statement:
+INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?) [23502-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:459)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:374)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:191)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:152)
+	at org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor.executeDirectNoSelect(DatabaseAccessor.java:898)
+	... 65 more
 </error>
-    <system-out>JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
-JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]
+    <system-out>[EL Warning]: metadata: 2021-04-23 03:41:48.626--ServerSession(1383619949)--The reference column name [codigo] mapped on the element [field grupo] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+[EL Warning]: metadata: 2021-04-23 03:41:48.627--ServerSession(1383619949)--The reference column name [id] mapped on the element [field grupo] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+[EL Warning]: metadata: 2021-04-23 03:41:48.639--ServerSession(1383619949)--The reference column name [ID] mapped on the element [field lista_centros] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+[EL Warning]: metadata: 2021-04-23 03:41:48.64--ServerSession(1383619949)--The reference column name [Codigo] mapped on the element [field lista_centros] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+[EL Info]: 2021-04-23 03:41:48.762--ServerSession(1383619949)--EclipseLink, version: Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f
+[EL Info]: connection: 2021-04-23 03:41:48.822--ServerSession(1383619949)--/file:/home/alumno/Escritorio/gitplaturno/Proyecto-Platurno/ProyectoPlaturno-ejb/target/test-classes/_Trazabilidad login successful
+[EL Warning]: 2021-04-23 03:41:49.063--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;CLASES&quot;
+Unknown data type: &quot;CLASES&quot;; SQL statement:
+CREATE TABLE CLASE (Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Hora_Fin VARCHAR, En clases se imparten  VARCHAR, Clases imparten a  VARCHAR NOT NULL, Grupo tiene clases VARCHAR, PRIMARY KEY (Dia, Hora_Inicio, Clases imparten a )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE CLASE (Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Hora_Fin VARCHAR, En clases se imparten  VARCHAR, Clases imparten a  VARCHAR NOT NULL, Grupo tiene clases VARCHAR, PRIMARY KEY (Dia, Hora_Inicio, Clases imparten a ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE CLASE (Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Hora_Fin VARCHAR, En clases se imparten  VARCHAR, Clases imparten a  VARCHAR NOT NULL, Grupo tiene clases VARCHAR, PRIMARY KEY (Dia, Hora_Inicio, Clases imparten a ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.074--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;REALIZADA&quot;
+Unknown data type: &quot;REALIZADA&quot;; SQL statement:
+CREATE TABLE ENCUESTA (Id_Encuesta VARCHAR NOT NULL, Fecha_De_Envio DATE NOT NULL, Texto VARCHAR, Encuesta realizada por VARCHAR, Encuesta_FK VARCHAR, PRIMARY KEY (Id_Encuesta)) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE ENCUESTA (Id_Encuesta VARCHAR NOT NULL, Fecha_De_Envio DATE NOT NULL, Texto VARCHAR, Encuesta realizada por VARCHAR, Encuesta_FK VARCHAR, PRIMARY KEY (Id_Encuesta))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE ENCUESTA (Id_Encuesta VARCHAR NOT NULL, Fecha_De_Envio DATE NOT NULL, Texto VARCHAR, Encuesta realizada por VARCHAR, Encuesta_FK VARCHAR, PRIMARY KEY (Id_Encuesta))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.077--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;TIENE&quot;
+Unknown data type: &quot;TIENE&quot;; SQL statement:
+CREATE TABLE Gr_Asig (CursoAc INTEGER NOT NULL, Oferta INTEGER, Gr_Asig tiene  VARCHAR NOT NULL, Gr_asig encuesta VARCHAR, Gr_Asig esta en  VARCHAR NOT NULL, Grupos de asignaturas VARCHAR, PRIMARY KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE Gr_Asig (CursoAc INTEGER NOT NULL, Oferta INTEGER, Gr_Asig tiene  VARCHAR NOT NULL, Gr_asig encuesta VARCHAR, Gr_Asig esta en  VARCHAR NOT NULL, Grupos de asignaturas VARCHAR, PRIMARY KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE Gr_Asig (CursoAc INTEGER NOT NULL, Oferta INTEGER, Gr_Asig tiene  VARCHAR NOT NULL, Gr_asig encuesta VARCHAR, Gr_Asig esta en  VARCHAR NOT NULL, Grupos de asignaturas VARCHAR, PRIMARY KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.082--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;ES&quot;
+Unknown data type: &quot;ES&quot;; SQL statement:
+CREATE TABLE Grupo (ID VARCHAR NOT NULL, Asignar VARCHAR, Curso INTEGER UNIQUE, Ingles VARCHAR NOT NULL, Letra VARCHAR UNIQUE, Letra1 VARCHAR, Plazas INTEGER, Turno VARCHAR NOT NULL, Visible VARCHAR, Grupo es relacionado con VARCHAR, Grupo tiene titulacion VARCHAR, Grupo relacionado con VARCHAR, PRIMARY KEY (ID)) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE Grupo (ID VARCHAR NOT NULL, Asignar VARCHAR, Curso INTEGER UNIQUE, Ingles VARCHAR NOT NULL, Letra VARCHAR UNIQUE, Letra1 VARCHAR, Plazas INTEGER, Turno VARCHAR NOT NULL, Visible VARCHAR, Grupo es relacionado con VARCHAR, Grupo tiene titulacion VARCHAR, Grupo relacionado con VARCHAR, PRIMARY KEY (ID))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE Grupo (ID VARCHAR NOT NULL, Asignar VARCHAR, Curso INTEGER UNIQUE, Ingles VARCHAR NOT NULL, Letra VARCHAR UNIQUE, Letra1 VARCHAR, Plazas INTEGER, Turno VARCHAR NOT NULL, Visible VARCHAR, Grupo es relacionado con VARCHAR, Grupo tiene titulacion VARCHAR, Grupo relacionado con VARCHAR, PRIMARY KEY (ID))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.084--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;TIENE&quot;
+Unknown data type: &quot;TIENE&quot;; SQL statement:
+CREATE TABLE MAT_ASIG (ASIGNATURA_Referencia VARCHAR NOT NULL, GRUPO_ID VARCHAR, CURSO_ACADEMICO BIGINT NOT NULL, IDEXPEDIENTE_Expediente VARCHAR NOT NULL, Grupo tiene asignaturas matriculadas  VARCHAR, PRIMARY KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente)) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE MAT_ASIG (ASIGNATURA_Referencia VARCHAR NOT NULL, GRUPO_ID VARCHAR, CURSO_ACADEMICO BIGINT NOT NULL, IDEXPEDIENTE_Expediente VARCHAR NOT NULL, Grupo tiene asignaturas matriculadas  VARCHAR, PRIMARY KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE MAT_ASIG (ASIGNATURA_Referencia VARCHAR NOT NULL, GRUPO_ID VARCHAR, CURSO_ACADEMICO BIGINT NOT NULL, IDEXPEDIENTE_Expediente VARCHAR NOT NULL, Grupo tiene asignaturas matriculadas  VARCHAR, PRIMARY KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.098--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;IMPARTEN&quot;
+Unknown data type: &quot;IMPARTEN&quot;; SQL statement:
+CREATE TABLE ASIGNATURA_CLASE (Asignatura_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, Dia, Hora_Inicio, Clases imparten a )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE ASIGNATURA_CLASE (Asignatura_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, Dia, Hora_Inicio, Clases imparten a ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE ASIGNATURA_CLASE (Asignatura_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, Dia, Hora_Inicio, Clases imparten a ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.099--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;TIENE&quot;
+Unknown data type: &quot;TIENE&quot;; SQL statement:
+CREATE TABLE ASIGNATURA_Gr_Asig (Asignatura_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE ASIGNATURA_Gr_Asig (Asignatura_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE ASIGNATURA_Gr_Asig (Asignatura_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Asignatura_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.103--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;TIENE&quot;
+Unknown data type: &quot;TIENE&quot;; SQL statement:
+CREATE TABLE ENCUESTA_Gr_Asig (Encuesta_Id_Encuesta VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Encuesta_Id_Encuesta, CursoAc, Gr_Asig tiene , Gr_Asig esta en )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE ENCUESTA_Gr_Asig (Encuesta_Id_Encuesta VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Encuesta_Id_Encuesta, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE ENCUESTA_Gr_Asig (Encuesta_Id_Encuesta VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Encuesta_Id_Encuesta, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.107--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;IMPARTEN&quot;
+Unknown data type: &quot;IMPARTEN&quot;; SQL statement:
+CREATE TABLE OPTATIVA_CLASE (Optativa_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, Dia, Hora_Inicio, Clases imparten a )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE OPTATIVA_CLASE (Optativa_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, Dia, Hora_Inicio, Clases imparten a ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE OPTATIVA_CLASE (Optativa_Referencia VARCHAR NOT NULL, Dia VARCHAR NOT NULL, Hora_Inicio VARCHAR NOT NULL, Clases imparten a  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, Dia, Hora_Inicio, Clases imparten a ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.109--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : &quot;TIENE&quot;
+Unknown data type: &quot;TIENE&quot;; SQL statement:
+CREATE TABLE OPTATIVA_Gr_Asig (Optativa_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en )) [50004-200]
+Error Code: 50004
+Call: CREATE TABLE OPTATIVA_Gr_Asig (Optativa_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))
+Query: DataModifyQuery(sql=&quot;CREATE TABLE OPTATIVA_Gr_Asig (Optativa_Referencia VARCHAR NOT NULL, CursoAc INTEGER NOT NULL, Gr_Asig tiene  VARCHAR NOT NULL, Gr_Asig esta en  VARCHAR NOT NULL, PRIMARY KEY (Optativa_Referencia, CursoAc, Gr_Asig tiene , Gr_Asig esta en ))&quot;)
+[EL Warning]: 2021-04-23 03:41:49.159--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna &quot;ID&quot; no encontrada
+Column &quot;ID&quot; not found; SQL statement:
+ALTER TABLE Centro ADD CONSTRAINT FK_Centro_ID FOREIGN KEY (ID) REFERENCES TITULACION (ID) [42122-200]
+Error Code: 42122
+Call: ALTER TABLE Centro ADD CONSTRAINT FK_Centro_ID FOREIGN KEY (ID) REFERENCES TITULACION (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE Centro ADD CONSTRAINT FK_Centro_ID FOREIGN KEY (ID) REFERENCES TITULACION (ID)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.165--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE CLASE ADD CONSTRAINT FK_CLASE_CLASESIMPARTENA FOREIGN KEY (CLASES IMPARTEN[*] A ) REFERENCES GRUPO (ID)&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE CLASE ADD CONSTRAINT FK_CLASE_CLASESIMPARTENA FOREIGN KEY (CLASES IMPARTEN[*] A ) REFERENCES GRUPO (ID)&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE CLASE ADD CONSTRAINT FK_CLASE_Clasesimpartena FOREIGN KEY (Clases imparten a ) REFERENCES Grupo (ID) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE CLASE ADD CONSTRAINT FK_CLASE_Clasesimpartena FOREIGN KEY (Clases imparten a ) REFERENCES Grupo (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE CLASE ADD CONSTRAINT FK_CLASE_Clasesimpartena FOREIGN KEY (Clases imparten a ) REFERENCES Grupo (ID)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.17--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE ENCUESTA ADD CONSTRAINT FK_ENCUESTA_ENCUESTAREALIZADAPOR FOREIGN KEY (ENCUESTA REALIZADA[*] POR) REFERENCES EXPEDIENTE (EXPEDIENTE)&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE ENCUESTA ADD CONSTRAINT FK_ENCUESTA_ENCUESTAREALIZADAPOR FOREIGN KEY (ENCUESTA REALIZADA[*] POR) REFERENCES EXPEDIENTE (EXPEDIENTE)&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE ENCUESTA ADD CONSTRAINT FK_ENCUESTA_Encuestarealizadapor FOREIGN KEY (Encuesta realizada por) REFERENCES Expediente (Expediente) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE ENCUESTA ADD CONSTRAINT FK_ENCUESTA_Encuestarealizadapor FOREIGN KEY (Encuesta realizada por) REFERENCES Expediente (Expediente)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE ENCUESTA ADD CONSTRAINT FK_ENCUESTA_Encuestarealizadapor FOREIGN KEY (Encuesta realizada por) REFERENCES Expediente (Expediente)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.185--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE GR_ASIG ADD CONSTRAINT FK_GR_ASIG_GRUPOSDEASIGNATURAS FOREIGN KEY (GRUPOS DE[*] ASIGNATURAS) REFERENCES GRUPO (ID)&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE GR_ASIG ADD CONSTRAINT FK_GR_ASIG_GRUPOSDEASIGNATURAS FOREIGN KEY (GRUPOS DE[*] ASIGNATURAS) REFERENCES GRUPO (ID)&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE Gr_Asig ADD CONSTRAINT FK_Gr_Asig_Gruposdeasignaturas FOREIGN KEY (Grupos de asignaturas) REFERENCES Grupo (ID) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE Gr_Asig ADD CONSTRAINT FK_Gr_Asig_Gruposdeasignaturas FOREIGN KEY (Grupos de asignaturas) REFERENCES Grupo (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE Gr_Asig ADD CONSTRAINT FK_Gr_Asig_Gruposdeasignaturas FOREIGN KEY (Grupos de asignaturas) REFERENCES Grupo (ID)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.187--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE GRUPO ADD CONSTRAINT FK_GRUPO_GRUPOTIENETITULACION FOREIGN KEY (GRUPO TIENE[*] TITULACION) REFERENCES TITULACION (CODIGO)&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE GRUPO ADD CONSTRAINT FK_GRUPO_GRUPOTIENETITULACION FOREIGN KEY (GRUPO TIENE[*] TITULACION) REFERENCES TITULACION (CODIGO)&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE Grupo ADD CONSTRAINT FK_Grupo_Grupotienetitulacion FOREIGN KEY (Grupo tiene titulacion) REFERENCES TITULACION (CODIGO) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE Grupo ADD CONSTRAINT FK_Grupo_Grupotienetitulacion FOREIGN KEY (Grupo tiene titulacion) REFERENCES TITULACION (CODIGO)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE Grupo ADD CONSTRAINT FK_Grupo_Grupotienetitulacion FOREIGN KEY (Grupo tiene titulacion) REFERENCES TITULACION (CODIGO)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.19--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE MAT_ASIG ADD CONSTRAINT FK_MAT_ASIG_GRUPOTIENEASIGNATURASMATRICULADAS FOREIGN KEY (GRUPO TIENE[*] ASIGNATURAS MATRICULADAS ) REFERENCES GRUPO (ID)&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE MAT_ASIG ADD CONSTRAINT FK_MAT_ASIG_GRUPOTIENEASIGNATURASMATRICULADAS FOREIGN KEY (GRUPO TIENE[*] ASIGNATURAS MATRICULADAS ) REFERENCES GRUPO (ID)&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE MAT_ASIG ADD CONSTRAINT FK_MAT_ASIG_Grupotieneasignaturasmatriculadas FOREIGN KEY (Grupo tiene asignaturas matriculadas ) REFERENCES Grupo (ID) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE MAT_ASIG ADD CONSTRAINT FK_MAT_ASIG_Grupotieneasignaturasmatriculadas FOREIGN KEY (Grupo tiene asignaturas matriculadas ) REFERENCES Grupo (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE MAT_ASIG ADD CONSTRAINT FK_MAT_ASIG_Grupotieneasignaturasmatriculadas FOREIGN KEY (Grupo tiene asignaturas matriculadas ) REFERENCES Grupo (ID)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.242--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna &quot;ID&quot; no encontrada
+Column &quot;ID&quot; not found; SQL statement:
+ALTER TABLE Centro_Titulacion ADD CONSTRAINT FK_Centro_Titulacion_Titulacion FOREIGN KEY (Titulacion) REFERENCES TITULACION (ID) [42122-200]
+Error Code: 42122
+Call: ALTER TABLE Centro_Titulacion ADD CONSTRAINT FK_Centro_Titulacion_Titulacion FOREIGN KEY (Titulacion) REFERENCES TITULACION (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE Centro_Titulacion ADD CONSTRAINT FK_Centro_Titulacion_Titulacion FOREIGN KEY (Titulacion) REFERENCES TITULACION (ID)&quot;)
+[EL Warning]: 2021-04-23 03:41:49.243--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL &quot;ALTER TABLE ENCUESTA_GR_ASIG ADD CONSTRAINT FK_ENCUESTA_GR_ASIG_CURSOAC FOREIGN KEY (CURSOAC, GR_ASIG TIENE[*] , GR_ASIG ESTA EN ) REFERENCES GR_ASIG (CURSOAC, GR_ASIG TIENE , GR_ASIG ESTA EN )&quot;; se esperaba &quot;ASC, DESC, NULLS, ,, )&quot;
+Syntax error in SQL statement &quot;ALTER TABLE ENCUESTA_GR_ASIG ADD CONSTRAINT FK_ENCUESTA_GR_ASIG_CURSOAC FOREIGN KEY (CURSOAC, GR_ASIG TIENE[*] , GR_ASIG ESTA EN ) REFERENCES GR_ASIG (CURSOAC, GR_ASIG TIENE , GR_ASIG ESTA EN )&quot;; expected &quot;ASC, DESC, NULLS, ,, )&quot;; SQL statement:
+ALTER TABLE ENCUESTA_Gr_Asig ADD CONSTRAINT FK_ENCUESTA_Gr_Asig_CursoAc FOREIGN KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en ) REFERENCES Gr_Asig (CursoAc, Gr_Asig tiene , Gr_Asig esta en ) [42001-200]
+Error Code: 42001
+Call: ALTER TABLE ENCUESTA_Gr_Asig ADD CONSTRAINT FK_ENCUESTA_Gr_Asig_CursoAc FOREIGN KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en ) REFERENCES Gr_Asig (CursoAc, Gr_Asig tiene , Gr_Asig esta en )
+Query: DataModifyQuery(sql=&quot;ALTER TABLE ENCUESTA_Gr_Asig ADD CONSTRAINT FK_ENCUESTA_Gr_Asig_CursoAc FOREIGN KEY (CursoAc, Gr_Asig tiene , Gr_Asig esta en ) REFERENCES Gr_Asig (CursoAc, Gr_Asig tiene , Gr_Asig esta en )&quot;)
+[EL Warning]: 2021-04-23 03:41:49.247--ServerSession(1383619949)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla &quot;MAT_ASIG&quot; no encontrada
+Table &quot;MAT_ASIG&quot; not found; SQL statement:
+ALTER TABLE MATRICULA_MAT_ASIG ADD CONSTRAINT FK_MATRICULA_MAT_ASIG_ASIGNATURA_Referencia FOREIGN KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente) REFERENCES MAT_ASIG (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente) [42102-200]
+Error Code: 42102
+Call: ALTER TABLE MATRICULA_MAT_ASIG ADD CONSTRAINT FK_MATRICULA_MAT_ASIG_ASIGNATURA_Referencia FOREIGN KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente) REFERENCES MAT_ASIG (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE MATRICULA_MAT_ASIG ADD CONSTRAINT FK_MATRICULA_MAT_ASIG_ASIGNATURA_Referencia FOREIGN KEY (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente) REFERENCES MAT_ASIG (ASIGNATURA_Referencia, CURSO_ACADEMICO, IDEXPEDIENTE_Expediente)&quot;)
+---------------LLEGA HASTA AQUI --------------------------------
+---------------LLEGA HASTA AQUI 2--------------------------------
+[EL Warning]: 2021-04-23 03:41:49.438--UnitOfWork(211312721)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: La columna &quot;CODIGO&quot; no permite valores nulos (NULL)
+NULL not allowed for column &quot;CODIGO&quot;; SQL statement:
+INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?) [23502-200]
+Error Code: 23502
+Call: INSERT INTO Centro (ID, Direccion, Nombre, TLF_Conserjeria) VALUES (?, ?, ?, ?)
+	bind =&gt; [4 parameters bound]
+Query: InsertObjectQuery(Centro [ID=1, Nombre=ETSII, Direccion=Boulevar, TLF_Conserjeria=1233445, grupos=[Titulacion [Codigo=23, Nombre=Ingenieria Informatica, Creditos=240, expedientes={[]}, asignatura={[]}, lista_centros={[]}]]])
 </system-out>
-    <system-err>abr. 22, 2021 9:54:34 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
-WARNING: EJB6008:Specified or calculated application server instance [C:\Users\Rafael\.m2\repository\org\glassfish\main\extras\glassfish-embedded-all\domains\domain1] does not exist.
-abr. 22, 2021 9:54:35 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
-INFO: [EJBContainerProviderImpl] Using config file location: file:/C:/Users/Rafael/AppData/Local/Temp/domain1326668520476657359xml
-abr. 22, 2021 9:54:35 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
-INFO: [EJBContainerProviderImpl] Using runtime class: class com.sun.enterprise.glassfish.bootstrap.StaticGlassFishRuntime
-abr. 22, 2021 9:54:36 P. M. com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
-INFO: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
-abr. 22, 2021 9:54:36 P. M. org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+    <system-err>abr 23, 2021 3:41:21 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl getValidFile
+ADVERTENCIA: EJB6008:Specified or calculated application server instance [/home/alumno/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/domains/domain1] does not exist.
+abr 23, 2021 3:41:21 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFORMACIÓN: [EJBContainerProviderImpl] Using config file location: file:/tmp/domain1919202006485974471xml
+abr 23, 2021 3:41:21 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl createContainer
+INFORMACIÓN: [EJBContainerProviderImpl] Using runtime class: class com.sun.enterprise.glassfish.bootstrap.StaticGlassFishRuntime
+abr 23, 2021 3:41:22 AM com.sun.enterprise.v3.server.CommonClassLoaderServiceImpl findDerbyClient
+INFORMACIÓN: Cannot find javadb client jar file, derby jdbc driver will not be available by default.
+abr 23, 2021 3:41:22 AM org.hibernate.validator.internal.util.Version &lt;clinit&gt;
 INFO: HV000001: Hibernate Validator null
-abr. 22, 2021 9:54:37 P. M. org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
-INFO: Authorization Service has successfully initialized.
-abr. 22, 2021 9:54:37 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
-SEVERE: The SSL certificate has expired: [
+abr 23, 2021 3:41:23 AM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+INFORMACIÓN: Authorization Service has successfully initialized.
+abr 23, 2021 3:41:23 AM com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+GRAVE: The SSL certificate has expired: [
 [
   Version: V3
   Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
   Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
 
   Key:  Sun RSA public key, 1024 bits
-  params: null
   modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
   public exponent: 65537
-  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
-               To: Fri Jul 05 10:27:35 CEST 2019]
+  Validity: [From: Tue Jul 07 01:27:35 PDT 2009,
+               To: Fri Jul 05 01:27:35 PDT 2019]
   Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
   SerialNumber: [    4a5306f7]
 
@@ -147,19 +372,18 @@ KeyIdentifier [
 0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
 
 ]
-abr. 22, 2021 9:54:37 P. M. com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
-SEVERE: The SSL certificate has expired: [
+abr 23, 2021 3:41:23 AM com.sun.enterprise.security.ssl.impl.SecuritySupportImpl checkCertificateDates
+GRAVE: The SSL certificate has expired: [
 [
   Version: V3
   Subject: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
   Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
 
   Key:  Sun RSA public key, 1024 bits
-  params: null
   modulus: 145607243452859689580129548866124791697266876389020072346169573106005067922351621693980274409566977123703120560397141987498630922827852965950283535196583826176478163336993643826795231487853960699742178569310586812871660687609669142799497192378661602695305819033929044820179434366507221428988785371476479913059
   public exponent: 65537
-  Validity: [From: Tue Jul 07 10:27:35 CEST 2009,
-               To: Fri Jul 05 10:27:35 CEST 2019]
+  Validity: [From: Tue Jul 07 01:27:35 PDT 2009,
+               To: Fri Jul 05 01:27:35 PDT 2019]
   Issuer: CN=localhost, OU=GlassFish, O=Sun Microsystems, L=Santa Clara, ST=California, C=US
   SerialNumber: [    4a5306f7]
 
@@ -185,70 +409,72 @@ KeyIdentifier [
 0070: 04 90 F3 2C C5 FA E4 A2   DC 16 17 4A 02 A7 ED 94  ...,.......J....
 
 ]
-abr. 22, 2021 9:54:37 P. M. com.sun.enterprise.v3.server.AppServerStartup postStartupJob
-INFO: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (824ms), startup services(1.353ms), total(2.177ms)
-abr. 22, 2021 9:54:37 P. M. com.sun.jts.CosTransactions.DefaultTransactionService setServerName
-INFO: JTS5014: Recoverable JTS instance, serverId = [100]
-abr. 22, 2021 9:54:38 P. M. org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
-INFO: JMXStartupService has disabled JMXConnector system
-abr. 22, 2021 9:54:38 P. M. com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
-WARNING: Check for a new version of MQ installation failed : C:\Users\Rafael\AppData\Local\Temp\gfembed8310922835418169781tmp\lib\install\applications\jmsra\..\imqjmsra.rar:C:\Users\Rafael\AppData\Local\Temp\gfembed8310922835418169781tmp\lib\install\applications\jmsra\imqjmsra.rar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
-INFO: ... skipping entry with a Manifest file with a special attribute: glassfish-embedded-all-5.1.0.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
-WARNING: NCLS-DEPLOYMENT-00009
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding EJB module to ScatteredArchive classes
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive test-classes
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive slf4j-api-1.7.30.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive mysql-connector-java-8.0.19.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive classes
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive eclipselink-2.7.6.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commons-csv-1.6.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive hamcrest-core-1.3.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commonj.sdo-2.1.1.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive jakarta.persistence-2.2.3.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commons-math3-3.6.1.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive javaee-api-8.0.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive javax.mail-1.6.0.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive activation-1.1.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive poi-5.0.0.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive h2-1.4.200.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive SparseBitSet-1.2.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive protobuf-java-3.6.1.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commons-codec-1.15.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive jcl-over-slf4j-1.7.30.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive commons-collections4-4.4.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
-INFO: [DeploymentElement] adding library to ScatteredArchive junit-4.12.jar
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
-INFO: [EJBContainerImpl] Deploying app: org.glassfish.embeddable.archive.ScatteredArchive@2baf2c6
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
-INFO: [EJBContainerImpl] GlassFish status: STARTED
-abr. 22, 2021 9:54:38 P. M. org.glassfish.ejb.embedded.EJBContainerImpl deploy
-INFO: [EJBContainerImpl] Deploying as a ScatteredArchive
-abr. 22, 2021 9:55:04 P. M. org.glassfish.hk2.classmodel.reflect.Parser$5 on
-SEVERE: Exception while visiting META-INF/versions/10/org/h2/util/NetUtils2.class of size 876
+abr 23, 2021 3:41:23 AM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+INFORMACIÓN: Undefined Product Name - define product and version info in config/branding  0.0.0  (0) startup time : Embedded (683ms), startup services(1.096ms), total(1.779ms)
+abr 23, 2021 3:41:23 AM com.sun.jts.CosTransactions.DefaultTransactionService setServerName
+INFORMACIÓN: JTS5014: Recoverable JTS instance, serverId = [100]
+abr 23, 2021 3:41:23 AM org.glassfish.admin.mbeanserver.JMXStartupService$JMXConnectorsStarterThread run
+INFORMACIÓN: JMXStartupService has disabled JMXConnector system
+abr 23, 2021 3:41:24 AM com.sun.enterprise.connectors.jms.util.JmsRaUtil getInstalledMqVersion
+ADVERTENCIA: Check for a new version of MQ installation failed : /tmp/gfembed6480083672857461678tmp/lib/install/applications/jmsra/../imqjmsra.rar (No existe el archivo o el directorio):/tmp/gfembed6480083672857461678tmp/lib/install/applications/jmsra/imqjmsra.rar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.EJBContainerProviderImpl skipJar
+INFORMACIÓN: ... skipping entry with a Manifest file with a special attribute: glassfish-embedded-all-5.1.0.jar
+abr 23, 2021 3:41:24 AM org.glassfish.deployment.common.GenericAnnotationDetector scanArchive
+ADVERTENCIA: NCLS-DEPLOYMENT-00009
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding EJB module to ScatteredArchive classes
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive protobuf-java-3.6.1.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive slf4j-api-1.7.30.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive classes
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive eclipselink-2.7.6.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive SparseBitSet-1.2.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive test-classes
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commonj.sdo-2.1.1.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive poi-5.0.0.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commons-math3-3.6.1.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive activation-1.1.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive junit-4.12.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commons-codec-1.15.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive tools.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive javaee-api-8.0.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commons-collections4-4.4.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive commons-csv-1.6.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive hamcrest-core-1.3.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive h2-1.4.200.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive javax.mail-1.6.0.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive jakarta.persistence-2.2.3.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive jcl-over-slf4j-1.7.30.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.DeploymentElement getOrCreateApplication
+INFORMACIÓN: [DeploymentElement] adding library to ScatteredArchive mysql-connector-java-8.0.19.jar
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] Deploying app: org.glassfish.embeddable.archive.ScatteredArchive@bf3aa52
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] GlassFish status: STARTED
+abr 23, 2021 3:41:24 AM org.glassfish.ejb.embedded.EJBContainerImpl deploy
+INFORMACIÓN: [EJBContainerImpl] Deploying as a ScatteredArchive
+abr 23, 2021 3:41:38 AM org.glassfish.hk2.classmodel.reflect.Parser$5 on
+GRAVE: Exception while visiting META-INF/versions/10/org/h2/util/NetUtils2.class of size 876
 java.lang.IllegalArgumentException
 	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:160)
 	at org.glassfish.hk2.external.org.objectweb.asm.ClassReader.&lt;init&gt;(ClassReader.java:143)
@@ -260,144 +486,103 @@ java.lang.IllegalArgumentException
 	at org.glassfish.hk2.classmodel.reflect.Parser.access$300(Parser.java:44)
 	at org.glassfish.hk2.classmodel.reflect.Parser$3.call(Parser.java:280)
 	at org.glassfish.hk2.classmodel.reflect.Parser$3.call(Parser.java:269)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
 
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.SecurityLifecycle &lt;init&gt;
-INFO: Java security manager is disabled.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
-INFO: Entering Security Startup Service.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.PolicyLoader loadPolicy
-INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
-INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
-INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.auth.realm.Realm doInstantiate
-INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
-abr. 22, 2021 9:55:22 P. M. com.sun.enterprise.security.SecurityLifecycle onInitialization
-INFO: Security Service(s) started successfully.
-abr. 22, 2021 9:55:24 P. M. org.glassfish.api.ActionReport failure
-SEVERE: Exception while invoking class org.glassfish.persistence.jpa.JPADeployer prepare method
-java.lang.RuntimeException: Could not resolve a persistence unit corresponding to the persistence-context-ref-name [es.uma.platurno.ejb.AsignaturasEjb/em] in the scope of the module called [classes]. Please verify your application.
-	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUViaEMRef(BundleDescriptor.java:723)
-	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUsViaPCRefs(BundleDescriptor.java:711)
-	at org.glassfish.ejb.deployment.descriptor.EjbBundleDescriptorImpl.findReferencedPUs(EjbBundleDescriptorImpl.java:846)
-	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:162)
-	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
-	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/javax.security.auth.Subject.doAs(Subject.java:361)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/javax.security.auth.Subject.doAs(Subject.java:361)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
-	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
-	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
-	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
-	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
-	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:127)
-	at es.uma.platurno.tests.AsignaturaEjbTest.setUpClass(AsignaturaEjbTest.java:47)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-abr. 22, 2021 9:55:24 P. M. org.glassfish.api.ActionReport failure
-SEVERE: Exception while preparing the app
-abr. 22, 2021 9:55:24 P. M. com.sun.enterprise.v3.server.ApplicationLifecycle deploy
-SEVERE: Exception during lifecycle processing
-java.lang.RuntimeException: Could not resolve a persistence unit corresponding to the persistence-context-ref-name [es.uma.platurno.ejb.AsignaturasEjb/em] in the scope of the module called [classes]. Please verify your application.
-	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUViaEMRef(BundleDescriptor.java:723)
-	at com.sun.enterprise.deployment.BundleDescriptor.findReferencedPUsViaPCRefs(BundleDescriptor.java:711)
-	at org.glassfish.ejb.deployment.descriptor.EjbBundleDescriptorImpl.findReferencedPUs(EjbBundleDescriptorImpl.java:846)
-	at org.glassfish.persistence.jpa.JPADeployer.createEMFs(JPADeployer.java:162)
-	at org.glassfish.persistence.jpa.JPADeployer.prepare(JPADeployer.java:144)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.prepareModule(ApplicationLifecycle.java:901)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:410)
-	at com.sun.enterprise.v3.server.ApplicationLifecycle.deploy(ApplicationLifecycle.java:195)
-	at org.glassfish.deployment.admin.DeployCommand.execute(DeployCommand.java:467)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:516)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2$1.run(CommandRunnerImpl.java:512)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/javax.security.auth.Subject.doAs(Subject.java:361)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$2.execute(CommandRunnerImpl.java:511)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:542)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$3.run(CommandRunnerImpl.java:534)
-	at java.base/java.security.AccessController.doPrivileged(Native Method)
-	at java.base/javax.security.auth.Subject.doAs(Subject.java:361)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:533)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.doCommand(CommandRunnerImpl.java:1441)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl.access$1300(CommandRunnerImpl.java:86)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1823)
-	at com.sun.enterprise.v3.admin.CommandRunnerImpl$ExecutionContext.execute(CommandRunnerImpl.java:1699)
-	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:109)
-	at com.sun.enterprise.admin.cli.embeddable.DeployerImpl.deploy(DeployerImpl.java:85)
-	at org.glassfish.ejb.embedded.EJBContainerImpl.deploy(EJBContainerImpl.java:114)
-	at org.glassfish.ejb.embedded.EJBContainerProviderImpl.createEJBContainer(EJBContainerProviderImpl.java:110)
-	at javax.ejb.embeddable.EJBContainer.createEJBContainer(EJBContainer.java:127)
-	at es.uma.platurno.tests.AsignaturaEjbTest.setUpClass(AsignaturaEjbTest.java:47)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-
-abr. 22, 2021 9:55:24 P. M. org.glassfish.deployment.admin.DeployCommand execute
-SEVERE: Exception while preparing the app : Could not resolve a persistence unit corresponding to the persistence-context-ref-name [es.uma.platurno.ejb.AsignaturasEjb/em] in the scope of the module called [classes]. Please verify your application.
-abr. 22, 2021 9:55:29 P. M. org.glassfish.ejb.embedded.EJBContainerProviderImpl createEJBContainer
-INFO: [EJBContainerProviderImpl] Cleaning up on failure ...
-abr. 22, 2021 9:55:29 P. M. org.glassfish.admin.mbeanserver.JMXStartupService shutdown
-INFO: JMXStartupService and JMXConnectors have been shut down.
-abr. 22, 2021 9:55:29 P. M. com.sun.enterprise.v3.server.AppServerStartup stop
-INFO: Shutdown procedure finished
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.SecurityLifecycle &lt;init&gt;
+INFORMACIÓN: Java security manager is disabled.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.SecurityLifecycle onInitialization
+INFORMACIÓN: Entering Security Startup Service.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.PolicyLoader loadPolicy
+INFORMACIÓN: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+INFORMACIÓN: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+abr 23, 2021 3:41:39 AM com.sun.enterprise.security.SecurityLifecycle onInitialization
+INFORMACIÓN: Security Service(s) started successfully.
+abr 23, 2021 3:41:44 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF.metadata
+ADVERTENCIA: The reference column name [ID] mapped on the element [field lista_centros] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+abr 23, 2021 3:41:44 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF.metadata
+ADVERTENCIA: The reference column name [Codigo] mapped on the element [field lista_centros] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+abr 23, 2021 3:41:44 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF.metadata
+ADVERTENCIA: The reference column name [codigo] mapped on the element [field grupo] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+abr 23, 2021 3:41:44 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF.metadata
+ADVERTENCIA: The reference column name [id] mapped on the element [field grupo] does not correspond to a valid id or basic field/column on the mapping reference. Will use referenced column name as provided.
+abr 23, 2021 3:41:44 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF
+INFORMACIÓN: EclipseLink, version: Eclipse Persistence Services - 2.7.6.v20200131-b7c997804f
+abr 23, 2021 3:41:45 AM org.eclipse.persistence.session./file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF.connection
+INFORMACIÓN: /file:/tmp/gfembed6480083672857461678tmp/applications/classes/_ProyectoPlaturno.GrupoF login successful
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB ExpedienteEJB: [java:global/classes/ExpedienteEJB!es.uma.platurno.ejb.ExpedienteEJB, java:global/classes/ExpedienteEJB!es.uma.platurno.ejb.ExpedienteInterfaz]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB AsignaturasEjb: [java:global/classes/AsignaturasEjb, java:global/classes/AsignaturasEjb!es.uma.platurno.ejb.AsignaturasEjbInterfaz]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB ASIGNAR_GRUPO_AUTO: [java:global/classes/ASIGNAR_GRUPO_AUTO!es.uma.platurno.ejb.ASIGNAR_GRUPO_AUTO, java:global/classes/ASIGNAR_GRUPO_AUTO!es.uma.platurno.ejb.ASIGNAR_GRUPO_AUTOInterfaz]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB AlumnoEjb: [java:global/classes/AlumnoEjb!es.uma.platurno.ejb.AlumnoInterface, java:global/classes/AlumnoEjb]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB Autenticacion: [java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz, java:global/classes/Autenticacion]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB Solicitud_Cambio_Grupo: [java:global/classes/Solicitud_Cambio_Grupo!es.uma.platurno.ejb.Solicitud_Cambio_Grupo_Interfaz, java:global/classes/Solicitud_Cambio_Grupo]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB EncuestaEJB: [java:global/classes/EncuestaEJB!es.uma.platurno.ejb.EncuestaInterfaceEJB, java:global/classes/EncuestaEJB]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB ImportarFicheroCSV: [java:global/classes/ImportarFicheroCSV!es.uma.platurno.ejb.IFCSV_Interface, java:global/classes/ImportarFicheroCSV]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB FiltroMatriculas: [java:global/classes/FiltroMatriculas, java:global/classes/FiltroMatriculas!es.uma.platurno.ejb.FiltroMatriculasInterfaz]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB UsuarioEjb: [java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz, java:global/classes/UsuarioEjb]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB Matricula_ejb: [java:global/classes/Matricula_ejb, java:global/classes/Matricula_ejb!es.uma.platurno.ejb.MatriculaInterfaz]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB ListadoAlumnos: [java:global/classes/ListadoAlumnos!es.uma.platurno.ejb.ListadoAlumnosInterface, java:global/classes/ListadoAlumnos]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB TitulacionesEjb: [java:global/classes/TitulacionesEjb!es.uma.platurno.ejb.TitulacionesEjbInterface, java:global/classes/TitulacionesEjb]
+abr 23, 2021 3:41:45 AM com.sun.ejb.containers.BaseContainer initializeHome
+INFORMACIÓN: Portable JNDI names for EJB GR_ASIGEJB: [java:global/classes/GR_ASIGEJB!es.uma.platurno.ejb.GR_ASIGEJBInterfaz, java:global/classes/GR_ASIGEJB!es.uma.platurno.ejb.GR_ASIGEJB]
+abr 23, 2021 3:41:45 AM org.jboss.weld.bootstrap.WeldStartup &lt;clinit&gt;
+INFO: WELD-000900: 3.0.0 (Final)
+abr 23, 2021 3:41:47 AM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] org.glassfish.sse.impl.ServerSentEventCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType&lt;T&gt;, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+abr 23, 2021 3:41:47 AM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.hibernate.validator.cdi.ValidationExtension.processAnnotatedType(@Observes ProcessAnnotatedType&lt;T&gt;) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+abr 23, 2021 3:41:47 AM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+abr 23, 2021 3:41:47 AM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jms.injection.JMSCDIExtension.processAnnotatedType(@Observes ProcessAnnotatedType&lt;T&gt;) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorMandatory is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorNever is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorNotSupported is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorRequired is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorRequiresNew is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.cdi.transaction.TransactionalInterceptorSupports is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.WebAppExceptionHolder is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.WebAppExceptionInterceptor is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.TransactionalExceptionMapper is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class org.glassfish.jersey.ext.cdi1x.servlet.internal.CdiExternalRequestScope is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class com.sun.faces.flow.FlowDiscoveryCDIHelper is deprecated from CDI 1.1!
+abr 23, 2021 3:41:47 AM org.jboss.weld.bootstrap.events.BeforeBeanDiscoveryImpl addAnnotatedType
+WARN: WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType&lt;?&gt;) used for class com.ibm.jbatch.container.cdi.BatchProducerBean is deprecated from CDI 1.1!
+abr 23, 2021 3:41:48 AM org.glassfish.deployment.admin.DeployCommand execute
+INFORMACIÓN: classes was successfully deployed in 14.072 milliseconds.
 </system-err>
   </testcase>
 </testsuite>

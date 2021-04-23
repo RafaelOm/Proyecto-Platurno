@@ -4,7 +4,7 @@
 
 package es.uma.platurno.jpa;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -23,6 +23,12 @@ public class Alumno extends Usuario implements Serializable {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
 	   nullable simboliza los atributos que son obligatorios en la BD. */
+	
+	@Id
+	private String prueba;
+	public void setPrueba(String prueba) {
+		this.prueba=prueba;
+	}
 	@Column(name = "DNI", nullable = false)
 	private String dni;
 

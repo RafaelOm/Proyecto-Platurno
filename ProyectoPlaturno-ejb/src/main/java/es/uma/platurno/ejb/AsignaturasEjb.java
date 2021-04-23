@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 
 //Metodo realizado por Rafael Ordoñez Molina
 @Stateless
-@LocalBean
+
 public class AsignaturasEjb implements AsignaturasEjbInterfaz {
 
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")

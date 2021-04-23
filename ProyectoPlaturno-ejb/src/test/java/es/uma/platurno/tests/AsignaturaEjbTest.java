@@ -2,7 +2,7 @@ package es.uma.platurno.tests;
 
 import es.uma.platurno.ejb.AsignaturasEjb;
 import es.uma.platurno.ejb.Autenticacion;
-import es.uma.platurno.ejb.UsuarioEjb;
+import es.uma.platurno.ejb.*;
 import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
 import es.uma.platurno.ejb.exceptions.CuentaInexistenceException;
 import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
@@ -24,19 +24,19 @@ public class AsignaturaEjbTest {
 	
 	private static final Logger LOG = Logger.getLogger(AsignaturaEjbTest.class.getCanonicalName());
 
-	private static final String ASIGNATURAEJB = "target/classes/es/uma/platurno/ejb/AsignaturasEjb.class";
+	private static final String ASIGNATURAEJB = "java:global/classes/AsignaturasEjb";
 	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
 	private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
-	private static final String USUARIOEJB = "target/classes/es/uma/platurno/ejb/UsuarioEjb.class";
-	private static final String AUTENTICACION = "target/classes/es/uma/platurno/ejb/Autenticacion.class";
+	private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
+	private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 	
 	private static EJBContainer ejbContainer;
 	private static Context ctx;
 
-	private AsignaturasEjb asignaturaEjb;
-	private UsuarioEjb UsuarioEjb;
-	private Autenticacion auth;
+	//private AsignaturasEjb asignaturaEjb;
+	private UsuarioEjbInterfaz UsuarioEjb;
+	private AutenticacionInterfaz auth;
 	
 
 	
@@ -50,16 +50,19 @@ public class AsignaturaEjbTest {
 
 	@Before
 	public void setup() throws NamingException, javax.naming.NamingException {
-		asignaturaEjb = (AsignaturasEjb) ctx.lookup(ASIGNATURAEJB);
-		UsuarioEjb = (UsuarioEjb) ctx.lookup(USUARIOEJB);
-		 auth = (Autenticacion) ctx.lookup(AUTENTICACION);
+		//asignaturaEjb = (AsignaturasEjb) ctx.lookup(ASIGNATURAEJB);
+		UsuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
+		 auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Test
 	public void testCompruebaUsuario(){
+		
+		
 
 		Alumno a = new Alumno();
+		a.setIdentificador(1L);
 		a.setUsername("mEscobar");
 		a.setPassword("manolito");
 		a.setDni("12345");

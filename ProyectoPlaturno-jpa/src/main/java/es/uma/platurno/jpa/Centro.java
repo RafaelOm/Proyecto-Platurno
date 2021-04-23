@@ -46,15 +46,23 @@ public class Centro implements Serializable {
 	@JoinTable(
 	            name = "Centro_Titulacion",
 	            joinColumns = @JoinColumn(
-	                    name = "Centro tiene titulaciones",
+	                    name = "Centro",
 	                    referencedColumnName = "codigo"
 	            ),
 	            inverseJoinColumns = @JoinColumn(
-	                    name = "Titulacion estan en centros",
+	                    name = "Titulacion",
 	                    referencedColumnName = "id"
 	            )
 	    )
-	private List<Grupo> grupo;
+	private List<Titulacion> grupo;
+	
+	public List<Titulacion> getTitulaciones(){
+		return grupo;
+	}
+	public void setTitulaciones(List<Titulacion> titulaciones) {
+		grupo=titulaciones;
+		
+	}
 
 //--------------------------------------------------------------------------------------------------------------------//
 

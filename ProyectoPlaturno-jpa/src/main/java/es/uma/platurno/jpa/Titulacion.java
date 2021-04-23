@@ -16,8 +16,9 @@ import java.util.List;
 public class Titulacion implements Serializable {
 
 	   
-	@Id
+	@Id @Column(nullable =false)
 	private String Codigo;
+	@Column(name="Nombre")
 	private String Nombre;
 	private String Creditos;
 	private static final long serialVersionUID = 1L;
@@ -33,14 +34,15 @@ public class Titulacion implements Serializable {
 			joinColumns = @JoinColumn(
 					name = "ID",
 					referencedColumnName = "ID"
-					),
-			inverseJoinColumns = @JoinColumn(
+					),inverseJoinColumns = @JoinColumn(
 					name = "Codigo",
 					referencedColumnName = "Codigo"
 					
 					)
 			)
 	private List<Centro> lista_centros;
+	
+
 
 	public Titulacion() {
 		super();
@@ -53,11 +55,11 @@ public class Titulacion implements Serializable {
 		this.Codigo = Codigo;
 	}   
 	public String getNombre() {
-		return this.Nombre;
+		return Nombre;
 	}
 
-	public void setNombre(String Nombre) {
-		this.Nombre = Nombre;
+	public void setNombre(String nombre) {
+		this.Nombre = nombre;
 	}   
 	public String getCreditos() {
 		return this.Creditos;

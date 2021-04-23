@@ -20,7 +20,6 @@ import es.uma.platurno.jpa.*;
 
 //Metodo realizado por Rafael Ordoñez Molina
 @Stateless
-@LocalBean
 public class Autenticacion implements AutenticacionInterfaz  {
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;

@@ -14,7 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-@Local
+
 public class AlumnoEjb implements AlumnoInterface {
 	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
 	private EntityManager em;
