@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
-
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.platurno.ejb.*;
 import es.uma.platurno.ejb.exceptions.*;
 import es.uma.platurno.jpa.*;
@@ -44,6 +44,7 @@ public class ASIGNAR_GRUPO_AUTO_Test {
         auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
+    @Requisitos({"RF16"})
     @Ignore
     @Test
     public void testCompruebaExpediente() throws  CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{
