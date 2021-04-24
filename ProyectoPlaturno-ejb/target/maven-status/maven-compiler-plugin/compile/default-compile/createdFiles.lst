@@ -14,6 +14,7 @@ es/uma/platurno/ejb/exceptions/TitulacionInexistente.class
 es/uma/platurno/ejb/Solicitud_Cambio_Grupo.class
 es/uma/platurno/ejb/UsuarioEjb.class
 es/uma/platurno/ejb/AlumnoEjb.class
+es/uma/platurno/GrupoError.class
 es/uma/platurno/ejb/exceptions/CuentaInexistenceException.class
 es/uma/platurno/ejb/AlertaColisionesHorarios.class
 es/uma/platurno/ejb/exceptions/GR_ASIG_GrupoNoExisteException.class

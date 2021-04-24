@@ -7,6 +7,14 @@ import javax.persistence.Entity;
 
 @Entity
 public class Secretaria extends Usuario{
-    private String idUma;
+    public Secretaria(String Username, String Password) {
+		super(Username, Password,1L);
+		// TODO Auto-generated constructor stub
+	}
+    public Secretaria() {
+    	super();
+    }
+
+	//private String idUma;
 
 }

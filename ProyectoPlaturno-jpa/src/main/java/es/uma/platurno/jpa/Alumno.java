@@ -19,21 +19,24 @@ import java.util.List;
 /* Entidad que hereda de Usuario, representando a la entidad Alumno. Usamos la interfaz serializable
 *  para poder mandar los datos a la BD. */
 @Entity
-public class Alumno implements Serializable {
+public class Alumno extends Usuario {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
 	   nullable simboliza los atributos que son obligatorios en la BD. */
 	
-	@OneToOne @Id
-	private Usuario id;
+
 	
-	public void setPrueba(Usuario id) {
-		this.id=id;
-	}
 	
 
-			 
-			 
+	@Id		 
+	private Long identificador;
+	
+	public Long getId() {
+		return this.identificador;
+	}
+	public void setId(Long id) {
+		this.identificador=id;
+	}
 	@Column(name = "DNI", nullable = true)
 	private String dni;
 
@@ -84,6 +87,10 @@ public class Alumno implements Serializable {
 //--------------------------------------------------------------------------------------------------------------------//
 
 	/* Constructor vacio, los bean seran los que se encarguen de cambiarle los valores */
+	public Alumno(String username,String password,Long id) {
+		super(username, password,id);
+		this.identificador=id;
+	}
 	public Alumno() {
 		super();
 	}

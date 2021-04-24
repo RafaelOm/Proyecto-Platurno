@@ -60,11 +60,9 @@ public class AsignaturaEjbTest {
 	public void testCompruebaUsuario(){
 		
 		
+		
+		Alumno a = new Alumno("Pepe","pepiot",1L);
 
-		Alumno a = new Alumno();
-		a.setIdentificador(1L);
-		a.setUsername("mEscobar");
-		a.setPassword("manolito");
 		a.setDni("12345");
 		a.setNombre("MANOLO");
 		a.setApellido1("ESCOBAR");

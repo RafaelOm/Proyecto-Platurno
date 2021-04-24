@@ -12,10 +12,32 @@ import java.util.Objects;
  *
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Usuario implements Serializable {
 
-	@Id @GeneratedValue
+	/**
+	 * 
+	 */
+	
+	public Usuario(String Username,String Password,Long id) {
+		super();
+		this.username=Username;
+		this.Password=Password;
+		this.identificador=id;
+		
+		//crearUsuario( Username, Password, id);
+		
+	}
+
+	
+	
+	public Usuario() {
+		
+	}
+	private static final long serialVersionUID = 1L;
+	@Id 
 	protected Long identificador;
+	
 	@Column(unique = true)
 	private String username;
 	@Column(nullable = false)

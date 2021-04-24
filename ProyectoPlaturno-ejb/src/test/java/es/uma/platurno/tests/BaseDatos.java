@@ -26,16 +26,16 @@ public class BaseDatos {
 
 		
 	
-		Usuario u = new Usuario();
+	/*	Usuario u = new Usuario();
 		u.setIdentificador(123L);
 		u.setUsername("hola");
 		u.setPassword("12345");
 		em.persist(u);
-		
+		*/
 		//////////////////ALUMNO////////////////////
-		Alumno a = new Alumno();
-		a.setPrueba(u);
-		a.setUsername("mEscobar");
+		Alumno a = new Alumno("MAnolo","maksdi",2L);
+		a.setIdentificador(2L);
+		a.setUsername("mEscobar2");
 		a.setPassword("manolito");
 		a.setDni("12345");
 		a.setNombre("MANOLO");
