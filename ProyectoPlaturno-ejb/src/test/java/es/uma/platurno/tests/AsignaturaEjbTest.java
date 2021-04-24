@@ -16,6 +16,7 @@ import es.uma.platurno.jpa.Titulacion;
 import es.uma.platurno.jpa.Usuario;
 import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.*;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 import static org.junit.Assert.fail;
 
@@ -50,6 +51,7 @@ public class AsignaturaEjbTest {
 		 auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+	@Requisitos({"RF-02"})
 	@Ignore
 	@Test
 	public void verAsignaturaTest() {
@@ -89,7 +91,7 @@ public class AsignaturaEjbTest {
 		}
 		
 	}
-	
+	@Requisitos({"RF-02"})
 	@Ignore
 	@Test
 	public void modificarAsiganturaTest() {
@@ -119,6 +121,7 @@ public class AsignaturaEjbTest {
 		} 
 		
 	}
+	@Requisitos({"RF-02"})
 	@Ignore
 	@Test
 	public void eliminarAsignaturaTest() {

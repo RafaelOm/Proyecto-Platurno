@@ -27,6 +27,7 @@ import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.Alumno;
 import es.uma.platurno.jpa.Asignatura;
 import es.uma.platurno.jpa.GR_ASIG;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 public class CG_Ejb_Test {
 	private static final String ASIGNATURAEJB = "/ProyectoPlaturno-ejb/src/main/java/es/uma/platurno/ejb/Solicitud_Cambio_Grupo_Interfaz.java"; 
@@ -55,6 +56,7 @@ public class CG_Ejb_Test {
 		 auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+	@Requisitos({"RF-11"})
 	@Ignore
 	@Test
 	public void testCompruebaSCG() throws  CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{

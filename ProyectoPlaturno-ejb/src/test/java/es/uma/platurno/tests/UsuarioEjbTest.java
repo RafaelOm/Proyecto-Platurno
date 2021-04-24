@@ -19,7 +19,7 @@ import es.uma.platurno.jpa.Secretaria;
 import es.uma.platurno.jpa.Usuario;
 import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.*;
-
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import static org.junit.Assert.fail;
 
 import javax.ejb.embeddable.EJBContainer;
@@ -52,6 +52,7 @@ public class UsuarioEjbTest {
 
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
 	public void crearUsuarioFromCsvTest() {
@@ -65,6 +66,7 @@ public class UsuarioEjbTest {
 		}
 		
 	}
+	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
 	public void verUsuarioTest() {
@@ -97,6 +99,7 @@ public class UsuarioEjbTest {
 		
 		
 	}
+	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
 	public void modificarUsuarioTest() {
@@ -126,7 +129,7 @@ public class UsuarioEjbTest {
 		}
 		
 	}
-	
+	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
 	public void modificarClaveTest() {
@@ -154,7 +157,7 @@ public class UsuarioEjbTest {
 			e.printStackTrace();
 		}
 	}
-	
+	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
 	public void eliminarUsuarioTest() {
