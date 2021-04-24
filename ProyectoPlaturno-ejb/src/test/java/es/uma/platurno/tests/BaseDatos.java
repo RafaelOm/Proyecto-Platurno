@@ -33,10 +33,8 @@ public class BaseDatos {
 		em.persist(u);
 		*/
 		//////////////////ALUMNO////////////////////
-		Alumno a = new Alumno("MAnolo","maksdi",2L);
-		a.setIdentificador(2L);
-		a.setUsername("mEscobar2");
-		a.setPassword("manolito");
+		Alumno a = new Alumno("Pepe","pepiot",1L);
+
 		a.setDni("12345");
 		a.setNombre("MANOLO");
 		a.setApellido1("ESCOBAR");
@@ -51,7 +49,39 @@ public class BaseDatos {
 		a.setCP("29000");
 
 		em.persist(a);
+		
+		Alumno a2 = new Alumno("Pepe","pepiot",4L);
 
+		a2.setDni("dni4");
+		a2.setNombre("MANOLO");
+		a2.setValidationChain("ESTO ES UN TOKEN DE PRUEBA");
+		a2.setApellido1("ESCOBAR");
+		a2.setApellido2("NOSE");
+		a2.setEmail_institucional("manolito@uma.es");
+		a2.setEmail_personal("manolomanolo@gmail.com");
+		a2.setTelefono("333333");
+		a2.setMovil("645353");
+		a2.setDireccion("Avenida malaga 24 ");
+		a2.setLocalidad("MADRID");
+		a2.setProvincia("COMUNIDAD DE MADRID");
+		a2.setCP("29000");
+		em.persist(a2);
+		
+		Secretaria s = new Secretaria("Rafael","prueba",125L);
+		em.persist(s);
+		
+		
+		Titulacion t = new Titulacion();
+		t.setCodigo(25);
+		t.setCreditos(240);
+		t.setNombre("Informatica");
+		em.persist(t);
+		
+		Asignatura asig= new Asignatura();
+		asig.setCodigo(20);
+		asig.setTitulacion(t);
+		asig.setReferencia("1233454");
+		em.persist(asig);
 		
 		
 		
