@@ -1,5 +1,6 @@
 package es.uma.platurno.tests;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.platurno.ejb.*;
 import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
 import es.uma.platurno.ejb.exceptions.CuentaInexistenceException;
@@ -50,7 +51,8 @@ public class ListadoAlumnosTest {
 		
 		
 	}
-	
+	@Requisitos({"RF-08"})
+	@Ignore
 	@Test
 	public void testCompruebaFiltros(){
 		
