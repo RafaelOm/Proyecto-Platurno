@@ -16,7 +16,7 @@ import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.Usuario;
 
-@Local
+
 @Stateless
 public class ListadoAlumnos implements ListadoAlumnosInterface {
 	
