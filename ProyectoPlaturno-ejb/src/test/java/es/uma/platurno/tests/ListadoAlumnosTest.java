@@ -14,6 +14,8 @@ import javax.naming.Context;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 public class ListadoAlumnosTest {
 	
 	private static final Logger LOG = Logger.getLogger(AutenticacionEjbTest.class.getCanonicalName());
@@ -42,6 +44,7 @@ public class ListadoAlumnosTest {
 		
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+	@Requisitos({"RF-08"})
 	@Ignore
 	@Test
 	public void testCompruebaListado(){
@@ -59,7 +62,7 @@ public class ListadoAlumnosTest {
 		
 		
 	}
-	
+	@Requisitos({"RF-08"})
 	@Ignore
 	@Test
 	public void testCompruebaFiltros(){

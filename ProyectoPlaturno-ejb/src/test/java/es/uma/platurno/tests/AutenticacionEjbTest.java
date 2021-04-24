@@ -17,6 +17,7 @@ import es.uma.platurno.jpa.Secretaria;
 import es.uma.platurno.jpa.Usuario;
 import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.*;
+import es.uma.informatica.sii.anotaciones.Requisitos;
 
 import static org.junit.Assert.fail;
 
@@ -52,6 +53,7 @@ public class AutenticacionEjbTest {
 		 auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test
 	public void testCompruebaUsuarioLogeado(){
@@ -81,6 +83,7 @@ public class AutenticacionEjbTest {
 
 
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test
 	public void testCompruebaUsuarioNoExistente(){
@@ -112,6 +115,7 @@ public class AutenticacionEjbTest {
 
 
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test
 	public void testCuentaInactivaException(){
@@ -142,6 +146,7 @@ public class AutenticacionEjbTest {
 		}
 
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test
 	public void testCuentaExistenteEnRegistro(){
@@ -175,6 +180,7 @@ public class AutenticacionEjbTest {
 	
 
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test
 	public void validarCuentaTest() {
@@ -205,6 +211,7 @@ public class AutenticacionEjbTest {
 		
 		
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test 
 	public void chekAlumnoRoleTest() {
@@ -235,6 +242,7 @@ public class AutenticacionEjbTest {
 		}
 		
 	}
+	@Requisitos({"RF-15"})
 	@Ignore
 	@Test 
 	public void chekSecretariaRoleTest() {
