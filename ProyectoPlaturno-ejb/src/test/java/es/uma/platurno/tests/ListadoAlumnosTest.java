@@ -16,11 +16,6 @@ import java.util.logging.Logger;
 
 public class ListadoAlumnosTest {
 	
-	private static final Logger LOG = Logger.getLogger(AutenticacionEjbTest.class.getCanonicalName());
-	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-	private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
-	private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
-	private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
 	private static final String LISTADOALUM = "java:global/classes/ListadoAlumnos!es.uma.platurno.ejb.ListadoAlumnosInterface";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 	
