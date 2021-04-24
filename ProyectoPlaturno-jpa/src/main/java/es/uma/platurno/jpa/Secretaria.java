@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 
 @Entity
 public class Secretaria extends Usuario{
-    public Secretaria(String Username, String Password) {
-		super(Username, Password,1L);
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Secretaria(String Username, String Password,Long id) {
+		super(Username, Password,id);
 		// TODO Auto-generated constructor stub
 	}
     public Secretaria() {
