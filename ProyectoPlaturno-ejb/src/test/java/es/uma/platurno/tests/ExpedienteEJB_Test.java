@@ -14,6 +14,7 @@ import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.platurno.jpa.Alumno;
@@ -22,14 +23,12 @@ import es.uma.platurno.jpa.GR_ASIG;
 
 public class ExpedienteEJB_Test {
     private static final String EXPEDIENTEEJB = "/ProyectoPlaturno-ejb/src/main/java/es/uma/platurno/ejb/ExpedienteInterfaz.java";
-    private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-    private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
+   
     private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
     private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 
-    private static EJBContainer ejbContainer;
-    private static Context ctx;
+
 
     private ExpedienteEJB ExpEjb;
     private Solicitud_Cambio_Grupo_Interfaz scg;
@@ -39,22 +38,15 @@ public class ExpedienteEJB_Test {
 
 
 
-    @BeforeClass
-    public static void setUpClass() {
-        Properties properties = new Properties();
-        properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-        ejbContainer = EJBContainer.createEJBContainer(properties);
-        ctx = ejbContainer.getContext();
-    }
 
     @Before
     public void setup() throws NamingException, javax.naming.NamingException {
-        ExpEjb = (ExpedienteEJB) ctx.lookup(EXPEDIENTEEJB);
-        UsuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
-        auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
+        ExpEjb = (ExpedienteEJB) TestSuite.ctx.lookup(EXPEDIENTEEJB);
+        UsuarioEjb = (UsuarioEjbInterfaz) TestSuite.ctx.lookup(USUARIOEJB);
+        auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
-
+    @Ignore
     @Test
     public void testCompruebaExpediente() throws  CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{
         Alumno a = new Alumno("Pepe","pepiot",1L);
@@ -121,11 +113,6 @@ public class ExpedienteEJB_Test {
         }
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-        if (ejbContainer != null) {
-            ejbContainer.close();
-        }
-    }
+
 }
 

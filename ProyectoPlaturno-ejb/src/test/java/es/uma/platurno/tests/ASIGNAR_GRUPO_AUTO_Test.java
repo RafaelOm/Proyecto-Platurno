@@ -15,18 +15,17 @@ import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class ASIGNAR_GRUPO_AUTO_Test {
     private static final String ASIGNAR_GRUPO_EJB = "/ProyectoPlaturno-ejb/src/main/java/es/uma/platurno/ejb/ASIGNAR_GRUPO_AUTOInterfaz.java";
-    private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-    private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
+   
     private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
     private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 
-    private static EJBContainer ejbContainer;
-    private static Context ctx;
+
 
     private ASIGNAR_GRUPO_AUTO asignar_grupo_auto;
     private Solicitud_Cambio_Grupo_Interfaz scg;
@@ -36,22 +35,16 @@ public class ASIGNAR_GRUPO_AUTO_Test {
 
 
 
-    @BeforeClass
-    public static void setUpClass() {
-        Properties properties = new Properties();
-        properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-        ejbContainer = EJBContainer.createEJBContainer(properties);
-        ctx = ejbContainer.getContext();
-    }
+
 
     @Before
     public void setup() throws NamingException, javax.naming.NamingException {
-        asignar_grupo_auto = (ASIGNAR_GRUPO_AUTO) ctx.lookup(ASIGNAR_GRUPO_EJB);
-        UsuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
-        auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
+        asignar_grupo_auto = (ASIGNAR_GRUPO_AUTO) TestSuite.ctx.lookup(ASIGNAR_GRUPO_EJB);
+        UsuarioEjb = (UsuarioEjbInterfaz) TestSuite.ctx.lookup(USUARIOEJB);
+        auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
-
+    @Ignore
     @Test
     public void testCompruebaExpediente() throws  CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{
         Alumno a = new Alumno("Pepe","pepiot",1L);
@@ -107,11 +100,6 @@ public class ASIGNAR_GRUPO_AUTO_Test {
         }
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-        if (ejbContainer != null) {
-            ejbContainer.close();
-        }
-    }
+
 }
 

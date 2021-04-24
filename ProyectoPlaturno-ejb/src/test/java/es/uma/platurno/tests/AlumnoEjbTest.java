@@ -12,8 +12,10 @@ import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import es.uma.platurno.ejb.AutenticacionInterfaz;
 import es.uma.platurno.ejb.UsuarioEjbInterfaz;
 import es.uma.platurno.ejb.exceptions.CuentaInactivaException;
@@ -26,14 +28,11 @@ public class AlumnoEjbTest {
 	private static final Logger LOG = Logger.getLogger(AsignaturaEjbTest.class.getCanonicalName());
 
 	private static final String ASIGNATURAEJB = "java:global/classes/AsignaturasEjb";
-	private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-	private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
+
 	private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
 	private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
-	
-	private static EJBContainer ejbContainer;
-	private static Context ctx;
+
 
 	//private AsignaturasEjb asignaturaEjb;
 	private UsuarioEjbInterfaz UsuarioEjb;
@@ -41,22 +40,17 @@ public class AlumnoEjbTest {
 	
 
 	
-	@BeforeClass
-	public static void setUpClass() {
-		Properties properties = new Properties();
-		properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-		ejbContainer = EJBContainer.createEJBContainer(properties);
-		ctx = ejbContainer.getContext();
-	}
+
 
 	@Before
 	public void setup() throws NamingException, javax.naming.NamingException {
 		//asignaturaEjb = (AsignaturasEjb) ctx.lookup(ASIGNATURAEJB);
-		UsuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
-		 auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
+		UsuarioEjb = (UsuarioEjbInterfaz) TestSuite.ctx.lookup(USUARIOEJB);
+		 auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
+	@Requisitos({"RF-05"})
+	@Ignore
 	@Test
 	public void testCompruebaUsuario(){
 		
@@ -88,11 +82,6 @@ public class AlumnoEjbTest {
 
 
 	
-	@AfterClass
-	public static void tearDownClass() {
-		if (ejbContainer != null) {
-			ejbContainer.close();
-		}
-	}
+
 
 }

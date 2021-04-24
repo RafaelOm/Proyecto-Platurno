@@ -15,20 +15,17 @@ import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class GR_ASIGEJB_Test {
-    private static final String GR_ASIGEJB = "/ProyectoPlaturno-ejb/src/main/java/es/uma/platurno/ejb/GR_ASIGEJBInterfaz.java";
-    private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-    private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
+    private static final String GR_ASIGEJB = "java:global/classes/GR_ASIGEJB!es.uma.platurno.ejb.GR_ASIGEJBInterfaz";
     private static final String USUARIOEJB = "java:global/classes/UsuarioEjb!es.uma.platurno.ejb.UsuarioEjbInterfaz";
     private static final String AUTENTICACION = "java:global/classes/Autenticacion!es.uma.platurno.ejb.AutenticacionInterfaz";
     private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 
-    private static EJBContainer ejbContainer;
-    private static Context ctx;
 
-    private GR_ASIGEJB gr_asigejb;
+    private GR_ASIGEJBInterfaz gr_asigejb;
     private Solicitud_Cambio_Grupo_Interfaz scg;
     private UsuarioEjbInterfaz UsuarioEjb;
     private AutenticacionInterfaz auth;
@@ -36,22 +33,17 @@ public class GR_ASIGEJB_Test {
 
 
 
-    @BeforeClass
-    public static void setUpClass() {
-        Properties properties = new Properties();
-        properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-        ejbContainer = EJBContainer.createEJBContainer(properties);
-        ctx = ejbContainer.getContext();
-    }
+  
 
     @Before
     public void setup() throws NamingException, javax.naming.NamingException {
-        gr_asigejb = (GR_ASIGEJB) ctx.lookup(GR_ASIGEJB);
-        UsuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
-        auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
+        gr_asigejb = (GR_ASIGEJB) TestSuite.ctx.lookup(GR_ASIGEJB);
+        UsuarioEjb = (UsuarioEjbInterfaz) TestSuite.ctx.lookup(USUARIOEJB);
+        auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
-
+    
+    @Ignore
     @Test
     public void testCompruebaExpediente() throws  CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{
         Alumno a = new Alumno("Pepe","pepiot",1L);
@@ -121,11 +113,6 @@ public class GR_ASIGEJB_Test {
         }
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-        if (ejbContainer != null) {
-            ejbContainer.close();
-        }
-    }
+
 }
 
