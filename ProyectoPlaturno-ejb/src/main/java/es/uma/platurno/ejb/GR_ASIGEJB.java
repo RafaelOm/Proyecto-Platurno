@@ -13,8 +13,8 @@ import javax.persistence.PersistenceContext;
  * Session Bean implementation class GR_ASIGEJB
  */
 @Stateless
-@LocalBean
 public class GR_ASIGEJB implements GR_ASIGEJBInterfaz {
+	
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
     private Autenticacion auth;

@@ -9,16 +9,17 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import java.sql.Date;
 
+
 /**
  * Session Bean implementation class Matricula
  */
 @Stateless
 @Local
-public  class Matricula_ejb implements MatriculaInterfaz {
+public class Matricula_ejb implements MatriculaInterfaz {
 
-    private Matricula mat;
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;
+    private Autenticacion auth;
 
 
 
@@ -26,23 +27,19 @@ public  class Matricula_ejb implements MatriculaInterfaz {
 
     }
 
-    public Matricula_ejb(String dato1, String dato2, String dato3){
+    public Matricula_ejb(String dato1,String dato2,String dato3){
 
-        mat = new Matricula();
-        mat.setFecha_Matricula(Date.valueOf(dato2));
-        mat.setTurno_Preferente(dato3);
     }
 
-    public Matricula_ejb(String id) throws MatriculaEJBException {
-        Matricula mat = em.find(Matricula.class, id);
-        if(mat == null){
-            throw new MatriculaEJBException("Matricula no encontrada en la BD.");
-        }
-    }
 
     // Al modificar se le pasa una lista de parametros de matricula para modificar dicha matricula.
     @Override
-    public void modificar(Matricula mat) throws modificarMatriculaException {
+    public void modificar(Usuario u,Matricula mat) throws modificarMatriculaException, PasswordErroneaException,
+            CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
 
         // Miro si la matricula esta en la base de datos
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
@@ -62,8 +59,11 @@ public  class Matricula_ejb implements MatriculaInterfaz {
     }
 
     @Override
-    public void ver(Matricula mat) throws verMatriculaException {
-
+    public void ver(Usuario u,Matricula mat) throws verMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
         if(m!=null) {
             throw new verMatriculaException("Matricula no encontrada.");
@@ -75,8 +75,11 @@ public  class Matricula_ejb implements MatriculaInterfaz {
     }
 
     @Override
-    public void eliminar(Matricula mat) throws eliminarMatriculaException {
-
+    public void eliminar(Usuario u,Matricula mat) throws eliminarMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+        //////Check if user is authenticated in the system  ////////////
+        auth=new Autenticacion();
+        auth.compruebaLogin(u);
+        ////////////////////////////////////////////////////////////////
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
         if(m==null) {
             throw new eliminarMatriculaException("Matricula no encontrada.");

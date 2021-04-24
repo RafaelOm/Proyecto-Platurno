@@ -1,17 +1,15 @@
 package es.uma.platurno.ejb;
-import es.uma.platurno.ejb.exceptions.eliminarMatriculaException;
-import es.uma.platurno.ejb.exceptions.modificarMatriculaException;
-import es.uma.platurno.ejb.exceptions.verMatriculaException;
+import es.uma.platurno.ejb.exceptions.*;
 import es.uma.platurno.jpa.*;
 import javax.ejb.Local;
 
 @Local
 public interface MatriculaInterfaz {
 
-    void modificar(Matricula mat) throws modificarMatriculaException;
+    void modificar(Usuario u,Matricula mat) throws modificarMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
 
-    void ver(Matricula mat) throws verMatriculaException;
+    void ver(Usuario u,Matricula mat) throws verMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
 
-    void eliminar(Matricula mat) throws eliminarMatriculaException;
+    void eliminar(Usuario u,Matricula mat) throws eliminarMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
 
 }

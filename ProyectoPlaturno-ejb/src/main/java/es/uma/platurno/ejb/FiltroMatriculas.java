@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Stateless
-@Local
 public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private static EntityManager em;

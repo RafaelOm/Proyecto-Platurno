@@ -20,7 +20,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 
-@Local
+
 @Stateless
 public class ImportarFicheroCSV implements IFCSV_Interface{
 

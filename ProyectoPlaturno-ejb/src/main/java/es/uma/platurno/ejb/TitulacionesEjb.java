@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import es.uma.platurno.ejb.exceptions.TitulacionInexistente;
 import es.uma.platurno.jpa.Titulacion;
 
-@Local
+
 @Stateless
 public class TitulacionesEjb implements TitulacionesEjbInterface {
 	@PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")

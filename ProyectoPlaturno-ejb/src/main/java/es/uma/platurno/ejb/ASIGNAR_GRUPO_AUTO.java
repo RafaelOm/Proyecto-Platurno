@@ -17,7 +17,6 @@ import java.util.List;
  * Session Bean implementation class ASIGNAR_GRUPO_AUTO
  */
 @Stateless
-@LocalBean
 public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
     @PersistenceContext(unitName = "ProyectoPlaturno.GrupoF")
     private EntityManager em;

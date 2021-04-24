@@ -13,7 +13,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Local
+
 @Stateless
 public class Solicitud_Cambio_Grupo implements Solicitud_Cambio_Grupo_Interfaz{
 
