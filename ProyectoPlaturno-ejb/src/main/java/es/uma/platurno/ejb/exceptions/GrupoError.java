@@ -1,4 +1,4 @@
-package es.uma.platurno;
+package es.uma.platurno.ejb.exceptions;
 
 public class GrupoError extends RuntimeException  {
 
