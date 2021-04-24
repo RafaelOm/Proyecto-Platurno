@@ -20,40 +20,25 @@ import java.util.logging.Logger;
 
 public class EncuestaEJBTest {
 		
-		private static final Logger LOG = Logger.getLogger(AutenticacionEjbTest.class.getCanonicalName());
-		private static final String GLASSFISH_CONFIGI_FILE_PROPERTY = "org.glassfish.ejb.embedded.glassfish.configuration.file";
-		private static final String CONFIG_FILE = "src/test/resources/META-INF/domain.xml";
-
 		private static final String ENCUESTAEJB = "java:global/classes/EncuestaEJB!es.uma.platurno.ejb.EncuestaInterfaceEJB";
 		private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 		
-		private static EJBContainer ejbContainer;
-		private static Context ctx;
-
 		private EncuestaInterfaceEJB encuestaEjb;
 		
-
-		
-		@BeforeClass
-		public static void setUpClass() {
-			Properties properties = new Properties();
-			properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-			ejbContainer = EJBContainer.createEJBContainer(properties);
-			ctx = ejbContainer.getContext();
-		}
-
 		@Before
 		public void setup() throws NamingException, javax.naming.NamingException {
-			encuestaEjb = (EncuestaInterfaceEJB) ctx.lookup(ENCUESTAEJB);
+			encuestaEjb = (EncuestaInterfaceEJB) TestSuite.ctx.lookup(ENCUESTAEJB);
 			
 			BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 		}
 		
+		@Requisitos({"RF-10"})
+		@Ignore
 		@Test
 		public void testCrearEncuesta(){
 			
 			try {
-				Secretaria s = new Secretaria("Rafael","prueba");
+				Secretaria s = new Secretaria("Rafael","prueba", 125L);
 				encuestaEjb.crearEncuesta(s, new java.sql.Date(Calendar.getInstance().getTime().getTime()), "¿Quieres elegir este horario?");
 				
 			}catch(Exception ex) {
@@ -61,15 +46,7 @@ public class EncuestaEJBTest {
 				fail("testCrearEncuesta: LANZO UNA EXCEPCION");
 			}
 			
-			
 		}
 					
-		@AfterClass
-		public static void tearDownClass() {
-			if (ejbContainer != null) {
-				ejbContainer.close();
-			}
-		}
-
 }
 
