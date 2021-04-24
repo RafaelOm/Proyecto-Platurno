@@ -4,16 +4,26 @@
 package es.uma.platurno.jpa;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Secretaria extends Usuario{
     /**
 	 * 
 	 */
+	@Id		 
+	private Long identificador;
+	
+	public Long getId() {
+		return this.identificador;
+	}
+	public void setId(Long id) {
+		this.identificador=id;
+	}
 	private static final long serialVersionUID = 1L;
 	public Secretaria(String Username, String Password,Long id) {
 		super(Username, Password,id);
-		// TODO Auto-generated constructor stub
+		this.identificador=id;
 	}
     public Secretaria() {
     	super();
