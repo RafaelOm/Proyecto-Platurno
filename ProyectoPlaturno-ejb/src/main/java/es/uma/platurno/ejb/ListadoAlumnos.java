@@ -16,7 +16,7 @@ import es.uma.platurno.ejb.exceptions.PasswordErroneaException;
 import es.uma.platurno.ejb.exceptions.PlaturnoException;
 import es.uma.platurno.jpa.Usuario;
 
-
+@Local
 @Stateless
 public class ListadoAlumnos implements ListadoAlumnosInterface {
 	
@@ -50,7 +50,7 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 	   * 12: Codigo Postal
 	   */
 	  @Override
-	  public List<AlumnoEjb> getAlumnosListFiltered(Usuario u, List<String> filtros) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+	  public List<AlumnoEjb> getAlumnosListFiltered(Usuario u, String[] filtros) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
 		  auth=new Autenticacion();
 	      auth.compruebaLogin(u);
 		  if(filtros==null) {
@@ -58,82 +58,82 @@ public class ListadoAlumnos implements ListadoAlumnosInterface {
 		  }
 		  
 		  String finalQuery = "SELECT a FROM Alumno a WHERE ";
-		  String idd = filtros.get(0);
+		  String idd = filtros[0];
 		  HashMap<String, String> mp = new HashMap<String, String>();
 		  
 		  if(idd!=null) {
 			  finalQuery += "ID = :idd AND ";
 			  mp.put("idd", idd);
 		  }
-		  String dni = filtros.get(1);
+		  String dni = filtros[1];
 		  if(dni!=null) {
 			  finalQuery += "DNI = :dni AND ";
 			  mp.put("dni", dni);
 		  }
 		  
-		  String nombre = filtros.get(2).toLowerCase();
+		  String nombre = filtros[2];
 		  if(nombre!=null) {
 			  finalQuery += "NOMBRE = :nombre AND ";
 			  mp.put("nombre", nombre);
 		  }
 		  
-		  String apellido1 = filtros.get(3).toLowerCase();
+		  String apellido1 = filtros[3];
 		  if(apellido1!=null) {
 
 			  finalQuery += "APELLIDO1 = :apellido1 AND ";
 			  mp.put("apellido1", apellido1);
 		  }
 		  
-		  String apellido2 = filtros.get(4).toLowerCase();
+		  String apellido2 = filtros[4];
 		  if(apellido2!=null) {
 			  finalQuery += "APELLIDO2 = :apellido2 AND ";
 			  mp.put("apellido2", apellido2);
 		  }
 		  
-		  String emailsInst = filtros.get(5).toLowerCase();
+		  String emailsInst = filtros[5];
 		  if(emailsInst!=null) {
 			  finalQuery += "EMAIL_INSTITUCIONAL = :emailsinst AND ";
 			  mp.put("emailsinst", emailsInst);
 		  }
 		  
-		  String emailPersonal = filtros.get(6).toLowerCase();
+		  String emailPersonal = filtros[6];
 		  if(emailPersonal!=null) {
 			  finalQuery += "EMAIL_PERSONAL = :emailpersonal AND ";
 			  mp.put("emailpersonal", emailPersonal);
 		  }
 		  
-		  String tlf = filtros.get(7).toLowerCase();
+		  String tlf = filtros[7];
 		  if(tlf!=null) {
 			  finalQuery += "TELEFONO = :telefono AND ";
 			  mp.put("telefono", tlf);
 		  }
 		  
-		  String movil = filtros.get(8).toLowerCase();
+		  String movil = filtros[8];
 		  if(movil!=null) {
 			  finalQuery += "MOVIL = :movil AND ";
 			  mp.put("movil", movil);
 		  }
 		  
-		  String dir = filtros.get(9).toLowerCase();
+		  String dir = filtros[9];
 		  if(dir!=null) {
 			  finalQuery += "DIRECCION = :dir AND ";
 			  mp.put("dir", dir);
 		  }
 		  
 		  
-		  String localidad = filtros.get(10).toLowerCase();
+		  String localidad = filtros[10];
 		  if(localidad!=null) {
 			  finalQuery += "LOCALIDAD = :localidad AND ";
 			  mp.put("localidad", localidad);
 		  }
 		  
-		  String provincia = filtros.get(11).toLowerCase();
+		  String provincia = filtros[11];
 		  if(localidad!=null) {
 			  finalQuery += "PROVINCIA = :provincia AND ";
 			  mp.put("provincia", provincia);
 		  }
 		  
-		  String codPostal = filtros.get(12).toLowerCase();
+		  String codPostal = filtros[12];
 		  if(localidad!=null) {
 			  finalQuery += "CP = :codpostal AND ";
 			  mp.put("codpostal", codPostal);
