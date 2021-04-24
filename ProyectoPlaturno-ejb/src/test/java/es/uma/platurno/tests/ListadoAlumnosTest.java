@@ -24,33 +24,21 @@ public class ListadoAlumnosTest {
 	private static final String LISTADOALUM = "java:global/classes/ListadoAlumnos!es.uma.platurno.ejb.ListadoAlumnosInterface";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "Trazabilidad";
 	
-	private static EJBContainer ejbContainer;
-	private static Context ctx;
-
-	private UsuarioEjbInterfaz usuarioEjb;
 	private ListadoAlumnosInterface listadoEjb;
-	private AutenticacionInterfaz auth;
 	
 
 	
-	@BeforeClass
-	public static void setUpClass() {
-		Properties properties = new Properties();
-		properties.setProperty(GLASSFISH_CONFIGI_FILE_PROPERTY, CONFIG_FILE);
-		ejbContainer = EJBContainer.createEJBContainer(properties);
-		ctx = ejbContainer.getContext();
-	}
 
 	@Before
 	public void setup() throws NamingException, javax.naming.NamingException {
 		//asignaturaEjb = (AsignaturasEjb) ctx.lookup(ASIGNATURAEJB);
-		usuarioEjb = (UsuarioEjbInterfaz) ctx.lookup(USUARIOEJB);
-		auth = (AutenticacionInterfaz) ctx.lookup(AUTENTICACION);
-		listadoEjb = (ListadoAlumnosInterface) ctx.lookup(LISTADOALUM);
+		listadoEjb = (ListadoAlumnosInterface) TestSuite.ctx.lookup(LISTADOALUM);
 		
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 	
+	@Requisitos({"RF-08"})
+	@Ignore
 	@Test
 	public void testCompruebaListado(){
 		
@@ -85,12 +73,6 @@ public class ListadoAlumnosTest {
 		}
 
 	}
-		
-	@AfterClass
-	public static void tearDownClass() {
-		if (ejbContainer != null) {
-			ejbContainer.close();
-		}
-	}
+
 
 }
