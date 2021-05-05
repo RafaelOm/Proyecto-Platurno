@@ -32,7 +32,7 @@ public class EncuestaEJBTest {
 			
 			BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 		}
-		
+		/*
 		@Requisitos({"RF-10"})
 		@Ignore
 		@Test
@@ -48,6 +48,6 @@ public class EncuestaEJBTest {
 			}
 			
 		}
-					
+					*/
 }
 

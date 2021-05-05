@@ -56,7 +56,7 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
             throw new ExpedienteNoExisteException();
         }
         exbd.setActivo(Activo);
-        exbd.setNotaMPr(NotaMPr);
+        exbd.setNotampr(NotaMPr);
         exbd.setCreditosSup(CreditosSup);
         exbd.setCreditosFB(CreditosFB);
         exbd.setCreditosOP(CreditosOP);
@@ -64,7 +64,7 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
         exbd.setCreditosCF(CreditosCF);
         exbd.setCreditosPE(CreditosPE);
         exbd.setCreditosTF(CreditosTF);
-        exbd.setN_Archivo(N_Archivo);
+        exbd.setN_archivo(N_Archivo);
         em.merge(exbd);
     }
 

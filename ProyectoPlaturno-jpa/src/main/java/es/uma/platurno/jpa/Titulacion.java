@@ -1,11 +1,11 @@
-/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
- Clase Titulacion creada en JPA que modela los datos que va a tener la entidad en la BD. */
-
 package es.uma.platurno.jpa;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.lang.String;
 import java.util.List;
+import java.util.Objects;
+
+import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Titulacion
@@ -15,67 +15,119 @@ import java.util.List;
 
 public class Titulacion implements Serializable {
 
-	   
-	@Id @Column(nullable =false)
-	private Integer Codigo;
-	@Column(name="Nombre")
+
+	@Id
+	@Column(name="CodigoTitulacion")
+	private String Codigo;
 	private String Nombre;
-	private Integer Creditos;
+	private String Creditos;
 	private static final long serialVersionUID = 1L;
-	
-	@OneToMany
-	private List<Expediente> expedientes;
-	@OneToMany
-	private List<Asignatura> asignatura;
-	
-	/*
-	@ManyToMany
+
+
 	@JoinTable(
-			name = "Centro",
-			joinColumns = @JoinColumn(
-					name = "ID",
-					referencedColumnName = "ID"
-					),inverseJoinColumns = @JoinColumn(
-					name = "Codigo",
-					nullable =false,
-					referencedColumnName = "Codigo"
-					
-					)
-			)
-	private List<Centro> lista_centros;
-	*/
-	
-	@ManyToOne 
-	private Centro c;
-	
+			name="rel_centro_titulacion",
+			joinColumns = @JoinColumn(name ="idCentro",nullable = false),
+			inverseJoinColumns = @JoinColumn(name="CodigoTitulacion",nullable = false)
 
-	
+	)
+	@ManyToMany( fetch = FetchType.EAGER)
+	private List<Centro> centros;
 
+	@OneToMany
+	private List<Expediente>expedientes;
+	@OneToMany
+	private List<Asignatura>asignaturas;
+
+	@JoinTable(
+			name="rel_optativas_titulacion",
+			joinColumns = @JoinColumn(name ="Referencia",nullable = false),
+			inverseJoinColumns = @JoinColumn(name="CodigoTitulacion",nullable = false)
+
+	)
+	@ManyToMany
+	private List<Optativa> optativas;
+
+	@OneToMany
+	private List<Grupo> grupos;
+
+	public List<Grupo> getGrupos() {
+		return grupos;
+	}
+
+	public void setGrupos(List<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+
+	public List<Asignatura> getAsignaturas() {
+		return asignaturas;
+	}
+
+	public void setAsignaturas(List<Asignatura> asignaturas) {
+		this.asignaturas = asignaturas;
+	}
+
+	public List<Expediente> getExpedientes() {
+		return expedientes;
+	}
+
+	public void setExpedientes(List<Expediente> expedientes) {
+		this.expedientes = expedientes;
+	}
+
+	public List<Optativa> getOptativas() {
+		return optativas;
+	}
+
+	public void setOptativas(List<Optativa> optativas) {
+		this.optativas = optativas;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Titulacion that = (Titulacion) o;
+		return Objects.equals(Codigo, that.Codigo) && Objects.equals(Nombre, that.Nombre) && Objects.equals(Creditos, that.Creditos) && Objects.equals(centros, that.centros);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(Codigo, Nombre, Creditos, centros);
+	}
+
+	public List<Centro> getCentros() {
+		return centros;
+	}
+
+	public void setCentros(List<Centro> centros) {
+		this.centros = centros;
+	}
 
 	public Titulacion() {
 		super();
-	}   
-	public Integer getCodigo() {
+	}
+	public String getCodigo() {
 		return this.Codigo;
 	}
 
-	public void setCodigo(Integer Codigo) {
+	public void setCodigo(String Codigo) {
 		this.Codigo = Codigo;
-	}   
+	}
 	public String getNombre() {
-		return Nombre;
+		return this.Nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.Nombre= nombre;
-	}   
-	public Integer getCreditos() {
+	public void setNombre(String Nombre) {
+		this.Nombre = Nombre;
+	}
+	public String getCreditos() {
 		return this.Creditos;
 	}
 
-	public void setCreditos(Integer Creditos) {
+	public void setCreditos(String Creditos) {
 		this.Creditos = Creditos;
 	}
-	
-   
+
+
+
 }

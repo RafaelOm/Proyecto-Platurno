@@ -29,9 +29,9 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
         if(t==null){
             throw new TitulacionInexistente();
         }
-        t.setCodigo(cod);
+        t.setCodigo(Integer.toString(cod));
         t.setNombre(nombre);
-        t.setCreditos(creditos);
+        t.setCreditos(Integer.toString(creditos));
         
         em.merge(t);
 

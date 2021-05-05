@@ -16,21 +16,7 @@ import java.io.Serializable;
 @Entity
 @IdClass(Mat_Asig.Mat_Asig_Id.class)
 public class Mat_Asig implements Serializable {
-	public Asignatura getAsignatura() {
-		return asignatura;
-	}
 
-	public Matricula getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(Matricula matricula) {
-		this.matricula = matricula;
-	}
-
-	public Grupo getGrupo() {
-		return grupo;
-	}
 
 	public static class Mat_Asig_Id implements Serializable{
 		/**
@@ -91,6 +77,21 @@ public class Mat_Asig implements Serializable {
 
 	public void setAsignatura(Asignatura asignatura) {
 		this.asignatura = asignatura;
+	}
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
 	}
 
 	@Override

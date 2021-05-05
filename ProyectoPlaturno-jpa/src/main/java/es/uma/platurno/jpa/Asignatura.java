@@ -12,7 +12,7 @@ import java.util.Objects;
 /* Entidad que representa a la entidad Asignatura. Usamos la interfaz serializable
  *  para poder mandar los datos a la BD. */
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Asignatura implements Serializable {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
@@ -57,17 +57,12 @@ public class Asignatura implements Serializable {
 
 	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
 
-	@OneToMany
-	private List<Mat_Asig>mat_asigs;
+
 
 	@ManyToOne
 	private Titulacion titulacion;
 
-	@OneToMany
-	private List<Clase> clases;
 
-	@OneToMany
-	private List<GR_ASIG> gr_asigs;
 
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -160,12 +155,8 @@ public class Asignatura implements Serializable {
 		this.cred_prac = cred_prac;
 	}
 
-	public List<Mat_Asig> getMat_asigs() {
-		return mat_asigs;
-	}
-
-	public void setMat_asigs(List<Mat_Asig> mat_asigs) {
-		this.mat_asigs = mat_asigs;
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
 	}
 
 	public Titulacion getTitulacion() {
@@ -176,21 +167,6 @@ public class Asignatura implements Serializable {
 		this.titulacion = titulacion;
 	}
 
-	public List<Clase> getClases() {
-		return clases;
-	}
-
-	public void setClases(List<Clase> clases) {
-		this.clases = clases;
-	}
-
-	public List<GR_ASIG> getGr_asigs() {
-		return gr_asigs;
-	}
-
-	public void setGr_asigs(List<GR_ASIG> gr_asigs) {
-		this.gr_asigs = gr_asigs;
-	}
 
 //--------------------------------------------------------------------------------------------------------------------//
 
@@ -199,18 +175,16 @@ public class Asignatura implements Serializable {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Asignatura that = (Asignatura) o;
-		return Objects.equals(referencia, that.referencia) && Objects.equals(codigo, that.codigo) && Objects.equals(creditos, that.creditos) && Objects.equals(ofertada, that.ofertada) && Objects.equals(nombre, that.nombre) && Objects.equals(curso, that.curso) && Objects.equals(caracter, that.caracter) && Objects.equals(duracion, that.duracion) && Objects.equals(idiomas, that.idiomas) && Objects.equals(cred_prac, that.cred_prac) && Objects.equals(mat_asigs, that.mat_asigs) && Objects.equals(titulacion, that.titulacion) && Objects.equals(clases, that.clases) && Objects.equals(gr_asigs, that.gr_asigs);
+		return Objects.equals(referencia, that.referencia) && Objects.equals(codigo, that.codigo) && Objects.equals(creditos, that.creditos) && Objects.equals(ofertada, that.ofertada) && Objects.equals(nombre, that.nombre) && Objects.equals(curso, that.curso) && Objects.equals(caracter, that.caracter) && Objects.equals(duracion, that.duracion) && Objects.equals(idiomas, that.idiomas) && Objects.equals(cred_prac, that.cred_prac) && Objects.equals(titulacion, that.titulacion);
 	}
-
-//--------------------------------------------------------------------------------------------------------------------//
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(referencia, codigo, creditos, ofertada, nombre, curso, caracter, duracion, idiomas, cred_prac, mat_asigs, titulacion, clases, gr_asigs);
+		return Objects.hash(referencia, codigo, creditos, ofertada, nombre, curso, caracter, duracion, idiomas, cred_prac, titulacion);
 	}
 
-
 //--------------------------------------------------------------------------------------------------------------------//
+
 
 	@Override
 	public String toString() {
@@ -225,10 +199,7 @@ public class Asignatura implements Serializable {
 				", duracion='" + duracion + '\'' +
 				", idiomas='" + idiomas + '\'' +
 				", cred_prac=" + cred_prac +
-				", mat_asigs=" + mat_asigs +
 				", titulacion=" + titulacion +
-				", clases=" + clases +
-				", gr_asigs=" + gr_asigs +
 				'}';
 	}
 }

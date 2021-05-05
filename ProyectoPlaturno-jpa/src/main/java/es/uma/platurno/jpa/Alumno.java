@@ -28,15 +28,9 @@ public class Alumno extends Usuario {
 	
 	
 
-	@Id		 
-	private Long identificador;
+
 	
-	public Long getId() {
-		return this.identificador;
-	}
-	public void setId(Long id) {
-		this.identificador=id;
-	}
+
 	@Column(name = "DNI", nullable = true)
 	private String dni;
 
@@ -80,8 +74,7 @@ public class Alumno extends Usuario {
 //--------------------------------------------------------------------------------------------------------------------//
 
 	/* Atributos de la entidad relqcionado con relaciones (foreign key).*/
-	@JoinColumn(name = "EXPEDIENTES_FK")
-	@OneToMany (mappedBy ="alumno")
+	@OneToMany
 	private List<Expediente> expedientes;
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -89,7 +82,6 @@ public class Alumno extends Usuario {
 	/* Constructor vacio, los bean seran los que se encarguen de cambiarle los valores */
 	public Alumno(String username,String password,Long id) {
 		super(username, password,id);
-		this.identificador=id;
 	}
 	public Alumno() {
 		super();
@@ -183,6 +175,13 @@ public class Alumno extends Usuario {
 		this.CP = CP;
 	}
 
+	public List<Expediente> getExpedientes() {
+		return expedientes;
+	}
+
+	public void setExpedientes(List<Expediente> expedientes) {
+		this.expedientes = expedientes;
+	}
 //--------------------------------------------------------------------------------------------------------------------//
 
 	@Override

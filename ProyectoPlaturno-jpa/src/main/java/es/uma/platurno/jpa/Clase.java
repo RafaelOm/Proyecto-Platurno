@@ -50,12 +50,10 @@ public class Clase implements Serializable {
 	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
 
 	@ManyToOne
-	@JoinColumn(name = "En clases se imparten ")
 	private Asignatura asignatura;
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "Clases imparten a ")
 	private Grupo grupo;
 
 //--------------------------------------------------------------------------------------------------------------------//

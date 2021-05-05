@@ -246,11 +246,15 @@ public class AutenticacionEjbTest {
 	@Ignore
 	@Test 
 	public void chekSecretariaRoleTest() {
-		
-	Secretaria s = new Secretaria("Rafael","prueba",125L);
+
+		Secretaria sec = new Secretaria();
+		sec.setDni("123");
+		sec.setUsername("RAFAEL");
+		sec.setPassword("jeje");
+
 	
 	try {
-		auth.checkSecretariaRole(s);
+		auth.checkSecretariaRole(sec);
 	} catch (CuentaInexistenceException | ViolacionDeSeguridadException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

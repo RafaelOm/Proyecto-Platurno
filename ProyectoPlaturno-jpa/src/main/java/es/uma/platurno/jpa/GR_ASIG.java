@@ -6,6 +6,7 @@ package es.uma.platurno.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -41,10 +42,8 @@ public class GR_ASIG implements Serializable {
 	}
 
 	@Id
-	@Column (name = "CursoAc")
 	private int curso_act;
 
-	@Column(name = "Oferta")
 	private int oferta;
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -56,34 +55,25 @@ public class GR_ASIG implements Serializable {
 	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "Gr_Asig esta en ")
 	private Grupo group;
 
 	@Id
 	@ManyToOne
-    @JoinColumn(name = "Gr_Asig tiene ")
 	private Asignatura asig;
-
-	/*
-	@ManyToMany
+/*
 	@JoinTable(
-			name = "Encuesta",
-			joinColumns = @JoinColumn(
-					name = "referencia",
-					referencedColumnName = "Fecha_de_Envio"
-					),
-			inverseJoinColumns = @JoinColumn(
-					name = "curso_act",
-					referencedColumnName = "curso_act"
-					
-					)
-			)
-	private List<Encuesta> lista_encuestas;
-*/
+			name="rel_encuesta_grupo",
+			joinColumns = @JoinColumn(name="Id_Encuesta",referencedColumnName = "Id_Encuesta",nullable = false),
+			inverseJoinColumns =  {
+			@JoinColumn(name ="curso_act",referencedColumnName = "curso_act",nullable = false),
+			@JoinColumn(name ="asig",referencedColumnName = "asig",nullable = false),
+			@JoinColumn(name ="group",referencedColumnName = "group",nullable = false)}
 
-	@ManyToOne
-	@JoinColumn(name = "Gr_asig encuesta")
-	private Encuesta encuesta;
+	)*/
+	@ManyToMany
+	private List<Encuesta> encuestas;
+
+
 
 //--------------------------------------------------------------------------------------------------------------------//
 
@@ -102,12 +92,12 @@ public class GR_ASIG implements Serializable {
 		this.curso_act = curso_act;
 	}
 
-	public Encuesta getEncuesta() {
-		return encuesta;
+	public List<Encuesta> getEncuestas() {
+		return encuestas;
 	}
 
-	public void setEncuesta(Encuesta encuesta) {
-		this.encuesta = encuesta;
+	public void setEncuestas(List<Encuesta> encuestas) {
+		this.encuestas = encuestas;
 	}
 
 	public int getOferta() {
@@ -133,7 +123,7 @@ public class GR_ASIG implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(curso_act, oferta, group, asig, encuesta);
+		return Objects.hash(curso_act, oferta, group, asig);
 	}
 
 
@@ -144,7 +134,7 @@ public class GR_ASIG implements Serializable {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		GR_ASIG gr_asig = (GR_ASIG) o;
-		return curso_act == gr_asig.curso_act && oferta == gr_asig.oferta && Objects.equals(group, gr_asig.group) && Objects.equals(asig, gr_asig.asig) && Objects.equals(encuesta, gr_asig.encuesta);
+		return curso_act == gr_asig.curso_act && oferta == gr_asig.oferta && Objects.equals(group, gr_asig.group) && Objects.equals(asig, gr_asig.asig) ;
 	}
 
 
@@ -158,7 +148,7 @@ public class GR_ASIG implements Serializable {
 				", oferta=" + oferta +
 				", group=" + group +
 				", asig=" + asig +
-				", encuesta=" + encuesta +
+				", encuesta="  +
 				'}';
 	}
 }

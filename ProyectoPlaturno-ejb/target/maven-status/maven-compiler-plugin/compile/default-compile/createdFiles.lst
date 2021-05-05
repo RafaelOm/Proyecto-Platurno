@@ -4,8 +4,8 @@ es/uma/platurno/ejb/exceptions/ContrasenaigualException.class
 es/uma/platurno/ejb/MatriculaEJBException.class
 es/uma/platurno/ejb/SecretariaInterfaz.class
 es/uma/platurno/ejb/IFCSV_Interface.class
-es/uma/platurno/ejb/AutenticacionInterfaz.class
 es/uma/platurno/ejb/AsignaturasEjb.class
+es/uma/platurno/ejb/AutenticacionInterfaz.class
 es/uma/platurno/ejb/TitulacionesEjb.class
 es/uma/platurno/ejb/exceptions/CuentaYaValidadaException.class
 es/uma/platurno/ejb/FiltroMatriculasInterfaz.class
@@ -14,15 +14,14 @@ es/uma/platurno/ejb/exceptions/TitulacionInexistente.class
 es/uma/platurno/ejb/Solicitud_Cambio_Grupo.class
 es/uma/platurno/ejb/UsuarioEjb.class
 es/uma/platurno/ejb/AlumnoEjb.class
-es/uma/platurno/GrupoError.class
 es/uma/platurno/ejb/exceptions/CuentaInexistenceException.class
 es/uma/platurno/ejb/AlertaColisionesHorarios.class
 es/uma/platurno/ejb/exceptions/GR_ASIG_GrupoNoExisteException.class
 es/uma/platurno/ejb/AlumnoInterface.class
-es/uma/platurno/ejb/ImportarFicheroCSV.class
 es/uma/platurno/ejb/ASIGNAR_GRUPO_AUTOInterfaz.class
-es/uma/platurno/ejb/Matricula_ejb.class
+es/uma/platurno/ejb/ImportarFicheroCSV.class
 es/uma/platurno/ejb/ASIGNAR_GRUPO_AUTO.class
+es/uma/platurno/ejb/Matricula_ejb.class
 es/uma/platurno/ejb/UsuarioEjbInterfaz.class
 es/uma/platurno/ejb/MatriculaInterfaz.class
 es/uma/platurno/ejb/exceptions/modificarMatriculaException.class
@@ -34,8 +33,8 @@ es/uma/platurno/ejb/GR_ASIGEJBInterfaz.class
 es/uma/platurno/ejb/TitulacionesEjbInterface.class
 es/uma/platurno/ejb/exceptions/PasswordErroneaException.class
 es/uma/platurno/ejb/exceptions/ClavesDiferentesException.class
-es/uma/platurno/ejb/exceptions/CuentaExistenteException.class
 es/uma/platurno/ejb/exceptions/AlumnoException.class
+es/uma/platurno/ejb/exceptions/CuentaExistenteException.class
 es/uma/platurno/ejb/EncuestaEJB.class
 es/uma/platurno/ejb/exceptions/PlaturnoException.class
 es/uma/platurno/ejb/Solicitud_Cambio_Grupo_Interfaz.class
@@ -53,3 +52,4 @@ es/uma/platurno/ejb/exceptions/ValidacionIncorrectaException.class
 es/uma/platurno/ejb/exceptions/verMatriculaException.class
 es/uma/platurno/ejb/exceptions/eliminarMatriculaException.class
 es/uma/platurno/ejb/SecretariaEjb.class
+es/uma/platurno/ejb/exceptions/GrupoError.class

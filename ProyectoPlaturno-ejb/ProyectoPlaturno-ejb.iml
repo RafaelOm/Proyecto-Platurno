@@ -57,5 +57,6 @@
     <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.glassfish.main.extras:glassfish-embedded-all:5.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:1.4.200" level="project" />
+    <orderEntry type="library" name="Maven: es.uma.informatica.sii:anotaciones:0.0.1" level="project" />
   </component>
 </module>

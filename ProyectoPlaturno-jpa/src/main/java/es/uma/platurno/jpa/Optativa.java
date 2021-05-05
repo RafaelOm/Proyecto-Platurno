@@ -3,8 +3,8 @@
 
 package es.uma.platurno.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Optativa extends Asignatura{
@@ -12,9 +12,28 @@ public class Optativa extends Asignatura{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Column (nullable = false)
+
 	private String plazas;
 	private String mencion;
+
+
+	@JoinTable(
+			name="rel_optativas_titulacion",
+			joinColumns = @JoinColumn(name ="CodigoTitulacion",nullable = false),
+			inverseJoinColumns = @JoinColumn(name="Referencia",nullable = false)
+
+	)
+	@ManyToMany
+	private List<Titulacion> titulaciones;
+
+	public List<Titulacion> getTitulaciones() {
+		return titulaciones;
+	}
+
+	public void setTitulaciones(List<Titulacion> titulaciones) {
+		this.titulaciones = titulaciones;
+	}
+
 	public String getPlazas() {
 		return plazas;
 	}
@@ -27,6 +46,10 @@ public class Optativa extends Asignatura{
 	public void setMencion(String mencion) {
 		this.mencion = mencion;
 	}
+
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

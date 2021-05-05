@@ -52,6 +52,8 @@ public class UsuarioEjbTest {
 
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
+
+	/*
 	@Requisitos({"RF-14"})
 	@Ignore
 	@Test
@@ -189,7 +191,7 @@ public class UsuarioEjbTest {
 		
 	}
 	
-	
+	*/
 	
 	
 	

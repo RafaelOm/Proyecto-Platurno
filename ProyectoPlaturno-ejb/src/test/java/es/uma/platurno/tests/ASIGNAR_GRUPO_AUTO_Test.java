@@ -36,7 +36,7 @@ public class ASIGNAR_GRUPO_AUTO_Test {
 
 
 
-
+/*
     @Before
     public void setup() throws NamingException, javax.naming.NamingException {
         asignar_grupo_auto = (ASIGNAR_GRUPO_AUTO) TestSuite.ctx.lookup(ASIGNAR_GRUPO_EJB);
@@ -101,6 +101,6 @@ public class ASIGNAR_GRUPO_AUTO_Test {
         }
     }
 
-
+*/
 }
 

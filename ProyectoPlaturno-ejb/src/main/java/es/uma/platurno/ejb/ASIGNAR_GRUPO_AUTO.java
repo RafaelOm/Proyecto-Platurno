@@ -39,8 +39,8 @@ public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
 
-        String IDex = ex.getId_Expediente();
-        Query qEncuesta = em.createQuery("select e.encuestas from Expediente e where e.IdExpediente = :IDexpediente ");
+        String IDex = ex.getExpediente();
+        Query qEncuesta = em.createQuery("select e.encuentasAsociadas from Expediente e where e.expediente = :IDexpediente ");
         qEncuesta.setParameter("IDexpediente",IDex);
         List<Encuesta> encuestas = qEncuesta.getResultList();
 
@@ -64,7 +64,7 @@ public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
                 Grupo grup = ga.getGroup();
 
 
-                Query qMatricula = em.createQuery("select Matricula from Expediente e where e.IdExpediente = :ID_ENC");
+                Query qMatricula = em.createQuery("select Matricula from Expediente e where e.expediente = :ID_ENC");
                 qMatricula.setParameter("ID_ENC",id);
                 List<Matricula> matriculas = qMatricula.getResultList();
 
@@ -72,7 +72,7 @@ public class ASIGNAR_GRUPO_AUTO implements ASIGNAR_GRUPO_AUTOInterfaz {
                 //List<Matricula> matriculas = ex.getMatriculas();
 
                 for (Matricula m : matriculas) {
-                    List<Mat_Asig> lista_mat = m.getMat_Asigs();
+                    List<Mat_Asig> lista_mat = m.getMatAsig();
                     for(Mat_Asig lma : lista_mat){
                         lma.setGrupo(grup);
                         lma.setAsignatura(asig);

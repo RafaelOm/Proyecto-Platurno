@@ -1,114 +1,92 @@
-/* Trabajo realizado por el grupo Ingenieros a lo Bestia 3A Ingenieria Informatica.
- Clase Centro creada en JPA que modela los datos que va a tener la entidad en la BD. */
-
 package es.uma.platurno.jpa;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.lang.String;
 import java.util.List;
+import java.util.Objects;
+
+import javax.persistence.*;
 
 /**
  * Entity implementation class for Entity: Centro
  *
  */
-
-/* Entidad que representa a la entidad Centro. Usamos la interfaz serializable
- * para poder mandar los datos a la BD.*/
 @Entity
-@Table(name = "Centro")
+
 public class Centro implements Serializable {
 
-	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
-       nullable simboliza los atributos que son obligatorios en la BD. */
-	   
+
 	@Id
-	@Column(name = "ID")
-	private int id;
-
-	@Column(name = "Nombre", unique = true)
-	private String nombre;
-
-	@Column(name = "Direccion", nullable = false)
-	private String direccion;
-
-	@Column(name = "TLF_Conserjeria")
-	private String tlf_conserjeria;
-
-//--------------------------------------------------------------------------------------------------------------------//
-
+	@Column(name="idCentro")
+	private String ID;
+	private String Nombre;
+	private String Direccion;
+	private String TLF_Conserjeria;
 	private static final long serialVersionUID = 1L;
 
-//--------------------------------------------------------------------------------------------------------------------//
-
-	/* Atributos de la entidad relacionado con relaciones (foreign key).*/
-	/*
-	@ManyToMany
 	@JoinTable(
-	            name = "Centro_Titulacion",
-	            joinColumns = @JoinColumn(
-	                    name = "Centro",
-	                    referencedColumnName = "codigo"
-	            ),
-	            inverseJoinColumns = @JoinColumn(
-	                    name = "Titulacion",
-	                    referencedColumnName = "id"
-	            )
-	    )
-	private List<Titulacion> grupo;
-	*/
-	
-	@OneToMany
+			name="rel_centro_titulacion",
+			joinColumns = @JoinColumn(name ="CodigoTitulacion",nullable = false),
+			inverseJoinColumns = @JoinColumn(name="idCentro",nullable = false)
+
+	)
+
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Titulacion> titulaciones;
-	
-	public List<Titulacion> getTitulaciones(){
+
+	public List<Titulacion> getTitulaciones() {
 		return titulaciones;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Centro centro = (Centro) o;
+		return Objects.equals(ID, centro.ID) && Objects.equals(Nombre, centro.Nombre) && Objects.equals(Direccion, centro.Direccion) && Objects.equals(TLF_Conserjeria, centro.TLF_Conserjeria) && Objects.equals(titulaciones, centro.titulaciones);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(ID, Nombre, Direccion, TLF_Conserjeria, titulaciones);
+	}
+
 	public void setTitulaciones(List<Titulacion> titulaciones) {
-		titulaciones=titulaciones;
-		
+		this.titulaciones = titulaciones;
 	}
 
-//--------------------------------------------------------------------------------------------------------------------//
-
-	/* Constructor vacio, los bean (ejb) seran los que se encarguen de cambiarle los valores */
 	public Centro() {
-
+		super();
+	}
+	public String getID() {
+		return this.ID;
 	}
 
-//--------------------------------------------------------------------------------------------------------------------//
-
-	/* Getters, Setters, equals, hashcode y toString. */
-
-	public int getId() {
-		return this.id;
+	public void setID(String ID) {
+		this.ID = ID;
 	}
-
-	public void setId(int ID) {
-		this.id = ID;
-	}   
 	public String getNombre() {
-		return this.nombre;
+		return this.Nombre;
 	}
 
 	public void setNombre(String Nombre) {
-		this.nombre = Nombre;
-	}   
+		this.Nombre = Nombre;
+	}
 	public String getDireccion() {
-		return this.direccion;
+		return this.Direccion;
 	}
 
 	public void setDireccion(String Direccion) {
-		this.direccion = Direccion;
-	}   
+		this.Direccion = Direccion;
+	}
 	public String getTLF_Conserjeria() {
-		return this.tlf_conserjeria;
+		return this.TLF_Conserjeria;
 	}
 
 	public void setTLF_Conserjeria(String TLF_Conserjeria) {
-		this.tlf_conserjeria = TLF_Conserjeria;
+		this.TLF_Conserjeria = TLF_Conserjeria;
 	}
 
 
-	
-   
+
 }

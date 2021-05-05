@@ -42,6 +42,8 @@ public class GR_ASIGEJB_Test {
         auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
+
+    /*
     @Requisitos({"RF13"})
     @Ignore
     @Test
@@ -112,7 +114,7 @@ public class GR_ASIGEJB_Test {
             e.printStackTrace();
         }
     }
-
+*/
 
 }
 

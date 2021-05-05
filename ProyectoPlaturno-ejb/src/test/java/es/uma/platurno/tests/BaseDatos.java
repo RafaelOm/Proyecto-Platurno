@@ -24,242 +24,134 @@ public class BaseDatos {
 
 		System.out.println("---------------LLEGA HASTA AQUI --------------------------------");
 
-		
-	
-	/*	Usuario u = new Usuario();
-		u.setIdentificador(123L);
-		u.setUsername("hola");
-		u.setPassword("12345");
-		em.persist(u);
-		*/
-		//////////////////ALUMNO////////////////////
-		Alumno a = new Alumno("Pepe","pepiot",1L);
+		Titulacion tit = new Titulacion();
+		tit.setNombre("INFORMATICA");
+		tit.setCodigo("1");
+		tit.setCreditos("240");
+		em.persist(tit);
 
-		a.setDni("12345");
-		a.setNombre("MANOLO");
-		a.setApellido1("ESCOBAR");
-		a.setApellido2("NOSE");
-		a.setEmail_institucional("manolito@uma.es");
-		a.setEmail_personal("manolomanolo@gmail.com");
-		a.setTelefono("333333");
-		a.setMovil("645353");
-		a.setDireccion("Avenida malaga 24 ");
-		a.setLocalidad("MADRID");
-		a.setProvincia("COMUNIDAD DE MADRID");
-		a.setCP("29000");
-
-		em.persist(a);
-		
-		Alumno a2 = new Alumno("Pepe","pepiot",4L);
-
-		a2.setDni("dni4");
-		a2.setNombre("MANOLO");
-		a2.setValidationChain("ESTO ES UN TOKEN DE PRUEBA");
-		a2.setApellido1("ESCOBAR");
-		a2.setApellido2("NOSE");
-		a2.setEmail_institucional("manolito@uma.es");
-		a2.setEmail_personal("manolomanolo@gmail.com");
-		a2.setTelefono("333333");
-		a2.setMovil("645353");
-		a2.setDireccion("Avenida malaga 24 ");
-		a2.setLocalidad("MADRID");
-		a2.setProvincia("COMUNIDAD DE MADRID");
-		a2.setCP("29000");
-		em.persist(a2);
-		
-		Secretaria s = new Secretaria("Rafael","prueba",125L);
-		em.persist(s);
-		
-		
-		Titulacion t = new Titulacion();
-		t.setCodigo(25);
-		t.setCreditos(240);
-		t.setNombre("Informatica");
-		em.persist(t);
-		
-		Asignatura asig= new Asignatura();
-		asig.setCodigo(20);
-		asig.setTitulacion(t);
-		asig.setReferencia("1233454");
-		em.persist(asig);
-		
-		
-		
-		/*
-		/////////////////////CLASE//////////////////
-		Clase clase = new Clase();
-		clase.setDia("2");
-		clase.setHoraInicio("1");
-		clase.setHoraFin("2");
-
-
-		em.persist(clase);
-
-
-		//////////////////ASIGNATURA/////////////////////////
-		Asignatura asig =new Asignatura();
-		asig.setReferencia("146");
-		asig.setCodigo(25);
-		asig.setCreditos(6);
-		asig.setNombre("Calculo para la computacion");
-		asig.setCurso("2020/2021");
-		asig.setCaracter("Informativo");
-		asig.setDuracion("4 meses");
-		asig.setIdiomas("Español");
-		asig.setCred_prac(2);
-		asig.setOfertada("SI");
-
-		em.persist(asig);
-
-
-		//////////////////////// TITULACION ///////////////////////////
-		Titulacion t= new Titulacion();
-		t.setCreditos(240);
-		t.setCodigo(23);
-		t.setNombre("Ingenieria Informatica");
-		em.persist(t);
-		//////////////////////// Matricula ////////////////////////////
-
-		Matricula m = new Matricula();
-		m.setCurso_Academico(2020L);
-		m.setEstado("Estudiando feliz mente");
-		m.setNum_Archivo("2");
-		m.setTurno_Preferente("Mañana");
-		m.setFecha_Matricula(new Date(2020));
-		m.setNuevo_Ingreso("ANTIGUO");
-		m.setListado_de_Asignaturas("Calculo y Programar");
-		m.setMat_Asigs(null);
-
-		em.persist(m);
-
-		Matricula m2 = new Matricula();
-		m2.setCurso_Academico(2020L);
-		m2.setEstado("estudiando");
-		m2.setNum_Archivo("1");
-		m2.setTurno_Preferente("Tarde");
-		m2.setFecha_Matricula(new Date(2020));
-		m2.setNuevo_Ingreso("Nuevo");
-		m2.setListado_de_Asignaturas("Estadistica y Programar");
-
-		em.persist(m2);
-		////////////////////////////////GRUPO////////////////////////////////////
-
-		Grupo grupo = new Grupo();
-		grupo.setId("123");
-		grupo.setCurso(2);
-		grupo.setLetra("A");
-		grupo.setTurno("MAÑANA");
-		grupo.setIngles("NO");
-		grupo.setVisible("SI");
-		grupo.setAsignar("asignar");
-		grupo.setPlazas(3);
-		grupo.setLetra1("B");
-
-		List<Clase> claseList = new ArrayList<>();
-		claseList.add(clase);
-		grupo.setClase(claseList);
-
-		grupo.setTitulo(t);
-
-		em.persist(grupo);
-
-		Grupo grupo2 = new Grupo();
-		grupo2.setId("222");
-		grupo2.setCurso(3);
-		grupo2.setLetra("B");
-		grupo2.setTurno("TARDE");
-		grupo2.setIngles("SI");
-		grupo2.setVisible("NO");
-		grupo2.setAsignar("asignar");
-		grupo2.setPlazas(3);
-		grupo2.setLetra1("C");
-
-		List<Clase> claseList2 = new ArrayList<>();
-		claseList2.add(clase);
-		grupo2.setClase(claseList);
-
-		List<Grupo>  grupoList2 = new ArrayList<>();
-		grupoList2.add(grupo);
-		grupo2.setGrupos(grupoList2);
-
-		grupo2.setTitulo(t);
-
-		em.persist(grupo2);
-
-		/////////////////////CENTRO//////////////////
 		Centro c = new Centro();
-		c.setId(1);
-		c.setNombre("ETSII");
-		c.setDireccion("Boulevar");
-		c.setTLF_Conserjeria("1233445");
-	
-
-
+		c.setID("23");
+		c.setTLF_Conserjeria("234234");
+		c.setDireccion("BOULEVAR PASTEUR");
 		em.persist(c);
 
-		////////////////////////////////MAT_ASIG////////////////////////////////////
+		List<Centro> centros=new LinkedList<>();
+		centros.add(c);
+		tit.setCentros(centros);
+		em.merge(tit);
 
-		Mat_Asig mat_asig = new Mat_Asig();
-		mat_asig.setAsignatura(asig);
-		mat_asig.setMatricula(m);
-		mat_asig.setGrupo(grupo);
+		Expediente exp = new Expediente();
+		exp.setExpediente("100");
+		exp.setN_archivo("23ACF");
+		exp.setTitulacion(tit);
+		em.persist(exp);
+
+		List<Expediente> expedientes =new LinkedList<>();
+		expedientes.add(exp);
+		tit.setExpedientes(expedientes);
+		em.merge(tit);
+
+		Alumno al=new Alumno();
+		al.setUsername("PEPE");
+		al.setPassword("1234");
+		al.setEmail_personal("sd");
+		al.setEmail_institucional("iferjeir");
+		al.setMovil("234");
+		em.persist(al);
+		Alumno al1=new Alumno();
+		al1.setUsername("MANUEL");
+		al1.setPassword("1234");
+		al1.setEmail_personal("sd");
+		al1.setEmail_institucional("iferjeir");
+		al1.setMovil("234");
+		em.persist(al1);
+
+		Secretaria sec = new Secretaria();
+		sec.setDni("123");
+		sec.setUsername("RAFAEL");
+		sec.setPassword("jeje");
+		em.persist(sec);
+
+		Secretaria sec1 = new Secretaria();
+		sec1.setDni("12345");
+		sec1.setUsername("MANOLO");
+		sec1.setPassword("jeje");
+		em.persist(sec1);
 
 
-		em.persist(mat_asig);
+		exp.setAlumno(al);
 
-		/////////////////  EXPEDIENTE ////////////////
-		Expediente ex = new Expediente();
-		ex.setId_Expediente("11111");
-		ex.setActivo("SI");
-		ex.setNotaMPr(1);
-		ex.setCreditosSup(1.0);
-		ex.setCreditosFB(1.0);
-		ex.setCreditosOP(1.0);
-		ex.setCreditosOB(1.0);
-		ex.setCreditosCF(1.0);
-		ex.setCreditosPE(1.0);
-		ex.setCreditosTF(1.0);
-		ex.setN_Archivo("aaaa");
-		ex.setTitulacion(t);
+		Asignatura asig =new Asignatura();
+		asig.setReferencia("123");
+		asig.setNombre("CALCULO");
+		asig.setOfertada("POR DESGRACIA");
+		asig.setCreditos(6);
+		asig.setCodigo(103);
+		asig.setTitulacion(tit);
 
-		em.persist(ex);
+		em.persist(asig);
 
-		Expediente ex2 = new Expediente();
-		ex2.setId_Expediente("222222");
-		ex2.setActivo("NO");
-		ex2.setNotaMPr(2);
-		ex2.setCreditosSup(2.0);
-		ex2.setCreditosFB(2.0);
-		ex2.setCreditosOP(2.0);
-		ex2.setCreditosOB(2.0);
-		ex2.setCreditosCF(2.0);
-		ex2.setCreditosPE(2.0);
-		ex2.setCreditosTF(2.0);
-		ex2.setN_Archivo("bbbbb");
+		Optativa asig1 =new Optativa();
+		asig1.setReferencia("800");
+		asig1.setNombre("DOMOTICA");
+		asig1.setOfertada("OFERTADA");
+		asig1.setCreditos(6);
+		asig1.setCodigo(103);
+		asig1.setPlazas("30");
+		asig1.setMencion("ELECTRONCA");
+		List<Titulacion> titulaciones=new LinkedList<>();
+		titulaciones.add(tit);
+		asig1.setTitulaciones(titulaciones);
+		em.persist(asig1);
 
-		em.persist(ex2);
-		///////////////////////////////////ENCUESTA////////////////////////////////////////
-		Encuesta encuesta = new Encuesta();
-		encuesta.setId_Encuesta("asasasa");
-		List<GR_ASIG> gr_asigList = null;
-		encuesta.setGr_asig(gr_asigList);
-		encuesta.setExpediente(ex);
-		encuesta.setFecha_de_Envio(new Date(2020));
+		List<Asignatura> asignaturas= new LinkedList<>();
+		asignaturas.add(asig);asignaturas.add(asig1);
+		tit.setAsignaturas(asignaturas);
+		em.merge(tit);
 
+			/*
+			Matricula.MatriculaID matrId= new Matricula.MatriculaID();
+			matrId.setCurso_Academico(2021L);
+			matrId.setIdExpediente(exp.getExpediente());
+			 */
+
+		Matricula matricula =new Matricula();
+		matricula.setIdExpediente(exp);
+		matricula.setCurso_Academico(2021L);
+		em.persist(matricula);
+
+		Grupo gr=new Grupo();
+		gr.setId("25");
+		gr.setCurso(2021);
+		gr.setLetra("A");
+		gr.setTurno("MAÑANA");
+		gr.setIngles("FRANCES");
+		gr.setTitulo(tit);
+		em.persist(gr);
+
+		Mat_Asig mA=new Mat_Asig();
+		mA.setAsignatura(asig);
+		mA.setMatricula(matricula);
+		mA.setGrupo(gr);
+		em.persist(mA);
+
+		GR_ASIG grA=new GR_ASIG();
+		grA.setAsig(asig);
+		grA.setGroup(gr);
+		grA.setCurso_act(2021);
+		em.persist(grA);
+
+		List<GR_ASIG> listaAsigDeGrupos= new LinkedList<>();
+		listaAsigDeGrupos.add(grA);
+
+		Encuesta encuesta= new Encuesta();
+		encuesta.setExpediente(exp);
+		encuesta.setFecha_de_Envio(Date.valueOf("1997-03-10"));
+		encuesta.setTexto("NO QUIERO CLASE POR LA TARDE");
+		encuesta.setGrAsig(listaAsigDeGrupos);
 		em.persist(encuesta);
 
-		//////////////////////////////////GR_ASIG///////////////////////////////////
-
-		GR_ASIG gr_asig = new GR_ASIG();
-		gr_asig.setAsig(asig);
-		gr_asig.setOferta(2);
-		gr_asig.setCurso_act(2);
-		List<Encuesta> encuestaList = null;
-		gr_asig.setEncuesta(encuesta);
-		gr_asig.setGroup(grupo);
-
-		em.persist(gr_asig);
-		*/
 		System.out.println("---------------LLEGA HASTA AQUI 2--------------------------------");
 		em.getTransaction().commit();
 		

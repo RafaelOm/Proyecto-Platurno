@@ -5,6 +5,8 @@ package es.uma.platurno.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -12,8 +14,8 @@ import java.util.Objects;
  *
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Usuario implements Serializable {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class 	Usuario implements Serializable {
 
 	/**
 	 * 
@@ -35,7 +37,7 @@ public class Usuario implements Serializable {
 		
 	}
 	private static final long serialVersionUID = 1L;
-	@Id 
+	@Id @GeneratedValue
 	protected Long identificador;
 	
 	@Column(unique = true)
@@ -43,6 +45,9 @@ public class Usuario implements Serializable {
 	@Column(nullable = false)
 	private String Password;
 	private String ValidationChain;
+
+
+
 
 	public Long getIdentificador() {
 		return identificador;
@@ -75,6 +80,9 @@ public class Usuario implements Serializable {
 	public void setValidationChain(String validationChain) {
 		ValidationChain = validationChain;
 	}
+
+
+
 
 	@Override
 	public boolean equals(Object o) {

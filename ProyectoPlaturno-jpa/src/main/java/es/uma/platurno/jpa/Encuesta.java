@@ -21,7 +21,7 @@ public class Encuesta implements Serializable {
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
    nullable simboliza los atributos que son obligatorios en la BD.  */
 
-	@Id
+	@Id@GeneratedValue
 	@Column (name = "Id_Encuesta")
 	private String id_Encuesta;
 
@@ -39,38 +39,22 @@ public class Encuesta implements Serializable {
 //--------------------------------------------------------------------------------------------------------------------//
 
 	/* Atributos de la entidad relacionado con relaciones (foreign key). PREGUNTA CHICANO */
-/*
-	@ManyToMany
-	@JoinTable(
-            name = "EncuestaGrAsignaturas",
-            joinColumns = @JoinColumn(
-                    name = "CursoAc",
-                    referencedColumnName = "Id_Encuesta"
-            ),
-            inverseJoinColumns = @JoinColumns(
-                    name = "Fecha_de_Envio",
-                    referencedColumnName = ""
-            )
-    )
-    private List<GR_ASIG> grupos;
-*/
 
 	@ManyToOne
-	@JoinColumn(name = "Encuesta realizada por")
 	private Expediente expediente;
 
+/*
+	@JoinTable(
+			name="rel_encuesta_grupo",
+			joinColumns = {
+					@JoinColumn(name ="curso_act",referencedColumnName = "curso_act",nullable = false),
+					@JoinColumn(name ="asig",referencedColumnName = "asig",nullable = false),
+					@JoinColumn(name ="group",referencedColumnName = "group",nullable = false)},
+			inverseJoinColumns = @JoinColumn(name="Id_Encuesta",referencedColumnName = "Id_Encuesta",nullable = false)
 
-	@OneToMany
-	private List<GR_ASIG> gr_asig;
-
-	public List<GR_ASIG> getGr_asig() {
-		return gr_asig;
-	}
-
-	public void setGr_asig(List<GR_ASIG> gr_asig) {
-		this.gr_asig = gr_asig;
-	}
-
+	)*/
+	@ManyToMany
+	private List<GR_ASIG> GrAsig;
 
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -94,6 +78,13 @@ public class Encuesta implements Serializable {
 		return texto;
 	}
 
+	public List<GR_ASIG> getGrAsig() {
+		return GrAsig;
+	}
+
+	public void setGrAsig(List<GR_ASIG> grAsig) {
+		this.GrAsig = grAsig;
+	}
 
 	public void setId_Encuesta(String id_Encuesta) {
 		this.id_Encuesta = id_Encuesta;

@@ -46,6 +46,8 @@ public class ExpedienteEJB_Test {
         auth = (AutenticacionInterfaz) TestSuite.ctx.lookup(AUTENTICACION);
         BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
     }
+
+    /*
     @Requisitos({"RF6"})
     @Ignore
     @Test
@@ -113,7 +115,7 @@ public class ExpedienteEJB_Test {
             e.printStackTrace();
         }
     }
-
+*/
 
 }
 

@@ -6,6 +6,7 @@ package es.uma.platurno.jpa;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -56,6 +57,14 @@ public class Matricula implements Serializable {
 	}
 	@Id
 	protected Long Curso_Academico;
+
+	@Id
+	@ManyToOne
+	private Expediente IdExpediente;
+
+
+	@OneToMany
+	private List<Mat_Asig> matAsig;
 	
 	private String Estado;
 	private String Num_Archivo;
@@ -65,12 +74,9 @@ public class Matricula implements Serializable {
 	private String Listado_de_Asignaturas;
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany
-	private java.util.List<Mat_Asig> mat_Asigs;
 
-	@Id
-	@ManyToOne
-	private Expediente IdExpediente;
+
+
 
 	public Expediente getIdExpediente() {
 		return IdExpediente;
@@ -140,13 +146,15 @@ public class Matricula implements Serializable {
 		Listado_de_Asignaturas = listado_de_Asignaturas;
 	}
 
-	public java.util.List<Mat_Asig> getMat_Asigs() {
-		return mat_Asigs;
+	public List<Mat_Asig> getMatAsig() {
+		return matAsig;
 	}
 
-	public void setMat_Asigs(java.util.List<Mat_Asig> mat_Asigs) {
-		this.mat_Asigs = mat_Asigs;
+	public void setMatAsig(List<Mat_Asig> matAsig) {
+		this.matAsig = matAsig;
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -159,7 +167,6 @@ public class Matricula implements Serializable {
 		result = prime * result + ((Nuevo_Ingreso == null) ? 0 : Nuevo_Ingreso.hashCode());
 		result = prime * result + ((Num_Archivo == null) ? 0 : Num_Archivo.hashCode());
 		result = prime * result + ((Turno_Preferente == null) ? 0 : Turno_Preferente.hashCode());
-		result = prime * result + ((mat_Asigs == null) ? 0 : mat_Asigs.hashCode());
 		return result;
 	}
 
@@ -207,11 +214,7 @@ public class Matricula implements Serializable {
 				return false;
 		} else if (!Turno_Preferente.equals(other.Turno_Preferente))
 			return false;
-		if (mat_Asigs == null) {
-			if (other.mat_Asigs != null)
-				return false;
-		} else if (!mat_Asigs.equals(other.mat_Asigs))
-			return false;
+
 		return true;
 	}
 
@@ -219,7 +222,7 @@ public class Matricula implements Serializable {
 	public String toString() {
 		return "Matricula [Curso_Academico=" + Curso_Academico + ", Estado=" + Estado + ", Num_Archivo=" + Num_Archivo
 				+ ", Turno_Preferente=" + Turno_Preferente + ", Fecha_Matricula=" + Fecha_Matricula + ", Nuevo_Ingreso="
-				+ Nuevo_Ingreso + ", Listado_de_Asignaturas=" + Listado_de_Asignaturas + ", mat_Asigs=" + mat_Asigs
+				+ Nuevo_Ingreso + ", Listado_de_Asignaturas=" + Listado_de_Asignaturas + ", mat_Asigs="
 				+ "]";
 	}   
 	

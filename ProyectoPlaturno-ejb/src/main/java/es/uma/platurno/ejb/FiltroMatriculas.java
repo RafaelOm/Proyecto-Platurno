@@ -80,7 +80,7 @@ public  class FiltroMatriculas implements FiltroMatriculasInterfaz{
 
                 for (Expediente exp:expedientes){
                     q = em.createQuery("SELECT m FROM Matricula m WHERE m.expediente.IdExpediente = :exp_ref");
-                    q.setParameter("exp_ref", exp.getId_Expediente());
+                    q.setParameter("exp_ref", exp.getExpediente());
                     matriculas.addAll(q.getResultList());
                 }
 
