@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="trazabilidad-ejb:ejb">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>trazabilidad-ejb</module>
+        <packaging>ejb</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="trazabilidad-ejb-0.0.1-SNAPSHOT.jar">
+      <element id="artifact" artifact-name="trazabilidad-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

@@ -6,14 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ProyectoPlaturno-ejb" />
-        <module name="ProyectoPlaturno-jpa" />
+        <module name="trazabilidad-ejb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ProyectoPlaturno-ejb" target="1.8" />
-      <module name="ProyectoPlaturno-jpa" target="1.8" />
-      <module name="ProyectoPlaturno.GrupoF" target="1.8" />
+      <module name="trazabilidad-ejb" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno-ejb/ProyectoPlaturno-ejb.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno-ejb/ProyectoPlaturno-ejb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno-jpa/ProyectoPlaturno-jpa.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno-jpa/ProyectoPlaturno-jpa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ProyectoPlaturno.GrupoF.iml" filepath="$PROJECT_DIR$/ProyectoPlaturno.GrupoF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trazabilidad-ejb.iml" filepath="$PROJECT_DIR$/trazabilidad-ejb.iml" />
     </modules>
   </component>
 </project>
