@@ -79,8 +79,8 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void compruebaLogin(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-                     Long=1L;
-                    Usuario user=em.find(Usuario.class,identificador);
+                     Long id=1L;
+                    Usuario user=em.find(Usuario.class,id);
                     if(user==null) {
                         throw new CuentaInexistenceException();
                     }

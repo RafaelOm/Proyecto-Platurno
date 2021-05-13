@@ -43,7 +43,7 @@ public class Encuesta implements Serializable {
 	@ManyToOne
 	private Expediente expediente;
 
-
+/*
 	@JoinTable(
 			name="rel_encuesta_grupo",
 			joinColumns = {
@@ -52,9 +52,9 @@ public class Encuesta implements Serializable {
 					@JoinColumn(name ="group",referencedColumnName = "group",nullable = false)},
 			inverseJoinColumns = @JoinColumn(name="Id_Encuesta",referencedColumnName = "id_Encuesta",nullable = false)
 
-	)
+	)*/
 	@ManyToMany
-	private List<GR_ASIG> GrAsig;
+	private List<GR_ASIG> asignacion;
 
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -79,11 +79,11 @@ public class Encuesta implements Serializable {
 	}
 
 	public List<GR_ASIG> getGrAsig() {
-		return GrAsig;
+		return asignacion;
 	}
 
 	public void setGrAsig(List<GR_ASIG> grAsig) {
-		this.GrAsig = grAsig;
+		this.asignacion = grAsig;
 	}
 
 	public void setId_Encuesta(String id_Encuesta) {

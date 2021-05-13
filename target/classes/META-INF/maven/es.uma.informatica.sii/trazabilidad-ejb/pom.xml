@@ -37,6 +37,12 @@
 			<version>1.4.200</version>
 			<scope>test</scope>
 		</dependency>
+		 <dependency>
+            <groupId>es.uma.informatica.sii</groupId>
+            <artifactId>anotaciones</artifactId>
+            <version>0.0.1</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>

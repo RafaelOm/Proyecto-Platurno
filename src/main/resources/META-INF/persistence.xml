@@ -8,9 +8,6 @@
     <class>es.uma.informatica.sii.ejb.practica.entidades.Ingrediente</class>
     <class>es.uma.informatica.sii.ejb.practica.entidades.Lote</class>
     <class>es.uma.informatica.sii.ejb.practica.entidades.Producto</class>
-      <class>es.uma.informatica.sii.ejb.practica.entidades.Ingrediente</class>
-      <class>es.uma.informatica.sii.ejb.practica.entidades.Lote</class>
-      <class>es.uma.informatica.sii.ejb.practica.entidades.Producto</class>
       <class>es.uma.informatica.sii.ejb.practica.entidades.Alumno</class>
       <class>es.uma.informatica.sii.ejb.practica.entidades.Usuario</class>
       <class>es.uma.informatica.sii.ejb.practica.entidades.Asignatura</class>
