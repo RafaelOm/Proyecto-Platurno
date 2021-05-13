@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="es.uma.informatica.sii.ejb.practica.SampleTest" time="3.887" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="es.uma.informatica.sii.ejb.practica.SampleTest" time="1.853" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="java.vm.version" value="25.242-b08"/>
+    <property name="java.vm.version" value="25.292-b10"/>
     <property name="java.vm.vendor" value="Private Build"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/alumno/Escritorio/git13-05/Proyecto-Platurno"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/alumno/Escritorio/Proyecto-Platurno-main (22) (1)/Proyecto-Platurno-main"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,8 +15,8 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/alumno/Escritorio/git13-05/Proyecto-Platurno"/>
-    <property name="java.runtime.version" value="1.8.0_242-8u242-b08-0ubuntu3~18.04-b08"/>
+    <property name="user.dir" value="/home/alumno/Escritorio/Proyecto-Platurno-main (22) (1)/Proyecto-Platurno-main"/>
+    <property name="java.runtime.version" value="1.8.0_292-8u292-b10-0ubuntu1~18.04-b10"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
     <property name="os.arch" value="amd64"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.3.0-42-generic"/>
+    <property name="os.version" value="5.4.0-73-generic"/>
     <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
     <property name="user.home" value="/home/alumno"/>
     <property name="user.timezone" value="America/Los_Angeles"/>
@@ -49,7 +49,7 @@
     <property name="user.language" value="es"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_242"/>
+    <property name="java.version" value="1.8.0_292"/>
     <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
     <property name="securerandom.source" value="file:/dev/./urandom"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
@@ -62,19 +62,19 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLote" time="0.602"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteExistente" time="0.26"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLoteProductoNoEncontrado" time="0.245"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLote" time="0.263"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLoteNoEncontrado" time="0.233"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testObtenerLotesProductoNoEncontrado" time="0.245"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteIngredientesIncorrectos" time="0.183"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteoNoEncontrado" time="0.226"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteProductoNoEncontrado" time="0.223"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testObtenerLotes" time="0.206"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarTodosLotes" time="0.559"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteIngredientesIncorrectos" time="0.179"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLote" time="0.15"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteProductoNoEncontrado" time="0.149"/>
-  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarTodosLotesProductoNoEncontrado" time="0.164"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLote" time="0.328"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteExistente" time="0.182"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLoteProductoNoEncontrado" time="0.157"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLote" time="0.127"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLoteNoEncontrado" time="0.202"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testObtenerLotesProductoNoEncontrado" time="0.09"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteIngredientesIncorrectos" time="0.089"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteoNoEncontrado" time="0.099"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testActualizarLoteProductoNoEncontrado" time="0.096"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testObtenerLotes" time="0.085"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarTodosLotes" time="0.093"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteIngredientesIncorrectos" time="0.083"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarLote" time="0.082"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testInsertarLoteProductoNoEncontrado" time="0.064"/>
+  <testcase classname="es.uma.informatica.sii.ejb.practica.SampleTest" name="testEliminarTodosLotesProductoNoEncontrado" time="0.076"/>
 </testsuite>

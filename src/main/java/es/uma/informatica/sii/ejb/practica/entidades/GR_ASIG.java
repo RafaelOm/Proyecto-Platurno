@@ -41,12 +41,7 @@ public class GR_ASIG implements Serializable {
 
 		@Override
 		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((asig == null) ? 0 : asig.hashCode());
-			result = prime * result + curso_act;
-			result = prime * result + ((group == null) ? 0 : group.hashCode());
-			return result;
+			return asig.hashCode() + group.hashCode();
 		}
 		@Override
 		public boolean equals(Object obj) {

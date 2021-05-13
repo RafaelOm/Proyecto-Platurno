@@ -106,6 +106,7 @@ public class BaseDatos {
 		al.setEmail_institucional("iferjeir");
 		al.setMovil("234");
 		em.persist(al);
+		
 		Alumno al1=new Alumno();
 		al1.setUsername("MANUEL");
 		al1.setPassword("1234");
@@ -130,7 +131,7 @@ public class BaseDatos {
 		exp.setAlumno(al);
 
 		Asignatura asig =new Asignatura();
-		asig.setReferencia("123");
+		asig.setReferencia("1234");
 		asig.setNombre("CALCULO");
 		asig.setOfertada("POR DESGRACIA");
 		asig.setCreditos(6);

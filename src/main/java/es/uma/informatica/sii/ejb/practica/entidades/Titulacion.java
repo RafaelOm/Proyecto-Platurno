@@ -90,7 +90,7 @@ public class Titulacion implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(Codigo, Nombre, Creditos, centros);
+		return Codigo.hashCode();
 	}
 
 	public List<Centro> getCentros() {

@@ -6,6 +6,8 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
+import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
+
 import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
@@ -77,11 +79,14 @@ public class AsignaturaEjbTest {
 		asig.setTitulacion(t);
 		
 		
+		Usuario u = new Usuario();
+		
 		try {
-			asignaturaEjb.verAsignatura(al,asig );
+			asignaturaEjb.verAsignatura(al, asig);
+			
 		} catch (AsignaturaInexsistenteException | PasswordErroneaException | CuentaInexistenceException | CuentaInactivaException | PlaturnoException e) {
 			// TODO Auto-generated catch block
-			fail("ERROR EN TEST");
+			fail("ERROR EN TEST " + e.toString());
 			e.printStackTrace();
 		}
 		
