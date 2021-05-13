@@ -3,16 +3,13 @@ package es.uma.informatica.sii.ejb.practica;
 import es.uma.informatica.sii.ejb.practica.*;
 import es.uma.informatica.sii.ejb.practica.ejb.*;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
-import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
-import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
-import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
-import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
+import es.uma.informatica.sii.ejb.practica.entidades.*;
 
 import org.glassfish.grizzly.http.server.naming.NamingException;
 import org.junit.*;
 import es.uma.informatica.sii.anotaciones.Requisitos;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
@@ -57,7 +54,7 @@ public class AsignaturaEjbTest {
 	@Test
 	public void verAsignaturaTest() {
 		Alumno al=new Alumno();
-		al.setIdentificador(1L);
+		al.setIdentificador(3L);
 		al.setUsername("PEPE");
 		al.setPassword("1234");
 		al.setEmail_personal("sd");
@@ -79,10 +76,9 @@ public class AsignaturaEjbTest {
 		asig.setTitulacion(t);
 		
 		
-		Usuario u = new Usuario();
-		
 		try {
-			asignaturaEjb.verAsignatura(al, asig);
+			
+			asignaturaEjb.verAsignatura(al, "1234");
 			
 		} catch (AsignaturaInexsistenteException | PasswordErroneaException | CuentaInexistenceException | CuentaInactivaException | PlaturnoException e) {
 			// TODO Auto-generated catch block
@@ -92,70 +88,87 @@ public class AsignaturaEjbTest {
 		
 	}
 
-	/*
+	
 	@Requisitos({"RF-02"})
-	@Ignore
 	@Test
-	public void modificarAsiganturaTest() {
-		Alumno a = new Alumno("Pepe","pepiot",1L);
+	public void modificarAsignaturaTest() {
+	//	Alumno a = new Alumno("Pepe","pepiot",1L);
 
-
-		Secretaria s = new Secretaria("Rafael","prueba",125L);
-		
+		Secretaria s = new Secretaria();
+		s.setDni("1234");
+		s.setUsername("RAFAEL");
+		s.setPassword("jeje");
+		s.setIdentificador(1L);
+		//s.setIdentificador(125L);
+		/*
 		Titulacion t = new Titulacion();
 		t.setCodigo(Integer.toString(25));
 		t.setCreditos(Integer.toString(240));
-		t.setNombre("Informatica");
+		t.setNombre("Informatica");*/
 		
 		Asignatura asig= new Asignatura();
-		asig.setCodigo(20);
-		asig.setTitulacion(t);
-		asig.setReferencia("1233454");
-		
-		
+		asig.setReferencia("1234");
+		asig.setNombre("CALCULO2");
+		asig.setOfertada("POR DESGRACIA");
+		asig.setCreditos(6);
+		asig.setCodigo(103);
+
+		//fail("modificar asignaturaaaaa");
 		try {
 			asignaturaEjb.modificarAsignatura(s,asig);
+			Asignatura asigNew= asignaturaEjb.verAsignatura(s, "1234");			
+			assertEquals("CALCULO2", asigNew.getNombre());
+			
 		} catch (AsignaturaInexsistenteException | PasswordErroneaException | CuentaInexistenceException
 				| CuentaInactivaException | PlaturnoException |ViolacionDeSeguridadException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail("ERROR EN TEST");
+			fail("ERROR EN TEST " + e.toString());
 		} 
 		
 	}
 	@Requisitos({"RF-02"})
-	@Ignore
 	@Test
 	public void eliminarAsignaturaTest() {
-		Alumno a = new Alumno("Pepe","pepiot",1L);
+		//Alumno a = new Alumno("Pepe","pepiot",1L);
 
 
-		Secretaria s = new Secretaria("Rafael","prueba",125L);
+		Secretaria s = new Secretaria();
+		s.setDni("1234");
+		s.setUsername("RAFAEL");
+		s.setPassword("jeje");
+		s.setIdentificador(1L);
 		
-		Titulacion t = new Titulacion();
+		/*Titulacion t = new Titulacion();
 		t.setCodigo(Integer.toString(25));
 		t.setCreditos(Integer.toString(240));
-		t.setNombre("Informatica");
+		t.setNombre("Informatica");*/
 		
 		Asignatura asig= new Asignatura();
-		asig.setCodigo(20);
-		asig.setTitulacion(t);
-		asig.setReferencia("1233454");
-		
+		asig.setReferencia("1234");
+		asig.setNombre("CALCULO2");
+		asig.setOfertada("POR DESGRACIA");
+		asig.setCreditos(6);
+		asig.setCodigo(103);
 		
 		try {
-			asignaturaEjb.eliminarAsignatura(s,asig);
+			asignaturaEjb.eliminarAsignatura(s, asig);
+						
 		} catch (AsignaturaInexsistenteException | PasswordErroneaException | CuentaInexistenceException
 				| CuentaInactivaException | PlaturnoException |ViolacionDeSeguridadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			fail("ERROR EN TEST");
+			fail("ERROR EN TEST " + e.toString());
 		} 
 		
+		try {
+			Asignatura anew = asignaturaEjb.verAsignatura(s, "1234");
+			
+		}catch (AsignaturaInexsistenteException | PasswordErroneaException | CuentaInexistenceException
+				| CuentaInactivaException | PlaturnoException e) {
+			fail("OKAY "+ e.toString());
+		}
 	}
 	
 
-*/
 	@AfterClass
 	public static void tearDownClass() {
 		if (ejbContainer != null) {

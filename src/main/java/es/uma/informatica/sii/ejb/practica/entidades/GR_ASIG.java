@@ -91,7 +91,7 @@ public class GR_ASIG implements Serializable {
 	private Grupo group;
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Asignatura asig;
 /*
 	@JoinTable(

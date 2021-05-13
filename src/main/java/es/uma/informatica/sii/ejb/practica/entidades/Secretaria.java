@@ -45,7 +45,7 @@ public class Secretaria extends Usuario {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), dni, nombre, Apellido, email);
+		return super.identificador.hashCode();
 	}
 
 	public String getDni() {

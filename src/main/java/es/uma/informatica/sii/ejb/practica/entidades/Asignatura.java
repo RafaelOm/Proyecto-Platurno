@@ -5,6 +5,7 @@ package es.uma.informatica.sii.ejb.practica.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -61,7 +62,8 @@ public class Asignatura implements Serializable {
 	@ManyToOne
 	private Titulacion titulacion;
 
-
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<GR_ASIG> grLista;
 
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -179,7 +181,7 @@ public class Asignatura implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(referencia, codigo, creditos, ofertada, nombre, curso, caracter, duracion, idiomas, cred_prac, titulacion);
+		return referencia.hashCode();
 	}
 
 //--------------------------------------------------------------------------------------------------------------------//

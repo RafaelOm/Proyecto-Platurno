@@ -80,7 +80,7 @@ public class Autenticacion implements AutenticacionInterfaz  {
     @Override
     public void compruebaLogin(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
                      Long id=1L;
-                    Usuario user=em.find(Usuario.class,id);
+                    Usuario user=em.find(Usuario.class,u.getIdentificador());
                     if(user==null) {
                         throw new CuentaInexistenceException();
                     }
@@ -89,7 +89,7 @@ public class Autenticacion implements AutenticacionInterfaz  {
                     }
 
                     if(!user.getPassword().equals(u.getPassword())) {
-                        throw new PasswordErroneaException();
+                        throw new PasswordErroneaException(user.getPassword() + ":" + u.getPassword());
                     }
     }
 

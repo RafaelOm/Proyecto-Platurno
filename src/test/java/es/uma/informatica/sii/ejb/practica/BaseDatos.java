@@ -98,7 +98,21 @@ public class BaseDatos {
 		expedientes.add(exp);
 		tit.setExpedientes(expedientes);
 		em.merge(tit);
-
+		
+		// #1
+		Secretaria sec = new Secretaria();
+		sec.setDni("1234");
+		sec.setUsername("RAFAEL");
+		sec.setPassword("jeje");
+		em.persist(sec);
+		
+		// #2
+		Secretaria sec1 = new Secretaria();
+		sec1.setDni("12345");
+		sec1.setUsername("MANOLO");
+		sec1.setPassword("jeje");
+		em.persist(sec1);
+		// #3
 		Alumno al=new Alumno();
 		al.setUsername("PEPE");
 		al.setPassword("1234");
@@ -106,7 +120,7 @@ public class BaseDatos {
 		al.setEmail_institucional("iferjeir");
 		al.setMovil("234");
 		em.persist(al);
-		
+		// #4
 		Alumno al1=new Alumno();
 		al1.setUsername("MANUEL");
 		al1.setPassword("1234");
@@ -115,17 +129,7 @@ public class BaseDatos {
 		al1.setMovil("234");
 		em.persist(al1);
 
-		Secretaria sec = new Secretaria();
-		sec.setDni("1234");
-		sec.setUsername("RAFAEL");
-		sec.setPassword("jeje");
-		em.persist(sec);
 
-		Secretaria sec1 = new Secretaria();
-		sec1.setDni("12345");
-		sec1.setUsername("MANOLO");
-		sec1.setPassword("jeje");
-		em.persist(sec1);
 
 
 		exp.setAlumno(al);
@@ -153,6 +157,7 @@ public class BaseDatos {
 		asig1.setTitulaciones(titulaciones);
 		em.persist(asig1);
 
+		
 		List<Asignatura> asignaturas= new LinkedList<>();
 		asignaturas.add(asig);asignaturas.add(asig1);
 		tit.setAsignaturas(asignaturas);

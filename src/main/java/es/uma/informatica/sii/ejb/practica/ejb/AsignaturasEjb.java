@@ -28,13 +28,13 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
     }
 
     @Override
-    public Asignatura verAsignatura(Usuario u, Asignatura a) throws AsignaturaInexsistenteException, PasswordErroneaException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException {
+    public Asignatura verAsignatura(Usuario u, String ref) throws AsignaturaInexsistenteException, PasswordErroneaException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException {
         //////Check if user is authenticated in the system  ////////////
 
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
 
-        Asignatura asig= em.find(Asignatura.class,a.getReferencia());
+        Asignatura asig= em.find(Asignatura.class,ref);
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }
@@ -54,8 +54,8 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }
-
-        em.merge(asig);
+        
+        em.merge(asignatura);
 
     }
 
@@ -70,6 +70,7 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
         if(asig==null){
             throw new AsignaturaInexsistenteException();
         }
-        em.remove(em.merge(asig));
+     //   em.merge(a);
+        em.remove(em.merge(a));
     }
 }
