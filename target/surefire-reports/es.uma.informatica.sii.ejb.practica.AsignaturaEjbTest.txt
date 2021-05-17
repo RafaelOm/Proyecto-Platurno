@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: es.uma.informatica.sii.ejb.practica.AsignaturaEjbTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.921 sec <<< FAILURE!
-eliminarAsignaturaTest(es.uma.informatica.sii.ejb.practica.AsignaturaEjbTest)  Time elapsed: 0.108 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.063 sec <<< FAILURE!
+eliminarAsignaturaTest(es.uma.informatica.sii.ejb.practica.AsignaturaEjbTest)  Time elapsed: 0.188 sec  <<< ERROR!
 javax.ejb.EJBException: Transaction aborted
 	at com.sun.ejb.containers.EJBContainerTransactionManager.completeNewTx(EJBContainerTransactionManager.java:705)
 	at com.sun.ejb.containers.EJBContainerTransactionManager.postInvokeTx(EJBContainerTransactionManager.java:483)
@@ -11,7 +11,7 @@ javax.ejb.EJBException: Transaction aborted
 	at com.sun.ejb.containers.BaseContainer.postInvoke(BaseContainer.java:2054)
 	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:196)
 	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:64)
-	at com.sun.proxy.$Proxy251.eliminarAsignatura(Unknown Source)
+	at com.sun.proxy.$Proxy253.eliminarAsignatura(Unknown Source)
 	at es.uma.informatica.sii.ejb.practica.AsignaturaEjbTest.eliminarAsignaturaTest(AsignaturaEjbTest.java:155)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
