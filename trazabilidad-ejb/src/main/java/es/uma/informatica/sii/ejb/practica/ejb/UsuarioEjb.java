@@ -42,7 +42,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
         Usuario user=new Usuario();
         user.setUsername(dni);
         user.setPassword(generateRandomPassword(10));
-        UriBuilder u =null;
+        String u =null;
         auth.registrarUsuario(user,u);
 
 

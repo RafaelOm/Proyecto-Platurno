@@ -18,6 +18,7 @@ import javax.naming.NamingException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.uma.informatica.sii.ejb.practica.ejb.GestionLotes;
@@ -61,7 +62,7 @@ public class SampleTest {
 		gestionProductos = (GestionProductos) ctx.lookup(PRODUCTOS_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
-
+	@Ignore
 	@Test
 	public void testInsertarLote() {
 		
@@ -98,7 +99,7 @@ public class SampleTest {
 			fail("No debería lanzar excepción");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testInsertarLoteProductoNoEncontrado() {
 		try {
@@ -125,7 +126,7 @@ public class SampleTest {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testInsertarLoteIngredientesIncorrectos() {
 
@@ -156,7 +157,7 @@ public class SampleTest {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testInsertarLoteExistente() {
 
@@ -185,7 +186,7 @@ public class SampleTest {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testObtenerLotes() {
 		try {
@@ -207,7 +208,7 @@ public class SampleTest {
 			fail("Debería lanzar excepción de producto no encontrado");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testActualizarLote() {
 		
@@ -258,7 +259,7 @@ public class SampleTest {
 			fail("No debería lanzar excepción");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testActualizarLoteProductoNoEncontrado() {
 		final String nombreProducto = "Chorizo";
@@ -290,7 +291,7 @@ public class SampleTest {
 			fail("Debería lanzar excepción de producto no encontrado");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testActualizarLoteoNoEncontrado() {
 		final String nombreProducto = "Chorizo";
@@ -308,7 +309,7 @@ public class SampleTest {
 			fail("Debería lanzar excepción de lote no encontrado");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testActualizarLoteIngredientesIncorrectos() {
 		final String nombreProducto = "Chorizo";
@@ -333,7 +334,7 @@ public class SampleTest {
 			fail("Debería lanzar excepción de ingredientes incorrectos");
 		} 
 	}
-	
+	@Ignore
 	@Test
 	public void testEliminarLote() {
 		try {
@@ -351,7 +352,7 @@ public class SampleTest {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testEliminarLoteProductoNoEncontrado() {
 		try {
@@ -370,7 +371,7 @@ public class SampleTest {
 			fail("Debería lanzar la excepción de producto no encontrado");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testEliminarLoteNoEncontrado() {
 		try {
@@ -389,7 +390,7 @@ public class SampleTest {
 			fail("Debería lanzar la excepción de lote no encontrado");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testEliminarTodosLotes() {
 		try {
@@ -403,7 +404,7 @@ public class SampleTest {
 			fail("No debería lanzarse excepción");
 		}
 	}
-	
+	@Ignore
 	@Test
 	public void testEliminarTodosLotesProductoNoEncontrado() {
 		try {

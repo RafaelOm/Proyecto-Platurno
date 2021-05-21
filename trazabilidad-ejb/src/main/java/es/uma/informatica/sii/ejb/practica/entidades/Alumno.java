@@ -4,9 +4,15 @@
 
 package es.uma.informatica.sii.ejb.practica.entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 import java.util.List;
 
 /**
@@ -17,6 +23,8 @@ import java.util.List;
 /* Entidad que hereda de Usuario, representando a la entidad Alumno. Usamos la interfaz serializable
 *  para poder mandar los datos a la BD. */
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Alumno extends Usuario {
 
 	/* Atributos de la entidad, donde name es el nombre que va a tener el atributo en la BD y
@@ -28,29 +36,38 @@ public class Alumno extends Usuario {
 
 
 	
-
-	@Column(name = "DNI", nullable = true)
+	@XmlTransient
+	@JsonbTransient
+	@Column(name = "DNI")
 	private String dni;
-
-	@Column(name = "NOMBRE",nullable = true)
+	
+	@XmlTransient
+	@JsonbTransient
+	@Column(name = "NOMBRE")
 	private String Nombre;
 
-	@Column(name = "APELLIDO1",nullable = true)
+	@XmlTransient
+	@JsonbTransient
+	@Column(name = "APELLIDO1")
 	private String Apellido1;
 
+	@XmlTransient
+	@JsonbTransient
 	@Column(name = "APELLIDO2")
 	private String Apellido2;
 
-	@Column(name = "EMAIL_PERSONAL",nullable = false)
+	@XmlTransient
+	@JsonbTransient
+	@Column(name = "EMAIL_PERSONAL")
 	private String email_personal;
 
-	@Column(name = "EMAIL_INSTITUCIONAL", nullable = false)
+	@Column(name = "EMAIL_INSTITUCIONAL")
 	private String email_institucional;
 
 	@Column(name = "TELEFONO")
 	private String telefono;
 
-	@Column(name = "MOVIL", nullable = false)
+	@Column(name = "MOVIL")
 	private String movil;
 
 	@Column(name = "DIRECCION")
@@ -286,7 +303,7 @@ public class Alumno extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Alumno [id_dni=" + dni + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2="
+		return "Alumno [id_dni=" +"IMPORTANTE ->>>>>"+super.getValidationChain()+"  "+super.getUsername()+dni + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2="
 				+ Apellido2 + ", email_personal=" + email_personal + ", email_institucional=" + email_institucional
 				+ ", telefono=" + telefono + ", movil=" + movil + ", direccion=" + direccion + ", provincia="
 				+ provincia + ", localidad=" + localidad + ", CP=" + CP + ", expedientes=" + expedientes + "]";

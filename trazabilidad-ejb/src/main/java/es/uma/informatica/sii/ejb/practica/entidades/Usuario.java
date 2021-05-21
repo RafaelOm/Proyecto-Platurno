@@ -4,6 +4,11 @@
 package es.uma.informatica.sii.ejb.practica.entidades;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.json.bind.annotation.JsonbTransient;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,6 +17,8 @@ import java.util.Objects;
  *
  */
 @Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class 	Usuario implements Serializable {
 
@@ -21,6 +28,7 @@ public class 	Usuario implements Serializable {
 	
 	public Usuario(String Username,String Password,Long id) {
 		super();
+		
 		this.username=Username;
 		this.Password=Password;
 		this.identificador=id;
@@ -35,13 +43,20 @@ public class 	Usuario implements Serializable {
 		
 	}
 	private static final long serialVersionUID = 1L;
-	@Id @GeneratedValue
+	//@Id @GeneratedValue
 	protected Long identificador;
 	
-	@Column(unique = true)
+	@XmlTransient
+	@JsonbTransient
+	//@Column(unique = true)
+	@Id
 	private String username;
+	@XmlTransient
+	@JsonbTransient
 	@Column(nullable = false)
 	private String Password;
+	@XmlTransient
+	@JsonbTransient
 	private String ValidationChain;
 
 
