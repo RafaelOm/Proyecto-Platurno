@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<title>Platurno-Crud Asignaturas</title>
+
+</h:head>
+
+<h:body>
+<p:dataTable value="#{asignaturaBean.getRelleno()}" var="dato" >
+ 	  <f:facet name="header">
+           Asignaturas Disponibles:
+        </f:facet>
+ 
+           <p:column>
+         <f:facet name="header">
+            <h:outputText value="Id"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.referencia}"></h:outputText>
+      </p:column>
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Asignatura"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.nombre}"></h:outputText>
+      </p:column>
+       
+       <p:column>
+         <f:facet name="header">
+            <h:outputText value="Turno"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.ofertada}"></h:outputText>
+      </p:column>
+    
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Grupo"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.codigo}"></h:outputText>
+      </p:column>
+    
+      
+       <p:column>
+              <h:form>
+                 <p:commandButton action="#{asignaturaBean.removeValor(dato)}"
+                value="Añadir">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+                </p:commandButton>
+         </h:form>
+      </p:column>
+      
+   </p:dataTable>
+
+
+</h:body>
+
+</html>

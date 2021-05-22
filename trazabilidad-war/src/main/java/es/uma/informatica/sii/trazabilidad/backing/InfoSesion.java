@@ -6,18 +6,22 @@
 
 package es.uma.informatica.sii.trazabilidad.backing;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import es.uma.informatica.sii.ejb.practica.ejb.AutenticacionInterfaz;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInactivaException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInexistenceException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PasswordErroneaException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PlaturnoException;
+import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
 
 /**
@@ -90,6 +94,16 @@ public class InfoSesion implements Serializable {
         } 
         }
     
+    public synchronized String nombrecompleto() {
+    	Alumno a = (Alumno)usuario;
+        return  a.getNombre()+" "+a.getApellido1()+" "+a.getApellido2();
     }
+    
+    public void reload() throws IOException {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
+    
+}
     
 

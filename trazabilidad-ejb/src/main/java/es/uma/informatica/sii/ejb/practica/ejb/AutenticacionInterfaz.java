@@ -14,5 +14,6 @@ public interface AutenticacionInterfaz  {
     public void validarCuenta(Usuario u, String validacion) throws PlaturnoException, CuentaInexistenceException, CuentaYaValidadaException, ValidacionIncorrectaException;
     public Usuario compruebaLogin(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException;
     public void checkSecretariaRole(Usuario u) throws CuentaInexistenceException, ViolacionDeSeguridadException;
+  
 
 }

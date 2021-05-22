@@ -14,10 +14,22 @@
         margin: 10px;
         width: 200px;
     }
+    .botonadd{
+    	background-color:red;
+    }
 
     .ui-dashboard-column {
         width: 220px;
     }
+        .rowcolor {
+        background-color: #C9EDED !important; 
+    }
+     .cheap {
+        background-color: #54a90a !important;
+        background-image: none !important;
+        color: #ffffff !important;
+    }
+
 </style>
 </h:head>
 
@@ -30,7 +42,7 @@
 
         <p:toolbar>
             <p:toolbarGroup>
-              	<h2><h:outputText value ="#{login.nombrecompleto()}"/></h2>
+              	<h2><h:outputText value ="#{infoSesion.nombrecompleto()}"/></h2>
             </p:toolbarGroup>
 
 
@@ -41,20 +53,104 @@
                     <p:menuitem value="Update" action="#{toolbarView.update}" update="messages" icon="pi pi-refresh"/>
                     <p:menuitem value="Delete" action="#{toolbarView.delete}" ajax="false" icon="pi pi-times"/>
                     <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
-                    
-                         <f:facet name="options">
-                <div class="ui-input-icon-left p-mr-2">
-                    <i class="pi pi-fw pi-search" />
-                    <p:inputText placeholder="Search"/>
-                </div>
-                <p:button value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"/>
-            </f:facet>
                 </p:menuButton>
+                        <p:divider layout="vertical"/>
+                        
+               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}"/>
+            		
             </p:toolbarGroup>
 
         </p:toolbar>
     </h:form>
 </div>
+
+<p:dataTable value="#{asignaturaBean.getSeleccionadas()}" var="dato" 
+		rowStyleClass="#{asignaturaBean.selecionada(dato) eq true ? 'cheap' : null}" >
+ 	  <f:facet name="header">
+           Asignaturas Selecionadas:
+        </f:facet>
+ 
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Id"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.referencia}"></h:outputText>
+      </p:column>
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Asignatura"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.nombre}"></h:outputText>
+      </p:column>
+       
+       <p:column>
+         <f:facet name="header">
+            <h:outputText value="Turno"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.ofertada}"></h:outputText>
+      </p:column>
+    
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Grupo"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.codigo}"></h:outputText>
+      </p:column>
+            <p:column>
+              <h:form>
+                 <p:commandButton action="#{asignaturaBean.devuelve(dato)}"
+               styleClass="ui-button-raised ui-button-danger" value="Eliminar">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+               </p:commandButton>
+         </h:form>
+      </p:column>
+
+</p:dataTable>
+
+ <p:dataTable value="#{asignaturaBean.getRelleno()}" var="dato" >
+ 	  <f:facet name="header">
+           Asignaturas Disponibles:
+        </f:facet>
+ 
+           <p:column>
+         <f:facet name="header">
+            <h:outputText value="Id"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.referencia}"></h:outputText>
+      </p:column>
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Asignatura"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.nombre}"></h:outputText>
+      </p:column>
+       
+       <p:column>
+         <f:facet name="header">
+            <h:outputText value="Turno"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.ofertada}"></h:outputText>
+      </p:column>
+    
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Grupo"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.codigo}"></h:outputText>
+      </p:column>
+    
+      
+       <p:column>
+              <h:form>
+                 <p:commandButton action="#{asignaturaBean.removeValor(dato)}"
+                value="Añadir">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+                </p:commandButton>
+         </h:form>
+      </p:column>
+      
+   </p:dataTable>
+
 
 </h:body>
 

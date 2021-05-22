@@ -2,11 +2,17 @@ package es.uma.informatica.sii.ejb.practica.ejb;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
 import  es.uma.informatica.sii.ejb.practica.entidades.*;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Logger;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  * Session Bean implementation class AsignaturasEjb
@@ -20,6 +26,7 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
     private EntityManager em;
     @Inject
     private AutenticacionInterfaz auth;
+    private static final Logger LOGGER = Logger.getLogger(AsignaturasEjb.class.getCanonicalName());
     /**
      * Default constructor. 
      */
@@ -72,5 +79,33 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
         }
      //   em.merge(a);
         em.remove(em.merge(a));
+    }
+    
+    @Override
+    public List<Asignatura> getAll() {
+    	/*
+    	Asignatura asig =new Asignatura();
+		asig.setReferencia("1234");
+		asig.setNombre("CALCULO");
+		asig.setOfertada("POR DESGRACIA");
+		asig.setCreditos(6);
+		asig.setCodigo(103);
+		//asig.setTitulacion(tit);
+		em.persist(asig);
+		
+		Asignatura asig1 =new Asignatura();
+		asig1.setReferencia("123");
+		asig1.setNombre("REDED");
+		asig1.setOfertada("SI");
+		asig1.setCreditos(6);
+		asig1.setCodigo(206);
+		em.persist(asig1);
+		*/
+    	
+    	Query query =em.createQuery("SELECT a FROM Asignatura a");
+    	List<Asignatura> asignaturas =query.getResultList();
+    	LOGGER.info(asignaturas.toString());
+		return  asignaturas;
+    	
     }
 }

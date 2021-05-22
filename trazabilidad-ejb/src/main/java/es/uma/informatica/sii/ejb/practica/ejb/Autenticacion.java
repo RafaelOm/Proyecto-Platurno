@@ -58,7 +58,7 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void validarCuenta(Usuario u, String validacion) throws PlaturnoException, CuentaInexistenceException, CuentaYaValidadaException, ValidacionIncorrectaException {
-    	 LOGGER.info(u.toString()+"VALIDACION "+validacion);
+    
     	Alumno user = em.find(Alumno.class, u.getUsername());
      
 
@@ -71,6 +71,7 @@ public class Autenticacion implements AutenticacionInterfaz  {
         if(!user.getValidationChain().equals(validacion)){
             throw new ValidacionIncorrectaException();
         }
+   	 LOGGER.info(user.toString()+"VALIDACION "+validacion);
         //La cuenta es validad al eliminar la cadena de verificacion
         user.setValidationChain(null);
         em.merge(user);
