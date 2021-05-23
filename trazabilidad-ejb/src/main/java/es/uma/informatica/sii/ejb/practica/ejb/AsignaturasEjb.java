@@ -104,8 +104,30 @@ public class AsignaturasEjb implements AsignaturasEjbInterfaz {
     	
     	Query query =em.createQuery("SELECT a FROM Asignatura a");
     	List<Asignatura> asignaturas =query.getResultList();
-    	LOGGER.info(asignaturas.toString());
+    	LOGGER.info("LECTURA DE BD "+asignaturas.toString());
 		return  asignaturas;
+    	
+    }
+    @Override
+    public void crearAsignatura(Asignatura nueva,Usuario usuario) throws AsignaturaInexsistenteException {
+    	
+    	try {
+			auth.checkSecretariaRole(usuario);
+		} catch (CuentaInexistenceException | ViolacionDeSeguridadException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  
+    		LOGGER.info("CREAR- ASIGNATURA: PARAMETRO"+nueva.toString()+"USER TEST: "+usuario.toString());
+    
+    	Asignatura a =em.find(Asignatura.class, nueva.getReferencia());
+    	
+    	if(a!=null) {
+    		throw new AsignaturaInexsistenteException("LA ASIGNATURA YA EXISTE, USUARIO SECRETARIA");
+    	}
+    		LOGGER.info("CREAR- ASIGNATURA: "+nueva.toString());
+    	em.persist(nueva);
+    	
     	
     }
 }

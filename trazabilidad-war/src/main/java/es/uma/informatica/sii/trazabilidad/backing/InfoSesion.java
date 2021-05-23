@@ -22,6 +22,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInexistenceExcep
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PasswordErroneaException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PlaturnoException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
+import es.uma.informatica.sii.ejb.practica.entidades.Secretaria;
 import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
 
 /**
@@ -98,10 +99,24 @@ public class InfoSesion implements Serializable {
     	Alumno a = (Alumno)usuario;
         return  a.getNombre()+" "+a.getApellido1()+" "+a.getApellido2();
     }
+    public synchronized String nombrecompletoS() {
+    	Secretaria a= (Secretaria)usuario;
+        return  a.getNombre()+" "+a.getApellido();
+    }
     
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
+    
+    public synchronized boolean admin() {
+    	
+    	if(usuario instanceof Secretaria) {
+    		return true;
+    	}else {
+    		return false;
+    	}
+    	
     }
     
 }

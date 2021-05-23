@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
     xmlns:p="http://primefaces.org/ui"
 	>
 
@@ -13,6 +14,33 @@
 </h:head>
 
 <h:body>
+
+ 	<c:choose>
+                <c:when test="#{!infoSesion.admin()}">
+                <h1>ALERTA DE SEGURIDAD</h1>
+                     <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                </c:when>
+                
+                
+                <c:otherwise>
+                
+                 <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:toolbar>
+        
+            <p:toolbarGroup>
+                <p:commandButton type="button" value="Crear Asignatura" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                
+
+      
+            </p:toolbarGroup>
+
+        </p:toolbar>
+    </h:form>
+</div>
+
 <p:dataTable value="#{asignaturaBean.getRelleno()}" var="dato" >
  	  <f:facet name="header">
            Asignaturas Disponibles:
@@ -56,6 +84,83 @@
       </p:column>
       
    </p:dataTable>
+   
+   
+<p:dialog header="Añadir Nueva Asignatura" showEffect="fade" modal="true"
+                  widgetVar="manageProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                        <h:outputText value="Referencia:"/>
+                        <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
+                        
+
+                        <h:outputText value="Codigo:"/>
+                        <p:inputText id="cod" required="true"  value="#{asignaturaBean.nuevaasig.codigo}"/>
+                        
+                        
+                         <h:outputText value="Creditos:"/>
+                        <p:inputText id="creditos" required="true"  value="#{asignaturaBean.nuevaasig.creditos}"/>
+                        
+                        
+                         <h:outputText value="Ofertada:"/>
+                        <p:inputText id="ofertada" required="true"  value="#{asignaturaBean.nuevaasig.ofertada}"/>
+                      
+                        
+                           <h:outputText value="Nombre:"/>
+                        <p:inputText id="nombre" required="true"  value="#{asignaturaBean.nuevaasig.nombre}"/>
+                        
+                        
+                           <h:outputText value="Curso:"/>
+                        <p:inputText id="curso" required="true"  value="#{asignaturaBean.nuevaasig.curso}"/>
+                        
+                        
+                           <h:outputText value="Caracter:"/>
+                        <p:inputText id="caaracter" required="true"  value="#{asignaturaBean.nuevaasig.caracter}"/>
+                        
+
+						  <h:outputText value="Duracion:"/>
+                        <p:inputText id="duracion" required="true"  value="#{asignaturaBean.nuevaasig.duracion}"/>
+                        
+                        
+                          <h:outputText value="Idiomas:"/>
+                        <p:inputText id="idiomas" required="true"  value="#{asignaturaBean.nuevaasig.idiomas}"/>
+                        
+                        
+                         <h:outputText value="Creditos de Practicas:"/>
+                        <p:inputText id="cp" required="true"  value="#{asignaturaBean.nuevaasig.cred_prac}"/>
+                        
+                      
+                        
+             
+							
+                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+                
+                
+                
+                
+                
+
+                </c:otherwise>
+            </c:choose>
+                
+                
+                
+                
+                
+                
+                
+                
+         
+
+    
+      
+
 
 
 </h:body>

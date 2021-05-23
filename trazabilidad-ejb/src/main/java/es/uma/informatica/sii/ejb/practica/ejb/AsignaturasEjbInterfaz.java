@@ -14,5 +14,6 @@ public interface AsignaturasEjbInterfaz {
     public void modificarAsignatura(Usuario u, Asignatura a) throws AsignaturaInexsistenteException, PasswordErroneaException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException, ViolacionDeSeguridadException;
     public void eliminarAsignatura(Usuario u, Asignatura a) throws AsignaturaInexsistenteException, ViolacionDeSeguridadException, CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException;
     public List<Asignatura> getAll();
+    public void crearAsignatura(Asignatura nueva,Usuario Usuario) throws AsignaturaInexsistenteException;
 
 }

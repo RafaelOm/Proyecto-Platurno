@@ -36,15 +36,25 @@ public class Autenticacion implements AutenticacionInterfaz  {
     @Override
     public void registrarUsuario(Usuario u, String cadena) throws PlaturnoException, CuentaExistenteException {
     	
-    	Alumno user = em.find(Alumno.class, u.getUsername());
+    	Usuario user=null;
+    
+    	if(u instanceof Alumno) {
+    		 user = em.find(Alumno.class, u.getUsername());
+    	}else {
+    		 user = em.find(Secretaria.class, u.getUsername());
+    	}
      
         
         if(user!=null){
             throw new CuentaExistenteException("El usuario: "+u.getUsername()+" ya esta registrado, si no" +
                     "recuerda su clave puede recuperarla gratuitamente");
         }
+        
+    	if(u instanceof Alumno) {
+    		u.setValidationChain(randomTokenValidator());//Cadena para validar la cuenta
+    	}
 
-        u.setValidationChain(randomTokenValidator());//Cadena para validar la cuenta
+        
         em.persist(u);
         cadena=cadena+u.getUsername()+"   "+u.getValidationChain();
         
@@ -81,8 +91,18 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public Usuario compruebaLogin(Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-                    
-                    Usuario user=em.find(Alumno.class,u.getUsername());
+         	
+    	Usuario user=null;
+    	
+    	
+    			if(u instanceof Alumno) {
+    					user = em.find(Alumno.class, u.getUsername());
+    			}else {
+    				user = em.find(Secretaria.class, u.getUsername());
+    				}
+    
+    	
+                  
                     if(user==null) {
                         throw new CuentaInexistenceException();
                     }
@@ -101,16 +121,22 @@ public class Autenticacion implements AutenticacionInterfaz  {
 
     @Override
     public void checkSecretariaRole(Usuario u) throws CuentaInexistenceException, ViolacionDeSeguridadException {
-        Usuario bd=em.find(Usuario.class,u.getUsername());
-        if(bd==null){
-            throw new CuentaInexistenceException("EL USUARIO NO EXISTE");
-        }
+    	
+    	Usuario user=null;
+    	if(u instanceof Secretaria) {
+			user = em.find(Secretaria.class, u.getUsername());
+			  if(user==null){
+		            throw new CuentaInexistenceException("EL USUARIO NO EXISTE");
+		        }
+    	}else {
+    		throw new ViolacionDeSeguridadException("ERROR ::::VIOLACION DE SEGURIDAD:::: El usuario: "+u.getUsername()+
+                    " No dispone de permisos para realizar la accion solicitada");
+		}
 
-        if(!(bd instanceof Secretaria)){
-           throw new ViolacionDeSeguridadException("ERROR ::::VIOLACION DE SEGURIDAD:::: El usuario: "+u.getUsername()+
-                   " No dispone de permisos para realizar la accion solicitada");
-        }
+    	
+      
 
+ 
     }
 
     //Method from https://github.com/jfrchicanog/AgendaWeb.git

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+    <h:head>
+        <title>Login de Secretaria</title>
+    </h:head>
+    <h:body>
+
+        <h:form id="login">
+
+            <c:choose>
+                <c:when test="#{!empty infoSesion.usuario}">
+                    <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                    <p>Para iniciar sesión con otra cuenta debe <h:commandLink action="#{infoSesion.invalidarSesion()}">salir</h:commandLink> primero de la aplicación</p>
+                </c:when>
+
+                <c:otherwise>
+                <h1>INICIO DE SESION PRIVADO: SECRETARIA</h1>
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Nombre de usuario:"/>
+                        <p:inputText id="user" required="true" value="#{loginSecretaria.usuario.username}"/>
+                        <h:message for="user"/>
+
+                        <h:outputText value="Contraseña:"/>
+                        <p:inputText id="pass" required="true" type="password" value="#{loginSecretaria.usuario.password}"/>
+                        <h:message for="pass"/>
+
+                        <p:commandButton value="Entrar" action="#{loginSecretaria.entrar()}"/>
+
+                    </h:panelGrid>
+
+                    <div>
+                        <p>Si no tiene cuenta puede crear una en la <h:link outcome="registroUsuario.xhtml">página de registro</h:link></p>
+                    </div>
+
+                </c:otherwise>
+            </c:choose>
+
+
+
+
+        </h:form>
+
+
+
+    </h:body>
+</html>
+

@@ -22,16 +22,16 @@ public class Asignatura implements Serializable {
 	@Column(name = "Referencia")
 	private String referencia;
 
-	@Column (name = "Codigo", nullable = false)
+	@Column (name = "Codigo")
 	private Integer codigo;
 
-	@Column (name="Creditos", nullable = false)
+	@Column (name="Creditos")
 	private Integer creditos;
 
-	@Column (name = "Ofertada", nullable = false)
+	@Column (name = "Ofertada")
 	private String ofertada;
 
-	@Column (name = "Nombre", nullable = false)
+	@Column (name = "Nombre")
 	private String nombre;
 
 	@Column (name = "Curso")

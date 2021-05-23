@@ -20,6 +20,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PasswordErroneaExcepti
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PlaturnoException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ValidacionIncorrectaException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
+import es.uma.informatica.sii.ejb.practica.entidades.Secretaria;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -30,9 +31,10 @@ import javax.inject.Inject;
  *
  * @author francis
  */
-@Named(value = "login")
+@Named(value = "loginSecretaria")
 @RequestScoped
-public class Login {
+public class LoginSecretaria {
+	 private static final Logger LOGGER = Logger.getLogger(LoginSecretaria.class.getCanonicalName());
 
 	
 	
@@ -42,28 +44,29 @@ public class Login {
     @Inject
     private InfoSesion sesion;
 
-    private Alumno usuario;
+    private Secretaria usuario;
 
     /**
      * Creates a new instance of login
      */
-    public Login() {
-        usuario = new Alumno();
+    public LoginSecretaria() {
+        usuario = new Secretaria();
     }
 
-    public Alumno getUsuario() {
+    public Secretaria getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Alumno usuario) {
+    public void setUsuario(Secretaria usuario) {
         this.usuario = usuario;
     }
 
     public String entrar() {
+    	LOGGER.info("LOGIN SECRETARIA PULSADO");
         try {
             negocio.compruebaLogin(usuario);
             sesion.setUsuario(negocio.compruebaLogin(usuario));
-            return "vistaAlumno.xhtml";
+            return "crudAsignaturas.xhtml";
 
         } catch (CuentaInexistenceException e) {
         	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La cuenta no existe"));
@@ -106,7 +109,7 @@ public class Login {
     }
     
    public String nombrecompleto() {
-	   return usuario.getNombre()+" "+usuario.getApellido1()+" "+usuario.getApellido2();
+	   return usuario.getNombre()+" "+usuario.getApellido();
    }
     
 }

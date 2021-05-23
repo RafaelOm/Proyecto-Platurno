@@ -11,9 +11,13 @@ public class Secretaria extends Usuario {
     /**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private String dni;
 	private String nombre;
-	private String Apellido;
+	private String apellido;
 	private String email;
 
 
@@ -29,7 +33,7 @@ public class Secretaria extends Usuario {
 		return "Secretaria{" +
 				"dni='" + dni + '\'' +
 				", nombre='" + nombre + '\'' +
-				", Apellido='" + Apellido + '\'' +
+				", Apellido='" + apellido + '\'' +
 				", email='" + email + '\'' +
 				'}';
 	}
@@ -40,7 +44,7 @@ public class Secretaria extends Usuario {
 		if (o == null || getClass() != o.getClass()) return false;
 		if (!super.equals(o)) return false;
 		Secretaria that = (Secretaria) o;
-		return Objects.equals(dni, that.dni) && Objects.equals(nombre, that.nombre) && Objects.equals(Apellido, that.Apellido) && Objects.equals(email, that.email);
+		return Objects.equals(dni, that.dni) && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(email, that.email);
 	}
 
 	@Override
@@ -65,11 +69,11 @@ public class Secretaria extends Usuario {
 	}
 
 	public String getApellido() {
-		return Apellido;
+		return apellido;
 	}
 
 	public void setApellido(String apellido) {
-		Apellido = apellido;
+		this.apellido = apellido;
 	}
 
 	public String getEmail() {
