@@ -19,6 +19,11 @@ import es.uma.informatica.sii.ejb.practica.ejb.AsignaturasEjb;
 import es.uma.informatica.sii.ejb.practica.ejb.AsignaturasEjbInterfaz;
 import es.uma.informatica.sii.ejb.practica.ejb.AutenticacionInterfaz;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.AsignaturaInexsistenteException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInactivaException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInexistenceException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PasswordErroneaException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PlaturnoException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ViolacionDeSeguridadException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
@@ -120,7 +125,45 @@ public List<Asignatura> getSeleccionadas(){
 	   LOGGER.info("HOLA XD");
 	   try {
 		asignatura.crearAsignatura(nuevaasig,user);
+		FacesMessage message = new FacesMessage();
+		message.setSeverity(FacesMessage.SEVERITY_INFO);
+		message.setSummary("ASIGNATURA CREADA");
+		message.setDetail("TEST");
+		FacesContext.getCurrentInstance().addMessage(null, message);
 	} catch (AsignaturaInexsistenteException e) {
+		e.printStackTrace();
+	}
+	   
+	   
+   }
+   public void eliminaAsignatura(Usuario user,Asignatura valor) {
+	   
+	   LOGGER.info("HOLA XD");
+	   try {
+		asignatura.eliminarAsignatura(user, valor);
+		
+		
+		FacesMessage message = new FacesMessage();
+		message.setSeverity(FacesMessage.SEVERITY_INFO);
+		message.setSummary("ASIGNATURA ELIMINADA");
+		message.setDetail(valor.getNombre());
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	} catch (AsignaturaInexsistenteException e) {
+		e.printStackTrace();
+	} catch (ViolacionDeSeguridadException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (CuentaInexistenceException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (CuentaInactivaException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (PlaturnoException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (PasswordErroneaException e) {
+		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	   

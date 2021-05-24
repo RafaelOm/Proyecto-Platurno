@@ -76,8 +76,16 @@
       
        <p:column>
               <h:form>
-                 <p:commandButton action="#{asignaturaBean.removeValor(dato)}"
-                value="Añadir">
+                 <p:commandButton 
+                value="Modificar" styleClass="rounded-button ui-button-warning" onclick="PF('modificarProductDialog').show()">
+                
+                </p:commandButton>
+         </h:form>
+      </p:column>
+           <p:column>
+              <h:form>
+                 <p:commandButton action="#{asignaturaBean.eliminaAsignatura(infoSesion.usuario,dato)}"
+                value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
          </h:form>
@@ -88,6 +96,118 @@
    
 <p:dialog header="Añadir Nueva Asignatura" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                        <h:outputText value="Referencia:"/>
+                        <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
+                        
+
+                        <h:outputText value="Codigo:"/>
+                        <p:inputText id="cod" required="true"  value="#{asignaturaBean.nuevaasig.codigo}"/>
+                        
+                        
+                         <h:outputText value="Creditos:"/>
+                        <p:inputText id="creditos" required="true"  value="#{asignaturaBean.nuevaasig.creditos}"/>
+                        
+                        
+                         <h:outputText value="Ofertada:"/>
+                        <p:inputText id="ofertada" required="true"  value="#{asignaturaBean.nuevaasig.ofertada}"/>
+                      
+                        
+                           <h:outputText value="Nombre:"/>
+                        <p:inputText id="nombre" required="true"  value="#{asignaturaBean.nuevaasig.nombre}"/>
+                        
+                        
+                           <h:outputText value="Curso:"/>
+                        <p:inputText id="curso" required="true"  value="#{asignaturaBean.nuevaasig.curso}"/>
+                        
+                        
+                           <h:outputText value="Caracter:"/>
+                        <p:inputText id="caaracter" required="true"  value="#{asignaturaBean.nuevaasig.caracter}"/>
+                        
+
+						  <h:outputText value="Duracion:"/>
+                        <p:inputText id="duracion" required="true"  value="#{asignaturaBean.nuevaasig.duracion}"/>
+                        
+                        
+                          <h:outputText value="Idiomas:"/>
+                        <p:inputText id="idiomas" required="true"  value="#{asignaturaBean.nuevaasig.idiomas}"/>
+                        
+                        
+                         <h:outputText value="Creditos de Practicas:"/>
+                        <p:inputText id="cp" required="true"  value="#{asignaturaBean.nuevaasig.cred_prac}"/>
+                        
+                      
+                        
+             
+							
+                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+	
+	
+	
+	<p:dialog header="Modificar Asignatura" showEffect="fade" modal="true"
+                  widgetVar="modificarProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                        <h:outputText value="Referencia:"/>
+                        <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
+                        
+
+                        <h:outputText value="Codigo:"/>
+                        <p:inputText id="cod" required="true"  value="#{asignaturaBean.nuevaasig.codigo}"/>
+                        
+                        
+                         <h:outputText value="Creditos:"/>
+                        <p:inputText id="creditos" required="true"  value="#{asignaturaBean.nuevaasig.creditos}"/>
+                        
+                        
+                         <h:outputText value="Ofertada:"/>
+                        <p:inputText id="ofertada" required="true"  value="#{asignaturaBean.nuevaasig.ofertada}"/>
+                      
+                        
+                           <h:outputText value="Nombre:"/>
+                        <p:inputText id="nombre" required="true"  value="#{asignaturaBean.nuevaasig.nombre}"/>
+                        
+                        
+                           <h:outputText value="Curso:"/>
+                        <p:inputText id="curso" required="true"  value="#{asignaturaBean.nuevaasig.curso}"/>
+                        
+                        
+                           <h:outputText value="Caracter:"/>
+                        <p:inputText id="caaracter" required="true"  value="#{asignaturaBean.nuevaasig.caracter}"/>
+                        
+
+						  <h:outputText value="Duracion:"/>
+                        <p:inputText id="duracion" required="true"  value="#{asignaturaBean.nuevaasig.duracion}"/>
+                        
+                        
+                          <h:outputText value="Idiomas:"/>
+                        <p:inputText id="idiomas" required="true"  value="#{asignaturaBean.nuevaasig.idiomas}"/>
+                        
+                        
+                         <h:outputText value="Creditos de Practicas:"/>
+                        <p:inputText id="cp" required="true"  value="#{asignaturaBean.nuevaasig.cred_prac}"/>
+                        
+                      
+                        
+             
+							
+                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+	
+	<p:dialog header="Modificar Asignatura" showEffect="fade" modal="true"
+                  widgetVar="modificarProductDialog" responsive="true">
  		<h:form>
                   <h:panelGrid columns="2">
                         <h:outputText value="Referencia:"/>

@@ -66,7 +66,7 @@ public class LoginSecretaria {
         try {
             negocio.compruebaLogin(usuario);
             sesion.setUsuario(negocio.compruebaLogin(usuario));
-            return "crudAsignaturas.xhtml";
+            return "vistaSecretaria.xhtml";
 
         } catch (CuentaInexistenceException e) {
         	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La cuenta no existe"));
