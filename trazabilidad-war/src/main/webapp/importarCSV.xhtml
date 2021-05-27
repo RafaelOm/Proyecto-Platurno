@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<title>Importar desde CSV</title>
+
+</h:head>
+
+<h:body>
+
+ 	<c:choose>
+                <c:when test="#{!infoSesion.admin()}">
+                <h1>ALERTA DE SEGURIDAD</h1>
+                     <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                </c:when>
+                
+                
+                <c:otherwise>
+                
+                 <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:toolbar>
+        
+            <p:toolbarGroup>
+             
+                
+
+      
+            </p:toolbarGroup>
+
+        </p:toolbar>
+    </h:form>
+    
+</div>
+
+<div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:fileUpload mode="advanced"
+                      multiple="false"
+                      sizeLimit="10240000" allowTypes="/(\.|\/)(csv)$/"
+                      invalidSizeMessage="Maximum file size allowed is 10 MB"
+                      invalidFileMessage="Solo se permite el tipo CSV "
+                      update="messages cropperPanel"
+                      listener="#{upload.handleFileUpload}"/>
+                      
+                      
+         <p:outputPanel id="cropperPanel">
+
+         
+
+
+          
+        </p:outputPanel>
+
+       
+    </h:form>
+</div>
+
+
+                
+                
+
+                </c:otherwise>
+            </c:choose>
+                
+                
+                
+                
+                
+                
+                
+                
+         
+
+    
+      
+
+
+
+</h:body>
+
+</html>

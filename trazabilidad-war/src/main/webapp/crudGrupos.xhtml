@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<title>Platurno-Crud Grupos</title>
+
+</h:head>
+
+<h:body>
+
+ 	<c:choose>
+                <c:when test="#{(!infoSesion.admin())}">
+                <h1>ALERTA DE SEGURIDAD</h1>
+                     <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                </c:when>
+                
+                
+                <c:otherwise>
+                
+                 <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:toolbar>
+        
+            <p:toolbarGroup>
+                <p:commandButton type="button" value="Crear Grupo" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                
+
+      
+            </p:toolbarGroup>
+
+        </p:toolbar>
+    </h:form>
+</div>
+
+<p:dataTable value="#{grupoBean.getRelleno()}" var="dato">
+ 	  <f:facet name="header">
+           Grupos Disponibles:
+        </f:facet>
+ 
+           <p:column>
+         <f:facet name="header">
+            <h:outputText value="Id"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.id}"></h:outputText>
+      </p:column>
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Curso"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.curso}"></h:outputText>
+      </p:column>
+       
+       <p:column>
+         <f:facet name="header">
+            <h:outputText value="Letra"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.letra}"></h:outputText>
+      </p:column>
+    
+      <p:column>
+         <f:facet name="header">
+            <h:outputText value="Turno"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.turno}"></h:outputText>
+      </p:column>
+    
+      
+       <p:column>
+              <h:form>
+                 <p:commandButton 
+                value="Modificar" styleClass="rounded-button ui-button-warning" onclick="PF('modificarProductDialog').show()">
+                
+                </p:commandButton>
+         </h:form>
+      </p:column>
+           <p:column>
+              <h:form>
+                 <p:commandButton action="#{grupoBean.eliminarGrupo(infoSesion.usuario,dato)}"
+                value="Eliminar" styleClass="rounded-button ui-button-danger">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+                </p:commandButton>
+         </h:form>
+      </p:column>
+      
+   </p:dataTable>
+   
+   
+<p:dialog header="Añadir Nuevo Grupo" showEffect="fade" modal="true"
+                  widgetVar="manageProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                        <h:outputText value="Referencia:"/>
+                        <p:inputText id="referencia" required="true" value="#{grupoBean.nuevogrupo.id}"/>
+                        
+
+                        <h:outputText value="Curso:"/>
+                        <p:inputText id="curso" required="true"  value="#{grupoBean.nuevogrupo.curso}"/>
+                        
+                        
+                         <h:outputText value="Letra:"/>
+                        <p:inputText id="letra" required="true"  value="#{grupoBean.nuevogrupo.letra}"/>
+                        
+                        
+                         <h:outputText value="Turno:"/>
+                        <p:inputText id="turno" required="true"  value="#{grupoBean.nuevogrupo.turno}"/>
+                      
+                        
+                           <h:outputText value="Inglés:"/>
+                        <p:inputText id="ingles" required="true"  value="#{grupoBean.nuevogrupo.ingles}"/>
+                        
+                        
+                           <h:outputText value="Visible?"/>
+                        <p:inputText id="visible" required="true"  value="#{grupoBean.nuevogrupo.visible}"/>
+                        
+                        
+                           <h:outputText value="Asignar?"/>
+                        <p:inputText id="asignar" required="true"  value="#{grupoBean.nuevogrupo.asignar}"/>
+                        
+
+						  <h:outputText value="Plazas"/>
+                        <p:inputText id="plazas" required="true"  value="#{grupoBean.nuevogrupo.plazas}"/>
+                  
+                      
+                        
+             
+							
+                	<h:commandButton value="Save"  action="#{grupoBean.crearGrupo(infoSesion.usuario)}"/>
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+	
+	
+	
+	<p:dialog header="Modificar " showEffect="fade" modal="true"
+                  widgetVar="modificarProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                                              <h:outputText value="Referencia:"/>
+                        <p:inputText id="referencia" required="true" value="#{grupoBean.nuevogrupo.id}"/>
+                        
+
+                        <h:outputText value="Curso:"/>
+                        <p:inputText id="curso" required="true"  value="#{grupoBean.nuevogrupo.curso}"/>
+                        
+                        
+                         <h:outputText value="Letra:"/>
+                        <p:inputText id="letra" required="true"  value="#{grupoBean.nuevogrupo.letra}"/>
+                        
+                        
+                         <h:outputText value="Turno:"/>
+                        <p:inputText id="turno" required="true"  value="#{grupoBean.nuevogrupo.turno}"/>
+                      
+                        
+                           <h:outputText value="Inglés:"/>
+                        <p:inputText id="ingles" required="true"  value="#{grupoBean.nuevogrupo.ingles}"/>
+                        
+                        
+                           <h:outputText value="Visible?"/>
+                        <p:inputText id="visible" required="true"  value="#{grupoBean.nuevogrupo.visible}"/>
+                        
+                        
+                           <h:outputText value="Asignar?"/>
+                        <p:inputText id="asignar" required="true"  value="#{grupoBean.nuevogrupo.asignar}"/>
+                        
+
+						  <h:outputText value="Plazas"/>
+                        <p:inputText id="plazas" required="true"  value="#{grupoBean.nuevogrupo.plazas}"/>
+                        
+                      
+                        
+             
+							
+                	<h:commandButton value="Save"  action="#{grupoBean.crearAsignatura(infoSesion.usuario)}"/>
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+           
+
+                </c:otherwise>
+            </c:choose>
+                
+                
+                
+                
+                
+                
+                
+                
+         
+
+    
+      
+
+
+
+</h:body>
+
+</html>

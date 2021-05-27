@@ -18,19 +18,22 @@ import org.primefaces.PrimeFaces;
 import es.uma.informatica.sii.ejb.practica.ejb.AsignaturasEjb;
 import es.uma.informatica.sii.ejb.practica.ejb.AsignaturasEjbInterfaz;
 import es.uma.informatica.sii.ejb.practica.ejb.AutenticacionInterfaz;
+import es.uma.informatica.sii.ejb.practica.ejb.GruposEjbInterface;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.AsignaturaInexsistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInactivaException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.CuentaInexistenceException;
+import es.uma.informatica.sii.ejb.practica.ejb.exceptions.GrupoInexistenteException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PasswordErroneaException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.PlaturnoException;
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.ViolacionDeSeguridadException;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.Usuario;
 
-@Named(value = "asignaturaBean")
+@Named(value = "grupoBean")
 @SessionScoped
-public class ListaAsignaturas implements Serializable{
+public class ListaGrupos implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	 private static final Logger LOGGER = Logger.getLogger(ListaAsignaturas.class.getCanonicalName());
@@ -38,24 +41,24 @@ public class ListaAsignaturas implements Serializable{
  @Inject
 	private AutenticacionInterfaz negocio;	
  @Inject
- private AsignaturasEjbInterfaz asignatura;
+ private GruposEjbInterface grupo;
 	
 	
-private   List<Asignatura> datos=new LinkedList<Asignatura>();
-private   List<Asignatura> seleccionadas=new LinkedList<Asignatura>();
-private Asignatura asignaturaSeleccionada;
+private   List<Grupo> datos=new LinkedList<Grupo>();
+private   List<Grupo> seleccionadas=new LinkedList<Grupo>();
 private int test=0;
-private Asignatura nuevaasig;
+private Grupo nuevogrupo;
+
 private Alumno usuario;
 
   
 
-public ListaAsignaturas() {
-	   	nuevaasig=new Asignatura();
+public ListaGrupos() {
+		nuevogrupo=new Grupo();
 	   	usuario =new Alumno();
    }
    
-   public List<Asignatura> getRelleno(){
+   public List<Grupo> getRelleno(){
 	   
 		   /*for (int i = 3; i < 20; i++) {
 			    Asignatura dato = new Asignatura();
@@ -66,7 +69,7 @@ public ListaAsignaturas() {
 			    datos.add(dato);
 		   
 			 }*/
-		   datos=asignatura.getAll();
+		   datos=grupo.getAll();
 		   test=1;
 	   
 	   
@@ -75,44 +78,43 @@ public ListaAsignaturas() {
 	   
    }
    
-   
-   public Asignatura getNuevaasig() {
-	return nuevaasig;
-}
+   public Grupo getNuevogrupo() {
+		return nuevogrupo;
+	}
 
-public void setNuevaasig(Asignatura nuevaasig) {
-	this.nuevaasig = nuevaasig;
-}
-
-public List<Asignatura> getSeleccionadas(){
+	public void setNuevogrupo(Grupo nuevogrupo) {
+		this.nuevogrupo = nuevogrupo;
+	}
+ 
+public List<Grupo> getSeleccionadas(){
 	   return seleccionadas;
    }
 
-   public List<Asignatura> getDatos() {
+   public List<Grupo> getDatos() {
       return datos;
    }
-   public Alumno getUsuario() {
+   public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Alumno usuario) {
 		this.usuario = usuario;
 	}
-   public void setDatos(LinkedList<Asignatura> datos) {
+   public void setDatos(LinkedList<Grupo> datos) {
       this.datos = datos;
    }
-   public String removeValor(Asignatura valor) {
+   public String removeValor(Grupo valor) {
 	      datos.remove(valor);
 	      seleccionadas.add(valor);
 	      return "vistaAlumno.xhtml?";
 	   }
-   public String devuelve(Asignatura valor) {
+   public String devuelve(Grupo valor) {
 	      datos.add(valor);
 	      seleccionadas.remove(valor);
 	      return "vistaAlumno.xhtml?";
 	   }
    
-   public boolean selecionada(Asignatura valor) {
+   public boolean selecionada(Grupo valor) {
 	   if(seleccionadas.indexOf(valor)!=-1) {
 		   return true;
 	   }else {
@@ -121,35 +123,33 @@ public List<Asignatura> getSeleccionadas(){
 	   
 	   
    }
-   public void crearAsignatura(Usuario user) {
-	   
-	   LOGGER.info("HOLA XD");
+   public void crearGrupo(Usuario user) {
 	   try {
-		asignatura.crearAsignatura(nuevaasig,user);
+		grupo.crearGrupo(nuevogrupo,user);
 		FacesMessage message = new FacesMessage();
 		message.setSeverity(FacesMessage.SEVERITY_INFO);
 		message.setSummary("ASIGNATURA CREADA");
 		message.setDetail("TEST");
 		FacesContext.getCurrentInstance().addMessage(null, message);
-	} catch (AsignaturaInexsistenteException e) {
+	} catch (GrupoInexistenteException e) {
 		e.printStackTrace();
 	}
 	   
 	   
    }
-   public void eliminaAsignatura(Usuario user,Asignatura valor) {
+   public void eliminarGrupo(Usuario user,Grupo valor) {
 	   
 	   LOGGER.info("HOLA XD");
 	   try {
-		asignatura.eliminarAsignatura(user, valor);
+		grupo.eliminarGrupo(user, valor);
 		
 		
 		FacesMessage message = new FacesMessage();
 		message.setSeverity(FacesMessage.SEVERITY_INFO);
-		message.setSummary("ASIGNATURA ELIMINADA");
-		message.setDetail(valor.getNombre());
+		message.setSummary("GRUPO ELIMINADO");
+		message.setDetail(valor.getTitulo().getNombre());
 		FacesContext.getCurrentInstance().addMessage(null, message);
-	} catch (AsignaturaInexsistenteException e) {
+	} catch (GrupoInexistenteException e) {
 		e.printStackTrace();
 	} catch (ViolacionDeSeguridadException e) {
 		// TODO Auto-generated catch block
@@ -170,56 +170,6 @@ public List<Asignatura> getSeleccionadas(){
 	   
 	   
    }
-   
- public void modificarAsig(Usuario user) {
-	   
-	   LOGGER.info("MODIFICAR ASIGNATURA PULSADO");
-	   try {
-		   LOGGER.info("------------"+nuevaasig.toString());
-		asignatura.modificarAsignatura(user,nuevaasig);
-		FacesMessage message = new FacesMessage();
-		message.setSeverity(FacesMessage.SEVERITY_INFO);
-		message.setSummary("ASIGNATURA MODIFICADA");
-		message.setDetail(nuevaasig.getNombre());
-		FacesContext.getCurrentInstance().addMessage(null, message);
-		
-        PrimeFaces.current().executeScript("PF('manageProductDialog').hide()");
-        PrimeFaces.current().ajax().update("form:messages", "form:dt-products");
-		
-		
-	} catch (AsignaturaInexsistenteException e) {
-		e.printStackTrace();
-	} catch (PasswordErroneaException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (CuentaInexistenceException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (CuentaInactivaException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (PlaturnoException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (ViolacionDeSeguridadException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	   
-	   
-   }
-
-public Asignatura getAsignaturaSeleccionada() {
-	return asignaturaSeleccionada;
-}
-
-public void setAsignaturaSeleccionada(Asignatura asignaturaSeleccionada) {
-	this.asignaturaSeleccionada = asignaturaSeleccionada;
-	
-	LOGGER.info("ASIGNATURA SELECIONADA PARA EDITAR"+asignaturaSeleccionada.toString());
-}
-   
-   
   
    
    

@@ -11,6 +11,6 @@ import  es.uma.informatica.sii.ejb.practica.entidades.*;
 @Local
 public interface IFCSV_Interface {
 
-	public void leerCSV(File pathToCsv, Usuario U) throws FileNotFoundException, ExpedienteNoExisteException, CuentaInexistenceException, ViolacionDeSeguridadException, PlaturnoException, CuentaInactivaException, PasswordErroneaException;
+	public void leerCSV(File pathToCsv) throws FileNotFoundException;
 	
 }

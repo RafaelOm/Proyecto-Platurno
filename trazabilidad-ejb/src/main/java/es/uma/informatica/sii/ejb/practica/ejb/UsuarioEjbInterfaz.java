@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface UsuarioEjbInterfaz {
 
-    public void crearUsuarioFromCsvExcel(String Dni) throws PlaturnoException, CuentaExistenteException;
+    public void crearUsuarioFromCsvExcel(Alumno al) throws PlaturnoException, CuentaExistenteException;
     public Usuario verUsuario(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException;
     public void modificar(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException;
     public void moficarClave(Usuario u) throws CuentaInexistenceException, ContrasenaigualException, ClavesDiferentesException, CuentaInactivaException, PlaturnoException, PasswordErroneaException;

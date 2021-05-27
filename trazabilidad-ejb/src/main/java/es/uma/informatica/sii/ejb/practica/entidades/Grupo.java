@@ -25,10 +25,10 @@ public class Grupo implements Serializable {
 	@Column (name = "ID")
 	private String id;
 
-	@Column (name = "Curso", unique = true)
+	@Column (name = "Curso")
 	private int curso;
 
-	@Column (name = "Letra", unique = true)
+	@Column (name = "Letra")
 	private String letra;
 
 	@Column (name = "Turno", nullable = false)

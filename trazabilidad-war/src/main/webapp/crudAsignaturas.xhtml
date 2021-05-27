@@ -41,7 +41,8 @@
     </h:form>
 </div>
 
-<p:dataTable value="#{asignaturaBean.getRelleno()}" var="dato" >
+
+<p:dataTable value="#{asignaturaBean.getRelleno()}" var="dato" id="dt-products">
  	  <f:facet name="header">
            Asignaturas Disponibles:
         </f:facet>
@@ -75,20 +76,28 @@
     
       
        <p:column>
-              <h:form>
-                 <p:commandButton 
-                value="Modificar" styleClass="rounded-button ui-button-warning" onclick="PF('modificarProductDialog').show()">
-                
+             
+  
+                    	
+      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+                                 oncomplete="PF('modificarProductDialog').show()"
+                                 styleClass="edit-button rounded-button ui-button-success" process="@this">
+                    
+                    <f:setPropertyActionListener value="#{dato}" target="#{asignaturaBean.nuevaasig}"/>
+                    <p:resetInput target=":modificarForm:manage-product-content"/>
                 </p:commandButton>
-         </h:form>
+                
+                
+               
+        
       </p:column>
            <p:column>
-              <h:form>
+              
                  <p:commandButton action="#{asignaturaBean.eliminaAsignatura(infoSesion.usuario,dato)}"
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
-         </h:form>
+        
       </p:column>
       
    </p:dataTable>
@@ -142,6 +151,8 @@
              
 							
                 	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
+                	
+                	
                 				
                               </h:panelGrid>
                               </h:form>
@@ -150,13 +161,17 @@
 	</p:dialog>
 	
 	
-	
+	  
 	<p:dialog header="Modificar Asignatura" showEffect="fade" modal="true"
                   widgetVar="modificarProductDialog" responsive="true">
- 		<h:form>
+ 					<h:form id ="modificarForm">
+ 					
+ 					<p:growl id="messages" showDetail="true"/>
+                  <p:outputPanel id="manage-product-content" class="ui-fluid">
+                
                   <h:panelGrid columns="2">
                         <h:outputText value="Referencia:"/>
-                        <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
+                        <p:inputText id="referencia" required="true" disabled="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
                         
 
                         <h:outputText value="Codigo:"/>
@@ -195,71 +210,26 @@
                         <p:inputText id="cp" required="true"  value="#{asignaturaBean.nuevaasig.cred_prac}"/>
                         
                       
-                        
-             
-							
-                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
-                				
+                  	
                               </h:panelGrid>
+                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{asignaturaBean.modificarAsig(infoSesion.usuario)}"
+                                 update="manage-product-content" process="manage-product-content @this">
+                                  <f:actionListener binding="#{infoSesion.reload()}" />
+                                 </p:commandButton> 
+                              
+                           
+                              
+                               
+                					
+                              </p:outputPanel>
                               </h:form>
+                              
 	
 
 	</p:dialog>
 	
-	<p:dialog header="Modificar Asignatura" showEffect="fade" modal="true"
-                  widgetVar="modificarProductDialog" responsive="true">
- 		<h:form>
-                  <h:panelGrid columns="2">
-                        <h:outputText value="Referencia:"/>
-                        <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
-                        
-
-                        <h:outputText value="Codigo:"/>
-                        <p:inputText id="cod" required="true"  value="#{asignaturaBean.nuevaasig.codigo}"/>
-                        
-                        
-                         <h:outputText value="Creditos:"/>
-                        <p:inputText id="creditos" required="true"  value="#{asignaturaBean.nuevaasig.creditos}"/>
-                        
-                        
-                         <h:outputText value="Ofertada:"/>
-                        <p:inputText id="ofertada" required="true"  value="#{asignaturaBean.nuevaasig.ofertada}"/>
-                      
-                        
-                           <h:outputText value="Nombre:"/>
-                        <p:inputText id="nombre" required="true"  value="#{asignaturaBean.nuevaasig.nombre}"/>
-                        
-                        
-                           <h:outputText value="Curso:"/>
-                        <p:inputText id="curso" required="true"  value="#{asignaturaBean.nuevaasig.curso}"/>
-                        
-                        
-                           <h:outputText value="Caracter:"/>
-                        <p:inputText id="caaracter" required="true"  value="#{asignaturaBean.nuevaasig.caracter}"/>
-                        
-
-						  <h:outputText value="Duracion:"/>
-                        <p:inputText id="duracion" required="true"  value="#{asignaturaBean.nuevaasig.duracion}"/>
-                        
-                        
-                          <h:outputText value="Idiomas:"/>
-                        <p:inputText id="idiomas" required="true"  value="#{asignaturaBean.nuevaasig.idiomas}"/>
-                        
-                        
-                         <h:outputText value="Creditos de Practicas:"/>
-                        <p:inputText id="cp" required="true"  value="#{asignaturaBean.nuevaasig.cred_prac}"/>
-                        
-                      
-                        
-             
-							
-                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
-                				
-                              </h:panelGrid>
-                              </h:form>
 	
-
-	</p:dialog>
+	
                 
                 
                 

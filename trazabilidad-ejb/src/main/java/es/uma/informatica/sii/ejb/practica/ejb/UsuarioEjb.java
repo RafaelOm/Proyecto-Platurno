@@ -4,6 +4,7 @@ import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
 import  es.uma.informatica.sii.ejb.practica.entidades.*;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -22,7 +23,9 @@ import java.util.List;
 public class UsuarioEjb implements UsuarioEjbInterfaz {
     @PersistenceContext(unitName = "abc")
     private EntityManager em;
-    private Autenticacion auth;
+    
+    @Inject
+    private AutenticacionInterfaz auth;
     /**
      * Default constructor. 
      */
@@ -30,20 +33,18 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     public UsuarioEjb() {
     }
 
-    public UsuarioEjb( String Dni) throws PlaturnoException, CuentaExistenteException {
-        crearUsuarioFromCsvExcel(Dni);
-    }
+
 
 
     //Proceso realizado por la aplicacion al realizar la accion de importar datos un usuario de secretaria
     @Override
-    public void crearUsuarioFromCsvExcel(String dni) throws PlaturnoException, CuentaExistenteException {
+    public void crearUsuarioFromCsvExcel(Alumno user) throws PlaturnoException, CuentaExistenteException {
 
-        Usuario user=new Usuario();
-        user.setUsername(dni);
+        
+        user.setUsername(user.getDni());
         user.setPassword(generateRandomPassword(10));
-        String u =null;
-        auth.registrarUsuario(user,u);
+
+        auth.registrarUsuario(user,"");
 
 
     }
