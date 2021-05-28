@@ -24,9 +24,35 @@
                 
                 <c:otherwise>
                 
+                        
+                
                  <div class="card">
     <h:form>
         <p:growl id="messages" showDetail="true"/>
+        
+        <p:toolbar>
+            <p:toolbarGroup>
+              	<h2><h:outputText value ="#{infoSesion.nombrecompletoS()}"/></h2>
+            </p:toolbarGroup>
+
+
+		
+            <p:toolbarGroup name="right">
+            	<p:commandButton value="Dashboard" icon="pi pi-home" styleClass="ui-button-info" action="vistaSecretaria.xhtml"/>
+            	<p:divider layout="vertical"/>
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" action="#{toolbarView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" action="#{toolbarView.update}" update="messages" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" action="#{toolbarView.delete}" ajax="false" icon="pi pi-times"/>
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                </p:menuButton>
+                        <p:divider layout="vertical"/>
+                        
+               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}"/>
+            		
+            </p:toolbarGroup>
+
+        </p:toolbar>
 
         <p:toolbar>
         
@@ -69,9 +95,39 @@
     
       <p:column>
          <f:facet name="header">
-            <h:outputText value="Grupo"></h:outputText>
+            <h:outputText value="Codigo"></h:outputText>
          </f:facet>
          <h:outputText value="#{dato.codigo}"></h:outputText>
+      </p:column>
+         <p:column>
+         <f:facet name="header">
+            <h:outputText value="Curso"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.curso}"></h:outputText>
+      </p:column>
+         <p:column>
+         <f:facet name="header">
+            <h:outputText value="Caracter"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.caracter}"></h:outputText>
+      </p:column>
+         <p:column>
+         <f:facet name="header">
+            <h:outputText value="Duracion"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.duracion}"></h:outputText>
+      </p:column>
+         <p:column>
+         <f:facet name="header">
+            <h:outputText value="Idiomas"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.idiomas}"></h:outputText>
+      </p:column>
+         <p:column>
+         <f:facet name="header">
+            <h:outputText value="Creditos de Practica"></h:outputText>
+         </f:facet>
+         <h:outputText value="#{dato.cred_prac}"></h:outputText>
       </p:column>
     
       

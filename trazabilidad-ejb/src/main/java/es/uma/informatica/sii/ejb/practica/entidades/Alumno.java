@@ -306,7 +306,7 @@ public class Alumno extends Usuario {
 		return "Alumno [id_dni=" +"IMPORTANTE ->>>>>"+super.getValidationChain()+"  "+super.getUsername()+dni + ", Nombre=" + Nombre + ", Apellido1=" + Apellido1 + ", Apellido2="
 				+ Apellido2 + ", email_personal=" + email_personal + ", email_institucional=" + email_institucional
 				+ ", telefono=" + telefono + ", movil=" + movil + ", direccion=" + direccion + ", provincia="
-				+ provincia + ", localidad=" + localidad + ", CP=" + CP + ", expedientes=" + expedientes + "]";
+				+ provincia + ", localidad=" + localidad + ", CP=" + CP + ", expedientes=" + expedientes + " CONTRASEÑA: "+super.getPassword()+"]";
 	}
 
 

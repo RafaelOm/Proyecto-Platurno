@@ -27,6 +27,30 @@
                  <div class="card">
     <h:form>
         <p:growl id="messages" showDetail="true"/>
+        
+                <p:toolbar>
+            <p:toolbarGroup>
+              	<h2><h:outputText value ="#{infoSesion.nombrecompletoS()}"/></h2>
+            </p:toolbarGroup>
+
+
+
+            <p:toolbarGroup name="right">
+            <p:commandButton value="Dashboard" icon="pi pi-home" styleClass="ui-button-info" action="vistaSecretaria.xhtml"/>
+            <p:divider layout="vertical"/>
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" action="#{toolbarView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" action="#{toolbarView.update}" update="messages" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" action="#{toolbarView.delete}" ajax="false" icon="pi pi-times"/>
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                </p:menuButton>
+                        <p:divider layout="vertical"/>
+                        
+               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}"/>
+            		
+            </p:toolbarGroup>
+
+        </p:toolbar>
 
         <p:toolbar>
         

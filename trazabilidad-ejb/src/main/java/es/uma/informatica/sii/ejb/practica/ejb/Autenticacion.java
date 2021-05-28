@@ -85,6 +85,9 @@ public class Autenticacion implements AutenticacionInterfaz  {
         //La cuenta es validad al eliminar la cadena de verificacion
         user.setValidationChain(null);
         em.merge(user);
+        
+        
+        LOGGER.info("USUARIO YA VALIDADO VER CADENA:"+user.toString());
        
 
     }
