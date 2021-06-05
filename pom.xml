@@ -12,6 +12,7 @@
 		<module>trazabilidad-ejb</module>
 		<module>trazabilidad-war</module>
 		<module>trazabilidad-ear</module>
+		<module>trazabilidad-tests</module>
 	</modules>
 	
 </project>

@@ -1,0 +1,39 @@
+{
+  "id": "a938702c-40bb-4020-abc9-c9b2740ad90b",
+  "version": "2.0",
+  "name": "Trazabilidad",
+  "url": "http://0.0.0.0:8080",
+  "tests": [{
+    "id": "e4be4366-751b-4685-bc5b-a15219d7202d",
+    "name": "PruebaSencilla",
+    "commands": [{
+      "id": "91be732e-8fd3-41f0-ab53-0ac997cf1eeb",
+      "comment": "",
+      "command": "open",
+      "target": "/trazabilidad-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c40e7e5-b30f-429a-8007-938e34e01b4e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Bienvenidos a la pagina de prueba')]", "xpath:innerText"]
+      ],
+      "value": "Bienvenidos a la pagina de prueba"
+    }]
+  }],
+  "suites": [{
+    "id": "8a429977-896f-4025-800f-fce4a9b5e34b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e4be4366-751b-4685-bc5b-a15219d7202d"]
+  }],
+  "urls": ["http://0.0.0.0:8080/"],
+  "plugins": []
+}
