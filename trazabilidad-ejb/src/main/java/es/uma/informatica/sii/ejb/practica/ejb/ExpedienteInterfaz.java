@@ -2,6 +2,9 @@ package es.uma.informatica.sii.ejb.practica.ejb;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
 import  es.uma.informatica.sii.ejb.practica.entidades.*;
+
+import java.util.List;
+
 import javax.ejb.Local;
 
 @Local
@@ -21,6 +24,6 @@ public interface ExpedienteInterfaz {
                                  String N_Archivo) throws ExpedienteNoExisteException;
 
     public void DeleteExpediente(Usuario u,String id) throws ExpedienteNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
-
-
+    public List<Expediente> getAll();
+    public void crearExpediente(Expediente nueva, Usuario usuario) throws ExpedienteNoExisteException, PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException;
 }

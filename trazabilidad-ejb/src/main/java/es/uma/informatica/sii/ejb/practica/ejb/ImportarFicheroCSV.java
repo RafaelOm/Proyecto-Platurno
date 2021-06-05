@@ -156,6 +156,74 @@ public class ImportarFicheroCSV implements IFCSV_Interface{
         }
 	}
 	
+	@Override
+	public void leerCSVGrAsig(File pathToCsv) throws FileNotFoundException, AsignaturaInexsistenteException, GrupoInexistenteException{
+		
+BufferedReader csvReader=null;
+		
+		try {
+			csvReader = new BufferedReader(new InputStreamReader(new FileInputStream(pathToCsv),"UTF-8"));
+		} catch (UnsupportedEncodingException | FileNotFoundException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+	
+  
+		
+		try {
+            String row;
+            int cont = 0;
+            while ((row = csvReader.readLine()) != null) {
+
+                if (cont > 3) {
+                    String[] data = row.split(";");
+                    
+                    GR_ASIG grasig =new GR_ASIG();
+                    
+                    Asignatura a = em.find(Asignatura.class, data[0]);
+                    
+                    if(a==null) {
+                    	throw new AsignaturaInexsistenteException(data[0]);
+                    }
+                    grasig.setAsig(a);
+                    grasig.setCurso_act(data[2]);
+                    
+                    Grupo g = em.find(Grupo.class, data[1]);
+                    
+                    if(g==null) {
+                    	throw new GrupoInexistenteException(data[1]);
+                    }
+                  grasig.setGroup(g);
+                  em.persist(grasig);
+                  
+         
+                 
+                    
+                    for(int i=0;i<data.length;i++){
+                        System.out.print(i+": "+data[i]+", ");
+                        LOGGER.info(i+": "+data[i]+", ");
+                        
+                    }
+                   LOGGER.info("\n");
+  
+
+
+                }else{
+                    cont++;
+                }
+
+
+            }
+            csvReader.close();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+	}
+	
 	
 
 

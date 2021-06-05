@@ -28,7 +28,7 @@ public class Encuesta implements Serializable {
 	@Column (name = "Texto")
 	private String texto;
 	
-	@Column (name = "Fecha_De_Envio", nullable = false)
+	@Column (name = "Fecha_De_Envio")
 	private Date fecha_De_Envio;
 
 
@@ -147,7 +147,7 @@ public class Encuesta implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Encuesta [Fecha_de_Envio=" + fecha_De_Envio + ", expediente=" + expediente + ", grupos=" + "]";
+		return "Encuesta [Fecha_de_Envio=" + fecha_De_Envio + ", expediente=" + expediente + ", grupos=" +asignacion.toString() + "]";
 	}
 	
    

@@ -27,7 +27,7 @@ public class GR_ASIG implements Serializable {
 
 	public static class GR_ASIGID implements Serializable{
 
-		public GR_ASIGID (int curso_act,String referencia,String id_grupo){
+		public GR_ASIGID (String curso_act,String referencia,String id_grupo){
 			this.curso_act=curso_act;
 			this.asig=referencia;
 			this.group=id_grupo;
@@ -35,9 +35,9 @@ public class GR_ASIG implements Serializable {
 			
 
 		}
-		public GR_ASIGID() {
-			
-		}
+		public GR_ASIGID (){
+			}
+		
 
 		@Override
 		public int hashCode() {
@@ -68,14 +68,44 @@ public class GR_ASIG implements Serializable {
 		}
 
 		private static final long serialVersionUID = 1L;
-		private int curso_act;
+		private String curso_act;
 		private String asig;
 		private String group;
+		public String getCurso_act() {
+			return curso_act;
+		}
+
+
+		public void setCurso_act(String curso_act) {
+			this.curso_act = curso_act;
+		}
+
+
+		public String getAsig() {
+			return asig;
+		}
+
+
+		public void setAsig(String asig) {
+			this.asig = asig;
+		}
+
+
+		public String getGroup() {
+			return group;
+		}
+
+
+		public void setGroup(String group) {
+			this.group = group;
+		}
+		
+		
 
 	}
 
 	@Id
-	private int curso_act;
+	private String curso_act;
 
 	private int oferta;
 
@@ -118,10 +148,10 @@ public class GR_ASIG implements Serializable {
 
 	/* Getters, Setters, equals, hashcode y toString. */
 
-	public int getCurso_act() {
+	public String getCurso_act() {
 		return curso_act;
 	}
-	public void setCurso_act(int curso_act) {
+	public void setCurso_act(String curso_act) {
 		this.curso_act = curso_act;
 	}
 

@@ -133,7 +133,7 @@ public class ClaseMainPersistance {
 			GR_ASIG grA=new GR_ASIG();
 			grA.setAsig(asig);
 			grA.setGroup(gr);
-			grA.setCurso_act(2021);
+			grA.setCurso_act("2021");
 			em.persist(grA);
 
 			List<GR_ASIG> listaAsigDeGrupos= new LinkedList<>();

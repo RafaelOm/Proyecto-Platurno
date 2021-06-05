@@ -94,7 +94,7 @@ public class Grupo implements Serializable {
 		return letra;
 	}
 	public void setLetra(String letra) {
-		letra = letra;
+		this.letra = letra;
 	}
 	public String getTurno() {
 		return turno;

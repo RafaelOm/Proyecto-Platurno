@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<title>Platurno-Crud GR_ASIG</title>    
+
+</h:head>
+
+<h:body>
+
+ 	<c:choose>
+                <c:when test="#{!infoSesion.admin()}">
+                <h1>ALERTA DE SEGURIDAD</h1>
+                     <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                </c:when>
+                
+                
+                <c:otherwise>
+                
+                        
+                
+                 <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+        
+        <p:toolbar>
+            <p:toolbarGroup>
+              	<h2><h:outputText value ="#{infoSesion.nombrecompletoS()}"/></h2>
+            </p:toolbarGroup>
+
+
+		
+            <p:toolbarGroup name="right">
+            	<p:commandButton value="Dashboard" icon="pi pi-home" styleClass="ui-button-info" action="vistaSecretaria.xhtml"/>
+            	<p:divider layout="vertical"/>
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" action="#{toolbarView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" action="#{toolbarView.update}" update="messages" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" action="#{toolbarView.delete}" ajax="false" icon="pi pi-times"/>
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                </p:menuButton>
+                        <p:divider layout="vertical"/>
+                        
+               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}"/>
+            		
+            </p:toolbarGroup>
+
+        </p:toolbar>
+
+    </h:form>
+</div>
+
+
+<p:dataTable value="#{gr_asigBean.getRelleno()}" var="dato" id="dt-products"> 
+ 	  <f:facet name="header">
+           GR_ASIG Disponibles:
+        </f:facet>
+ 
+        
+        <p:column>
+            <f:facet name="header">
+               <h:outputText value="asignatura"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.asig.nombre}"></h:outputText>
+         </p:column>
+
+         <p:column>
+            <f:facet name="header">
+               <h:outputText value="creditos"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.asig.creditos}"></h:outputText>
+         </p:column>
+
+         
+         <p:column>
+            <f:facet name="header">
+               <h:outputText value="curso"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.group.curso}"></h:outputText>
+         </p:column>
+          
+          <p:column>
+            <f:facet name="header">
+               <h:outputText value="letra"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.group.letra}"></h:outputText>
+         </p:column>
+       
+        
+ 
+           <p:column>
+              
+                 <p:commandButton action="#{gr_asigBean.eliminaGR_ASIG(dato,infoSesion.usuario)}" 
+                value="Eliminar" styleClass="rounded-button ui-button-danger">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+                </p:commandButton>
+        
+      </p:column>
+      
+   </p:dataTable>
+   
+   
+
+	
+	  
+	
+	
+	
+                
+                
+                
+                
+                
+
+                </c:otherwise>
+            </c:choose>
+                
+                
+                
+                
+                
+                
+                
+                
+         
+
+    
+      
+
+
+
+</h:body>
+
+</html>

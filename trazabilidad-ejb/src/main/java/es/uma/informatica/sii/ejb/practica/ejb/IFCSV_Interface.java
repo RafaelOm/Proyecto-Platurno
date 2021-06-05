@@ -12,5 +12,6 @@ import  es.uma.informatica.sii.ejb.practica.entidades.*;
 public interface IFCSV_Interface {
 
 	public void leerCSV(File pathToCsv) throws FileNotFoundException;
+	public void leerCSVGrAsig(File pathToCsv) throws FileNotFoundException, AsignaturaInexsistenteException, GrupoInexistenteException;
 	
 }

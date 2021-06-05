@@ -28,7 +28,7 @@ public class Titulacion implements Serializable {
 			inverseJoinColumns = @JoinColumn(name="CodigoTitulacion",nullable = false)
 
 	)
-	@ManyToMany( fetch = FetchType.EAGER)
+	@ManyToMany
 	private List<Centro> centros;
 
 	@OneToMany

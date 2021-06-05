@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -16,25 +17,19 @@ public class EncuestaEJB implements EncuestaInterfaceEJB {
 	@PersistenceContext(unitName = "abc")
 	private EntityManager em;
 	
-	
-	private Autenticacion auth;
+	@Inject
+	private AutenticacionInterfaz auth;
 	
   
         
-	public EncuestaEJB()
-    {
+	public EncuestaEJB(){
     }
 
-	public EncuestaEJB(Usuario u, java.sql.Date fechaEnvio, String texto) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-		crearEncuesta(u, fechaEnvio, texto);
-	}
 	
-	public void crearEncuesta(Usuario u, java.sql.Date fechaEnvio, String texto) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
-		auth=new Autenticacion();
+	
+	public void crearEncuesta(Encuesta encuesta,Usuario u) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+		
         auth.compruebaLogin(u);
-		Encuesta enc = new Encuesta();
-		enc.setFecha_de_Envio(fechaEnvio);
-		enc.setTexto(texto);
-		em.persist(enc);
+		em.persist(encuesta);
 	}
 }

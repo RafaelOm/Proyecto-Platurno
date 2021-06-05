@@ -5,8 +5,10 @@
 package es.uma.informatica.sii.ejb.practica.entidades;
 
 import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -89,7 +91,7 @@ public class Alumno extends Usuario {
 //--------------------------------------------------------------------------------------------------------------------//
 
 	/* Atributos de la entidad relqcionado con relaciones (foreign key).*/
-	@OneToMany
+	@OneToMany(fetch =FetchType.EAGER,cascade =CascadeType.ALL)
 	private List<Expediente> expedientes;
 
 //--------------------------------------------------------------------------------------------------------------------//

@@ -13,6 +13,7 @@ import java.net.URI;
 import java.net.URL;
 import java.security.SecureRandom;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Session Bean implementation class UsuarioEjb
@@ -26,6 +27,8 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     
     @Inject
     private AutenticacionInterfaz auth;
+    
+    private static final Logger LOGGER = Logger.getLogger(UsuarioEjb.class.getCanonicalName());
     /**
      * Default constructor. 
      */
@@ -52,7 +55,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     @Override
     public Usuario verUsuario(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+        
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
 
@@ -67,16 +70,16 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     @Override
     public void modificar(Usuario u) throws CuentaInexistenceException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
-        auth.compruebaLogin(u);
+      
+        //auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
 
-        Usuario user =em.find(Usuario.class,u.getIdentificador());
-        if(user==null){
-            throw new CuentaInexistenceException();
-        }
-        user.setUsername(u.getUsername());
-        em.merge(user);
+        //Alumno user =em.find(Alumno.class,u.getUsername());
+        //if(user==null){
+         //   throw new CuentaInexistenceException();
+        //}
+        
+        em.merge(u);
 
 
 
@@ -87,7 +90,7 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
     @Override
     public void moficarClave(Usuario u) throws CuentaInexistenceException, ContrasenaigualException, ClavesDiferentesException, CuentaInactivaException, PlaturnoException, PasswordErroneaException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+    
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
         Usuario user =em.find(Usuario.class,u.getIdentificador());
@@ -103,15 +106,25 @@ public class UsuarioEjb implements UsuarioEjbInterfaz {
         em.merge(user);
 
     }
+    
+    public List<Alumno> getAll() {
+
+
+        Query query =em.createQuery("SELECT a FROM Alumno a");
+        List<Alumno> usuarios =query.getResultList();
+       // LOGGER.info("LECTURA DE BD ALUMNOS: "+usuarios.toString());
+        return  usuarios;
+
+    }
 
     @Override
     public void eliminarUsuario(Usuario u, Usuario Secretaria) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException, ViolacionDeSeguridadException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+     
         auth.compruebaLogin(Secretaria);
         auth.checkSecretariaRole(Secretaria);
         ////////////////////////////////////////////////////////////////
-        Usuario user =em.find(Usuario.class,u.getIdentificador());
+        Alumno user =em.find(Alumno.class,u.getUsername());
         em.remove(em.merge(user));
 
     }
