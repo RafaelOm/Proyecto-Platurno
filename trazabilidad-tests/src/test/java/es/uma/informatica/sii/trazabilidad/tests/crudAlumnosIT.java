@@ -53,12 +53,6 @@ public class crudAlumnosIT {
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAlumnos.xhtml");
 	    
-	    try {
-	 			Thread.sleep(3000);
-	 	      } catch (InterruptedException e) {
-	 	      }
-	     
-	    
 	    
 	    
 	    assertThat(driver.findElement(By.id("dt-products:0:dninOutPut")).getText(), is("2589886"));
@@ -84,10 +78,9 @@ public class crudAlumnosIT {
 
 	driver.findElement(By.id("dt-products:0:modificarBtn")).click();
 	
-    try {
-			Thread.sleep(3000);
-	      } catch (InterruptedException e) {
-	      }
+    WebDriverWait wait = new WebDriverWait(driver, 2);       //Tiempo de espera
+    By direccion =By.id("modificarForm:direccion");					 //Tiempo de espera
+    wait.until(ExpectedConditions.elementToBeClickable(direccion));      //Tiempo de espera
     
     
 	driver.findElement(By.id("modificarForm:direccion")).clear();
@@ -95,13 +88,8 @@ public class crudAlumnosIT {
 
     driver.findElement(By.cssSelector("#modificarForm\\3AmodificarDialogBtn > .ui-button-text")).click();
     
-    try {
-			Thread.sleep(3000);
-	      } catch (InterruptedException e) {
-	      }
     
-    
-    assert(driver.findElement(By.id("dt-products:0:direccionOutPut")).getText().equals("Calle carranza") );
+    assertThat(driver.findElement(By.id("dt-products:0:direccionOutPut")).getText(), is("Calle carranza"));
     
     
   }
@@ -117,14 +105,17 @@ public class crudAlumnosIT {
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAlumnos.xhtml");
-	    
-	
-	    
-    driver.findElement(By.id("barraSup:crearBtnListener")).click();
-    try {
+	    try {
 			Thread.sleep(3000);
-	      } catch (InterruptedException e) {
-	      }
+		} catch (InterruptedException e) {
+		}
+    driver.findElement(By.id("barraSup:crearBtnListener")).click();
+    
+    try {
+		Thread.sleep(6000);
+	} catch (InterruptedException e) {
+	}
+    
     driver.findElement(By.id("crearAlumnoForm:dni")).click();
     driver.findElement(By.id("crearAlumnoForm:dni")).sendKeys("888");
     driver.findElement(By.id("crearAlumnoForm:Nombre")).sendKeys("joel");

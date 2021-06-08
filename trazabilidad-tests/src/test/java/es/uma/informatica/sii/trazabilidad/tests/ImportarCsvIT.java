@@ -71,7 +71,13 @@ public class ImportarCsvIT {
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/vistaSecretaria.xhtml");
-    
+	    
+	    try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
       WebElement element = driver.findElement(By.id("uplFrm1:uplInput_input"));
       element.sendKeys("/home/alumno/Escritorio/samplealumnos.csv");
       
@@ -89,6 +95,13 @@ public class ImportarCsvIT {
       }
       
       driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAlumnos.xhtml");
+      
+      try {
+  			Thread.sleep(3000);
+  		} catch (InterruptedException e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
       
       driver.findElement(By.id("dt-products_data"));
       

@@ -46,6 +46,13 @@ public class CrearExpedienteIT {
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudExpedientes.xhtml");
 	    
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
 	    
 	    
 	    assertThat(driver.findElement(By.id("dt-products:0:expedienteOutPut")).getText(), is("1"));
@@ -80,9 +87,12 @@ public class CrearExpedienteIT {
     
     driver.findElement(By.id("barraSup:crearBtn")).click();
     
-    WebDriverWait wait = new WebDriverWait(driver, 2);       //Tiempo de espera
-    By dniInput =By.id("rellenarDatos:expediente");					 //Tiempo de espera
-    wait.until(ExpectedConditions.elementToBeClickable(dniInput));      //Tiempo de espera
+    try {
+		Thread.sleep(7000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     
     driver.findElement(By.id("rellenarDatos:expediente")).click();
     driver.findElement(By.id("rellenarDatos:expediente")).sendKeys("1");
@@ -121,18 +131,16 @@ public class CrearExpedienteIT {
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudExpedientes.xhtml");
 
 	driver.findElement(By.id("dt-products:0:modificarBtn")).click();
+
+	Thread.sleep(3000);
 	
-	WebDriverWait wait = new WebDriverWait(driver, 2);       //Tiempo de espera
-    By dniInput =By.id("modificarForm:expediente");					 //Tiempo de espera
-    wait.until(ExpectedConditions.elementToBeClickable(dniInput));      //Tiempo de espera
-    
     driver.findElement(By.id("modificarForm:activo")).click();
 	driver.findElement(By.id("modificarForm:activo")).clear();
     driver.findElement(By.id("modificarForm:activo")).sendKeys("No");
 
     driver.findElement(By.id("modificarForm:modificar")).click();
     
-    Thread.sleep(2000);
+    Thread.sleep(3000);
     
     assertThat(driver.findElement(By.id("dt-products:0:activoOutPut")).getText(), is("No"));
     
@@ -154,7 +162,7 @@ public class CrearExpedienteIT {
 	    
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     
-    Thread.sleep(5000);
+    Thread.sleep(3000);
     
     List<WebElement> elements = driver.findElements(By.id("dt-products:0:activoOutPut"));
     assert(elements.size() == 0);

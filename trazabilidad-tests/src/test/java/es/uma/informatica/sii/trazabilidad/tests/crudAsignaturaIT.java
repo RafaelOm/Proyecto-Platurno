@@ -50,17 +50,12 @@ public class crudAsignaturaIT {
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
-	    try {
-			Thread.sleep(5000);
-	      } catch (InterruptedException e) {
-	      }
-	    
+	   
 	    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Calculo"));
 
     
   }
   
-  @Ignore
   @Test
   public void testCrearAsignatura() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -76,19 +71,34 @@ public class crudAsignaturaIT {
 		Thread.sleep(5000);
       } catch (InterruptedException e) {
       }
-      driver.findElement(By.id("j_idt45:referencia")).click();
-      driver.findElement(By.id("j_idt45:referencia")).sendKeys("4");
-      driver.findElement(By.id("j_idt45:cod")).sendKeys("25");
-      driver.findElement(By.id("j_idt45:creditos")).sendKeys("8");
-      driver.findElement(By.id("j_idt45:ofertada")).sendKeys("si");
-      driver.findElement(By.id("j_idt45:nombre")).sendKeys("javier");
-      driver.findElement(By.id("j_idt45:curso")).sendKeys("2");
-      driver.findElement(By.id("j_idt45:caaracter")).sendKeys("online");
-      driver.findElement(By.id("j_idt45:duracion")).sendKeys("3");
-      driver.findElement(By.id("j_idt45:idiomas")).sendKeys("idjfc");
-      driver.findElement(By.id("j_idt45:cp")).sendKeys("0");
-      driver.findElement(By.id("j_idt45:idiomas")).sendKeys("chino");
-      driver.findElement(By.id("j_idt45:saveBtn")).click();
+      driver.findElement(By.id("addAsigForm:referencia")).click();
+      driver.findElement(By.id("addAsigForm:referencia")).sendKeys("4");
+      driver.findElement(By.id("addAsigForm:cod")).sendKeys("25");
+      driver.findElement(By.id("addAsigForm:creditos")).sendKeys("8");
+      driver.findElement(By.id("addAsigForm:ofertada")).sendKeys("si");
+      driver.findElement(By.id("addAsigForm:nombre")).sendKeys("Fisica");
+      driver.findElement(By.id("addAsigForm:curso")).sendKeys("2");
+      driver.findElement(By.id("addAsigForm:caaracter")).sendKeys("online");
+      driver.findElement(By.id("addAsigForm:duracion")).sendKeys("3");
+      driver.findElement(By.id("addAsigForm:idiomas")).sendKeys("idjfc");
+      driver.findElement(By.id("addAsigForm:cp")).sendKeys("0");
+      driver.findElement(By.id("addAsigForm:idiomas")).sendKeys("chino");
+      driver.findElement(By.id("addAsigForm:saveBtn")).click();
+      
+      try {
+  		Thread.sleep(2000);
+  		} catch (InterruptedException e) {}
+      
+      boolean t = false;
+      List<WebElement> listSpn = driver.findElement(By.id("dt-products_data")).findElements(By.tagName("span"));
+      for(WebElement x:listSpn) {
+    	  if(x.getText().equals("Fisica")){
+    		  t=true;
+    		  break;
+    	  }
+      }
+      assert(t==true);
+      
   }
   
   @Test
@@ -104,7 +114,7 @@ public class crudAsignaturaIT {
 	driver.findElement(By.id("dt-products:0:modificarBtn")).click();
 	
 	try {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	} catch (InterruptedException e) {
 
 	}
@@ -113,10 +123,13 @@ public class crudAsignaturaIT {
     driver.findElement(By.id("modificarForm:cod")).sendKeys("123");
     driver.findElement(By.id("modificarForm:nombre")).clear();
     driver.findElement(By.id("modificarForm:nombre")).sendKeys("Calc2");
-    driver.findElement(By.id("modificarForm:j_idt69")).click();
     
-	try {
-		Thread.sleep(3000);
+	
+	
+    driver.findElement(By.id("modificarForm:SaveBtn")).click();
+    
+    try {
+		Thread.sleep(2000);
 	} catch (InterruptedException e) {
 
 	}
@@ -139,6 +152,11 @@ public class crudAsignaturaIT {
 	    
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     
+    try {
+		Thread.sleep(2000);
+	} catch (InterruptedException e) {
+
+	}
     
     List<WebElement> elements = driver.findElements(By.id("dt-products:0:nombre"));
     assert(elements.size() == 0);

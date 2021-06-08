@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+	<title>Platurno-Crud Titulaciones</title>    
+
+</h:head>
+
+<h:body>
+
+ 	<c:choose>
+                <c:when test="#{!infoSesion.admin()}">
+                <h1>ALERTA DE SEGURIDAD</h1>
+                     <p>Está autenticado como <h:outputText value="#{infoSesion.usuario.username}"/>.</p>
+                </c:when>
+                
+                
+                <c:otherwise>
+                
+                        
+                
+                 <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+        
+        <p:toolbar>
+            <p:toolbarGroup>
+              	<h2><h:outputText value ="#{infoSesion.nombrecompletoS()}"/></h2>
+            </p:toolbarGroup>
+
+
+		
+            <p:toolbarGroup name="right">
+            	<p:commandButton value="Dashboard" icon="pi pi-home" styleClass="ui-button-info" action="vistaSecretaria.xhtml"/>
+            	<p:divider layout="vertical"/>
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" action="#{toolbarView.save}" update="messages" icon="pi pi-save"/>
+                    <p:menuitem value="Update" action="#{toolbarView.update}" update="messages" icon="pi pi-refresh"/>
+                    <p:menuitem value="Delete" action="#{toolbarView.delete}" ajax="false" icon="pi pi-times"/>
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                </p:menuButton>
+                        <p:divider layout="vertical"/>
+                        
+               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}"/>
+            		
+            </p:toolbarGroup>
+
+        </p:toolbar>
+
+        <p:toolbar>
+        
+            <p:toolbarGroup>
+                <p:commandButton type="button" value="Crear Titulacion" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                
+
+      
+            </p:toolbarGroup>
+
+        </p:toolbar>
+    </h:form>
+</div>
+
+
+<p:dataTable value="#{titulacionBean.getRelleno()}" var="dato" id="dt-products"> 
+ 	  <f:facet name="header">
+           Titulaciones Disponibles:
+        </f:facet>
+ 
+        
+        <p:column>
+            <f:facet name="header">
+               <h:outputText value="nombre"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.nombre}"></h:outputText>
+         </p:column>
+         
+         <p:column>
+            <f:facet name="header">
+               <h:outputText value="codigo"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.codigo}"></h:outputText>
+         </p:column>
+          
+          <p:column>
+            <f:facet name="header">
+               <h:outputText value="creditos"></h:outputText>
+            </f:facet>
+            <h:outputText value="#{dato.creditos}"></h:outputText>
+         </p:column>
+       
+        
+      
+       <p:column>
+             
+  
+                    	
+      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+                                 oncomplete="PF('modificarProductDialog').show()"
+                                 styleClass="edit-button rounded-button ui-button-success" process="@this">
+                    
+                    <f:setPropertyActionListener value="#{dato}" target="#{titulacionBean.titulacionItem}"/> 
+                    <p:resetInput target=":modificarForm:manage-product-content"/>
+                </p:commandButton>
+                
+                
+               
+        
+      </p:column>
+           <p:column>
+              
+                 <p:commandButton action="#{titulacionBean.eliminaTitulacion(dato,infoSesion.usuario)}" 
+                value="Eliminar" styleClass="rounded-button ui-button-danger">
+                <f:actionListener binding="#{infoSesion.reload()}" />
+                </p:commandButton>
+        
+      </p:column>
+      
+   </p:dataTable>
+   
+   
+<p:dialog header="Añadir Nueva Titulacion" showEffect="fade" modal="true"
+                  widgetVar="manageProductDialog" responsive="true">
+ 		<h:form>
+                  <h:panelGrid columns="2">
+                        
+                        <h:outputText value="nombre:"/>
+                        <p:inputText id="nombre" required="true"  value="#{titulacionBean.titulacionItem.nombre}"/>
+                        
+                        
+                         <h:outputText value="codigo:"/>
+                        <p:inputText id="codigo" required="true"  value="#{titulacionBean.titulacionItem.codigo}"/>
+                        
+                        
+                         <h:outputText value="creditos:"/>
+                        <p:inputText id="creditos" required="true"  value="#{titulacionBean.titulacionItem.creditos}"/>
+                       
+             
+							
+                	<h:commandButton value="Save"  action="#{titulacionBean.crearTitulacion(infoSesion.usuario)}"/> 
+                	
+                	
+                				
+                              </h:panelGrid>
+                              </h:form>
+	
+
+	</p:dialog>
+	
+	
+	  
+	<p:dialog header="Modificar Titulacion" showEffect="fade" modal="true"
+                  widgetVar="modificarProductDialog" responsive="true">
+ 					<h:form id ="modificarForm">
+ 					
+ 					<p:growl id="messages" showDetail="true"/>
+                  <p:outputPanel id="manage-product-content" class="ui-fluid">
+                
+                  <h:panelGrid columns="2">
+                    
+
+                    <h:outputText value="nombre:"/>
+                    <p:inputText id="nombre" required="true"  value="#{titulacionBean.titulacionItem.nombre}"/>
+                    
+                    
+                     <h:outputText value="codigo:"/>
+                    <p:inputText id="codigo" required="true"  value="#{titulacionBean.titulacionItem.codigo}"/>
+                    
+                    
+                     <h:outputText value="creditos:"/>
+                    <p:inputText id="creditos" required="true"  value="#{titulacionBean.titulacionItem.creditos}"/>
+                  
+                    
+                      
+                  	
+                              </h:panelGrid>
+                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{titulacionBean.modificarTitulacion(infoSesion.usuario)}" 
+                                 update="manage-product-content" process="manage-product-content @this">
+                                  <f:actionListener binding="#{infoSesion.reload()}" />
+                                 </p:commandButton> 
+                              
+                           
+                              
+                               
+                					
+                              </p:outputPanel>
+                              </h:form>
+                              
+	
+
+	</p:dialog>
+	
+	
+	
+                
+                
+                
+                
+                
+
+                </c:otherwise>
+            </c:choose>
+                
+                
+                
+                
+                
+                
+                
+                
+         
+
+    
+      
+
+
+
+</h:body>
+
+</html>

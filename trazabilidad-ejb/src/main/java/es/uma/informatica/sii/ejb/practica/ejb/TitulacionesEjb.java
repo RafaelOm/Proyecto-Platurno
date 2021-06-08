@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -16,24 +17,33 @@ import  es.uma.informatica.sii.ejb.practica.entidades.*;
 @Stateless
 public class TitulacionesEjb implements TitulacionesEjbInterface {
     @PersistenceContext(unitName = "abc")
-	private EntityManager em;
+    private EntityManager em;
+    
+    
+    @Inject
+    private AutenticacionInterfaz auth;
+    
+	
  
     
-    private static final Logger LOGGER = Logger.getLogger(AsignaturasEjb.class.getCanonicalName());
+    private static final Logger LOGGER = Logger.getLogger(TitulacionesEjb.class.getCanonicalName());
     
+    @Override
     public List<Titulacion> getAll() {
-
     	
-    	Query query =em.createQuery("SELECT a FROM Titulacion a");
+    	
+    	Query query =em.createQuery("SELECT t FROM Titulacion t");
     	List<Titulacion> titulacion =query.getResultList();
-    	LOGGER.info("LECTURA DE BD "+titulacion.toString());
+    	LOGGER.info("TITULACION --------- "+titulacion.toString());
 		return  titulacion;
     	
     }
     
- public void crearTitulacion(Titulacion nueva, Usuario usuario) throws TitulacionInexistente{
-    	
+    @Override
 
+ public void crearTitulacion(Titulacion nueva, Usuario usuario) throws TitulacionInexistente, PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException{
+    	
+    	auth.compruebaLogin(usuario);
   
     		LOGGER.info("CREAR- Titulacion: PARAMETRO"+nueva.toString()+"USER TEST: "+usuario.toString());
     
@@ -50,7 +60,10 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
  
  
 	@Override
+	
 	public Titulacion verTitulacion(String cod) throws TitulacionInexistente {
+		
+	
 		Titulacion tit= em.find(Titulacion.class,cod);
         if(tit==null){
             throw new TitulacionInexistente("La titulación solicitada no existe.");
@@ -59,21 +72,25 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
 	}
 
 	@Override
-	public void modificarTitulacion(Integer cod, String nombre, Integer creditos) throws TitulacionInexistente {
+	public void modificarTitulacion(Usuario usuario,String cod, String nombre, String creditos) throws TitulacionInexistente, PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+		
+		auth.compruebaLogin(usuario);
 		Titulacion t =em.find(Titulacion.class,cod);
         if(t==null){
             throw new TitulacionInexistente();
         }
-        t.setCodigo(Integer.toString(cod));
+        t.setCodigo(cod);
         t.setNombre(nombre);
-        t.setCreditos(Integer.toString(creditos));
+        t.setCreditos(creditos);
         
         em.merge(t);
 
 	}
 
 	@Override
-	public void eliminarTitulacion(String cod) throws TitulacionInexistente {
+
+	public void eliminarTitulacion(Usuario usuario, String cod) throws TitulacionInexistente, PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException {
+		auth.compruebaLogin(usuario);
         Titulacion t= em.find(Titulacion.class,cod);
         if(t==null){
             throw new TitulacionInexistente();

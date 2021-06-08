@@ -161,7 +161,7 @@
    
 <p:dialog header="Añadir Nueva Asignatura" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true" >
- 		<h:form>
+ 		<h:form id="addAsigForm">
                   <h:panelGrid columns="2">
                         <h:outputText value="Referencia:"/>
                         <p:inputText id="referencia" required="true" value="#{asignaturaBean.nuevaasig.referencia}"/>
@@ -268,7 +268,7 @@
                       
                   	
                               </h:panelGrid>
-                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{asignaturaBean.modificarAsig(infoSesion.usuario)}"
+                              <p:commandButton id="SaveBtn" value="Save" icon="pi pi-check" actionListener="#{asignaturaBean.modificarAsig(infoSesion.usuario)}"
                                  update="manage-product-content" process="manage-product-content @this">
                                   <f:actionListener binding="#{infoSesion.reload()}" />
                                  </p:commandButton> 

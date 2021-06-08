@@ -65,7 +65,7 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
     		throw new MatriculaNoExiteException("La Matricula ya existe.");
     	}
     		LOGGER.info("CREAR- Matricula: "+nueva.toString());
-    	em.persist(nueva);
+    	em.merge(nueva);
     	
     	
     }
