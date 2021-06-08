@@ -10,7 +10,7 @@ import javax.ejb.Local;
 @Local
 public interface ExpedienteInterfaz {
 
-    public Expediente ReadExpediente(Usuario u, String id) throws ExpedienteNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
+    public Expediente ReadExpediente( String id) throws ExpedienteNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException;
 
     public void UpdateExpediente(String id,String Activo,
     		Double NotaMPr,

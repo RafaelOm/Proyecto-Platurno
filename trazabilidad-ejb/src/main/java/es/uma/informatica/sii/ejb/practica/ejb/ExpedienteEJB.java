@@ -61,9 +61,9 @@ public class ExpedienteEJB implements ExpedienteInterfaz {
 }
 
     @Override
-    public Expediente ReadExpediente(Usuario u, String id) throws ExpedienteNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
+    public Expediente ReadExpediente( String id) throws ExpedienteNoExisteException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         
-        auth.compruebaLogin(u);
+       
         Expediente exbd = em.find(Expediente.class, id);
         if(exbd == null){
             throw new ExpedienteNoExisteException();

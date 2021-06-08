@@ -1,9 +1,17 @@
 package es.uma.informatica.sii.ejb.practica.ejb;
 
 import es.uma.informatica.sii.ejb.practica.ejb.exceptions.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import  es.uma.informatica.sii.ejb.practica.entidades.*;
+
+import java.util.List;
+import java.util.logging.Logger;
+
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,8 +25,9 @@ public class Matricula_ejb implements MatriculaInterfaz {
 
     @PersistenceContext(unitName = "abc")
     private EntityManager em;
-    private Autenticacion auth;
-
+    @Inject
+    private AutenticacionInterfaz auth;
+    private static final Logger LOGGER = Logger.getLogger(Matricula_ejb.class.getCanonicalName());
 
 
     public Matricula_ejb(){
@@ -29,18 +38,50 @@ public class Matricula_ejb implements MatriculaInterfaz {
 
     }
 
-
+@Override
+    public List<Matricula> getAll() {
+  
+    	
+    	Query query =em.createQuery("SELECT a FROM Matricula a");
+    	List<Matricula> Matricula =query.getResultList();
+    	LOGGER.info("LECTURA DE BD "+Matricula.toString());
+		return  Matricula;
+    	
+    }
+@Override
+public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoException, CuentaInactivaException, CuentaInexistenceException, PasswordErroneaException, MatriculaNoExiteException{
+    	
+    	auth.compruebaLogin(usuario);
+  
+    		LOGGER.info("CREAR- Matricula: PARAMETRO"+nueva.toString()+"USER TEST: "+usuario.toString());
+    
+    		Matricula.MatriculaID id = new Matricula.MatriculaID();
+    		id.setCurso_Academico(nueva.getCurso_Academico());
+    		id.setIdExpediente(nueva.getIdExpediente().getExpediente());
+    		
+    	Matricula t =em.find(Matricula.class, id);
+    	
+    	if(t!=null) {
+    		throw new MatriculaNoExiteException("La Matricula ya existe.");
+    	}
+    		LOGGER.info("CREAR- Matricula: "+nueva.toString());
+    	em.persist(nueva);
+    	
+    	
+    }
+    
     // Al modificar se le pasa una lista de parametros de matricula para modificar dicha matricula.
     @Override
     public void modificar(Usuario u,Matricula mat) throws modificarMatriculaException, PasswordErroneaException,
             CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+        
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
 
         // Miro si la matricula esta en la base de datos
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
+        
         if(m!=null) {
             throw new modificarMatriculaException("Argumentos invalidos.");
         } else {
@@ -48,7 +89,7 @@ public class Matricula_ejb implements MatriculaInterfaz {
             m.setEstado(mat.getEstado());
             m.setNum_Archivo(mat.getNum_Archivo());
             m.setTurno_Preferente(mat.getTurno_Preferente());
-            m.setFecha_Matricula(mat.getFecha_Matricula());
+            m.setFecha_Matricula(mat.getFecha_Matricula().toString());
             m.setNuevo_Ingreso(mat.getNuevo_Ingreso());
             m.setListado_de_Asignaturas(mat.getListado_de_Asignaturas());
         }
@@ -59,7 +100,7 @@ public class Matricula_ejb implements MatriculaInterfaz {
     @Override
     public void ver(Usuario u,Matricula mat) throws verMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+        
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
@@ -75,7 +116,7 @@ public class Matricula_ejb implements MatriculaInterfaz {
     @Override
     public void eliminar(Usuario u,Matricula mat) throws eliminarMatriculaException, PasswordErroneaException, CuentaInactivaException, CuentaInexistenceException, PlaturnoException {
         //////Check if user is authenticated in the system  ////////////
-        auth=new Autenticacion();
+        
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
         Matricula m = em.find(Matricula.class, mat.getCurso_Academico());

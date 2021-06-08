@@ -6,6 +6,8 @@ package es.uma.informatica.sii.ejb.practica.entidades;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -69,7 +71,7 @@ public class Matricula implements Serializable {
 	private String Estado;
 	private String Num_Archivo;
 	private String Turno_Preferente;
-	private Date Fecha_Matricula;
+	private String Fecha_Matricula;
 	private String Nuevo_Ingreso;
 	private String Listado_de_Asignaturas;
 	private static final long serialVersionUID = 1L;
@@ -122,11 +124,13 @@ public class Matricula implements Serializable {
 		Turno_Preferente = turno_Preferente;
 	}
 
-	public Date getFecha_Matricula() {
+	public String getFecha_Matricula() {
 		return Fecha_Matricula;
 	}
 
-	public void setFecha_Matricula(Date fecha_Matricula) {
+	public void setFecha_Matricula(String fecha_Matricula) {
+
+		
 		Fecha_Matricula = fecha_Matricula;
 	}
 

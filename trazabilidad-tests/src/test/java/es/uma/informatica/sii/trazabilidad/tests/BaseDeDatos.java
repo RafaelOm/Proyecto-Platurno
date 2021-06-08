@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
+import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
 import es.uma.informatica.sii.ejb.practica.entidades.Secretaria;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
@@ -96,6 +97,23 @@ public class BaseDeDatos {
 
 		em.getTransaction().begin();
 		em.persist(al);
+		em.getTransaction().commit();
+		
+		Expediente ex1 = new Expediente();
+		ex1.setExpediente("1");
+		ex1.setActivo("SI");
+		ex1.setCreditosCF(1.0);
+		ex1.setCreditosFB(1.0);
+		ex1.setCreditosOB(1.0);
+		ex1.setCreditosOP(1.0);
+		ex1.setCreditosPE(1.0);
+		ex1.setCreditosSup(1.0);
+		ex1.setCreditosTF(1.0);
+		ex1.setN_archivo("agua");
+		ex1.setNotampr(1.0);
+		
+		em.getTransaction().begin();
+		em.persist(ex1);
 		em.getTransaction().commit();
 	
 		

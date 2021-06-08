@@ -27,7 +27,7 @@
                         
                 
                  <div class="card">
-    <h:form>
+    <h:form id = "barraSup">
         <p:growl id="messages" showDetail="true"/>
         
         <p:toolbar>
@@ -57,7 +57,7 @@
         <p:toolbar>
         
             <p:toolbarGroup>
-                <p:commandButton type="button" value="Crear expediente" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                <p:commandButton id = "crearBtn" type="button" value="Crear expediente" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
                 
 
       
@@ -77,21 +77,21 @@
             <f:facet name="header">
                <h:outputText value="expediente"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.expediente}"></h:outputText>
+            <h:outputText id = "expedienteOutPut" value="#{dato.expediente}"></h:outputText>
          </p:column>
          
          <p:column>
             <f:facet name="header">
                <h:outputText value="activo"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.activo}"></h:outputText>
+            <h:outputText id = "activoOutPut" value="#{dato.activo}"></h:outputText>
          </p:column>
           
           <p:column>
             <f:facet name="header">
                <h:outputText value="notampr"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.notampr}"></h:outputText>
+            <h:outputText id = "notamprOutPut" value="#{dato.notampr}"></h:outputText>
          </p:column>
        
 
@@ -99,7 +99,7 @@
             <f:facet name="header">
                <h:outputText value="creditosSup"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosSup}"></h:outputText>
+            <h:outputText id = "creditosSupOutPut" value="#{dato.creditosSup}"></h:outputText>
          </p:column>
 
 
@@ -107,58 +107,58 @@
             <f:facet name="header">
                <h:outputText value="creditosFB"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosFB}"></h:outputText>
+            <h:outputText id = "creditosFBOutPut" value="#{dato.creditosFB}"></h:outputText>
          </p:column>
     
          <p:column>
             <f:facet name="header">
                <h:outputText value="creditosOP"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosOP}"></h:outputText>
+            <h:outputText id = "creditosOPOutPut" value="#{dato.creditosOP}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="creditosOB"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosOB}"></h:outputText>
+            <h:outputText id = "creditosOBOutPut" value="#{dato.creditosOB}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="creditosCF"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosCF}"></h:outputText>
+            <h:outputText id = "creditosCFOutPut" value="#{dato.creditosCF}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="creditosPE"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosPE}"></h:outputText>
+            <h:outputText id = "creditosPEOutPut" value="#{dato.creditosPE}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="creditostf"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditosTF}"></h:outputText>
+            <h:outputText id = "creditostfOutPut" value="#{dato.creditosTF}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="n_archivo"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.n_archivo}"></h:outputText>
+            <h:outputText id = "n_archivoOutPut" value="#{dato.n_archivo}"></h:outputText>
          </p:column>
 
          
       
-       <p:column>
+       <p:column id="modificarColumn">
              
   
                     	
-      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+      			<p:commandButton id="modificarBtn" icon="pi pi-pencil" update=":modificarForm:manage-product-content"
                                  oncomplete="PF('modificarProductDialog').show()"
                                  styleClass="edit-button rounded-button ui-button-success" process="@this">
                     
@@ -171,9 +171,9 @@
                
         
       </p:column>
-           <p:column>
+           <p:column id="eliminarColumn">
               
-                 <p:commandButton action="#{expedienteBean.eliminaExpediente(dato,infoSesion.usuario)}"
+                 <p:commandButton id ="eliminarBtn" action="#{expedienteBean.eliminaExpediente(dato,infoSesion.usuario)}"
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
@@ -185,7 +185,7 @@
    
 <p:dialog header="Añadir Nueva expediente" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true">
- 		<h:form>
+ 		<h:form id = "rellenarDatos">
                   <h:panelGrid columns="2">
                         
             
@@ -234,7 +234,7 @@
                         
              
 							
-                	<h:commandButton value="Save"  action="#{expedienteBean.crearExpediente(infoSesion.usuario)}"/>
+                	<h:commandButton id = "guardar" value="Save"  action="#{expedienteBean.crearExpediente(infoSesion.usuario)}"/>
                 	
                 	
                 				
@@ -300,7 +300,7 @@
                       
                   	
                               </h:panelGrid>
-                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{expedienteBean.modificarExpediente(infoSesion.usuario)}"
+                              <p:commandButton id = "modificar" value="Save" icon="pi pi-check" actionListener="#{expedienteBean.modificarExpediente(infoSesion.usuario)}"
                                  update="manage-product-content" process="manage-product-content @this">
                                   <f:actionListener binding="#{infoSesion.reload()}" />
                                  </p:commandButton> 
