@@ -80,7 +80,11 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
         ////////////////////////////////////////////////////////////////
 
         // Miro si la matricula esta en la base de datos
-        Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
+
+		Matricula.MatriculaID id = new Matricula.MatriculaID();
+		id.setCurso_Academico(mat.getCurso_Academico());
+		id.setIdExpediente(mat.getIdExpediente().getExpediente());
+        Matricula m = em.find(Matricula.class, id);
         
         if(m!=null) {
             throw new modificarMatriculaException("Argumentos invalidos.");
@@ -103,7 +107,10 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
         
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
-        Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
+        Matricula.MatriculaID id = new Matricula.MatriculaID();
+		id.setCurso_Academico(mat.getCurso_Academico());
+		id.setIdExpediente(mat.getIdExpediente().getExpediente());
+        Matricula m = em.find(Matricula.class, id);
         if(m!=null) {
             throw new verMatriculaException("Matricula no encontrada.");
         } else {
@@ -119,7 +126,10 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
         
         auth.compruebaLogin(u);
         ////////////////////////////////////////////////////////////////
-        Matricula m = em.find(Matricula.class, mat.getCurso_Academico());
+        Matricula.MatriculaID id = new Matricula.MatriculaID();
+		id.setCurso_Academico(mat.getCurso_Academico());
+		id.setIdExpediente(mat.getIdExpediente().getExpediente());
+        Matricula m = em.find(Matricula.class, id);
         if(m==null) {
             throw new eliminarMatriculaException("Matricula no encontrada.");
         } else {

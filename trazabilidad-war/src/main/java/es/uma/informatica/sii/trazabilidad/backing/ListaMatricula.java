@@ -210,6 +210,7 @@ public List<Matricula> getSeleccionadas(){
 	  
 		   LOGGER.info("------------"+matriculaItem.toString());
 		try {
+
 			ItemEJB.modificar(user,matriculaItem);
 		} catch (modificarMatriculaException e) {
 			// TODO Auto-generated catch block
@@ -227,6 +228,7 @@ public List<Matricula> getSeleccionadas(){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} //METODO
+
 		FacesMessage message = new FacesMessage();
 		message.setSeverity(FacesMessage.SEVERITY_INFO);
 		message.setSummary("Matricula MODIFICADA");

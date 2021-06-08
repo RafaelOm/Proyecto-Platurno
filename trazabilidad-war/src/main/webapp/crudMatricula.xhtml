@@ -77,7 +77,7 @@
             <f:facet name="header">
                <h:outputText value="idExpediente"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.idExpediente}"></h:outputText>
+            <h:outputText value="#{dato.idExpediente.expediente}"></h:outputText>
          </p:column>
          
          <p:column>
@@ -224,7 +224,7 @@
 
 
                     <h:outputText value="idExpediente:"/>
-                    <p:inputText id="idExpediente" required="true"  value="#{matriculaBean.matriculaItem.idExpediente}"/>
+                    <p:inputText id="idExpediente"  required="true"  value="#{matriculaBean.matriculaItem.idExpediente.expediente}"/>
                     
                     
                      <h:outputText value="curso_Academico:"/>
