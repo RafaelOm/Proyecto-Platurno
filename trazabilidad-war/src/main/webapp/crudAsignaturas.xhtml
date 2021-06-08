@@ -27,12 +27,12 @@
                         
                 
                  <div class="card">
-    <h:form>
+    <h:form id="barraSup">
         <p:growl id="messages" showDetail="true"/>
         
         <p:toolbar>
             <p:toolbarGroup>
-              	<h2><h:outputText value ="#{infoSesion.nombrecompletoS()}"/></h2>
+              	<h2><h:outputText id ="nombreCompleto" value ="#{infoSesion.nombrecompletoS()}"/></h2>
             </p:toolbarGroup>
 
 
@@ -57,7 +57,7 @@
         <p:toolbar>
         
             <p:toolbarGroup>
-                <p:commandButton type="button" value="Crear Asignatura" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                <p:commandButton id ="crearAsigBtn" type="button" value="Crear Asignatura" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
                 
 
       
@@ -135,7 +135,7 @@
              
   
                     	
-      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+      			<p:commandButton id ="modificarBtn" icon="pi pi-pencil" update=":modificarForm:manage-product-content"
                                  oncomplete="PF('modificarProductDialog').show()"
                                  styleClass="edit-button rounded-button ui-button-success" process="@this">
                     
@@ -149,7 +149,7 @@
       </p:column>
            <p:column>
               
-                 <p:commandButton action="#{asignaturaBean.eliminaAsignatura(infoSesion.usuario,dato)}"
+                 <p:commandButton id ="eliminarBtn" action="#{asignaturaBean.eliminaAsignatura(infoSesion.usuario,dato)}"
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
@@ -160,7 +160,7 @@
    
    
 <p:dialog header="Añadir Nueva Asignatura" showEffect="fade" modal="true"
-                  widgetVar="manageProductDialog" responsive="true">
+                  widgetVar="manageProductDialog" responsive="true" >
  		<h:form>
                   <h:panelGrid columns="2">
                         <h:outputText value="Referencia:"/>
@@ -206,7 +206,7 @@
                         
              
 							
-                	<h:commandButton value="Save"  action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
+                	<h:commandButton value="Save" id="saveBtn" action="#{asignaturaBean.crearAsignatura(infoSesion.usuario)}"/>
                 	
                 	
                 				

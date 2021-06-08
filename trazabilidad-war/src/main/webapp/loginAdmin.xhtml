@@ -30,7 +30,7 @@
                         <p:inputText id="pass" required="true" type="password" value="#{loginSecretaria.usuario.password}"/>
                         <h:message for="pass"/>
 
-                        <p:commandButton value="Entrar" action="#{loginSecretaria.entrar()}"/>
+                        <p:commandButton id ="EntrarBtn" class ="iniciarSesion" value="Entrar" action="#{loginSecretaria.entrar()}"/>
 
                     </h:panelGrid>
 

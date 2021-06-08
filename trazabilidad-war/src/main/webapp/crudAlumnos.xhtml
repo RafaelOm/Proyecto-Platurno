@@ -57,7 +57,7 @@
         <p:toolbar>
         
             <p:toolbarGroup>
-                <p:commandButton type="button" value="Crear Alumno" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                <p:commandButton id="crearBtnListener" type="button" value="Crear Alumno" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
                 
 
       
@@ -77,35 +77,35 @@
          <f:facet name="header">
             <h:outputText value="Dni"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.dni}"></h:outputText>
+         <h:outputText id="dninOutPut" value="#{dato.dni}"></h:outputText>
       </p:column>
       
            <p:column>
          <f:facet name="header">
             <h:outputText value="Nombre"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.nombre}"></h:outputText>
+         <h:outputText id="nombreOutPut" value="#{dato.nombre}"></h:outputText>
       </p:column>
       
            <p:column>
          <f:facet name="header">
             <h:outputText value="Apellido1"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.apellido1}"></h:outputText>
+         <h:outputText id="apellido1OutPut" value="#{dato.apellido1}"></h:outputText>
       </p:column>
       
        <p:column>
          <f:facet name="header">
             <h:outputText value="Apellido2"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.apellido2}"></h:outputText>
+         <h:outputText id="appelido2OutPut" value="#{dato.apellido2}"></h:outputText>
       </p:column>
       
        <p:column>
          <f:facet name="header">
             <h:outputText value="Email"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.email_personal}"></h:outputText>
+         <h:outputText id="emailOutPut" value="#{dato.email_personal}"></h:outputText>
       </p:column>
            
       
@@ -113,20 +113,23 @@
          <f:facet name="header">
             <h:outputText value="Movil"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.movil}"></h:outputText>
+         <h:outputText id="movilOutPut" value="#{dato.movil}"></h:outputText>
       </p:column>
       
-        <p:column>
+        <p:column id="cdireccion">
          <f:facet name="header">
-            <h:outputText value="Direccion"></h:outputText>
+            <h:outputText  value="Direccion"></h:outputText>
          </f:facet>
-         <h:outputText value="#{dato.direccion}"></h:outputText>
+         <div id ="divdireccion"> 
+         	<h:outputText id="direccionOutPut" value="#{dato.direccion}"></h:outputText>
+         </div>
+         
       </p:column>
 
              
-  			<p:column>
+  			<p:column id="modificarColumn">
                     	
-      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+      			<p:commandButton id="modificarBtn" icon="pi pi-pencil" update=":modificarForm:manage-product-content"
                                  oncomplete="PF('modificarProductDialog').show()"
                                  styleClass="edit-button rounded-button ui-button-success" process="@this">
                     
@@ -136,9 +139,9 @@
                 
             </p:column>
             
-           <p:column>
+           <p:column id="eliminarColumn">
               
-                 <p:commandButton action="#{alumnoBean.eliminaAlumno(dato,infoSesion.usuario)}"
+                 <p:commandButton id ="eliminarBtn" action="#{alumnoBean.eliminaAlumno(dato,infoSesion.usuario)}"
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
@@ -150,7 +153,7 @@
    
 <p:dialog header="Añadir Nueva Alumno" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true">
- 		<h:form>
+ 		<h:form id="crearAlumnoForm">
                   <h:panelGrid columns="2">
                         <h:outputText value="dni:"/> 
                         <p:inputText id="dni" required="true" value="#{alumnoBean.alumnoItem.dni}"/>
@@ -201,7 +204,7 @@
                         
              
 							
-                	<h:commandButton value="Save"  action="#{alumnoBean.crearAlumno(infoSesion.usuario)}"/>
+                	<h:commandButton id="saveBtn" value="Save"  action="#{alumnoBean.crearAlumno(infoSesion.usuario)}"/>
                 	
                 	
                 				
@@ -271,7 +274,7 @@
                       
                   	
                               </h:panelGrid>
-                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{alumnoBean.modificarAsig(infoSesion.usuario)}"
+                              <p:commandButton id="modificarDialogBtn" value="Save" icon="pi pi-check" actionListener="#{alumnoBean.modificarAsig(infoSesion.usuario)}"
                                  update="manage-product-content" process="manage-product-content @this">
                                   <f:actionListener binding="#{infoSesion.reload()}" />
                                  </p:commandButton> 

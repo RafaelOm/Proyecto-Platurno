@@ -77,7 +77,7 @@ public class importarFichero {
             FacesContext.getCurrentInstance().addMessage(null, msg);
             try {
             	InputStream input = csvFile.getInputStream();
-            	Path folder = Paths.get("/opt/jboss/wildfly/uploads/");
+            	Path folder = Paths.get("/opt/jboss/wildfly/");
             	String filename = FilenameUtils.getBaseName(csvFile.getFileName()); 
             	String extension = FilenameUtils.getExtension(csvFile.getFileName());
             	Path fileupload = Files.createTempFile(folder, filename + "-", "." + extension);
@@ -86,7 +86,7 @@ public class importarFichero {
                  FacesContext.getCurrentInstance().addMessage(null, msg);
                  
                  
-                	 importar.leerCSV(new File("/opt/jboss/wildfly/uploads/"+fileupload.getFileName()));
+                	 importar.leerCSV(new File("/opt/jboss/wildfly/"+fileupload.getFileName()));
                
             	
             	
@@ -112,7 +112,7 @@ public class importarFichero {
             FacesContext.getCurrentInstance().addMessage(null, msg);
             try {
             	InputStream input = csvFile.getInputStream();
-            	Path folder = Paths.get("/opt/jboss/wildfly/uploads/");
+            	Path folder = Paths.get("/opt/jboss/wildfly/");
             	String filename = FilenameUtils.getBaseName(csvFile.getFileName()); 
             	String extension = FilenameUtils.getExtension(csvFile.getFileName());
             	Path fileupload = Files.createTempFile(folder, filename + "-", "." + extension);
@@ -122,7 +122,7 @@ public class importarFichero {
                  
                  
                 
-						importar.leerCSVGrAsig(new File("/opt/jboss/wildfly/uploads/"+fileupload.getFileName()));
+						importar.leerCSVGrAsig(new File("/opt/jboss/wildfly/"+fileupload.getFileName()));
 					
                
             	
