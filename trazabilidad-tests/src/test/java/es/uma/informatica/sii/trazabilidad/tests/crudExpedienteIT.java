@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -18,7 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-public class CrearExpedienteIT {
+public class crudExpedienteIT {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -72,8 +73,11 @@ public class CrearExpedienteIT {
   
   @Test
   public void crearExpedienteIT() {
+	    
+	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		  
     driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
-    driver.manage().window().setSize(new Dimension(1367, 717));
+
     driver.findElement(By.id("login:pass")).sendKeys("1");
     driver.findElement(By.id("login:pass")).click();
     driver.findElement(By.id("login:user")).click();
@@ -81,17 +85,14 @@ public class CrearExpedienteIT {
     driver.findElement(By.cssSelector(".ui-button-text")).click();
     driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudExpedientes.xhtml");
     
-    
-    
-    
-    
-    driver.findElement(By.id("barraSup:crearBtn")).click();
-    
     try {
-		Thread.sleep(7000);
+		Thread.sleep(2000);
 	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	}
+    driver.findElement(By.id("barraSup:crearBtn")).click();
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
 	}
     
     driver.findElement(By.id("rellenarDatos:expediente")).click();
@@ -117,6 +118,12 @@ public class CrearExpedienteIT {
     driver.findElement(By.id("rellenarDatos:n_archivo")).click();
     driver.findElement(By.id("rellenarDatos:n_archivo")).sendKeys("1");
     driver.findElement(By.name("rellenarDatos:guardar")).click();
+    try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+	}
+    
+    // ¿?¿?¿?¿?¿?¿?¿?
   }
   
   
@@ -150,15 +157,14 @@ public class CrearExpedienteIT {
   
   @Test
   public void eliminarAlumno() throws InterruptedException {
-	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
-	    driver.findElement(By.id("login:user")).click();
-	    driver.findElement(By.id("login:user")).sendKeys("rafa");
-	    driver.findElement(By.id("login:pass")).sendKeys("1");
-	    driver.findElement(By.cssSelector(".ui-button-text")).click();
-	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudExpedientes.xhtml");
-	    
-	
-	    
+	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
+	driver.findElement(By.id("login:user")).click();
+	driver.findElement(By.id("login:user")).sendKeys("rafa");
+	driver.findElement(By.id("login:pass")).sendKeys("1");
+	driver.findElement(By.cssSelector(".ui-button-text")).click();
+	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudExpedientes.xhtml");
+
+	Thread.sleep(3000);
 	    
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     

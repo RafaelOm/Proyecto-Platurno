@@ -61,6 +61,14 @@ public class BaseDeDatos {
 		em.getTransaction().commit();
 		
 		
+		Titulacion t2 =new Titulacion();
+		t2.setCodigo("1022");
+		t2.setCreditos("241");
+		t2.setNombre("Ingenieria Salud");
+		em.getTransaction().begin();
+		em.persist(t2);
+		em.getTransaction().commit();
+		
 		Asignatura asig1 =new Asignatura();
 		asig1.setNombre("Calculo");
 		asig1.setCaracter("Presencial");

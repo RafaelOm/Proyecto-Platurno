@@ -25,7 +25,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class crudAsignaturaIT {
+public class crudTitulacionesIT {
   private WebDriver driver;
   private Map<String, Object> vars;
   private static final String UNIDAD_PERSITENCIA = "AgendaPU";
@@ -43,58 +43,58 @@ public class crudAsignaturaIT {
   }
 
   @Test
-  public void testVerAsignatura() {
+  public void testVerTitulacion() {
 	  
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	    driver.findElement(By.id("login:user")).click();
 	    driver.findElement(By.id("login:user")).sendKeys("rafa");
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
-	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
+	    
+	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudTitulaciones.xhtml");
 	   
-	    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Calculo"));
+	    try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+		}
+	  
+	    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Ingenieria Salud"));
 
     
   }
   
   @Test
-  public void testCrearAsignatura() {
+  public void testCrearTitulacion() {      
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+  	  
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	  driver.findElement(By.id("login:user")).click();
 	  driver.findElement(By.id("login:user")).sendKeys("rafa");
 	  driver.findElement(By.id("login:pass")).sendKeys("1");
 	  driver.findElement(By.cssSelector(".ui-button-text")).click();
 	  
-	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-  	  
-	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
-	    try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-		}
-	    
-      WebElement element = driver.findElement(By.id("barraSup:crearAsigBtn"));
-      element.click();
-      
+	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudTitulaciones.xhtml");
+    
 	    try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 		}
-      driver.findElement(By.id("addAsigForm:referencia")).click();
-      driver.findElement(By.id("addAsigForm:referencia")).sendKeys("4");
-      driver.findElement(By.id("addAsigForm:cod")).sendKeys("25");
-      driver.findElement(By.id("addAsigForm:creditos")).sendKeys("8");
-      driver.findElement(By.id("addAsigForm:ofertada")).sendKeys("si");
-      driver.findElement(By.id("addAsigForm:nombre")).sendKeys("Fisica");
-      driver.findElement(By.id("addAsigForm:curso")).sendKeys("2");
-      driver.findElement(By.id("addAsigForm:caaracter")).sendKeys("online");
-      driver.findElement(By.id("addAsigForm:duracion")).sendKeys("3");
-      driver.findElement(By.id("addAsigForm:idiomas")).sendKeys("idjfc");
-      driver.findElement(By.id("addAsigForm:cp")).sendKeys("0");
-      driver.findElement(By.id("addAsigForm:idiomas")).sendKeys("chino");
-      driver.findElement(By.id("addAsigForm:saveBtn")).click();
-      
+	  
+      WebElement element = driver.findElement(By.id("barraSup:crearTitBtn"));
+      element.click();
 	    try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+		}
+  	  
+      
+      driver.findElement(By.id("addFrm:nombre")).click();
+      driver.findElement(By.id("addFrm:nombre")).sendKeys("Ingenieria Computadores");
+      driver.findElement(By.id("addFrm:codigo")).sendKeys("25212");
+      driver.findElement(By.id("addFrm:creditos")).sendKeys("240");
+      driver.findElement(By.id("addFrm:SaveBtn")).click();
+
+      try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 		}
@@ -102,7 +102,7 @@ public class crudAsignaturaIT {
       boolean t = false;
       List<WebElement> listSpn = driver.findElement(By.id("dt-products_data")).findElements(By.tagName("span"));
       for(WebElement x:listSpn) {
-    	  if(x.getText().equals("Fisica")){
+    	  if(x.getText().equals("Ingenieria Computadores")){
     		  t=true;
     		  break;
     	  }
@@ -112,53 +112,57 @@ public class crudAsignaturaIT {
   }
   
   @Test
-  public void testModificarAsignatura() {
-
+  public void testModificarTitulacion() {
+	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+  
 	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	driver.findElement(By.id("login:user")).click();
 	driver.findElement(By.id("login:user")).sendKeys("rafa");
 	driver.findElement(By.id("login:pass")).sendKeys("1");
 	driver.findElement(By.cssSelector(".ui-button-text")).click();
-	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
+	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudTitulaciones.xhtml");
 
-	driver.findElement(By.id("dt-products:0:modificarBtn")).click();
-	
-	try {
-		Thread.sleep(2000);
+    try {
+		Thread.sleep(3000);
 	} catch (InterruptedException e) {
-
 	}
     
-	driver.findElement(By.id("modificarForm:cod")).clear();
-    driver.findElement(By.id("modificarForm:cod")).sendKeys("123");
+	driver.findElement(By.id("dt-products:0:btnEditar")).click();
+	
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+	}
+
     driver.findElement(By.id("modificarForm:nombre")).clear();
-    driver.findElement(By.id("modificarForm:nombre")).sendKeys("Calc2");
+    driver.findElement(By.id("modificarForm:nombre")).sendKeys("Ing Inf 2");
     
-	
-	
+		
     driver.findElement(By.id("modificarForm:SaveBtn")).click();
     
     try {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	} catch (InterruptedException e) {
-
 	}
-    
-    assert(driver.findElement(By.id("dt-products:0:codigo")).getText().equals("123"));
-    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Calc2"));
+
+    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Ing Inf 2"));
+
     
   }
   
   @Test
-  public void testEliminarAsignatura() {
+  public void testEliminarTitulacion() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	    driver.findElement(By.id("login:user")).click();
 	    driver.findElement(By.id("login:user")).sendKeys("rafa");
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
-	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
+	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudTitulaciones.xhtml");
 	    
-	
+	    try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+		}
 	    
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     
@@ -168,7 +172,7 @@ public class crudAsignaturaIT {
 
 	}
     
-    List<WebElement> elements = driver.findElements(By.id("dt-products:0:nombre"));
+    List<WebElement> elements = driver.findElements(By.id("dt-products:1:nombre"));
     assert(elements.size() == 0);
     
     

@@ -95,7 +95,7 @@ public class TitulacionesEjb implements TitulacionesEjbInterface {
         if(t==null){
             throw new TitulacionInexistente();
         }
-        em.remove(t);
+        em.remove(em.merge(t));
 	}
 
 }

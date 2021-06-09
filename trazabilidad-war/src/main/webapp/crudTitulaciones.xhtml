@@ -27,7 +27,7 @@
                         
                 
                  <div class="card">
-    <h:form>
+    <h:form id="barraSup">
         <p:growl id="messages" showDetail="true"/>
         
         <p:toolbar>
@@ -57,7 +57,7 @@
         <p:toolbar>
         
             <p:toolbarGroup>
-                <p:commandButton type="button" value="Crear Titulacion" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                <p:commandButton id="crearTitBtn" type="button" value="Crear Titulacion" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
                 
 
       
@@ -78,21 +78,21 @@
             <f:facet name="header">
                <h:outputText value="nombre"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.nombre}"></h:outputText>
+            <h:outputText id="nombre" value="#{dato.nombre}"></h:outputText>
          </p:column>
          
          <p:column>
             <f:facet name="header">
                <h:outputText value="codigo"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.codigo}"></h:outputText>
+            <h:outputText id="codigo" value="#{dato.codigo}"></h:outputText>
          </p:column>
           
           <p:column>
             <f:facet name="header">
                <h:outputText value="creditos"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.creditos}"></h:outputText>
+            <h:outputText id="creditos" value="#{dato.creditos}"></h:outputText>
          </p:column>
        
         
@@ -101,7 +101,7 @@
              
   
                     	
-      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+      			<p:commandButton id="btnEditar" icon="pi pi-pencil" update=":modificarForm:manage-product-content"
                                  oncomplete="PF('modificarProductDialog').show()"
                                  styleClass="edit-button rounded-button ui-button-success" process="@this">
                     
@@ -115,7 +115,7 @@
       </p:column>
            <p:column>
               
-                 <p:commandButton action="#{titulacionBean.eliminaTitulacion(dato,infoSesion.usuario)}" 
+                 <p:commandButton id="eliminarBtn" action="#{titulacionBean.eliminaTitulacion(dato,infoSesion.usuario)}" 
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
@@ -127,7 +127,7 @@
    
 <p:dialog header="Añadir Nueva Titulacion" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true">
- 		<h:form>
+ 		<h:form id="addFrm">
                   <h:panelGrid columns="2">
                         
                         <h:outputText value="nombre:"/>
@@ -143,7 +143,7 @@
                        
              
 							
-                	<h:commandButton value="Save"  action="#{titulacionBean.crearTitulacion(infoSesion.usuario)}"/> 
+                	<h:commandButton id="SaveBtn" value="Save"  action="#{titulacionBean.crearTitulacion(infoSesion.usuario)}"/> 
                 	
                 	
                 				
@@ -170,7 +170,7 @@
                     
                     
                      <h:outputText value="codigo:"/>
-                    <p:inputText id="codigo" required="true"  value="#{titulacionBean.titulacionItem.codigo}"/>
+                    <p:inputText id="codigo" disabled="true" required="true"  value="#{titulacionBean.titulacionItem.codigo}"/>
                     
                     
                      <h:outputText value="creditos:"/>
@@ -180,7 +180,7 @@
                       
                   	
                               </h:panelGrid>
-                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{titulacionBean.modificarTitulacion(infoSesion.usuario)}" 
+                              <p:commandButton id="SaveBtn" value="Save" icon="pi pi-check" actionListener="#{titulacionBean.modificarTitulacion(infoSesion.usuario)}" 
                                  update="manage-product-content" process="manage-product-content @this">
                                   <f:actionListener binding="#{infoSesion.reload()}" />
                                  </p:commandButton> 
