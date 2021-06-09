@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -41,7 +44,7 @@ public class crudAsignaturaIT {
   public void tearDown() {
     driver.quit();
   }
-  
+  @Requisitos({"RF02"})
   @Test
   public void testVerAsignatura() {
 	  
@@ -51,12 +54,18 @@ public class crudAsignaturaIT {
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAsignaturas.xhtml");
+	    
+	    try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+			}
+		    
 	   
 	    assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Calculo"));
 
     
   }
-  
+  @Requisitos({"RF02"})
   @Test
   public void testCrearAsignatura() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -111,7 +120,7 @@ public class crudAsignaturaIT {
       assert(t==true);
       
   }
-  
+  @Requisitos({"RF02"})
   @Test
   public void testModificarAsignatura() {
 
@@ -149,7 +158,7 @@ public class crudAsignaturaIT {
     assert(driver.findElement(By.id("dt-products:0:nombre")).getText().equals("Calc2"));
     
   }
-  
+  @Requisitos({"RF02"})
   @Test
   public void testEliminarAsignatura() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -164,12 +173,12 @@ public class crudAsignaturaIT {
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     
     try {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	} catch (InterruptedException e) {
 
 	}
     
-    List<WebElement> elements = driver.findElements(By.id("dt-products:0:nombre"));
+    List<WebElement> elements = driver.findElements(By.id("dt-products:1:nombre"));
     assert(elements.size() == 0);
     
     

@@ -14,5 +14,13 @@
 		<module>trazabilidad-ear</module>
 		<module>trazabilidad-tests</module>
 	</modules>
+	<dependencies>
+			<dependency>
+    			<groupId>es.uma.informatica.sii</groupId>
+    			<artifactId>anotaciones</artifactId>
+    			<version>0.0.1</version>
+			</dependency>
+	</dependencies>
+
 	
 </project>

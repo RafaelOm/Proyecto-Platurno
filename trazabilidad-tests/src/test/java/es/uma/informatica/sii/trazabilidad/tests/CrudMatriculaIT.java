@@ -17,6 +17,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -44,7 +47,7 @@ public class CrudMatriculaIT {
     driver.quit();
   }
   
-  
+  @Requisitos({"RF06"})
   @Test
   public void crearMatricula() {
     driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -60,7 +63,12 @@ public class CrudMatriculaIT {
     
     driver.findElement(By.id("barraSup:crearBtn")).click();
     
-    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+    try {
+		Thread.sleep(2000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     
     new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("crearForm:idExpediente")));
     
@@ -77,7 +85,7 @@ public class CrudMatriculaIT {
     driver.findElement(By.id("crearForm:saveBtn")).click();
   }
   
-  
+  @Requisitos({"RF06"})
   @Test
   public void VerMatricula() {
 	  
@@ -106,7 +114,7 @@ public class CrudMatriculaIT {
     
   }
   
-  
+  @Requisitos({"RF06"})
   @Test
   public void modificarMatricula() throws InterruptedException {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -143,7 +151,7 @@ public class CrudMatriculaIT {
     
 
   }
-  
+  @Requisitos({"RF06"})
   @Test
   public void eliminarMatricula() throws InterruptedException {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");

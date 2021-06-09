@@ -19,6 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
 public class crudExpedienteIT {
   private WebDriver driver;
   private Map<String, Object> vars;
@@ -36,7 +38,7 @@ public class crudExpedienteIT {
     driver.quit();
   }
   
-  
+  @Requisitos({"RF05"})
   @Test
   public void VerExpediente() {
 	  
@@ -71,6 +73,7 @@ public class crudExpedienteIT {
     
   }
   
+  @Requisitos({"RF05"})
   @Test
   public void crearExpedienteIT() {
 	    
@@ -126,7 +129,7 @@ public class crudExpedienteIT {
     // ¿?¿?¿?¿?¿?¿?¿?
   }
   
-  
+  @Requisitos({"RF05"})
   @Test
   public void modificarExpediente() throws InterruptedException {
 	  
@@ -154,7 +157,7 @@ public class crudExpedienteIT {
    
   }
   
-  
+  @Requisitos({"RF05"})
   @Test
   public void eliminarExpediente() throws InterruptedException {
 	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");

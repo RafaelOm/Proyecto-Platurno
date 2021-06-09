@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -40,7 +43,7 @@ public class InicioSesionIT {
   public void tearDown() {
     driver.quit();
   }
-  
+  @Requisitos({"RF14"})
   @Test
   public void inicioSesionIT() throws InterruptedException {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -51,6 +54,23 @@ public class InicioSesionIT {
     driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/vistaSecretaria.xhtml");
     assertThat(driver.findElement(By.id("nombreSecretaria")).getText(), is("Rafael Flores"));
     driver.findElement(By.id("barraSup:logout")).click();
+  
+  }
+  @Requisitos({"RF14"})
+  @Test
+  public void inicioSesionAlumno() throws InterruptedException {
+	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/login.xhtml");
+    driver.findElement(By.id("login:user")).click();
+    driver.findElement(By.id("login:user")).sendKeys("escobar");
+    driver.findElement(By.id("login:pass")).sendKeys("1");
+    driver.findElement(By.id("login:j_idt10")).click();
+    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/vistaAlumno.xhtml");
+    
+    assertThat(driver.findElement(By.id("barraArriba:nombrecompletoid")).getText(), is("Manuel Escobar Garcia"));
+    driver.findElement(By.id("barraArriba:logoutId")).click();
+    
+    
+
   
   }
 }

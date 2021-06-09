@@ -38,12 +38,12 @@
 
 
 <div class="card">
-    <h:form>
+    <h:form id="barraArriba">
         <p:growl id="messages" showDetail="true"/>
 
         <p:toolbar>
             <p:toolbarGroup>
-              	<h2><h:outputText value ="#{infoSesion.nombrecompleto()}"/></h2>
+              	<h2><h:outputText id ="nombrecompletoid" value ="#{infoSesion.nombrecompleto()}"/></h2>
               	  <p:divider layout="vertical"/>
               	  
               	  
@@ -51,7 +51,7 @@
                 	<c:when test="#{true}">
                 		 <h3>Dispone de una encuesta a rellenar</h3>
               	  <p:divider layout="vertical"/>
-              	  <p:commandButton value="Enviar Encuesta" icon="fa fa-plus" styleClass="ui-button-success" action="#{gr_asigBean.enviar(infoSesion.usuario)}"/>
+              	  <p:commandButton  value="Enviar Encuesta" icon="fa fa-plus" styleClass="ui-button-success" action="#{gr_asigBean.enviar(infoSesion.usuario)}"/>
                 	</c:when>
                 
                 
@@ -75,8 +75,8 @@
                 </p:menuButton>
                         <p:divider layout="vertical"/>
                         
-               	<p:commandButton value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}">
-               	<f:actionListener binding="#{infoSesion.reload()}" />
+               	<p:commandButton id="logoutId" value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info" action="#{infoSesion.invalidarSesion()}">
+               
                	</p:commandButton>
             		
             </p:toolbarGroup>
@@ -87,7 +87,7 @@
 
 
    
-   <p:dataTable value="#{gr_asigBean.getSeleccionadas()}" var="dato" 
+   <p:dataTable id ="dt1" value="#{gr_asigBean.getSeleccionadas()}" var="dato" 
    rowStyleClass="#{gr_asigBean.selecionada(dato) eq true ? 'cheap' : null}"
    > 
  	  <f:facet name="header">
@@ -99,7 +99,7 @@
             <f:facet name="header">
                <h:outputText value="Asignatura"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.asig.nombre}"></h:outputText>
+            <h:outputText id ="asigtest" value="#{dato.asig.nombre}"></h:outputText>
          </p:column>
 
          <p:column>
@@ -132,9 +132,9 @@
        
         
  		<p:column>
-              <h:form>
+              <h:form id="btnformArriba" >
            
-        <p:commandButton action="#{gr_asigBean.devuelve(dato)}"
+        <p:commandButton id ="removeBtn" action="#{gr_asigBean.devuelve(dato)}"
                styleClass="ui-button-raised ui-button-danger" value="Eliminar">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                </p:commandButton>
@@ -155,7 +155,7 @@
    
    
    
-   <p:dataTable value="#{gr_asigBean.getRelleno()}" var="dato" > 
+   <p:dataTable  id="dt2" value="#{gr_asigBean.getRelleno()}" var="dato" > 
  	  <f:facet name="header">
            Asignaturas disponibles:
         </f:facet>
@@ -165,14 +165,14 @@
             <f:facet name="header">
                <h:outputText value="Asignatura"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.asig.nombre}"></h:outputText>
+            <h:outputText id="nombre" value="#{dato.asig.nombre}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="Creditos"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.asig.creditos}"></h:outputText>
+            <h:outputText id="creditos" value="#{dato.asig.creditos}"></h:outputText>
          </p:column>
 
          
@@ -180,26 +180,26 @@
             <f:facet name="header">
                <h:outputText value="Curso"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.group.curso}"></h:outputText>
+            <h:outputText id="curso" value="#{dato.group.curso}"></h:outputText>
          </p:column>
           
           <p:column>
             <f:facet name="header">
                <h:outputText value="Letra"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.group.letra}"></h:outputText>
+            <h:outputText id="letra" value="#{dato.group.letra}"></h:outputText>
          </p:column>
                   <p:column>
             <f:facet name="header">
                <h:outputText value="Turno"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.group.turno}"></h:outputText>
+            <h:outputText id="turno" value="#{dato.group.turno}"></h:outputText>
          </p:column>
        
         
  		<p:column>
-              <h:form>
-                 <p:commandButton action="#{gr_asigBean.removeValor(dato)}"
+              <h:form id="botonForm">
+                 <p:commandButton id ="addBtn" action="#{gr_asigBean.removeValor(dato)}"
                 value="Añadir">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>

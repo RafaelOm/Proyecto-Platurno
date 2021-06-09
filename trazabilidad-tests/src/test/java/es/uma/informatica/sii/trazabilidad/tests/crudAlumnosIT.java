@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -42,7 +45,7 @@ public class crudAlumnosIT {
     driver.quit();
  
   }
-  
+  @Requisitos({"RF04"})
   @Test
   public void VerAlumno() {
 	  
@@ -65,7 +68,7 @@ public class crudAlumnosIT {
     
     
   }
-  
+  @Requisitos({"RF04"})
   @Test
   public void modificarAlumno() {
 	  
@@ -75,12 +78,19 @@ public class crudAlumnosIT {
 	    driver.findElement(By.id("login:pass")).sendKeys("1");
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAlumnos.xhtml");
+	    try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+		}
 
 	driver.findElement(By.id("dt-products:0:modificarBtn")).click();
 	
-    WebDriverWait wait = new WebDriverWait(driver, 2);       //Tiempo de espera
-    By direccion =By.id("modificarForm:direccion");					 //Tiempo de espera
-    wait.until(ExpectedConditions.elementToBeClickable(direccion));      //Tiempo de espera
+    try {
+		Thread.sleep(6000);
+	} catch (InterruptedException e) {
+	}
+	
+
     
     
 	driver.findElement(By.id("modificarForm:direccion")).clear();
@@ -100,7 +110,7 @@ public class crudAlumnosIT {
   
 
   
-  
+  @Requisitos({"RF04"})
   @Test
   public void crearAlumno() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
@@ -135,7 +145,7 @@ public class crudAlumnosIT {
     driver.findElement(By.id("crearAlumnoForm:CP")).sendKeys("287387");
     driver.findElement(By.id("crearAlumnoForm:saveBtn")).click();
   }
-  
+  @Requisitos({"RF04"})
   @Test
   public void eliminarAlumno() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");

@@ -51,7 +51,7 @@ public class GruposEjb implements GruposEjbInterface {
         auth.checkSecretariaRole(u);
         ////////////////////////////////////////////////////////////////
 
-        Asignatura grup =em.find(Asignatura.class,grupo.getId());
+        Grupo grup =em.find(Grupo.class,grupo.getId());
         if(grup==null){
             throw new GrupoInexistenteException();
         }

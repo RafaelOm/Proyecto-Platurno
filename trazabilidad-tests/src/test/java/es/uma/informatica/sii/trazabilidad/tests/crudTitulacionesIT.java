@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -41,7 +44,7 @@ public class crudTitulacionesIT {
   public void tearDown() {
     driver.quit();
   }
-  
+  @Requisitos({"RF03"})
   @Test
   public void testVerTitulacion() {
 	  
@@ -62,7 +65,7 @@ public class crudTitulacionesIT {
 
     
   }
-  
+  @Requisitos({"RF03"})
   @Test
   public void testCrearTitulacion() {      
       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -110,7 +113,7 @@ public class crudTitulacionesIT {
       assert(t==true);
       
   }
-  
+  @Requisitos({"RF03"})
   @Test
   public void testModificarTitulacion() {
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -149,7 +152,7 @@ public class crudTitulacionesIT {
 
     
   }
-  
+  @Requisitos({"RF03"})
   @Test
   public void testEliminarTitulacion() {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");

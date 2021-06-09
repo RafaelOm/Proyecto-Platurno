@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
+import es.uma.informatica.sii.ejb.practica.entidades.GR_ASIG;
 import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
 import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Secretaria;
@@ -172,7 +173,18 @@ public class BaseDeDatos {
 		em.getTransaction().begin();
 		em.persist(mat1);
 		em.getTransaction().commit();
+		
+		
+		GR_ASIG asignacion =new GR_ASIG();
+		asignacion.setAsig(asig1);
+		asignacion.setGroup(gr1);
+		asignacion.setCurso_act("2020/2021");
+		asignacion.setOferta(60);
 	
+		em.getTransaction().begin();
+		em.persist(asignacion);
+		em.getTransaction().commit();
+		
 		
 		
 		
