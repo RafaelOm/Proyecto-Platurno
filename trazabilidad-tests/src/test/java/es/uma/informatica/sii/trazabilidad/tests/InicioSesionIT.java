@@ -40,7 +40,7 @@ public class InicioSesionIT {
   public void tearDown() {
     driver.quit();
   }
-  @Ignore
+  
   @Test
   public void inicioSesionIT() throws InterruptedException {
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");

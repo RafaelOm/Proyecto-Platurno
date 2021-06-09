@@ -7,6 +7,8 @@ import javax.persistence.Persistence;
 import es.uma.informatica.sii.ejb.practica.entidades.Alumno;
 import es.uma.informatica.sii.ejb.practica.entidades.Asignatura;
 import es.uma.informatica.sii.ejb.practica.entidades.Expediente;
+import es.uma.informatica.sii.ejb.practica.entidades.Grupo;
+import es.uma.informatica.sii.ejb.practica.entidades.Matricula;
 import es.uma.informatica.sii.ejb.practica.entidades.Secretaria;
 import es.uma.informatica.sii.ejb.practica.entidades.Titulacion;
 
@@ -122,6 +124,53 @@ public class BaseDeDatos {
 		
 		em.getTransaction().begin();
 		em.persist(ex1);
+		em.getTransaction().commit();
+		
+		Expediente ex2 = new Expediente();
+		ex2.setExpediente("2");
+		ex2.setActivo("SI");
+		ex2.setCreditosCF(1.0);
+		ex2.setCreditosFB(1.0);
+		ex2.setCreditosOB(1.0);
+		ex2.setCreditosOP(1.0);
+		ex2.setCreditosPE(1.0);
+		ex2.setCreditosSup(1.0);
+		ex2.setCreditosTF(1.0);
+		ex2.setN_archivo("agua");
+		ex2.setNotampr(1.0);
+		
+		em.getTransaction().begin();
+		em.persist(ex2);
+		em.getTransaction().commit();
+		
+		Grupo gr1 = new Grupo();
+		gr1.setAsignar("si");
+		gr1.setCurso(3);
+		gr1.setId("23");
+		gr1.setIngles("si");
+		gr1.setLetra("a");
+		gr1.setLetra1("a");
+		gr1.setPlazas(50);
+		gr1.setTurno("tarde");
+		gr1.setVisible("si");
+		
+		em.getTransaction().begin();
+		em.persist(gr1);
+		em.getTransaction().commit();
+		
+		Matricula mat1 = new Matricula();
+		mat1.setCurso_Academico(2021L);
+		mat1.setEstado("SI");
+		mat1.setFecha_Matricula("2021/2/2");
+		mat1.setIdExpediente(ex1);
+		mat1.setListado_de_Asignaturas("109");
+		mat1.setNuevo_Ingreso("SI");
+		mat1.setNum_Archivo("303");
+		mat1.setTurno_Preferente("tarde");
+		
+		
+		em.getTransaction().begin();
+		em.persist(mat1);
 		em.getTransaction().commit();
 	
 		

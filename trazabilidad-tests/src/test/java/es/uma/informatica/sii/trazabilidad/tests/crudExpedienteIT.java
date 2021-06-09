@@ -128,7 +128,7 @@ public class crudExpedienteIT {
   
   
   @Test
-  public void modificarAlumno() throws InterruptedException {
+  public void modificarExpediente() throws InterruptedException {
 	  
 	  driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	    driver.findElement(By.id("login:user")).click();
@@ -156,7 +156,7 @@ public class crudExpedienteIT {
   
   
   @Test
-  public void eliminarAlumno() throws InterruptedException {
+  public void eliminarExpediente() throws InterruptedException {
 	driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/loginAdmin.xhtml");
 	driver.findElement(By.id("login:user")).click();
 	driver.findElement(By.id("login:user")).sendKeys("rafa");
@@ -166,11 +166,12 @@ public class crudExpedienteIT {
 
 	Thread.sleep(3000);
 	    
-    driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
+    driver.findElement(By.id("dt-products:1:eliminarBtn")).click();
     
+  
     Thread.sleep(3000);
     
-    List<WebElement> elements = driver.findElements(By.id("dt-products:0:activoOutPut"));
+    List<WebElement> elements = driver.findElements(By.id("dt-products:1:activoOutPut"));
     assert(elements.size() == 0);
     
     

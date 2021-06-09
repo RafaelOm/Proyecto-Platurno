@@ -41,7 +41,7 @@ public class crudAsignaturaIT {
   public void tearDown() {
     driver.quit();
   }
-
+  
   @Test
   public void testVerAsignatura() {
 	  
@@ -80,6 +80,7 @@ public class crudAsignaturaIT {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 		}
+	    new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.id("addAsigForm:referencia")));
       driver.findElement(By.id("addAsigForm:referencia")).click();
       driver.findElement(By.id("addAsigForm:referencia")).sendKeys("4");
       driver.findElement(By.id("addAsigForm:cod")).sendKeys("25");

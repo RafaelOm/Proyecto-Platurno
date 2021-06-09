@@ -88,6 +88,10 @@ public class crudAlumnosIT {
 
     driver.findElement(By.cssSelector("#modificarForm\\3AmodificarDialogBtn > .ui-button-text")).click();
     
+    try {
+		Thread.sleep(6000);
+	} catch (InterruptedException e) {
+	}
     
     assertThat(driver.findElement(By.id("dt-products:0:direccionOutPut")).getText(), is("Calle carranza"));
     
@@ -141,7 +145,10 @@ public class crudAlumnosIT {
 	    driver.findElement(By.cssSelector(".ui-button-text")).click();
 	    driver.get("http://0.0.0.0:8080/trazabilidad-war/faces/crudAlumnos.xhtml");
 	    
-	
+	    try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+		}
 	    
     driver.findElement(By.id("dt-products:0:eliminarBtn")).click();
     

@@ -133,12 +133,12 @@ public List<Matricula> getSeleccionadas(){
 	   
    }
 
-   public void crearMatricula(Usuario user) {
+   public void crearMatricula(Usuario user, String exp) {
 	   
 	   LOGGER.info("HOLA XD");
 	 
 		try {
-			Expediente aux =expedienteEJB.ReadExpediente(expediente);
+			Expediente aux =expedienteEJB.ReadExpediente(exp);
 			matriculaItem.setIdExpediente(aux);
 			ItemEJB.crearMatricula(matriculaItem,user);
 		} catch (PlaturnoException e) {

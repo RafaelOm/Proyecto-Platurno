@@ -85,8 +85,8 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
 		id.setCurso_Academico(mat.getCurso_Academico());
 		id.setIdExpediente(mat.getIdExpediente().getExpediente());
         Matricula m = em.find(Matricula.class, id);
-        
-        if(m!=null) {
+        LOGGER.info("MODIFICAR- Matricula: "+mat.toString());
+        if(m==null) {
             throw new modificarMatriculaException("Argumentos invalidos.");
         } else {
             // Cambiamos todos los atributos aunque se sobreescriban.
@@ -134,7 +134,7 @@ public void crearMatricula(Matricula nueva, Usuario usuario) throws PlaturnoExce
             throw new eliminarMatriculaException("Matricula no encontrada.");
         } else {
             // Eliminamos de la base de datos la matricula.
-            em.remove(m);
+            em.remove(em.merge(m));
         }
 
     }

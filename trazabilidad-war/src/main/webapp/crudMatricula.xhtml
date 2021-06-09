@@ -27,7 +27,7 @@
                         
                 
                  <div class="card">
-    <h:form>
+    <h:form id = "barraSup">
         <p:growl id="messages" showDetail="true"/>
         
         <p:toolbar>
@@ -57,7 +57,7 @@
         <p:toolbar>
         
             <p:toolbarGroup>
-                <p:commandButton type="button" value="Crear Matricula" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
+                <p:commandButton id = "crearBtn" type="button" value="Crear Matricula" icon="fa fa-plus" styleClass="p-mr-2" onclick="PF('manageProductDialog').show()"/>
                 
 
       
@@ -77,63 +77,63 @@
             <f:facet name="header">
                <h:outputText value="idExpediente"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.idExpediente.expediente}"></h:outputText>
+            <h:outputText id = "idExpedienteOutput" value="#{dato.idExpediente.expediente}"></h:outputText>
          </p:column>
          
          <p:column>
             <f:facet name="header">
                <h:outputText value="curso_Academico"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.curso_Academico}"></h:outputText>
+            <h:outputText id = "curso_AcademicoOutput" value="#{dato.curso_Academico}"></h:outputText>
          </p:column>
           
           <p:column>
             <f:facet name="header">
                <h:outputText value="estado"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.estado}"></h:outputText>
+            <h:outputText id = "estadoOutput" value="#{dato.estado}"></h:outputText>
          </p:column>
        
          <p:column>
             <f:facet name="header">
                <h:outputText value="num_Archivo"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.num_Archivo}"></h:outputText>
+            <h:outputText id = "num_ArchivoOutput" value="#{dato.num_Archivo}"></h:outputText>
          </p:column>
     
          <p:column>
             <f:facet name="header">
                <h:outputText value="turno_Preferente"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.turno_Preferente}"></h:outputText>
+            <h:outputText id = "turno_PreferenteOutput" value="#{dato.turno_Preferente}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="fecha_Matricula"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.fecha_Matricula}"></h:outputText>
+            <h:outputText id = "fecha_MatriculaOutput" value="#{dato.fecha_Matricula}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="nuevo_Ingreso"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.nuevo_Ingreso}"></h:outputText>
+            <h:outputText id = "nuevo_IngresoOutput" value="#{dato.nuevo_Ingreso}"></h:outputText>
          </p:column>
 
          <p:column>
             <f:facet name="header">
                <h:outputText value="listado_de_Asignaturas"></h:outputText>
             </f:facet>
-            <h:outputText value="#{dato.listado_de_Asignaturas}"></h:outputText>
+            <h:outputText id = "listado_de_AsignaturasOutput" value="#{dato.listado_de_Asignaturas}"></h:outputText>
          </p:column>
       
        <p:column>
              
   
                     	
-      			<p:commandButton icon="pi pi-pencil" update=":modificarForm:manage-product-content"
+      			<p:commandButton id = "modificarBtn" icon="pi pi-pencil" update=":modificarForm:manage-product-content"
                                  oncomplete="PF('modificarProductDialog').show()"
                                  styleClass="edit-button rounded-button ui-button-success" process="@this">
                     
@@ -147,7 +147,7 @@
       </p:column>
            <p:column>
               
-                 <p:commandButton action="#{matriculaBean.eliminaMatricula(dato,infoSesion.usuario)}"
+                 <p:commandButton id = "eliminarBtn" action="#{matriculaBean.eliminaMatricula(dato,infoSesion.usuario)}"
                 value="Eliminar" styleClass="rounded-button ui-button-danger">
                 <f:actionListener binding="#{infoSesion.reload()}" />
                 </p:commandButton>
@@ -159,12 +159,12 @@
    
 <p:dialog header="Añadir Nueva Matricula" showEffect="fade" modal="true"
                   widgetVar="manageProductDialog" responsive="true">
- 		<h:form>
+ 		<h:form id = "crearForm">
                   <h:panelGrid columns="2">
                     
 
                         <h:outputText value="idExpediente:"/>
-                        <p:inputText id="idExpediente" required="true"  value="#{matriculaBean.expediente}"/>
+                        <p:inputText id="idExpediente" required="true"  value="#{matriculaBean.matriculaItem.idExpediente}"/>
                         
                         
                          <h:outputText value="curso_Academico:"/>
@@ -200,7 +200,7 @@
                         
              
 							
-                	<h:commandButton value="Save"  action="#{matriculaBean.crearMatricula(infoSesion.usuario)}"/>
+                	<h:commandButton id = "saveBtn" value="Save"  action="#{matriculaBean.crearMatricula(infoSesion.usuario,matriculaBean.matriculaItem.idExpediente.expediente)}"/>
                 	
                 	
                 				
@@ -259,7 +259,7 @@
                       
                   	
                               </h:panelGrid>
-                              <p:commandButton value="Save" icon="pi pi-check" actionListener="#{matriculaBean.modificarMatricula(infoSesion.usuario)}"
+                              <p:commandButton id = "modificarBtn" value="Save" icon="pi pi-check" actionListener="#{matriculaBean.modificarMatricula(infoSesion.usuario)}"
                                  update="manage-product-content" process="manage-product-content @this">
                                   <f:actionListener binding="#{infoSesion.reload()}" />
                                  </p:commandButton> 
